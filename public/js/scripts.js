@@ -15,8 +15,22 @@ const db = firebase.firestore();
 const storage = firebase.storage();
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('JavaScript Loaded');
-    
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sideNav = document.getElementById('side-nav');
+
+    menuToggle.addEventListener('click', () => {
+        if (sideNav.style.width === '250px') {
+            sideNav.style.width = '0';
+        } else {
+            sideNav.style.width = '250px';
+        }
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target !== sideNav && event.target !== menuToggle && !sideNav.contains(event.target) && !menuToggle.contains(event.target)) {
+            sideNav.style.width = '0';
+        }
+    });
     // Handle contact form submission
     const contactForm = document.querySelector('#contact form');
     if (contactForm) {

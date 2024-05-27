@@ -14,8 +14,15 @@
 <body>
     <header>
         <nav>
+            <a href="index.html">
             <img src="images/logo.jpg" alt="PixelPerfection Dev" class="logo">
-            <ul>
+            </a>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
@@ -23,14 +30,24 @@
                 <li><a href="linktree.html">Link Tree</a></li>
                 <li><a href="job-request.html">Submit Request</a></li>
             </ul>
+            <div id="side-nav" class="side-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="linktree.html">Link Tree</a></li>
+                    <li><a href="job-request.html">Submit Request</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
-    <main>
+    <main class="container">
         <section id="about">
             <h1>About Me</h1>
             <div class="about-content">
                 <div class="about-text">
-                    <p>My name is [Your Name], and I am a passionate full-stack developer with a strong background in computer science and network engineering. I graduated from Rowan University with a degree in Computer Science and Network Engineering.</p>
+                    <p>My name is Dante, and I am a passionate full-stack developer with a strong background in computer science and network engineering. I graduated from Rowan University with a degree in Computer Science and Network Engineering.</p>
                     <p>Over the years, I have developed numerous applications, including mobile ordering systems, kiosks, inventory managers, and more. My goal is to create efficient, user-friendly solutions that address real-world challenges.</p>
                 </div>
                 <div class="about-image">
@@ -42,19 +59,26 @@
                     <h2>Education</h2>
                     <ul>
                         <li><strong>Rowan University</strong> - B.Sc. in Computer Science and Network Engineering</li>
+                        <li><strong>Rowan College of South Jersey</strong> - A.Sc. in Computer Science</li>
                     </ul>
                 </div>
-                <div class="skills">
-                    <h2>Skills</h2>
-                    <ul class="skills-list">
-                        <li>Full-Stack Development</li>
-                        <li>Mobile Application Development</li>
-                        <li>Web Development</li>
-                        <li>Database Management</li>
-                        <li>Network Engineering</li>
-                        <li>Project Management</li>
+                <div class="education">
+                    <h2>Testimonials</h2>
+                    <ul>
+                    <li>"Dante is a fantastic developer. His work on our mobile ordering system was flawless!" - Dolce Vita Gelateria</li>
                     </ul>
                 </div>
+            </div>
+            <div class="skills">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li>Full-Stack Development</li>
+                    <li>Mobile Application Development</li>
+                    <li>Web Development</li>
+                    <li>Database Management</li>
+                    <li>Network Engineering</li>
+                    <li>Project Management</li>
+                </ul>
             </div>
         </section>
     </main>

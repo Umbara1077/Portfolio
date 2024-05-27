@@ -1,0 +1,213 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #007acc; /* Blue header */
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+nav .logo {
+    height: 40px;
+    margin-right: auto;
+}
+
+main {
+    flex: 1; /* This makes the main content area grow and take up the available space */
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 5px 0; /* Smaller padding */
+    background-color: #007acc;
+    color: #fff;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: center; /* Center content */
+}
+
+.about-text {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image img {
+    max-width: 45%; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.education-skills {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.education, .skills {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    background-color: #007acc;
+    color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    header {
+        padding: 20px; /* Increase padding for larger header */
+    }
+
+    nav .logo {
+        height: 60px; /* Increase logo height */
+    }
+
+    .menu-toggle {
+        padding: 8px 15px;
+    }
+
+    .centered-logo {
+        height: 80px; /* Increase centered logo height */
+    }
+
+    .contact-info p {
+        font-size: 1em;
+    }
+
+    .contact-info a {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    form {
+        padding: 10px;
+        margin: 0 10px;
+    }
+
+    form input, form textarea {
+        padding: 6px;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    form button {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .service, .testimonial, .portfolio-item {
+        margin: 5px 0;
+        padding: 8px;
+    }
+
+    .about-content {
+        padding: 10px;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+    }
+
+    .about-text {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%; /* Ensure full width */
+    }
+
+    .about-image img {
+        max-width: 90%;
+    }
+
+    .education, .skills {
+        padding: 10px;
+        width: 100%; /* Ensure full width */
+        text-align: center;
+    }
+
+    .linktree-links {
+        gap: 5px;
+    }
+
+    .linktree-link {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    footer {
+        text-align: center;
+        padding: 5px 0; 
+        background-color: #007acc;
+        color: #fff;
+        width: 100%;
+        position: relative;
+        bottom: 0;
+    }
+}
