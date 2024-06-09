@@ -5,17 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <style>
+        @media (max-width: 480px) {
+            header {
+                padding: 20px;
+            }
+    
+            nav .logo {
+                height: 60px;
+            }
+    
+            .menu-toggle {
+                padding: 8px 15px;
+            }
+    
+            .centered-logo {
+                height: 80px;
+            }
+    
+            .contact-info p, .contact-info a {
+                font-size: 1em;
+            }
+    
+            h1 {
+                font-size: 1.5em;
+            }
+    
+            h2 {
+                font-size: 1.2em;
+            }
+    
+            .btn {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+    
+            form {
+                padding: 10px;
+                margin: 0 10px;
+            }
+    
+            form input, form textarea {
+                padding: 6px;
+                font-size: 0.9em;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+    
+            form button {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+    
+            .service, .testimonial, .portfolio-item {
+                margin: 5px 0;
+                padding: 8px;
+            }
+    
+            .about-content {
+                padding: 10px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center; /* Center text within the container */
+                box-sizing: border-box; /* Ensure padding and borders are included in the element's total width and height */
+                display: flex;
+                justify-content: center;
+                width: 100%; /* Ensure it takes full width */
+            }
+    
+            .about-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 100%; /* Ensure full width */
+            }
+    
+            .about-image img {
+                max-width: 90%;
+                margin: 0 auto; /* Center the image */
+            }
+    
+            .education-skills {
+                display: flex;
+                flex-direction: column; /* Stack items vertically */
+                justify-content: center;
+                align-items: center;
+                width: 100%; /* Ensure full width */
+                margin-top: 20px;
+                text-align: center; /* Center text within the container */
+            }
+    
+            .education, .skills {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin: 3px;
+                width: 100%; /* Ensure full width */
+                box-sizing: border-box; 
+            }
+    
+            footer {
+                text-align: center;
+                padding: 5px 0;
+                background-color: #007acc;
+                color: #fff;
+                width: 100%;
+                position: relative;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    </style>
+    
+    
 </head>
 <body>
     <header>
         <nav>
             <a href="index.html">
-            <img src="images/logo.jpg" alt="PixelPerfection Dev" class="logo">
+            <img src="images/logo.jpg" alt="Precison Pixel Studios" class="logo">
             </a>
             <div class="menu-toggle">
                 <div class="bar"></div>
@@ -58,32 +170,35 @@
                 <div class="education">
                     <h2>Education</h2>
                     <ul>
-                        <li><strong>Rowan University</strong> - B.Sc. in Computer Science and Network Engineering</li>
-                        <li><strong>Rowan College of South Jersey</strong> - A.Sc. in Computer Science</li>
+                        <li><strong>Rowan University</strong> - Bachelors Degree in Computer Science and Network Engineering</li>
+                        <br> </br>
+                        <li><strong>Rowan College of South Jersey</strong> - Associates Degree in Computer Science</li>
                     </ul>
                 </div>
                 <div class="education">
                     <h2>Testimonials</h2>
                     <ul>
                     <li>"Dante is a fantastic developer. His work on our mobile ordering system was flawless!" - Dolce Vita Gelateria</li>
+                    <br> </br>
+                    <li>"Dante did an amazing job on our kiosk ordering system. Everything works perfectly!" - Dolce Vita Gelateria</li>
                     </ul>
                 </div>
-            </div>
             <div class="skills">
                 <h2>Skills</h2>
                 <ul class="skills-list">
                     <li>Full-Stack Development</li>
-                    <li>Mobile Application Development</li>
+                    <li>Mobile App Development</li>
                     <li>Web Development</li>
-                    <li>Database Management</li>
-                    <li>Network Engineering</li>
-                    <li>Project Management</li>
+                    <li>Software Development</li>
+                <!--<li>Network Engineering</li>
+                    <li>Project Management</li> -->
                 </ul>
             </div>
+        </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 PixelPerfection Development. All rights reserved.</p>
+        <p>&copy; 2024 Precison Pixel Innovations. All rights reserved.</p>
     </footer>
     <script src="js/scripts.js"></script>
 </body>

@@ -1,8 +1,16 @@
 body {
+    overflow-x: hidden; 
+}
+
+* {
+    box-sizing: border-box; 
+}
+
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff; /* Light blue background */
+    background-color: #f0f8ff; 
     color: #333;
 }
 
@@ -28,7 +36,8 @@ nav {
 }
 
 nav .logo {
-    height: 40px;
+    height: 80px;
+    width: auto;
     margin-right: 20px;
 }
 
@@ -209,6 +218,17 @@ footer {
     background-color: #fff;
     margin: 20px;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service img {
+    max-width: 200px; /* Make the images larger */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -466,6 +486,49 @@ footer {
     text-decoration: underline;
 }
 
+form textarea {
+    max-width: 100%; 
+    resize: vertical; 
+}
+
+.response-message {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e0ffe0;
+    border: 1px solid #00b300;
+    border-radius: 5px;
+    color: #006600;
+    text-align: center;
+}
+
+#social-links img {
+    max-width: 100%;
+    height: auto;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+}
+
+#getWeatherBtn {
+    background-color: #007acc;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+#weather {
+    margin-top: 20px;
+    text-align: center;
+}
+
 /* Menu Bar Stuff */
 body {
     font-family: Arial, sans-serif;
@@ -481,7 +544,7 @@ body {
 header {
     display: flex;
     align-items: center;
-    background-color: #007acc; /* Blue header */
+    background-color: #025186; /* Blue header */
     color: #fff;
     padding: 10px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -495,30 +558,33 @@ nav {
 }
 
 nav .logo {
-    height: 40px;
+    height: 60px;
     margin-right: auto;
 }
 
 main {
-    flex: 1; /* This makes the main content area grow and take up the available space */
+    flex: 1; 
     padding: 20px;
 }
 
 footer {
     text-align: center;
-    padding: 5px 0; /* Smaller padding */
+    padding: 10px 20px; 
     background-color: #007acc;
     color: #fff;
     width: 100%;
+    box-sizing: border-box; /* Ensure padding and borders are included in the width */
     position: relative;
     bottom: 0;
+    left: 0;
 }
+
 
 .menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 10px;
+    padding: 20px;
     position: absolute;
     right: 20px;
 }
@@ -572,6 +638,37 @@ footer {
     font-size: 36px;
     margin-left: 50px;
     color: #fff;
+}
+
+/* Adjustments for computer view */
+@media (min-width: 769px) {
+    .service {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px;
+        box-sizing: border-box;
+        gap: 20px; /* Add some space between image and text */
+    }
+
+    .service img {
+        flex-shrink: 0; /* Prevent the image from shrinking */
+        margin-right: 20px; /* Add space between image and text */
+        width: auto; /* Ensure images do not stretch */
+    }
+
+    #social-links img {
+        max-width: 100%;
+        height: auto;
+        width: 40%; 
+        margin: 0 auto;
+        display: block;
+    }
+
+    .service h3, .service p {
+        margin: 0;
+        flex-grow: 1;
+    }
 }
 
 /* Mobile devices */
@@ -672,7 +769,7 @@ footer {
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin: 10px;
+        margin: 3px;
         width: 100%; /* Ensure full width */
         box-sizing: border-box; 
     }
@@ -686,15 +783,20 @@ footer {
         font-size: 1em;
     }
 
+    #social-links img {
+        width: 100%;
+    }
+
     footer {
+        padding: 10px 20px; 
         text-align: center;
-        padding: 5px 0; 
         background-color: #007acc;
         color: #fff;
         width: 100%;
+        box-sizing: border-box;
         position: relative;
         bottom: 0;
-        left: 0; /* Ensure it starts from the left edge */
+        left: 0;
     }
 }
 
@@ -702,6 +804,10 @@ footer {
 @media (max-width: 768px) {
     header {
         padding: 20px; /* Increase padding for larger header */
+    }
+
+    #social-links img {
+        width: 100%;
     }
 
     .menu-toggle {
@@ -759,6 +865,16 @@ footer {
         padding: 10px;
     }
 
+    .service {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .service img {
+        max-width: 70%;
+        margin: 10px 0;
+    }
+
     .about-content {
         flex-direction: column;
         align-items: center;
@@ -788,7 +904,7 @@ footer {
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin: 10px;
+        margin: 3px;
         width: 100%; /* Ensure full width */
         box-sizing: border-box; 
     }

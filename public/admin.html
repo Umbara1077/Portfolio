@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/firebase-auth-config.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    document.getElementById('content-section').style.display = 'block';
+                } else {
+                    window.location.href = 'login.html';
+                }
+            });
+
+            function signOut() {
+                auth.signOut().catch(error => {
+                    console.error('Error during sign-out:', error);
+                });
+            }
+
+            document.getElementById('sign-out').addEventListener('click', signOut);
+        });
+    </script>
+    <script src="js/email_notifications.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html"><img src="images/logo.jpg" alt="Precision Pixel" class="logo"></a>
+    <h1>Admin Page</h1>
+    <div id="content-section" style="display: none;">
+        <p>Protected content visible only to authenticated users.</p>
+        <button id="sign-out">Sign Out</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+    <script src="js/firebase-auth-config.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('sign-in').addEventListener('click', function() {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                auth.signInWithEmailAndPassword(email, password)
+                    .then(() => {
+                        window.location.href = 'admin.html';
+                    })
+                    .catch(error => {
+                        console.error('Error during sign-in:', error);
+                        document.getElementById('auth-error').style.display = 'block';
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html"><img src="images/logo.jpg" alt="Precision Pixel" class="logo"></a>
+    <h1>Sign In</h1>
+    <div id="auth-section">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button id="sign-in">Sign In</button>
+        <p id="auth-error" style="color: red; display: none;">Invalid email or password. Please try again.</p>
+    </div>
+</body>
+</html>

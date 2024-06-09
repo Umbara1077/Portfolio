@@ -42,7 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 await db.collection('contacts').add({ name, email, message });
-                alert('Contact form submitted successfully!');
+                const responseMessage = document.getElementById('contact-response');
+                responseMessage.textContent = `Thanks for your message, ${name}. I will get back to you as soon as possible.`;
+                responseMessage.style.display = 'block';
                 contactForm.reset();
             } catch (error) {
                 console.error('Error submitting contact form:', error);
@@ -57,17 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
         jobRequestForm.addEventListener('submit', async (event) => {
             event.preventDefault();
             const clientName = document.querySelector('#client-name').value;
-            const clientEmail = document.querySelector('#client-email').value;
+            const clientEmail = document.querySelector('#client-email').value
+            const companyName = document.querySelector('#company-name').value;
             const projectDetails = document.querySelector('#project-details').value;
             const budget = document.querySelector('#budget').value;
             const deadline = document.querySelector('#deadline').value;
             const documents = document.querySelector('#documents').files;
+
+              // Validate the budget input
+              if (!/^\d+(\.\d{1,2})?$/.test(budget.replace('$', ''))) {
+                alert('Budget must be a valid number.');
+                return;
+            }
+
             
             try {
                 // Add job request to Firestore
                 const jobRequestRef = await db.collection('jobRequests').add({
                     clientName,
                     clientEmail,
+                    companyName,
                     projectDetails,
                     budget,
                     deadline,
@@ -84,7 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 await Promise.all(promises);
 
-                alert('Job request submitted successfully!');
+                const responseMessage = document.getElementById('job-request-response');
+                responseMessage.textContent = `Thanks for your job request, ${clientName}. I will look into this and get back to you as soon as possible.`;
+                responseMessage.style.display = 'block';
                 jobRequestForm.reset();
             } catch (error) {
                 console.error('Error submitting job request form:', error);

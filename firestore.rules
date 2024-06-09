@@ -1,9 +1,18 @@
-rules_version = '2';
-
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Allow read and write access to the 'contacts' collection
+    match /contacts/{document=**} {
+      allow read, write: if true;
+    }
+    
+    // Allow read and write access to the 'jobRequests' collection
+    match /jobRequests/{document=**} {
+      allow read, write: if true;
+    }
+    
+    // Restrict access to other collections
     match /{document=**} {
-      allow read, write: if false;
+      allow read, write: if request.auth != null;
     }
   }
 }

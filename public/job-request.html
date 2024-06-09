@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Job Request</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
@@ -15,7 +14,7 @@
     <header>
         <nav>
             <a href="index.html">
-            <img src="images/logo.jpg" alt="PixelPerfection Dev" class="logo">
+            <img src="images/logo.jpg" alt="Precison Pixel Studios" class="logo">
             </a>
             <div class="menu-toggle">
                 <div class="bar"></div>
@@ -45,10 +44,12 @@
     <main>
         <section id="job-request">
             <a href="index.html">
-                <img src="images/logo.jpg" alt="PixelPerfection Dev" class="centered-logo">
+                <img src="images/logo.jpg" alt="Precison Pixel Studios" class="centered-logo">
             </a>
             <h1>Submit Job Request</h1>
             <form>
+                <label for="company-name">Company Name:</label>
+                <input type="text" id="company-name" name="company-name">
                 <label for="client-name">Name:</label>
                 <input type="text" id="client-name" name="client-name" required>
                 <label for="client-email">Email:</label>
@@ -63,10 +64,11 @@
                 <input type="file" id="documents" name="documents" multiple>
                 <button type="submit">Submit</button>
             </form>
+            <div id="job-request-response" class="response-message"></div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 PixelPerfection Development. All rights reserved.</p>
+        <p>&copy; 2024 Precison Pixel Innovations. All rights reserved.</p>
     </footer>
     <script src="js/scripts.js"></script>
 </body>
