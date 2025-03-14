@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <style>
+        .service p {
+            display: block;
+            width: 100%;
+        }
+        #weather-widget {
+            position: relative; 
+            margin: 0 auto; 
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 14px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            text-align: center;
+            max-width: 300px;
+        }
+        .loading {
+            font-size: 12px;
+            color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Precison Pixel Studios" class="logo">
+            </a>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="job-request.html">Submit Request</a></li>
+                <li><a href="https://commitstack.com/">WordPress Site</a></li>
+            </ul>
+            <div id="side-nav" class="side-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="job-request.html">Submit Request</a></li>
+                    <li><a href="https://commitstack.com/">WordPress Site</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="skills">
+            <h1>My Skills</h1>
+            <div id="weather-widget" class="loading">Fetching weather...</div>
+
+            <div class="service">
+                <h3>Software Engineering</h3>
+                <p>Applying software engineering principles to design, develop, test, and maintain high-quality applications. 
+                   Expertise in building scalable, maintainable, and efficient software solutions for businesses and enterprises.</p>
+                <p><strong>Development Methodologies:</strong> Utilizing Agile, Scrum, and DevOps practices to enhance productivity 
+                   and ensure rapid, continuous delivery.</p>
+                <p><strong>Version Control:</strong> Using Git, GitHub, and GitLab for collaborative development, code reviews, 
+                   and continuous integration.</p>
+            </div>
+
+            <div class="service">
+                <h3>Full Stack Development</h3>
+                <p>Expertise in both front-end and back-end development, ensuring seamless integration and efficient workflows.</p>
+                <p><strong>Front-End:</strong> Developing highly interactive UIs with React, Django, Vue, and Angular.</p>
+                <p><strong>Back-End:</strong> Building robust server-side applications with Node.js, Python, and SQL/NoSQL databases.</p>
+                <p><strong>Authentication & Security:</strong> Implementing OAuth, JWT, and Firebase Authentication for 
+                   secure user management.</p>
+            </div>
+        
+            <div class="service">
+                <h3>Front-End Development</h3>
+                <p>Building intuitive and highly responsive user interfaces using modern web technologies, ensuring seamless 
+                   user experiences across all devices.</p>
+                <p><strong>Core Technologies:</strong> Proficiency in HTML, CSS, JavaScript, and TypeScript to create structured 
+                   and visually appealing web applications.</p>
+                <p><strong>Modern Frameworks:</strong> Expertise in React.js, Django, Angular, and Vue.js for creating dynamic, 
+                   high-performance, single-page applications.</p>
+            </div>
+        
+            <div class="service">
+                <h3>Back-End Development</h3>
+                <p>Developing secure, scalable, and high-performance server-side applications to handle business logic and 
+                   data management.</p>
+                <p><strong>Technologies:</strong> Proficiency in Node.js, Express.js, Python (Django, Flask), and Java (Spring Boot).</p>
+                <p><strong>API Development:</strong> Designing RESTful and GraphQL APIs for seamless data exchange 
+                   between front-end applications and databases.</p>
+            </div>
+        
+            <div class="service">
+                <h3>WordPress Development</h3>
+                <p>Creating customized and scalable WordPress solutions for businesses, enhancing digital presence with high-performance websites.</p>
+                <p><strong>Services:</strong> Custom theme development, plugin creation, WooCommerce integration, and 
+                   responsive web design.</p>
+                <p><strong>Performance Optimization:</strong> Caching strategies, lazy loading, and database optimization to 
+                   ensure fast page loads.</p>
+            </div>
+        
+            <div class="service">
+                <h3>Database Design & Management</h3>
+                <p>Expertise in designing and managing relational and non-relational databases for optimized data storage and retrieval.</p>
+                <p><strong>SQL Databases:</strong> PostgreSQL, MySQL, and SQL Server for structured data management.</p>
+                <p><strong>NoSQL Databases:</strong> MongoDB and Firebase for real-time applications and scalable architectures.</p>
+                <p><strong>Data Security:</strong> Encryption, role-based access control, and regular backups to ensure 
+                   data integrity.</p>
+            </div>
+        
+            <div class="service">
+                <h3>API Development & Integration</h3>
+                <p>Building and integrating APIs to enhance application functionality and connectivity.</p>
+                <p><strong>RESTful APIs:</strong> Creating structured, scalable, and secure APIs following REST principles.</p>
+                <p><strong>GraphQL:</strong> Optimizing data fetching and reducing over-fetching or under-fetching issues.</p>
+                <p><strong>Third-Party Integrations:</strong> Connecting with Stripe, PayPal, Google Maps, and other services.</p>
+            </div>
+        
+            <div class="service">
+                <h3>Cloud & DevOps</h3>
+                <p>Deploying and managing applications on cloud platforms with automated infrastructure management.</p>
+                <p><strong>Cloud Platforms:</strong> AWS, Google Cloud, Firebase, and Microsoft Azure.</p>
+                <p><strong>CI/CD Pipelines:</strong> GitHub Actions, Jenkins, and Docker for automated deployments.</p>
+                <p><strong>Infrastructure as Code:</strong> Terraform and Kubernetes for scalable cloud resource management.</p>
+            </div>
+        
+            <div class="service">
+                <h3>Cyber Security</h3>
+                <p>Implementing security best practices to protect applications, data, and infrastructure.</p>
+                <p><strong>Security Tools:</strong> CrowdStrike, Cloudflare, and OWASP methodologies for threat detection.</p>
+                <p><strong>API Security:</strong> OAuth, JWT, and rate limiting to secure endpoints.</p>
+                <p><strong>Penetration Testing:</strong> Ethical hacking and vulnerability assessments to identify 
+                   security weaknesses.</p>
+            </div>
+        
+            <div class="service">
+                <h3>Containerization & Serverless Computing</h3>
+                <p>Deploying containerized applications for better resource efficiency and scalability.</p>
+                <p><strong>Docker:</strong> Containerizing applications for seamless development and deployment.</p>
+                <p><strong>Kubernetes:</strong> Managing and orchestrating container clusters.</p>
+                <p><strong>Serverless:</strong> Using AWS Lambda, Google Cloud Functions, and Azure Functions for event-driven architectures.</p>
+            </div>
+        
+            <div class="service">
+                <h3>Real-Time Applications</h3>
+                <p>Building applications with WebSockets and Firebase for real-time interactions.</p>
+                <p><strong>Technologies:</strong> WebSockets, SignalR, and Firebase Realtime Database.</p>
+                <p><strong>Use Cases:</strong> Live chat, notifications, stock market updates, and collaborative apps.</p>
+            </div>
+        
+            <div class="service">
+                <h3>Automated Testing & Performance Optimization</h3>
+                <p>Ensuring software quality with automated testing and improving performance through optimizations.</p>
+                <p><strong>Testing Frameworks:</strong> Selenium, Jest, Mocha, and Cypress for unit and integration testing.</p>
+                <p><strong>Performance Enhancements:</strong> Code splitting, caching, lazy loading, and CDN optimization.</p>
+            </div>
+        
+            <div class="service">
+                <h3>Mobile App Development</h3>
+                <p>Building cross-platform mobile applications with a focus on performance and user experience.</p>
+                <p><strong>Android Development:</strong> Using Android Studio to publish apps on Google Play.</p>
+                <p><strong>iOS Development:</strong> Using Xcode and Swift for Apple App Store applications.</p>
+                <a href="https://play.google.com/store/apps" target="_blank">
+                    <img src="images/playstore.png" alt="Mobile App Development">
+                </a>
+                <a href="https://precisionpixelinnovations.dev/precisionpixel.apk" target="_blank">
+                    <img src="images/android_download.jpeg" alt="Mobile App Development">
+                </a>
+                <a href="https://developer.apple.com/" target="_blank">
+                    <img src="images/applelogo.png" alt="Mobile App Development">
+                </a>
+            </div>
+        </section>        
+    </main>
+    <footer>
+        <p>&copy; 2024 Precision Pixel Innovations. All rights reserved.</p>
+        <p>Disclaimer: All logos and trademarks are the property of their respective owners. Their use on this site does not imply endorsement or affiliation.</p>
+    </footer>
+    <script src="js/scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const weatherWidget = document.getElementById("weather-widget");
+    
+            const fetchWeather = (latitude, longitude) => {
+                const url = `/weather?lat=${latitude}&lon=${longitude}`;
+    
+                fetch(url)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Failed to fetch weather data");
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        weatherWidget.innerHTML = `
+                            <h3>Weather in ${data.name}</h3>
+                            <p><strong>${data.main.temp}°F</strong> - ${data.weather[0].description}</p>
+                            <p>Humidity: ${data.main.humidity}%</p>
+                            <p>Wind: ${data.wind.speed} m/s</p>
+                        `;
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching weather data:", error);
+                        weatherWidget.textContent = "Error loading weather data.";
+                    });
+            };
+    
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const { latitude, longitude } = position.coords;
+                        fetchWeather(latitude, longitude);
+                    },
+                    (error) => {
+                        console.error("Error getting location:", error);
+                        weatherWidget.textContent = "Location access denied.";
+                    }
+                );
+            } else {
+                weatherWidget.textContent = "Geolocation is not supported by your browser.";
+            }
+        });
+    </script>    
+</body>
+</html>

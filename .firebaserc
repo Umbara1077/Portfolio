@@ -1,5 +1,12 @@
 {
   "projects": {
     "default": "pixelperfectiondev"
-  }
+  },
+  "targets": {},
+  "etags": {
+    "pixelperfectiondev": {
+      "extensionInstances": {}
+    }
+  },
+  "dataconnectEmulatorConfig": {}
 }

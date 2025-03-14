@@ -14,7 +14,7 @@
     <header>
         <nav>
             <a href="index.html">
-            <img src="images/logo.jpg" alt="Precison Pixel Studios" class="logo">
+                <img src="images/logo.jpg" alt="Precison Pixel Studios" class="logo">
             </a>
             <div class="menu-toggle">
                 <div class="bar"></div>
@@ -24,19 +24,21 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
+                <li><a href="skills.html">Skills</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="linktree.html">Link Tree</a></li>
                 <li><a href="job-request.html">Submit Request</a></li>
+                <li><a href="https://commitstack.com/">WordPress Site</a></li>
             </ul>
             <div id="side-nav" class="side-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Me</a></li>
+                    <li><a href="skills.html">Skills</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="linktree.html">Link Tree</a></li>
                     <li><a href="job-request.html">Submit Request</a></li>
+                    <li><a href="https://commitstack.com/">WordPress Site</a></li>
                 </ul>
             </div>
         </nav>
@@ -46,19 +48,286 @@
             <h1>My Portfolio</h1>
             <p>Here are some of the projects I've worked on:</p>
             <div class="portfolio-item">
+                <a href="https://dolcevitasewell.com">
+                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                </a>
                 <h2>Mobile Ordering System</h2>
-                <p>A comprehensive mobile ordering system for restaurants, allowing customers to order from their mobile devices. Features include order tracking, payment processing utilizing Stripe API, and integration with existing POS systems.</p>
-                <div id="social-links">
-                    <a href="https://dolce-vita-coffee-order.web.app/" target="_blank">Check it out</a>
+                <p class="short-desc">
+                    Our Mobile Ordering System is a seamless, user-friendly platform that allows customers to order directly from their mobile devices. Designed with an intuitive UI, customers can easily browse the menu, select items, and customize their orders.
+                </p>
+                
+                <div class="full-desc" style="display: none;">
+                    <p>
+                        The system integrates directly with our kiosk application, ensuring a unified ordering experience whether customers order via mobile or in-store.
+                    </p>
+                    <p>
+                        Customers can choose between coffee, gelato, and other menu categories, with the ability to search the catalog and filter options based on their preferences. If an item offers multiple sizes or flavors, the system dynamically adjusts the selections, allowing for combinations such as choosing a second gelato flavor when ordering a double scoop.
+                    </p>
+                    <p>
+                        Additionally, it intelligently notifies customers if an item is only available for dine-in and not for takeout, reducing confusion and improving the ordering experience.
+                    </p>
+                    <p>
+                        Once customers finalize their selection, they proceed to the cart, where they can enter their name and pickup preference—either curbside pickup or dine-in with a specified table number. The system then processes payments via Stripe API, ensuring secure and reliable transactions.
+                    </p>
+                    <p>
+                        Upon successful payment, customers are directed to a real-time order status page, where they can track progress as their order moves through the system.
+                    </p>
+                    <p>
+                        For an enhanced experience, the system includes automated order tracking and real-time updates. When an order is received, it is managed through the order processing system, with notifications sent at each stage.
+                    </p>
+                    <p>
+                        Additionally, built-in geolocation tracking allows for automatic check-in when the customer is within a certain distance of the gelato shop, notifying the cashier to begin preparing the order. This ensures a smooth and efficient pickup process, improving both customer satisfaction and operational workflow.
+                    </p>
                 </div>
-            </div>
+            
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+            
+                <div id="social-links">
+                    <a href="https://dolcevitasewell-mobileorder.com/" target="_blank">Check it out</a>
+                </div>
+            </div>                       
             <div class="portfolio-item">
+                <a href="https://dolcevitasewell.com">
+                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                </a>
+                <h2>Web Digital Signage</h2>
+                
+                <p class="short-desc">
+                    This Web Digital Signage solution is a fully remote-controlled system designed to keep menus and promotional content up to date with minimal effort. It dynamically cycles through videos and animations while displaying a real-time, automatically updated menu. 
+                </p>
+            
+                <div class="full-desc" style="display: none;">
+                    <p>
+                        Business hours are seamlessly integrated into the system, ensuring that when the store is closed, the display automatically switches to a <strong>"We Are Closed"</strong> page and returns to the main menu when open. This eliminates the need for manual updates and ensures customers always see the right information at the right time.
+                    </p>
+                    
+                    <p>
+                        All videos and animations can be changed remotely, allowing businesses to swap out promotional content, seasonal specials, or featured items instantly. The menu itself is fully interactive, enabling real-time updates to flavors, descriptions, images, and pricing.
+                    </p>
+                    
+                    <p>
+                        The system also includes inventory control, allowing users to mark flavors as available or out of stock with a simple update from the admin panel. This ensures that customers never see outdated items or unavailable options, improving their overall experience.
+                    </p>
+                    
+                    <p>
+                        With a secure and easy-to-use admin panel, all aspects of the digital signage can be managed from anywhere, eliminating the need to be physically present to make updates.
+                    </p>
+            
+                    <p>
+                        Whether it's adjusting business hours, modifying promotional content, or updating menu availability, everything is controlled effortlessly from a single interface. This digital signage solution streamlines operations, enhances customer engagement, and provides a modern, visually appealing way to present dynamic content in any business setting.
+                    </p>
+                </div>
+            
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+            
+                <div id="social-links">
+                    <a href="https://dolcevitasinage.web.app/" target="_blank">Check it out</a>
+                </div>
+            </div>            
+            <div class="portfolio-item">
+                <a href="https://dolcevitasewell.com">
+                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                </a>
                 <h2>Kiosk Application</h2>
-                <p>An interactive kiosk application designed for retail stores to enhance customer experience. It provides product information, store navigation, and self-checkout features.</p>
+            
+                <p class="short-desc">
+                    This interactive kiosk application is designed to enhance the in-store experience by providing customers with a seamless and intuitive way to explore menu items and promotions. The kiosk continuously cycles through engaging videos until a customer interacts with it, ensuring dynamic and eye-catching content even when idle.
+                </p>
+            
+                <div class="full-desc" style="display: none;">
+                    <p>
+                        Upon interaction, users can browse through the menu, view detailed descriptions of each item, and make informed selections. The interface is user-friendly and designed for quick, easy navigation.
+                    </p>
+            
+                    <p>
+                        All menu items, including images, descriptions, and availability status, can be updated in real-time through a dedicated admin panel, allowing for effortless content management.
+                    </p>
+            
+                    <p>
+                        If an item is sold out or temporarily unavailable, the system reflects these changes instantly, ensuring customers always see accurate and up-to-date information. This helps streamline operations while enhancing customer satisfaction.
+                    </p>
+            
+                    <p>
+                        The kiosk application is ideal for reducing wait times and improving customer engagement by offering a self-service experience. Whether it's browsing flavors, exploring new product offerings, or learning about seasonal specials, customers can interact with the system at their own pace.
+                    </p>
+            
+                    <p>
+                        This solution is fully adaptable to business needs, providing a modern, interactive way to present menu options and promotional content while maintaining full control through a remote admin interface.
+                    </p>
+                </div>
+            
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+            
                 <div id="social-links">
                     <a href="https://coffeelist-2cc55.firebaseapp.com/" target="_blank">Check it out</a>
                 </div>
-            </div>
+            </div>            
+            <div class="portfolio-item">
+                <a href="https://www.psravioli.com/">
+                    <img src="images/P&SLogo.png" alt="P&S Ravioli Logo" 
+                         style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                </a>
+                <h2>Inventory Management System for P&S Ravioli</h2>
+            
+                <p class="short-desc">
+                    The Inventory Management System for P&S Ravioli is a powerful, web-based application designed to 
+                    streamline inventory control, automate stock tracking, and enhance operational efficiency 
+                    across multiple store locations.
+                </p>
+            
+                <div class="full-desc" style="display: none;">
+                    <p>
+                        This system ensures accurate, real-time inventory updates while simplifying the workflow for store employees and management.
+                    </p>
+            
+                    <p>
+                        The system features a dynamic catalog view that provides instant access to all inventory items, complete with auto-generated UPC barcodes for seamless scanning and tracking. Employees can quickly search, filter, and sort items based on various parameters, significantly reducing the time spent managing stock levels.
+                    </p>
+            
+                    <p>
+                        A robust inventory tracking module enables employees to update stock quantities, flag items for review, and monitor stock movement in real-time. Inventory status is categorized efficiently, allowing employees to distinguish between available, low-stock, and out-of-stock items at a glance. 
+                    </p>
+            
+                    <p>
+                        To enhance decision-making, the system incorporates advanced data visualization, providing management with real-time analytics, trends, and statistical reports. The dashboard includes interactive graphs and summary metrics, offering a comprehensive overview of stock levels and sales performance. 
+                    </p>
+            
+                    <p>
+                        A user-friendly interactive table allows authorized employees to modify inventory details, update quantities, and attach additional information. Changes are saved instantly to Firestore, ensuring real-time synchronization across all stores.
+                    </p>
+            
+                    <p>
+                        Security is a core focus, with password-protected access ensuring that only authorized personnel can manage inventory data. Role-based authentication prevents unauthorized modifications while maintaining a secure and controlled environment for inventory management.
+                    </p>
+            
+                    <p>
+                        Additional features include real-time stock updates, seamless data synchronization, intuitive UI design, and extensive filtering options to refine inventory searches. The system is optimized for speed and reliability, ensuring a smooth experience for employees handling daily stock operations.
+                    </p>
+                </div>
+            
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+            </div>            
+            <div class="portfolio-item">
+                <a href="https://dantecorso.com">
+                    <img src="images/logo.jpg" alt="Logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                </a>
+                <h2>Task Management System</h2>
+            
+                <p class="short-desc">
+                    The Task Management System is a full-stack web application designed for individuals and teams to efficiently create, track, and manage tasks. Built using React and Firebase, the system offers a real-time, cloud-based task management solution with a user-friendly interface and responsive design.
+                </p>
+            
+                <div class="full-desc" style="display: none;">
+                    <p>
+                        The system features an intuitive dashboard that dynamically updates tasks based on their status. Users can create tasks with detailed descriptions, set priority levels, and specify due dates and times. Tasks are automatically categorized into active and completed sections, ensuring a clear workflow. The system allows users to update task statuses, edit details, and delete tasks as needed.
+                    </p>
+            
+                    <h3>Key Features</h3>
+                    <p>
+                        The system is built with React and React Router for seamless navigation and state management. Firebase Authentication ensures secure login and user-based task access. The Firestore database provides real-time syncing and cloud storage for tasks.
+                    </p>
+                    <p>
+                        Tasks are categorized into pending, in progress, and completed sections for better organization. The completed tasks section displays only the last three items to prevent clutter. A dark mode toggle is included with state persistence using localStorage.
+                    </p>
+                    <p>
+                        The UI is interactive, dynamically updating using React hooks like useState and useEffect. This ensures smooth transitions and efficient data handling.
+                    </p>
+            
+                    <h3>Technical Implementation</h3>
+                    <p>
+                        The Task Management System is built with React functional components, utilizing React hooks for state management. The dashboard is dynamically rendered using the useState hook, while the useEffect hook ensures real-time data fetching and synchronization with Firestore. Task operations such as creation, updates, and deletion are handled through Firebase Firestore, providing seamless cloud storage and access control.
+                    </p>
+                    <p>
+                        React Router is used for client-side navigation, enabling smooth transitions between pages such as task details, dashboard, and authentication screens. The dark mode toggle is implemented with state persistence via localStorage, ensuring that user preferences remain consistent across sessions.
+                    </p>
+                    <p>
+                        The application is optimized for performance, leveraging Firestore indexing for fast data retrieval and ensuring minimal re-renders using efficient state management techniques. The UI follows modern design principles with CSS-based styling, offering a clean and professional appearance.
+                    </p>
+                    <p>
+                        Access to the Task Management System is password protected, requiring users to authenticate before managing tasks. This ensures secure access to task data while allowing users to manage their workflow from any device.
+                    </p>
+                </div>
+            
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+            
+                <div id="social-links">
+                    <a href="https://task-manager-app-3c111.web.app/" target="_blank">Check it out</a>
+                </div>
+            </div>            
+            <div class="portfolio-item">
+                <a href="https://commitstack.com" target="_blank">
+                    <img src="images/logo.jpg" alt="CommitStack Logo" style="width: 70px; height: auto; display: block; margin: 0 auto;">
+                </a>
+                <h2>CommitStack: WordPress Portfolio</h2>
+            
+                <p class="short-desc">
+                    CommitStack is a fully customized WordPress portfolio site designed to showcase my work in web development, full-stack projects, and custom software solutions. Built with a clean and modern UI, it serves as a professional hub where potential clients and employers can explore my past projects, skills, and technical expertise. The site is optimized for performance, ensuring a seamless browsing experience across all devices.
+                </p>
+            
+                <div class="full-desc" style="display: none;">
+                    <p>The portfolio includes a variety of projects, ranging from custom WordPress builds and API integrations to full-stack web applications using modern frameworks. Each project is accompanied by detailed descriptions, live demos, and direct links to repositories where applicable. The site is designed for easy navigation, allowing visitors to explore different categories of work and gain insight into my development process. CommitStack serves as an evolving portfolio, regularly updated with new projects and enhancements to demonstrate my expertise in software engineering.</p>
+                </div>
+            
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+            
+                <div id="social-links">
+                    <a href="https://commitstack.com" target="_blank">Explore Portfolio</a>
+                </div>
+            </div>            
+            <div class="portfolio-item">
+                <a href="https://ai-code-analyzer-67afe.web.app/" target="_blank">
+                    <img src="images/logo.jpg" alt="AI Code Analyzer Logo" style="width: 70px; height: auto; display: block; margin: 0 auto;">
+                </a>
+                <h2>AI Code Analyzer</h2>
+            
+                <p class="short-desc">
+                    AI Code Analyzer is an intelligent web-based tool that leverages OpenAI's GPT-4o API to analyze and interpret source code. Designed for developers, this application provides detailed insights into code functionality, structure, and best practices. Users can submit code snippets, and the AI instantly evaluates them, explaining their purpose, identifying potential inefficiencies, and suggesting improvements.
+                </p>
+            
+                <div class="full-desc" style="display: none;">
+                    <p>
+                        Beyond simple code analysis, AI Code Analyzer serves as a virtual coding assistant by offering real-time suggestions for refactoring and optimizing code. It helps detect redundant logic and improve efficiency while identifying potential issues and suggesting fixes for debugging.
+                    </p>
+                    <p>
+                        The system also predicts how a codebase might evolve based on the latest industry standards, ensuring that developers stay ahead of best practices and maintain clean, maintainable code.
+                    </p>
+                    <p>
+                        Additionally, the platform provides an interactive final code preview, allowing developers to visualize how their modified code will function before implementation.
+                    </p>
+                </div>
+            
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+            
+                <div id="social-links">
+                    <a href="https://ai-code-analyzer-67afe.web.app/" target="_blank">Try AI Code Analyzer</a>
+                </div>
+            </div>            
+            <div class="portfolio-item">
+                <a href="https://dolcevitasewell.com">
+                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                </a>
+                <h2>Order Manager</h2>
+            
+                <p class="short-desc">
+                    The Order Manager is a fully integrated system designed to streamline order processing and improve operational efficiency. It seamlessly connects with the mobile ordering system and kiosk application, ensuring that all customer orders are received, managed, and fulfilled in an organized manner.
+                </p>
+            
+                <div class="full-desc" style="display: none;">
+                    <p>With real-time synchronization, staff can track incoming orders, update order statuses, and process transactions without delays.</p>
+                
+                    <p>When an order is placed through the mobile app or kiosk, it is instantly added to the order queue, allowing staff to view customer details, item selections, and special requests. The system provides a clear visual representation of active, in-progress, and completed orders, reducing errors and improving workflow. Orders can be marked as in preparation, ready for pickup, or completed, with automatic notifications sent to customers through the mobile app to keep them informed in real time.</p>
+                
+                    <p>The Order Manager also incorporates geolocation-based automatic check-ins, allowing staff to be alerted when a customer is approaching for pickup. This ensures that orders are prepared just in time for arrival, minimizing wait times and improving the overall experience. The system is designed with an intuitive interface, making it easy for staff to update orders, handle modifications, and manage inventory availability directly from the admin panel.</p>
+                
+                    <p>By providing seamless integration, real-time updates, and automated customer notifications, the Order Manager enhances the efficiency of handling high volumes of orders while maintaining a smooth and reliable operation.</p>
+                </div>
+            
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+            
+                <div id="social-links">
+                    <a href="https://dolcevitasewell.com" target="_blank">Check it out</a>
+                </div>
+            </div>                                
             <div class="portfolio-item">
                 <div id="weather"></div>
                 <h2>API Integrations: Stripe and Google Maps</h2>
@@ -67,7 +336,12 @@
                     <img src="images/api-def.jpg" alt="API">
                 </div>
                 <button id="getWeatherBtn">Try out an API</button>
-            </div>            
+            </div>
+            <div class="portfolio-item">
+                <a href="https://dolcevitasewell.com"><img src="images/dolce-logo.png" alt="Dolce Vita Logo" style="width: 100px; height: auto; display: block; margin: 0 auto;"></a>
+                <h2>Video Training Web App</h2>
+                <p>Our video training web app allows users to log in and complete video training sessions. It tracks progress and saves completion statuses, sending an email notification upon completion of each training module.</p>
+            </div>             
             <div class="portfolio-item">
                 <h2>Inventory Management System</h2>
                 <p>A robust inventory management system that helps businesses keep track of their stock levels, manage orders, and generate reports. It includes features like real-time stock updates, low stock alerts, and multi-location support.</p>
@@ -84,8 +358,26 @@
     </main>
     <footer>
         <p>&copy; 2024 Precison Pixel Innovations. All rights reserved.</p>
+        <p>Disclaimer: All logos and trademarks are the property of their respective owners.</p>
     </footer>
     <script src="js/scripts.js"></script>
     <script src="js/weather.js"></script>
+    <script>
+        function toggleDescription(button) {
+    let item = button.closest('.portfolio-item');
+    let shortDesc = item.querySelector('.short-desc');
+    let fullDesc = item.querySelector('.full-desc');
+
+    if (fullDesc.style.display === "none") {
+        fullDesc.style.display = "block";
+        shortDesc.style.display = "none";
+        button.textContent = "View Less";
+    } else {
+        fullDesc.style.display = "none";
+        shortDesc.style.display = "block";
+        button.textContent = "View More";
+    }
+}
+    </script>
 </body>
 </html>

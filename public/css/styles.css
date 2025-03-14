@@ -17,7 +17,7 @@ body {
 header {
     display: flex;
     align-items: center;
-    background-color: #007acc; /* Blue header */
+    background: linear-gradient(to right, #003f66, #0073b7, #009adf);
     color: #fff;
     padding: 10px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -78,7 +78,7 @@ section {
 
 #intro {
     text-align: center;
-    background-color: #fff;
+    background: linear-gradient(135deg, #ffffff, #e0f3fc);
     padding: 50px 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -210,12 +210,12 @@ footer {
 }
 
 #services {
-    background-color: #e6f7ff;
+    background: linear-gradient(135deg, #e6f7ff, #b3d9ff);
     padding: 50px 20px;
 }
 
 .service {
-    background-color: #fff;
+    background: #ffffff;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -233,8 +233,20 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.service a {
+    display: inline-block; 
+    line-height: 0; 
+}
+
 .service h3 {
-    color: #005f99;
+    color: #003f66;
+}
+
+.trademark {
+    font-size: 0.75em; /* Adjust as needed */
+    vertical-align: super;
+    margin-left: 2px;
+    position: absolute;
 }
 
 #testimonials {
@@ -251,7 +263,7 @@ footer {
 }
 
 .about-content {
-    background-color: #fff;
+    background: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -278,7 +290,7 @@ footer {
 }
 
 .portfolio-item {
-    background-color: #fff;
+    background: #ffffff;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -286,11 +298,11 @@ footer {
 }
 
 .portfolio-item h2 {
-    color: #005f99;
+    color: #003f66;
 }
 
 #portfolio {
-    background-color: #f9f9f9;
+    background-color: #e6f7ff;
     padding: 50px 20px;
     text-align: center;
 }
@@ -346,7 +358,7 @@ footer {
 
 .education, .skills {
     flex: 1;
-    background-color: #fff;
+    background: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -640,7 +652,52 @@ footer {
     color: #fff;
 }
 
-/* Adjustments for computer view */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.skill {
+    background-color: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+}
+
+.skill h2 {
+    color: #007acc;
+}
+
+.skill p {
+    color: #333;
+}
+
+.full-desc p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.view-more-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+
+.view-more-btn:hover {
+    background-color: #0056b3;
+}
+
 @media (min-width: 769px) {
     .service {
         display: flex;
@@ -648,13 +705,13 @@ footer {
         justify-content: flex-start;
         padding: 20px;
         box-sizing: border-box;
-        gap: 20px; /* Add some space between image and text */
+        gap: 20px; 
     }
 
     .service img {
-        flex-shrink: 0; /* Prevent the image from shrinking */
-        margin-right: 20px; /* Add space between image and text */
-        width: auto; /* Ensure images do not stretch */
+        flex-shrink: 0; 
+        margin-right: 20px; 
+        width: auto; 
     }
 
     #social-links img {
@@ -671,14 +728,13 @@ footer {
     }
 }
 
-/* Mobile devices */
 @media (max-width: 480px) {
     header {
-        padding: 20px; /* Increase padding for larger header */
+        padding: 20px; 
     }
 
     nav .logo {
-        height: 60px; /* Increase logo height */
+        height: 60px; 
     }
 
     .menu-toggle {
@@ -686,7 +742,7 @@ footer {
     }
 
     .centered-logo {
-        height: 80px; /* Increase centered logo height */
+        height: 80px;
     }
 
     .contact-info p {
@@ -734,34 +790,34 @@ footer {
 
     .about-content {
         padding: 10px;
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; 
         align-items: center;
-        box-sizing: border-box; /* Ensure padding and borders are included in the element's total width and height */
+        box-sizing: border-box; 
         display: flex;
         justify-content: center;
-        width: 100%; /* Ensure it takes full width */
-        text-align: center; /* Center text within the container */
+        width: 100%; 
+        text-align: center; 
     }
     
     .about-text {
         margin-right: 0;
         margin-bottom: 10px;
-        width: 100%; /* Ensure full width */
+        width: 100%; 
     }
     
     .about-image img {
         max-width: 90%;
-        margin: 0 auto; /* Center the image */
+        margin: 0 auto;
     }
     
     .education-skills {
         display: flex;
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; 
         justify-content: center;
         align-items: center;
-        width: 100%; /* Ensure full width */
+        width: 100%; 
         margin-top: 20px;
-        text-align: center; /* Center text within the container */
+        text-align: center;
     }
     
     .education, .skills {
@@ -770,7 +826,7 @@ footer {
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin: 3px;
-        width: 100%; /* Ensure full width */
+        width: 100%; 
         box-sizing: border-box; 
     }
 
@@ -800,10 +856,9 @@ footer {
     }
 }
 
-/* Tablet and below */
 @media (max-width: 768px) {
     header {
-        padding: 20px; /* Increase padding for larger header */
+        padding: 20px; 
     }
 
     #social-links img {
@@ -819,7 +874,7 @@ footer {
     }
 
     .nav-links {
-        display: none; /* Hide the nav links in mobile view */
+        display: none; 
     }
 
     .side-nav ul {
@@ -827,7 +882,7 @@ footer {
     }
 
     .centered-logo {
-        height: 80px; /* Increase centered logo height */
+        height: 80px; 
     }
 
     h1 {
@@ -891,12 +946,12 @@ footer {
 
     .education-skills {
         display: flex;
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; 
         justify-content: center;
         align-items: center;
-        width: 100%; /* Ensure full width */
+        width: 100%; 
         margin-top: 20px;
-        text-align: center; /* Center text within the container */
+        text-align: center; 
     }
     
     .education, .skills {
@@ -905,7 +960,7 @@ footer {
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin: 3px;
-        width: 100%; /* Ensure full width */
+        width: 100%; 
         box-sizing: border-box; 
     }
 

@@ -6,6 +6,13 @@
     <title>Pixel Precison Innovations</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+    <style>
+        @media (max-width: 600px) {
+            .btn {
+                margin-bottom: 10px; 
+            }
+        }
+    </style>
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
@@ -23,19 +30,21 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
+                <li><a href="skills.html">Skills</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="linktree.html">Link Tree</a></li>
                 <li><a href="job-request.html">Submit Request</a></li>
+                <li><a href="https://commitstack.com/">WordPress Site</a></li>
             </ul>
             <div id="side-nav" class="side-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Me</a></li>
+                    <li><a href="skills.html">Skills</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="linktree.html">Link Tree</a></li>
                     <li><a href="job-request.html">Submit Request</a></li>
+                    <li><a href="https://commitstack.com/">WordPress Site</a></li>
                 </ul>
             </div>
         </nav>
@@ -43,59 +52,95 @@
     <main>
         <section id="intro">
             <h1>Welcome to Precison Pixel Innovations</h1>
-            <p>My name is Dante Corso, and I am a full-stack developer specializing in creating dynamic and efficient web and mobile applications. With extensive experience in developing mobile ordering systems, kiosks, inventory managers, and more, I am passionate about leveraging technology to solve real-world problems.</p>
+            <p>I'm Dante Corso, a Software Engineer specializing in full-stack development, API integrations, and automation. I design and build scalable web and mobile applications that enhance efficiency, improve user experience, and solve real-world problems. With expertise in modern frameworks, cloud technologies, and performance optimization, I focus on creating seamless and high-performing solutions tailored to business needs.</p>
+            <a href="web-development.html" class="btn">Explore Web Apps</a>
+            <a href="mobile-development.html" class="btn">Explore Mobile Apps</a>
             <a href="portfolio.html" class="btn">Explore My Work</a>
+            <a href="https://commitstack.com/" class="btn">View My WordPress Site</a>
         </section>
         <section id="services">
-            <h2>What I Do</h2>
+            <h2>Skills</h2>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="portfolio.html" style="display: inline-block; background-color: #2e59d9; color: white; text-decoration: none; padding: 12px 24px; border-radius: 6px; margin: 5px; font-size: 16px;">
+                    View Portfolio
+                </a>
+                <a href="skills.html" style="display: inline-block; background-color: #2e59d9; color: white; text-decoration: none; padding: 12px 24px; border-radius: 6px; margin: 5px; font-size: 16px;">
+                    View Skills
+                </a>
+            </div>            
             <div class="service">
-                <h3>Web Development</h3>
-                <p>Creating responsive and interactive websites that offer excellent user experiences and dynamic functionality.</p>
-                <img src="images/web-development.jpg" alt="Web Development">
-                <img src="images/react-dj.jpg" alt="Web Development">
-            </div>
+                <h3>Software Engineering</h3>
+                <p>Designing and developing efficient, scalable software solutions that optimize performance, enhance functionality.</p>
+                <img src="images/Screenshot 2025-03-04 235243.png" alt="Software Engineering">
+                <img src="images/Screenshot 2025-03-04 235411.png" alt="Software Engineering" class="logo">
+            </div>            
             <div class="service">
                 <h3>Full Stack Engineering</h3>
                 <p>Crafting comprehensive web solutions, from front-end interfaces to back-end systems, ensuring seamless user experience.</p>
-                <img src="images/full-stack-engineering.jpg" alt="Full Stack Engineering">
-                <img src="images/docker-node-js.jpg" alt="Full Stack Engineering">
+                <img src="images/fullst.jpg" alt="Full Stack Engineering">
+                <img src="images/programming-3170991_640.png" alt="Full Stack" class="logo">
+            </div>
+            <div class="service">
+                <h3>Web Development</h3>
+                <!--<a href="web-development.html" class="btn">Learn More</a>-->
+                <p>Creating responsive and interactive websites that offer excellent user experiences and dynamic functionality.</p>
+                <img src="images/web-design-3411373_640.jpg" alt="Web Development">
+                <img src="images/sitemap-4059862_640.jpg" alt="HTML" class="logo">
+                <!--<a href="web-development.html" class="btn">Learn More</a>-->
+            </div>
+            <div class="service">
+                <h3>WordPress Websites</h3>
+                <p>I specialize in creating professional, user-friendly WordPress websites tailored to meet the unique needs of your business.</p>
+                <div class="logo-container">
+                    <img src="images/wordpress-logo.png" alt="WordPress Logo" class="logo">
+                    <span class="trademark">®</span>
+                </div>
+                <img src="images/web-dev-img.png" alt="Web Dev">
+                <!--<a href="https://commitstack.com/" class="btn">Check it out</a>-->
             </div>
             <div class="service">
                 <h3>Database Management</h3>
                 <p>Designing and managing efficient databases that support and enhance your business operations effectively.</p>
-                <img src="images/mongo-sql.jpg" alt="Database Management">
-                <img src="images/firestore.jpg" alt="Database Management">
+                    <img src="images/cloud-3805855_640.png" alt="Database" class="logo">
+                    <img src="images/server-5451985_640.jpg" alt="Database" class="logo">
             </div>
             <div class="service">
                 <h3>Mobile Development</h3>
+                <!--<a href="mobile-development.html" class="btn">Learn More</a>-->
                 <p>Developing mobile applications tailored for both Android and iOS platforms, ensuring cross-platform compatibility.</p>
-                <img src="images/mobile-development.jpg" alt="Mobile Development">
-                <img src="images/apple-android.jpg" alt="Mobile Development">
+                <img src="images/mobile-dev.png" alt="Mobile Development">
+                <div class="logo-container">
+                    <img src="images/apple-android.jpg" alt="Apple and Android Logo" class="logo">
+                    <span class="trademark">®</span>
+                </div>
+                <!--<a href="mobile-development.html" class="btn">Learn More</a>-->
             </div>
             <div class="service">
                 <h3>API Development and Integration</h3>
                 <p>Building and integrating APIs to enhance functionality and connectivity of your applications.</p>
                 <img src="images/api-development.jpg" alt="API Development and Integration">
-                <img src="images/api-integration.jpg" alt="API Development and Integration">
+                    <img src="images/api-integration.jpg" alt="API Integration Logo" class="logo">
             </div>            
             <div class="service">
                 <h3>Cyber Security</h3>
                 <p>Implementing robust security measures to protect your data, systems, and network infrastructure effectively.</p>
-                <img src="images/cyber-security.jpg" alt="Cyber Security">
-                <img src="images/crowdstrike.jpg" alt="Cyber Security">
+                <img src="images/cyber-security-1784985_1280.png" alt="Cyber Security">
+                <img src="images/cyber-security-8819383_640.jpg" alt="CrowdStrike Logo" class="logo">
             </div>
             <div class="service">
                 <h3>Cloud Services Integration</h3>
                 <p>Integrating your applications with cloud services for better scalability and performance.</p>
-                <img src="images/firebase.jpg" alt="Cloud Services Integration">
-                <img src="images/aws-azure-gcp.jpg" alt="Cloud Services Integration">
-            </div>            
+                <img src="images/cloud-computing-1989339_640.png" alt="Cloud" class="logo">
+                <img src="images/cloud-3406627_640.jpg" alt="Cloud" class="logo">
+            </div>
         </section>        
     </main>
     <footer>
         <p>&copy; 2024 Precison Pixel Innovations. All rights reserved.</p>
+        <p>Disclaimer: All logos and trademarks are the property of their respective owners. Their use on this site does not imply endorsement or affiliation.</p>
     </footer>
     <script src="js/scripts.js"></script>
+    
 </body>
 </html>
 

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Development</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+     <!-- Firebase SDK -->
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <style>
+        .video-container {
+            width: 100%;
+            height: 60vh; /* Set default height to 60vh */
+            overflow: hidden;
+            position: relative;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-container video.mobile-video {
+            display: none;
+        }
+        #content {
+            padding: 40px 20px;
+            max-width: 1400px; /* Increased width for desktop mode */
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            .video-container {
+                height: 50vh; /* Adjust height for smaller screens */
+            }
+            .video-container video {
+                display: none;
+            }
+            .video-container video.mobile-video {
+                display: block;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+            #content {
+                max-width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Precision Pixel Studios" class="logo">
+            </a>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="job-request.html">Submit Request</a></li>
+            </ul>
+            <div id="side-nav" class="side-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="job-request.html">Submit Request</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="video">
+            <div class="video-container">
+                <video src="videos/Mobile-Dev.mp4" autoplay muted loop></video>
+                <video src="videos/Mobile-Dev-Mobile.mp4" autoplay muted loop class="mobile-video"></video>
+            </div>
+        </section>
+        <section id="content">
+            <h2>Mobile Development</h2>
+
+            <div class="service">
+                <h3>Why Mobile Development?</h3>
+                <p>Mobile development is crucial in today's digital landscape. With the majority of internet users accessing the web through mobile devices, having a mobile app or a mobile-optimized website is essential for reaching and engaging your audience. Mobile apps offer convenience, personalized experiences, and can drive customer loyalty.</p>
+                <p><strong>How It Helps:</strong> Mobile development allows you to reach users on their preferred devices, offering seamless experiences and increasing user engagement. By leveraging the latest mobile technologies, we create apps that are fast, responsive, and provide a superior user experience.</p>
+            </div>
+
+            <div class="service">
+                <h3>Cyber Security for Mobile Apps</h3>
+                <p><strong>Why Mobile App Security?</strong> Mobile app security is essential for protecting your applications from cyber threats. Our mobile app security solutions help ensure that your apps are secure, preventing unauthorized access, data breaches, and other cyber threats. We utilize the latest technologies and best practices to create secure mobile applications.</p>
+                <div style="text-align: center;">
+                    <a href="cyber-security.html" class="btn" style="display: inline-block; padding: 10px 20px; color: #fff; background-color: #007bff; border-radius: 5px; text-decoration: none; font-size: 16px;">Learn More</a>
+                </div>
+            </div>
+            
+            
+            <div class="service">
+                <h3>Android Development</h3>
+                <p><strong>Why Android?</strong> Android has a massive user base and offers extensive customization options. Developing for Android allows you to reach a broad audience with diverse devices. We create Android apps that are optimized for performance and user experience.</p>
+            </div>
+            
+            <div class="service">
+                <h3>iOS Development</h3>
+                <p><strong>Why iOS?</strong> iOS users are known for their higher engagement and spending. Developing for iOS ensures that your app is available on Apple’s popular devices, providing a premium experience to your users. Our iOS apps are designed to leverage the full potential of the platform.</p>
+            </div>
+            
+            <div class="service">
+                <h3>Cross-Platform Development</h3>
+                <p><strong>Why Cross-Platform?</strong> Cross-platform development allows you to build apps that run on both Android and iOS from a single codebase, reducing development time and costs. Using frameworks like React Native and Flutter, we create apps that provide a consistent experience across platforms.</p>
+            </div>
+            
+            <div class="service">
+                <h3>User Experience (UX) Design</h3>
+                <p><strong>Why UX Design?</strong> UX design is critical for creating intuitive and enjoyable user experiences. Good UX design ensures that your app is easy to use, meets user needs, and keeps them engaged. Our UX design process is user-centered, focusing on creating apps that users love.</p>
+            </div>
+            <div style="text-align: center;">
+                <a href="index.html" class="btn" style="display: inline-block; padding: 10px 20px; color: #fff; background-color: #007bff; border-radius: 5px; text-decoration: none; font-size: 16px;">Home</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Precision Pixel Innovations. All rights reserved.</p>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
