@@ -10,34 +10,33 @@ This site highlights my services, skills, and project experience as a full stack
 
 https://dantecorso.com
 
----
-
 ## 📁 Project Structure
 
+```
 public/
-├── css/                      # Stylesheets for all pages
-├── images/                   # Image assets (logo, icons, etc.)
-├── js/                       # JavaScript files for frontend logic
-├── videos/                   # Video assets (e.g. service showcases)
+├── css/                     # Stylesheets for all pages
+├── images/                  # Image assets (logo, icons, etc.)
+├── js/                      # JavaScript files for frontend logic
+├── videos/                  # Video assets (e.g. service showcases)
 │
-├── 404.html                  # Custom 404 error page
-├── about.html                # "About Me" page with background info
-├── admin.html                # Admin portal for managing backend content
-├── connect.html              # Linktree-style connection page
-├── contact.html              # Contact form for visitor inquiries
-├── cyber-security.html       # Overview of cybersecurity services
-├── index.html                # Main landing page (Home)
-├── job-request.html          # Job request submission form
-├── login.html                # Admin login for secure access
-├── mobile-development.html   # Mobile application development services
-├── portfolio.html            # Portfolio of past projects and work
-├── precisionpixel.apk        # APK file for the Precision Pixel Android app
-├── robots.txt                # SEO config for search engine crawlers
-├── sitemap.xml               # Sitemap for site indexing
-├── skills.html               # List of technical and soft skills
-└── web-development.html      # Web development service overview
+├── 404.html                 # Custom 404 error page
+├── about.html               # "About Me" page with background info
+├── admin.html               # Admin portal for managing backend content
+├── connect.html             # Linktree-style connection page
+├── contact.html             # Contact form for visitor inquiries
+├── cyber-security.html      # Overview of cybersecurity services
+├── index.html               # Main landing page (Home)
+├── job-request.html         # Job request submission form
+├── login.html               # Admin login for secure access
+├── mobile-development.html  # Mobile application development services
+├── portfolio.html           # Portfolio of past projects and work
+├── precisionpixel.apk       # APK file for the Precision Pixel Android app
+├── robots.txt               # SEO config for search engine crawlers
+├── sitemap.xml              # Sitemap for site indexing
+├── skills.html              # List of technical and soft skills
+└── web-development.html     # Web development service overview
+```
 
----
 
 ## ✨ Features
 
