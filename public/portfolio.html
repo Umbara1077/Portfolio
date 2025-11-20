@@ -26,6 +26,8 @@
                 <li><a href="about.html">About Me</a></li>
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
+                <li><a href="resume.html" class="active-link">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="job-request.html">Submit Request</a></li>
                 <li><a href="https://commitstack.com/">WordPress Site</a></li>
@@ -36,6 +38,8 @@
                     <li><a href="about.html">About Me</a></li>
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
+                    <li><a href="resume.html" class="active-link">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="job-request.html">Submit Request</a></li>
                     <li><a href="https://commitstack.com/">WordPress Site</a></li>
@@ -85,7 +89,53 @@
                 <div id="social-links">
                     <a href="https://dolcevitasewell-mobileorder.com/" target="_blank">Check it out</a>
                 </div>
-            </div>                       
+            </div> 
+            <div class="portfolio-item">
+              
+                <a href="https://www.funaripublicadjusters.com/" target="_blank">
+                    <img src="images/funari-logo.png"
+                        alt="Funari Public Adjusters Logo"
+                        style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                </a>
+
+                <h2>Insurance PDF AI Comparison Platform</h2>
+
+                <p class="short-desc">
+                    A secure, internal React + Firebase platform that lets adjusters upload carrier and public adjuster estimates, runs OCR on both, and generates an AI-powered, side-by-side Markdown synopsis that can be exported as PDF or Excel.
+                </p>
+
+                <div class="full-desc" style="display: none;">
+                    <p>
+                        This project is an end-to-end insurance document comparison workflow built with React on the front end and Firebase (Auth, Storage, Firestore, Cloud Functions) on the back end. The app is gated behind Firebase Authentication, so only authorized staff can access the tool and work with claim data.
+                    </p>
+                    <p>
+                        Users start by entering a <strong>Claim ID</strong> that matches the client’s full name, which is used to namespace all Storage and Firestore paths. For each claim, they upload exactly two PDFs (typically the Funari estimate and the carrier estimate). Files are stored under a structured path like
+                        <code>claims/{claimId}/</code>, and an upload counter resets the selected documents to keep the UI aligned with new uploads.
+                    </p>
+                    <p>
+                        A Cloud Storage trigger automatically runs <strong>Google Vision OCR</strong> on every uploaded PDF, stitches page text together, and writes the extracted content into Firestore under
+                        <code>claims/{claimId}/documents/{fileName}</code>. This transforms static PDFs into searchable, structured text ready for downstream AI analysis.
+                    </p>
+                    <p>
+                        When two documents are selected in the UI, the app calls a callable Cloud Function <code>compareInsurancePDFs</code>. That function pulls both OCR texts from Firestore, feeds them into a specialized prompt, and sends the request to the Gemini API via a dedicated comparison helper. The model returns a GitHub-flavored Markdown synopsis containing an overall summary table, per-area breakdowns, and detailed line-item differences with real currency and percentage calculations.
+                    </p>
+                    <p>
+                        On the front end, the Markdown is cleaned for valid table syntax and rendered into an interactive result pane. From there, users can:
+                    </p>
+                    <ul>
+                        <li><strong>Download a PDF</strong> of the entire comparison view using <code>html2pdf.js</code> with page-break-aware settings.</li>
+                        <li><strong>Export Excel workbooks</strong> by parsing each Markdown table into individual sheets with cleaned, de-duplicated sheet names.</li>
+                    </ul>
+                    <p>
+                        The system also includes advanced Cloud Functions that parse the AI synopsis, align differences back onto the original carrier PDF coordinates using Vision’s bounding boxes, and draw semi-transparent highlight rectangles over the relevant monetary values. The highlighted PDFs are saved back to Storage and can be surfaced to the UI as signed URLs, giving adjusters a visual overlay of where the carrier is underpaying or out of sync with the public adjuster’s estimate.
+                    </p>
+                    <p>
+                        Overall, this platform turns a manual, hours-long comparison task into a fast, repeatable workflow with AI-generated summaries, visual highlights, and exportable artifacts for negotiation, documentation, and client reporting.
+                    </p>
+                </div>
+
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+            </div>                      
             <div class="portfolio-item">
                 <a href="https://dolcevitasewell.com">
                     <img src="images/dolce-logo.png" alt="Dolce Vita Logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">

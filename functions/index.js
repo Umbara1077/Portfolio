@@ -13,7 +13,7 @@ exports.getWeatherByLocation = functions.https.onRequest(async (req, res) => {
     }
 
     const { lat, lon } = req.query;
-    const API_KEY = "8c9035c701169307c15dd15570a1adf8"; // Your OpenWeatherMap API Key
+    const API_KEY = "8c9035c701169307c15dd15570a1adf8"; 
 
     if (!lat || !lon) {
         return res.status(400).send("Latitude and longitude parameters are required.");

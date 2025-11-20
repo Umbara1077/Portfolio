@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Precision Pixel Innovations</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+</head>
+<body>
+
+    <div class="gradient-wave"></div>
+
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Precison Pixel Innovations" class="logo">
+            </a>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
+                <li><a href="resume.html" class="active-link">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="job-request.html">Submit Request</a></li>
+                <li><a href="https://commitstack.com/">WordPress Site</a></li>
+            </ul>
+            <div id="side-nav" class="side-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="job-request.html">Submit Request</a></li>
+                    <li><a href="https://commitstack.com/">WordPress Site</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="resume">
+            <div class="resume-header-card">
+                <div class="resume-header-main">
+                    <h1 class="resume-name">Dante Corso</h1>
+                    <p class="resume-title">DevOps & Full Stack Engineer</p>
+                    <p class="resume-summary">
+                        I design and build cloud-native systems with a focus on automation, reliability, and developer experience —
+                        from Azure DevOps pipelines and serverless backends to real-time, user-facing web apps.
+                    </p>
+                </div>
+                <div class="resume-header-meta">
+                    <p><strong>Location:</strong> Williamstown, NJ</p>
+                    <p><strong>Phone:</strong> <a href="tel:+18567230942">(856) 723-0942</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:corsodante8@gmail.com">corsodante8@gmail.com</a></p>
+                    <p><strong>Portfolio:</strong> <a href="https://dantecorso.com" target="_blank">dantecorso.com</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/dante-corso/" target="_blank">linkedin.com/in/dante-corso</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/Umbara1077" target="_blank">github.com/Umbara1077</a></p>
+                    <button class="resume-download-btn" onclick="window.open('pdf/Corso Dante - Resume.pdf', '_blank')">
+                    Download PDF
+                </button>
+                </div>
+            </div>
+
+            <div class="resume-tabs">
+                <button class="resume-tab active" data-target="#tab-experience">Experience</button>
+                <button class="resume-tab" data-target="#tab-projects">Projects</button>
+                <button class="resume-tab" data-target="#tab-skills">Skills</button>
+                <button class="resume-tab" data-target="#tab-education">Education & Certifications</button>
+            </div>
+
+            <!-- Experience -->
+            <section id="tab-experience" class="resume-section active-section">
+                <h2>Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>E3 IT Services</h3>
+                                <span class="timeline-role">Azure DevOps Engineer</span>
+                                <span class="timeline-dates">2024 – Present</span>
+                            </div>
+                            <ul>
+                                <li>Built and maintained full-stack internal tools using Azure Functions (Python & JavaScript), improving on-call response time by <strong>25%</strong> through a custom on-call management web app.</li>
+                                <li>Engineered voicemail-to-text transcription pipelines using Azure Functions, Logic Apps, Speech Services, and Cognitive Services, automatically attaching transcripts to Autotask tickets.</li>
+                                <li>Developed an AI-powered search layer via Azure AI Foundry that generates JSON queries for tickets, tasks, opportunities, projects, and contracts, then feeds results into a secondary AI bot for deep analysis.</li>
+                                <li>Created CI/CD workflows in Azure DevOps for backend services and web apps, automating deployments across environments and standardizing release processes.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>P&amp;S Ravioli Company</h3>
+                                <span class="timeline-role">Full Stack Developer (Freelance)</span>
+                                <span class="timeline-dates">2024</span>
+                            </div>
+                            <ul>
+                                <li>Developed a real-time inventory management platform with Firestore, improving operational efficiency by <strong>30%</strong> and reducing inventory lookup time by <strong>50%</strong>.</li>
+                                <li>Designed dashboards with advanced filtering, search, and PDF reporting to support audits and driver routing decisions.</li>
+                                <li>Enabled live stock updates for multiple locations, increasing driver efficiency by <strong>45%</strong> through better data visibility.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Dolce Vita Gelato</h3>
+                                <span class="timeline-role">Full Stack Developer</span>
+                                <span class="timeline-dates">2023 – 2024</span>
+                            </div>
+                            <ul>
+                                <li>Built a mobile ordering and kiosk system using Node.js and Firebase with Stripe integration and location-based check-ins, reducing wait times by <strong>20%</strong>.</li>
+                                <li>Architected a dynamic digital signage system that syncs menu, pricing, and promotions from Firebase in real-time, cutting pricing errors by <strong>40%</strong> and boosting revenue by <strong>20%</strong>.</li>
+                                <li>Integrated ordering, signage, and admin tools into a cohesive digital platform for the shop.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+           <!-- Projects -->
+            <section id="tab-projects" class="resume-section">
+                <h2>Highlighted Projects</h2>
+                <div class="resume-grid">
+
+                    <!-- Insurance PDF AI Comparison Platform -->
+                    <div class="resume-card">
+                        <h3>Insurance PDF AI Comparison Platform</h3>
+                        <p class="badge">React • Firebase • Cloud Functions • Gemini</p>
+                        <p>
+                            Secure, internal platform for Funari Public Adjusters that ingests carrier and public adjuster estimates,
+                            runs OCR via Cloud Functions, and uses Gemini to generate an AI-powered, side-by-side Markdown synopsis.
+                            Supports PDF and Excel export for negotiation and client reporting.
+                        </p>
+                    </div>
+
+                    <!-- Mobile Ordering System -->
+                    <div class="resume-card">
+                        <h3>Mobile Ordering System (Dolce Vita)</h3>
+                        <p class="badge">Node.js • Firebase • Stripe • Geolocation</p>
+                        <p>
+                            End-to-end mobile ordering solution where customers order from their phones, customize items, and pay via
+                            Stripe. Integrates with in-store systems, supports curbside and table service, and drives a real-time order
+                            status page with location-based automatic check-ins.
+                        </p>
+                    </div>
+
+                    <!-- Web Digital Signage -->
+                    <div class="resume-card">
+                        <h3>Web Digital Signage</h3>
+                        <p class="badge">Firebase • Responsive Web • Admin Panel</p>
+                        <p>
+                            Dynamic signage system that cycles menus, promo videos, and animations based on business hours. Content,
+                            pricing, and availability are fully controlled from a remote admin panel and synced to the display in real time.
+                        </p>
+                    </div>
+
+                    <!-- Kiosk Application -->
+                    <div class="resume-card">
+                        <h3>In-Store Kiosk Application</h3>
+                        <p class="badge">JavaScript • Firebase • UX Design</p>
+                        <p>
+                            Interactive kiosk experience that plays looping media when idle and switches to a touch-driven menu when
+                            engaged. Reflects real-time stock, flavor availability, and specials from the same backend as the mobile
+                            ordering and signage systems.
+                        </p>
+                    </div>
+
+                    <!-- Order Manager -->
+                    <div class="resume-card">
+                        <h3>Order Manager & Operations Dashboard</h3>
+                        <p class="badge">Firebase • Real-Time UI • Geofencing</p>
+                        <p>
+                            Central order management console for Dolce Vita that aggregates mobile, kiosk, and in-store orders into a
+                            unified queue. Staff can update statuses, track real-time progress, and respond to automatic check-ins when
+                            customers arrive for pickup.
+                        </p>
+                    </div>
+
+                    <!-- Inventory Management System for P&S -->
+                    <div class="resume-card">
+                        <h3>Inventory Management System (P&amp;S Ravioli)</h3>
+                        <p class="badge">Firestore • Data Visualization • Multi-Location</p>
+                        <p>
+                            Real-time inventory platform with auto-generated barcodes, multi-location stock tracking, interactive tables,
+                            and analytics dashboards. Reduced lookup time and improved driver routing decisions across store locations.
+                        </p>
+                    </div>
+
+                    <!-- Generic Inventory Management -->
+                    <div class="resume-card">
+                        <h3>Reusable Inventory Management Platform</h3>
+                        <p class="badge">Web App • Alerts • Reporting</p>
+                        <p>
+                            A generalized inventory framework used as the basis for multiple clients, featuring low-stock alerts,
+                            real-time updates, and reporting tools that can be adapted to different businesses and product catalogs.
+                        </p>
+                    </div>
+
+                    <!-- Task Management System -->
+                    <div class="resume-card">
+                        <h3>Task Management System</h3>
+                        <p class="badge">React • Firebase Auth • Firestore</p>
+                        <p>
+                            Full-stack task manager with user authentication, categorized boards, dark mode, and real-time task syncing.
+                            Uses Firestore indexing for fast querying and React hooks for smooth, interactive UI updates.
+                        </p>
+                    </div>
+
+                    <!-- AI Code Analyzer -->
+                    <div class="resume-card">
+                        <h3>AI Code Analyzer</h3>
+                        <p class="badge">OpenAI GPT-4 • JavaScript • APIs</p>
+                        <p>
+                            Web app that accepts code snippets and uses LLMs to explain functionality, flag inefficiencies, and suggest
+                            refactors. Acts as a virtual pair programmer to improve maintainability and teaching value.
+                        </p>
+                    </div>
+
+                    <!-- API Integrations: Stripe & Google Maps -->
+                    <div class="resume-card">
+                        <h3>API Integrations: Stripe & Google Maps</h3>
+                        <p class="badge">Stripe • Google Maps • REST APIs</p>
+                        <p>
+                            Implemented secure payment flows with Stripe and location-aware experiences with Google Maps, including
+                            address validation, embedded maps, and location-based logic to enhance customer experiences.
+                        </p>
+                    </div>
+
+                    <!-- Video Training Web App -->
+                    <div class="resume-card">
+                        <h3>Video Training Web App</h3>
+                        <p class="badge">Firebase • Auth • Progress Tracking</p>
+                        <p>
+                            Training portal that tracks user completion of video modules, stores progress in Firestore, and sends email
+                            notifications when trainings are completed, enabling lightweight LMS-style functionality.
+                        </p>
+                    </div>
+
+                    <!-- Dolce Vita Web Application -->
+                    <div class="resume-card">
+                        <h3>Dolce Vita Web Application</h3>
+                        <p class="badge">Responsive Web • Ordering UX</p>
+                        <p>
+                            Web app that allows guests to place orders directly from tables or cars, with images, descriptions, and status
+                            tracking. Designed specifically for tablet-first usage in a busy café environment.
+                        </p>
+                    </div>
+
+                    <!-- Onsite Invoice Generator & Payment System -->
+                    <div class="resume-card">
+                        <h3>Onsite Invoice Generator & Payment System</h3>
+                        <p class="badge">Custom Billing • Payments • Email</p>
+                        <p>
+                            Tool for service providers to create invoices on-site, process payments, and send receipts instantly. Supports
+                            preset and custom pricing, email notifications, and a streamlined cashflow workflow.
+                        </p>
+                    </div>
+
+                    <!-- On-Call Management Web App (E3) -->
+                    <div class="resume-card">
+                        <h3>On-Call Management Web App</h3>
+                        <p class="badge">Azure Functions • Internal Tools • Automation</p>
+                        <p>
+                            Internal E3 tool that centralizes on-call scheduling, notifications, and escalation logic. Built with Azure
+                            Functions and integrated into existing ticketing workflows to improve on-call response time.
+                        </p>
+                    </div>
+
+                    <!-- Voicemail-to-Ticket Pipeline -->
+                    <div class="resume-card">
+                        <h3>Voicemail → Ticket Transcription Pipeline</h3>
+                        <p class="badge">Azure Speech • Logic Apps • Autotask</p>
+                        <p>
+                            Automated pipeline that takes customer voicemails, runs them through Azure Speech and Logic Apps, and
+                            attaches structured transcripts directly to Autotask tickets for faster triage and resolution.
+                        </p>
+                    </div>
+
+                    <!-- On-Call & Ticket Intelligence Tools -->
+                    <div class="resume-card">
+                        <h3>On-Call & Ticket Intelligence Platform</h3>
+                        <p class="badge">Azure AI • Autotask • Static Web App</p>
+                        <p>
+                            AI-driven query and analytics layer for Autotask that turns natural language into JSON queries across tickets,
+                            tasks, projects, and contracts, then feeds results into an AI bot for summaries and insights surfaced via a
+                            static web UI.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section id="tab-skills" class="resume-section">
+                <h2>Skills</h2>
+                <div class="skills-chips">
+                    <div class="skills-group">
+                        <h3>Languages & Frameworks</h3>
+                        <div class="chip-row">
+                            <span class="chip">Python</span>
+                            <span class="chip">JavaScript</span>
+                            <span class="chip">Java</span>
+                            <span class="chip">Go</span>
+                            <span class="chip">C++</span>
+                            <span class="chip">C#</span>
+                            <span class="chip">React</span>
+                            <span class="chip">Next.js</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3>Web & Backend</h3>
+                        <div class="chip-row">
+                            <span class="chip">HTML</span>
+                            <span class="chip">CSS</span>
+                            <span class="chip">Tailwind</span>
+                            <span class="chip">Bootstrap</span>
+                            <span class="chip">Node.js</span>
+                            <span class="chip">Express</span>
+                            <span class="chip">Django</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3>Cloud & Databases</h3>
+                        <div class="chip-row">
+                            <span class="chip">SQL</span>
+                            <span class="chip">MongoDB</span>
+                            <span class="chip">Firestore</span>
+                            <span class="chip">AWS</span>
+                            <span class="chip">Google Cloud</span>
+                            <span class="chip">Azure</span>
+                            <span class="chip">Docker</span>
+                            <span class="chip">Kubernetes</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3>APIs, DevOps & Process</h3>
+                        <div class="chip-row">
+                            <span class="chip">REST</span>
+                            <span class="chip">GraphQL</span>
+                            <span class="chip">OAuth 2.0</span>
+                            <span class="chip">Git</span>
+                            <span class="chip">GitHub Actions</span>
+                            <span class="chip">Azure DevOps</span>
+                            <span class="chip">CI/CD</span>
+                            <span class="chip">Agile</span>
+                            <span class="chip">Scrum</span>
+                            <span class="chip">Jira</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education + Certs -->
+            <section id="tab-education" class="resume-section">
+                <h2>Education & Certifications</h2>
+                <div class="resume-grid">
+
+                    <!-- Rowan University -->
+                    <div class="resume-card">
+                        <h3>Bachelor of Science, Computer Science</h3>
+                        <p>Rowan University — <strong>Class of 2024</strong></p>
+                    </div>
+
+                    <!-- Rowan College of South Jersey -->
+                    <div class="resume-card">
+                        <h3>Associate of Science, Computer Science</h3>
+                        <p>Rowan College of South Jersey — <strong>Class of 2022</strong></p>
+                    </div>
+
+                       <!-- Eagle Scout -->
+                    <div class="resume-card">
+                        <h3>Eagle Scout</h3>
+                        <p><strong>Boy Scouts of America • Achieved in 2017</strong></p>
+                    </div>
+
+                    <!-- Azure AI-900 -->
+                    <div class="resume-card">
+                        <h3>Microsoft Certified: Azure AI Fundamentals</h3>
+                        <p><strong>AI-900 • 2025</strong></p>
+                    </div>
+
+                    <!-- MS-900 -->
+                    <div class="resume-card">
+                        <h3>Microsoft Certified: Microsoft 365 Fundamentals</h3>
+                        <p><strong>MS-900 • 2024</strong></p>
+                    </div>
+
+                    <!-- Studying: Azure Developer Associate -->
+                    <div class="resume-card">
+                        <h3>Microsoft Certified: Azure Developer Associate</h3>
+                        <p><strong>Exam AZ-204</strong></p>
+                        <p class="small-note">Actively studying — focusing on building, integrating, and deploying Azure-based applications using Functions, Logic Apps, storage services, and secure auth models.</p>
+                    </div>
+
+                    <!-- Studying: Azure Administrator Associate -->
+                    <div class="resume-card">
+                        <h3>Microsoft Certified: Azure Administrator Associate</h3>
+                        <p><strong>Exam AZ-104</strong></p>
+                        <p class="small-note">Actively studying — covering Azure identity, governance, virtual networking, hybrid configurations, and managing cloud infrastructure at scale.</p>
+                    </div>
+
+                    <!-- Studying: Azure DevOps Engineer Expert -->
+                    <div class="resume-card">
+                        <h3>Microsoft Certified: DevOps Engineer Expert</h3>
+                        <p><strong>Exam AZ-400</strong></p>
+                        <p class="small-note">Actively studying — mastering CI/CD pipelines, repo strategies, IaC, release management, environment automation, and cross-team DevOps workflows.</p>
+                    </div>
+
+
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Precison Pixel Innovations. All rights reserved.</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.resume-tab');
+            const sections = document.querySelectorAll('.resume-section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-target');
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    sections.forEach(sec => {
+                        if (sec.id === target.substring(1)) {
+                            sec.classList.add('active-section');
+                        } else {
+                            sec.classList.remove('active-section');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
