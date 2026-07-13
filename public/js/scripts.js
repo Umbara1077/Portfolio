@@ -14,23 +14,32 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const storage = firebase.storage();
 
+// Global side-nav helpers (used by inline onclick)
+function toggleSideNav() {
+    const sideNav = document.getElementById('side-nav');
+    if (sideNav) sideNav.style.width = sideNav.style.width === '280px' ? '0' : '280px';
+}
+function closeSideNav() {
+    const sideNav = document.getElementById('side-nav');
+    if (sideNav) sideNav.style.width = '0';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const sideNav = document.getElementById('side-nav');
 
-    menuToggle.addEventListener('click', () => {
-        if (sideNav.style.width === '250px') {
-            sideNav.style.width = '0';
-        } else {
-            sideNav.style.width = '250px';
-        }
-    });
+    if (menuToggle && sideNav) {
+        menuToggle.addEventListener('click', () => {
+            sideNav.style.width = sideNav.style.width === '280px' ? '0' : '280px';
+        });
 
-    window.addEventListener('click', (event) => {
-        if (event.target !== sideNav && event.target !== menuToggle && !sideNav.contains(event.target) && !menuToggle.contains(event.target)) {
-            sideNav.style.width = '0';
-        }
-    });
+        window.addEventListener('click', (event) => {
+            if (event.target !== sideNav && event.target !== menuToggle &&
+                !sideNav.contains(event.target) && !menuToggle.contains(event.target)) {
+                sideNav.style.width = '0';
+            }
+        });
+    }
     // Handle contact form submission
     const contactForm = document.querySelector('#contact form');
     if (contactForm) {

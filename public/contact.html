@@ -3,73 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact — Dante Corso</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
 </head>
 <body>
+    <div class="bg-orbs">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+    </div>
+
     <header>
         <nav>
             <a href="index.html">
-                <img src="images/logo.jpg" alt="Precison Pixel Studios" class="logo">
+                <img src="images/logo.jpg" alt="Precision Pixel Innovations" class="logo">
             </a>
-            <div class="menu-toggle">
+            <div class="menu-toggle" onclick="toggleSideNav()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="skills.html">Skills</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
-                <li><a href="resume.html" class="active-link">Resume</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="job-request.html">Submit Request</a></li>
-                <li><a href="https://commitstack.com/">WordPress Site</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html" class="active-link">Contact</a></li>
             </ul>
             <div id="side-nav" class="side-nav">
+                <span class="close-btn" onclick="closeSideNav()">&times;</span>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
-                    <li><a href="resume.html" class="active-link">Resume</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="resume.html">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="job-request.html">Submit Request</a></li>
-                    <li><a href="https://commitstack.com/">WordPress Site</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
     <main>
         <section id="linktree">
-           <a href="index.html">
-            <img src="images/logo.jpg" alt="Precison Pixel Studios" class="centered-logo">
-          </a>
-            <h1>Connect with Me</h1>
-            <div class="contact-info">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Precision Pixel Innovations" class="centered-logo">
+            </a>
+            <h1 class="reveal">Connect with Me</h1>
+            <div class="contact-info reveal">
                 <p><strong>Phone:</strong> <a href="tel:+18567230942">(856) 723-0942</a></p>
                 <p><strong>Personal Email:</strong> <a href="mailto:corsodante8@gmail.com">corsodante8@gmail.com</a></p>
                 <p><strong>Job Requests:</strong> <a href="mailto:dante@precisionpixelinnovations.dev">dante@precisionpixelinnovations.dev</a></p>
             </div>
-            <div class="linktree-links">
+            <div class="linktree-links reveal">
                 <a href="https://www.linkedin.com/in/dante-corso/" target="_blank" class="linktree-link">LinkedIn</a>
                 <a href="https://github.com/Umbara1077" target="_blank" class="linktree-link">GitHub</a>
-                <a href="https://www.x.com/Umbara1077?s=09" target="_blank" class="linktree-link">Twitter</a>
+                <a href="https://www.x.com/Umbara1077?s=09" target="_blank" class="linktree-link">Twitter / X</a>
                 <a href="https://www.instagram.com/precisionpixelinnovations/" target="_blank" class="linktree-link">Instagram</a>
                 <a href="https://www.facebook.com/profile.php?id=61560372401424&mibextid=ZbWKwL" target="_blank" class="linktree-link">Facebook</a>
             </div>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 Precison Pixel Innovations. All rights reserved.</p>
+        <p>&copy; 2026 Dante Corso — Precision Pixel Innovations. All rights reserved.</p>
     </footer>
-    <script src="js/scripts.js"></script>
-</body>
-</html>
+
+    <scr

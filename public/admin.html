@@ -34,6 +34,10 @@
     <script src="js/email_notifications.js"></script>
 </head>
 <body>
+    <div class="bg-orbs">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+    </div>
     <div class="container">
         <a href="index.html"><img src="images/logo.jpg" alt="Precision Pixel" class="logo"></a>
     <h1>Admin Page</h1>
@@ -41,5 +45,9 @@
         <p>Protected content visible only to authenticated users.</p>
         <button id="sign-out">Sign Out</button>
     </div>
+    <script>
+        function toggleSideNav() { document.getElementById('side-nav').style.width = '280px'; }
+        function closeSideNav() { document.getElementById('side-nav').style.width = '0'; }
+    </script>
 </body>
 </html>

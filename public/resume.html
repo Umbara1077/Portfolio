@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Precision Pixel Innovations</title>
+    <title>Resume — Dante Corso</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
@@ -15,40 +19,38 @@
 
 <body>
 
-    <div class="gradient-wave"></div>
+    <div class="bg-orbs">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+    </div>
 
     <header>
         <nav>
             <a href="index.html">
-                <img src="images/logo.jpg" alt="Precison Pixel Innovations" class="logo">
+                <img src="images/logo.jpg" alt="Precision Pixel Innovations" class="logo">
             </a>
-            <div class="menu-toggle">
+            <div class="menu-toggle" onclick="toggleSideNav()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="skills.html">Skills</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
+                <li><a href="skills.html">Skills</a></li>
                 <li><a href="resume.html" class="active-link">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="job-request.html">Submit Request</a></li>
-                <li><a href="https://commitstack.com/">WordPress Site</a></li>
             </ul>
             <div id="side-nav" class="side-nav">
+                <span class="close-btn" onclick="closeSideNav()">&times;</span>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
+                    <li><a href="skills.html">Skills</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="job-request.html">Submit Request</a></li>
-                    <li><a href="https://commitstack.com/">WordPress Site</a></li>
                 </ul>
             </div>
         </nav>
@@ -519,12 +521,15 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Precison Pixel Innovations. All rights reserved.</p>
+        <p>&copy; 2026 Dante Corso — Precision Pixel Innovations. All rights reserved.</p>
     </footer>
 
     <script src="js/scripts.js"></script>
 
     <script>
+        function toggleSideNav() { document.getElementById('side-nav').style.width = '280px'; }
+        function closeSideNav() { document.getElementById('side-nav').style.width = '0'; }
+
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.resume-tab');
             const sections = document.querySelectorAll('.resume-section');
@@ -539,14 +544,4 @@
                     sections.forEach(sec => {
                         if (sec.id === target.substring(1)) {
                             sec.classList.add('active-section');
-                        } else {
-                            sec.classList.remove('active-section');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
-</body>
-
-</html>
+                      

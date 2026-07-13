@@ -29,6 +29,10 @@
     </script>
 </head>
 <body>
+    <div class="bg-orbs">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+    </div>
     <div class="container">
         <a href="index.html"><img src="images/logo.jpg" alt="Precision Pixel" class="logo"></a>
     <h1>Sign In</h1>
@@ -38,5 +42,9 @@
         <button id="sign-in">Sign In</button>
         <p id="auth-error" style="color: red; display: none;">Invalid email or password. Please try again.</p>
     </div>
+    <script>
+        function toggleSideNav() { document.getElementById('side-nav').style.width = '280px'; }
+        function closeSideNav() { document.getElementById('side-nav').style.width = '0'; }
+    </script>
 </body>
 </html>

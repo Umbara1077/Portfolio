@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Development</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
      <!-- Firebase SDK -->
      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
@@ -51,36 +55,37 @@
     </style>
 </head>
 <body>
+    <div class="bg-orbs">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+    </div>
     <header>
         <nav>
             <a href="index.html">
                 <img src="images/logo.jpg" alt="Precision Pixel Studios" class="logo">
             </a>
-            <div class="menu-toggle">
+            <div class="menu-toggle" onclick="toggleSideNav()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="skills.html">Skills</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
-                <li><a href="resume.html" class="active-link">Resume</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="resume.html">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="job-request.html">Submit Request</a></li>
             </ul>
             <div id="side-nav" class="side-nav">
+                <span class="close-btn" onclick="closeSideNav()">&times;</span>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
-                    <li><a href="resume.html" class="active-link">Resume</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="resume.html">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="job-request.html">Submit Request</a></li>
                 </ul>
             </div>
         </nav>
@@ -135,7 +140,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Precision Pixel Innovations. All rights reserved.</p>
+        <p>&copy; 2026 Dante Corso — Precision Pixel Innovations. All rights reserved.</p>
     </footer>
     <script src="js/scripts.js"></script>
 </body>
