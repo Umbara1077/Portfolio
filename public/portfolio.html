@@ -295,6 +295,58 @@
             </div>
 
             <div class="portfolio-item">
+                <a href="https://shop.dantecorso.com" target="_blank">
+                    <img src="images/3dlogo.png" alt="Dante Corso 3D Print Shop Logo"
+                        style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                </a>
+
+                <h2>3D Print Online Shop</h2>
+
+                <p class="short-desc">
+                    A modern e-commerce storefront built with Firebase Hosting, Cloud Functions, and Stripe Checkout.
+                    Designed for selling premium multi-color 3D prints with a clean UI, product catalog, and full checkout flow.
+                </p>
+
+                <div class="full-desc" style="display: none;">
+                    <p>
+                        This project is a fully deployed storefront hosted on Firebase, featuring a product grid with search and
+                        sorting, a cart system, and a Stripe-powered checkout workflow. The frontend is built using clean HTML, CSS,
+                        and JavaScript, focusing on speed, simplicity, and a premium user experience.
+                    </p>
+
+                    <p>
+                        Products are displayed dynamically through a structured product catalog in JavaScript, with support for
+                        front/back image previews, detailed descriptions, and responsive layout scaling for desktop and mobile.
+                        All product images are hosted in Firebase Storage and referenced using direct download URLs.
+                    </p>
+
+                    <p>
+                        The checkout system is powered by Firebase Cloud Functions v2 using an Express API backend. When a customer
+                        checks out, the backend creates a secure Stripe Checkout Session and redirects the user to Stripe for payment.
+                        Shipping address and customer email are collected directly through Stripe for reliability and security.
+                    </p>
+
+                    <p>
+                        The shop supports retail pricing, wholesale pricing, and developer testing logic. Wholesale customers can enter
+                        a valid discount code at checkout to automatically receive reduced pricing, while the backend enforces all pricing
+                        rules server-side to prevent manipulation.
+                    </p>
+
+                    <p>
+                        After purchase, customers are redirected to a confirmation page that retrieves order details from Stripe and displays
+                        the confirmation ID, customer email, and shipping address. The overall system is designed to be scalable, maintainable,
+                        and easy to expand with new products and collections over time.
+                    </p>
+                </div>
+
+                <button class="view-more-btn" onclick="toggleDescription(this)">View More</button>
+
+                <div id="social-links">
+                    <a href="https://shop.dantecorso.com" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
                 <a href="https://dolcevitasewell.com">
                     <img src="images/dolce-logo.png" alt="Dolce Vita Logo"
                         style="width: 100px; height: auto; display: block; margin: 0 auto;">
