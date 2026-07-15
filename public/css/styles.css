@@ -2288,7 +2288,7 @@ footer p { margin: 2px 0; }
 }
 
 #side-nav {
-    z-index: 999999 !important;
+    z-index: 999999999 !important;
     position: fixed !important;
     top: 0;
     left: 0;
