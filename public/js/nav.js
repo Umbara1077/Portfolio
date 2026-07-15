@@ -11,7 +11,6 @@
     window.openSideNav = function () {
         const { sideNav, backdrop } = getElements();
         if (!sideNav || !backdrop) return;
-        sideNav.classList.remove('is-closing');
         sideNav.classList.add('is-open');
         backdrop.classList.add('is-visible');
         sideNav.setAttribute('aria-hidden', 'false');
@@ -20,7 +19,6 @@
     window.closeSideNav = function () {
         const { sideNav, backdrop } = getElements();
         if (!sideNav || !backdrop) return;
-        sideNav.classList.add('is-closing');
         sideNav.classList.remove('is-open');
         backdrop.classList.remove('is-visible');
         sideNav.setAttribute('aria-hidden', 'true');
@@ -55,14 +53,6 @@
                 video.src = video.dataset.src;
             }
         });
-
-        if (sideNav) {
-            sideNav.addEventListener('transitionend', function (event) {
-                if (event.propertyName === 'transform' && !sideNav.classList.contains('is-open')) {
-                    sideNav.classList.remove('is-closing');
-                }
-            });
-        }
 
         backdrop.addEventListener('click', window.closeSideNav);
 

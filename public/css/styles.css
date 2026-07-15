@@ -657,8 +657,6 @@ nav ul li a.active-link {
     transform: translate3d(-100%, 0, 0);
     transition: transform 0.25s ease;
     will-change: transform;
-    visibility: hidden;
-    pointer-events: none;
     padding-top: 60px;
     box-shadow: 8px 0 30px rgba(0, 0, 0, 0.9);
     border-right: 1px solid var(--border-soft);
@@ -666,12 +664,6 @@ nav ul li a.active-link {
 
 .side-nav.is-open {
     transform: translate3d(0, 0, 0);
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.side-nav.is-closing {
-    visibility: visible;
 }
 
 .side-nav ul {
