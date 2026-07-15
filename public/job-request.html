@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Job Request</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/nav.js" defer></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
     <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js" defer></script>
 <body>
     <div class="bg-orbs">
         <div class="bg-orb bg-orb-1"></div>
@@ -36,8 +38,18 @@
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="resume.html">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
             </ul>
-            <div id="side-nav" class="side-nav">
+                        <div class="theme-toggle" title="Toggle light/dark mode">
+                <label class="theme-switch" aria-label="Toggle theme">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="theme-switch-track"></span>
+                    <span class="theme-switch-thumb">☀️</span>
+                </label>
+            </div>
+</nav>
+    </header>
+    <div id="side-nav" class="side-nav">
                 <span class="close-btn" onclick="closeSideNav()">&times;</span>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -46,10 +58,9 @@
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
                 </ul>
             </div>
-        </nav>
-    </header>
     <main>
         <section id="job-request">
             <a href="index.html">
@@ -79,6 +90,28 @@
     <footer>
         <p>&copy; 2026 Dante Corso — Precision Pixel Innovations. All rights reserved.</p>
     </footer>
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts.js" defer></script>
+    <script>
+        (function(){
+            function applyTheme(t){
+                document.documentElement.setAttribute("data-theme",t);
+                if(t==="light"){
+                    document.body.style.setProperty("background","#ffffff","important");
+                    document.body.style.setProperty("color","#111111","important");
+                    document.documentElement.style.setProperty("background","#ffffff","important");
+                    if(document.querySelector(".bg-orbs"))document.querySelector(".bg-orbs").style.setProperty("opacity","0","important");
+                } else {
+                    document.body.style.removeProperty("background");
+                    document.body.style.removeProperty("color");
+                    document.documentElement.style.removeProperty("background");
+                    if(document.querySelector(".bg-orbs"))document.querySelector(".bg-orbs").style.removeProperty("opacity");
+                }
+            }
+            var cb=document.getElementById("theme-checkbox"),thumb=document.querySelector(".theme-switch-thumb"),s=localStorage.getItem("dvg-portfolio-theme")||"dark";
+            applyTheme(s);
+            if(cb){cb.checked=(s==="light");if(thumb)thumb.textContent=s==="light"?"🌙":"☀️";}
+            if(cb)cb.addEventListener("change",function(){var n=cb.checked?"light":"dark";applyTheme(n);if(thumb)thumb.textContent=n==="light"?"🌙":"☀️";localStorage.setItem("dvg-portfolio-theme",n);});
+        })();
+    </script>
 </body>
 </html>

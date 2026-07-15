@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Security</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/nav.js" defer></script>
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
-     <!-- Firebase SDK -->
-     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
     <style>
         .video-container {
             width: 100%;
@@ -70,8 +67,18 @@
                 <li><a href="resume.html" class="active-link">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="job-request.html">Submit Request</a></li>
+                <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
             </ul>
-            <div id="side-nav" class="side-nav">
+                        <div class="theme-toggle" title="Toggle light/dark mode">
+                <label class="theme-switch" aria-label="Toggle theme">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="theme-switch-track"></span>
+                    <span class="theme-switch-thumb">☀️</span>
+                </label>
+            </div>
+</nav>
+    </header>
+    <div id="side-nav" class="side-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Me</a></li>
@@ -81,15 +88,14 @@
                     <li><a href="resume.html" class="active-link">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="job-request.html">Submit Request</a></li>
+                    <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
                 </ul>
             </div>
-        </nav>
-    </header>
     <main>
         <section id="video">
             <div class="video-container">
-                <video src="videos/cyber.mp4" autoplay muted loop></video>
-                <video src="videos/cyber-mobile.mp4" autoplay muted loop class="mobile-video"></video>
+                <video data-src="videos/cyber.mp4" autoplay muted loop></video>
+                <video data-src="videos/cyber-mobile.mp4" autoplay muted loop class="mobile-video"></video>
             </div>
         </section>
         <section id="content">
@@ -124,6 +130,27 @@
     <footer>
         <p>&copy; 2024 Precision Pixel Innovations. All rights reserved.</p>
     </footer>
-    <script src="js/scripts.js"></script>
+    <script>
+        (function(){
+            function applyTheme(t){
+                document.documentElement.setAttribute("data-theme",t);
+                if(t==="light"){
+                    document.body.style.setProperty("background","#ffffff","important");
+                    document.body.style.setProperty("color","#111111","important");
+                    document.documentElement.style.setProperty("background","#ffffff","important");
+                    if(document.querySelector(".bg-orbs"))document.querySelector(".bg-orbs").style.setProperty("opacity","0","important");
+                } else {
+                    document.body.style.removeProperty("background");
+                    document.body.style.removeProperty("color");
+                    document.documentElement.style.removeProperty("background");
+                    if(document.querySelector(".bg-orbs"))document.querySelector(".bg-orbs").style.removeProperty("opacity");
+                }
+            }
+            var cb=document.getElementById("theme-checkbox"),thumb=document.querySelector(".theme-switch-thumb"),s=localStorage.getItem("dvg-portfolio-theme")||"dark";
+            applyTheme(s);
+            if(cb){cb.checked=(s==="light");if(thumb)thumb.textContent=s==="light"?"🌙":"☀️";}
+            if(cb)cb.addEventListener("change",function(){var n=cb.checked?"light":"dark";applyTheme(n);if(thumb)thumb.textContent=n==="light"?"🌙":"☀️";localStorage.setItem("dvg-portfolio-theme",n);});
+        })();
+    </script>
 </body>
 </html>

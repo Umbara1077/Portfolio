@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume — Dante Corso</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/nav.js" defer></script>
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
 </head>
 
 <body>
@@ -29,7 +28,7 @@
             <a href="index.html">
                 <img src="images/logo.jpg" alt="Precision Pixel Innovations" class="logo">
             </a>
-            <div class="menu-toggle" onclick="toggleSideNav()">
+            <div class="menu-toggle">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -41,8 +40,18 @@
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="resume.html" class="active-link">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
             </ul>
-            <div id="side-nav" class="side-nav">
+                        <div class="theme-toggle" title="Toggle light/dark mode">
+                <label class="theme-switch" aria-label="Toggle theme">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="theme-switch-track"></span>
+                    <span class="theme-switch-thumb">☀️</span>
+                </label>
+            </div>
+</nav>
+    </header>
+    <div id="side-nav" class="side-nav">
                 <span class="close-btn" onclick="closeSideNav()">&times;</span>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -51,10 +60,9 @@
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
                 </ul>
             </div>
-        </nav>
-    </header>
 
     <main class="container">
         <section id="resume">
@@ -105,17 +113,11 @@
                                 <span class="timeline-dates">2024 – Present</span>
                             </div>
                             <ul>
-                                <li>Built and maintained full-stack internal tools using Azure Functions (Python &
-                                    JavaScript), improving on-call response time by <strong>25%</strong> through a
-                                    custom on-call management web app.</li>
-                                <li>Engineered voicemail-to-text transcription pipelines using Azure Functions, Logic
-                                    Apps, Speech Services, and Cognitive Services, automatically attaching transcripts
-                                    to Autotask tickets.</li>
-                                <li>Developed an AI-powered search layer via Azure AI Foundry that generates JSON
-                                    queries for tickets, tasks, opportunities, projects, and contracts, then feeds
-                                    results into a secondary AI bot for deep analysis.</li>
-                                <li>Created CI/CD workflows in Azure DevOps for backend services and web apps,
-                                    automating deployments across environments and standardizing release processes.</li>
+                                <li>Architected an end-to-end ACS Call Transcription & Time-Entry Automation pipeline across three independent Azure Function Apps — answering incoming calls via Azure Communication Services, recording and storing audio to Blob Storage, transcribing with Azure Speech batch jobs, analyzing with Azure OpenAI, and posting structured time-entry notes directly to Autotask tickets with full idempotency and correlation ID tracing.</li>
+                                <li>Built a Network Manager Portal providing unified monitoring and analytics for UniFi and SonicWall devices across multiple client sites — real-time latency tracking, site-down alerting, CVE firmware monitoring, automated ticket creation on detected failures, and a multi-site analytics dashboard.</li>
+                                <li>Developed an On-Call IT Engineer Management System that delivers real-time ticket notifications to on-call engineers with full contextual breakdowns — priority, affected systems, history, and recommended context — reducing mean response time by <strong>25%</strong>.</li>
+                                <li>Developed an AI-powered search layer via Azure AI Foundry that generates JSON queries for tickets, tasks, opportunities, projects, and contracts, then feeds results into a secondary AI bot for deep analysis and summary.</li>
+                                <li>Created CI/CD workflows in Azure DevOps for backend services and web apps, automating deployments across environments and standardizing release processes.</li>
                             </ul>
                         </div>
                     </div>
@@ -148,19 +150,14 @@
                             <div class="timeline-header">
                                 <h3>Dolce Vita Gelato</h3>
                                 <span class="timeline-role">Full Stack Developer</span>
-                                <span class="timeline-dates">2023 – 2024</span>
+                                <span class="timeline-dates">2023 – Present</span>
                             </div>
                             <ul>
-                                <li>Built a mobile ordering and kiosk system using Node.js and Firebase with Stripe
-                                    integration and location-based check-ins, reducing wait times by
-                                    <strong>20%</strong>.
-                                </li>
-                                <li>Architected a dynamic digital signage system that syncs menu, pricing, and
-                                    promotions from Firebase in real-time, cutting pricing errors by
-                                    <strong>40%</strong> and boosting revenue by <strong>20%</strong>.
-                                </li>
-                                <li>Integrated ordering, signage, and admin tools into a cohesive digital platform for
-                                    the shop.</li>
+                                <li>Built a mobile ordering and kiosk system with Stripe integration and GPS-based geofenced check-ins, reducing customer wait times by <strong>20%</strong> and feeding all orders into a unified real-time queue.</li>
+                                <li>Architected a dynamic digital signage and gelato management system — in-store displays sync menu, pricing, and promotions from Firebase in real time, while the admin panel controls active flavors, sold-out toggles, and daily specials, cutting pricing errors by <strong>40%</strong>.</li>
+                                <li>Built a React + TypeScript Recipe & Flavor Lab that digitizes the gelato recipe workbook — automated ingredient scaling math, flavor management, and live Firestore sync replace manual spreadsheet workflows.</li>
+                                <li>Developed a multi-module Inventory & Supply Management platform for tracking ingredient stock across locations — add, use, transfer, search, and process order queues, all secured with Firebase Auth.</li>
+                                <li>Unified all tools under a private Command Center dashboard and Staff Passport portal, giving the team role-gated single-click access to every operational system.</li>
                             </ul>
                         </div>
                     </div>
@@ -351,39 +348,57 @@
                         </p>
                     </div>
 
-                    <!-- On-Call Management Web App (E3) -->
+                    <!-- ACS Call Transcription (E3) -->
                     <div class="resume-card">
-                        <h3>On-Call Management Web App</h3>
-                        <p class="badge">Azure Functions • Internal Tools • Automation</p>
+                        <h3>ACS Call Transcription & Time-Entry Automation</h3>
+                        <p class="badge">Azure Functions • Azure Communication Services • Azure Speech • Azure OpenAI • Python • Autotask</p>
                         <p>
-                            Internal E3 tool that centralizes on-call scheduling, notifications, and escalation logic.
-                            Built with Azure
-                            Functions and integrated into existing ticketing workflows to improve on-call response time.
+                            Three-stage serverless pipeline built for E3 IT Services. The first Function App answers incoming ACS calls, plays consent audio, records the conversation, and uploads WAV chunks to Blob Storage. The second transcribes recordings using Azure Speech batch jobs and sends the transcript to Azure OpenAI for structured analysis, extracting engineer name, full transcript, and a professional time-entry summary. The third resolves the engineer in Autotask and posts the generated note to their active ticket. Full idempotency tracking, correlation ID tracing, and prompt-injection safeguards throughout.
                         </p>
                     </div>
 
-                    <!-- Voicemail-to-Ticket Pipeline -->
+                    <!-- Network Manager Portal (E3) -->
                     <div class="resume-card">
-                        <h3>Voicemail → Ticket Transcription Pipeline</h3>
-                        <p class="badge">Azure Speech • Logic Apps • Autotask</p>
+                        <h3>Network Manager Portal</h3>
+                        <p class="badge">UniFi • SonicWall • CVE Monitoring • Network Analytics • Autotask</p>
                         <p>
-                            Automated pipeline that takes customer voicemails, runs them through Azure Speech and Logic
-                            Apps, and
-                            attaches structured transcripts directly to Autotask tickets for faster triage and
-                            resolution.
+                            Comprehensive multi-site network monitoring and analytics platform for E3 IT Services. Monitors UniFi access points, switches, and gateways alongside SonicWall firewalls in real time — tracking latency, bandwidth, device health, and uptime across all client sites. Sends instant site-down alerts and automatically creates Autotask tickets on detected failures. CVE monitoring flags known vulnerabilities on active firmware versions, while the analytics dashboard surfaces traffic trends, anomaly patterns, and per-device performance history.
+                        </p>
+                    </div>
+
+                    <!-- On-Call Management Web App (E3) -->
+                    <div class="resume-card">
+                        <h3>On-Call IT Engineer Management System</h3>
+                        <p class="badge">Azure Functions • Notifications • Autotask • Automation</p>
+                        <p>
+                            Internal E3 IT Services platform that manages on-call engineer rotations and automates ticket notification delivery. When an on-call ticket is created, the system identifies the assigned engineer, sends real-time notifications, and delivers a full contextual breakdown — priority, affected systems, ticket history, and recommended context — ensuring engineers are fully briefed before they respond. Reduced mean on-call response time by <strong>25%</strong>.
                         </p>
                     </div>
 
                     <!-- On-Call & Ticket Intelligence Tools -->
                     <div class="resume-card">
-                        <h3>On-Call & Ticket Intelligence Platform</h3>
-                        <p class="badge">Azure AI • Autotask • Static Web App</p>
+                        <h3>Autotask AI Query & Intelligence Platform</h3>
+                        <p class="badge">Azure AI Foundry • Autotask • Static Web App</p>
                         <p>
-                            AI-driven query and analytics layer for Autotask that turns natural language into JSON
-                            queries across tickets,
-                            tasks, projects, and contracts, then feeds results into an AI bot for summaries and insights
-                            surfaced via a
-                            static web UI.
+                            AI-driven query and analytics layer for Autotask that turns natural language into structured JSON queries across tickets, tasks, projects, opportunities, and contracts, then feeds results into a secondary AI bot for summaries and deep insights. Surfaced via a static web UI for the E3 engineering team.
+                        </p>
+                    </div>
+
+                    <!-- DVG Recipe & Flavor Lab -->
+                    <div class="resume-card">
+                        <h3>Gelato Recipe & Flavor Lab</h3>
+                        <p class="badge">React • TypeScript • Vite • Tailwind • Firebase • Firestore</p>
+                        <p>
+                            Internal React + TypeScript web app built for Dolce Vita Gelato that replaces the manual Excel recipe workbook. Browse and create gelato flavors, select bases, manage ingredients, and let the app handle all scaling math automatically. Recipes sync live to Firestore and are accessible to the team from any device. Firebase Auth protected.
+                        </p>
+                    </div>
+
+                    <!-- DVG Inventory & Supply Management -->
+                    <div class="resume-card">
+                        <h3>Gelato Inventory & Supply Management</h3>
+                        <p class="badge">JavaScript • Firebase Auth • Firestore • Multi-Module</p>
+                        <p>
+                            Multi-module supply tracking platform for Dolce Vita Gelato. Separate modules handle adding incoming stock, logging usage, transferring inventory between locations, processing order queues, searching inventory, and viewing an admin overview. Each route is secured with Firebase Auth and all data is stored in Firestore for real-time access across the team.
                         </p>
                     </div>
 
@@ -494,54 +509,4 @@
                         <h3>Microsoft Certified: Azure Developer Associate</h3>
                         <p><strong>Exam AZ-204</strong></p>
                         <p class="small-note">Actively studying — focusing on building, integrating, and deploying
-                            Azure-based applications using Functions, Logic Apps, storage services, and secure auth
-                            models.</p>
-                    </div>
-
-                    <!-- Studying: Azure Administrator Associate -->
-                    <div class="resume-card">
-                        <h3>Microsoft Certified: Azure Administrator Associate</h3>
-                        <p><strong>Exam AZ-104</strong></p>
-                        <p class="small-note">Actively studying — covering Azure identity, governance, virtual
-                            networking, hybrid configurations, and managing cloud infrastructure at scale.</p>
-                    </div>
-
-                    <!-- Studying: Azure DevOps Engineer Expert -->
-                    <div class="resume-card">
-                        <h3>Microsoft Certified: DevOps Engineer Expert</h3>
-                        <p><strong>Exam AZ-400</strong></p>
-                        <p class="small-note">Actively studying — mastering CI/CD pipelines, repo strategies, IaC,
-                            release management, environment automation, and cross-team DevOps workflows.</p>
-                    </div>
-
-
-                </div>
-            </section>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Dante Corso — Precision Pixel Innovations. All rights reserved.</p>
-    </footer>
-
-    <script src="js/scripts.js"></script>
-
-    <script>
-        function toggleSideNav() { document.getElementById('side-nav').style.width = '280px'; }
-        function closeSideNav() { document.getElementById('side-nav').style.width = '0'; }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('.resume-tab');
-            const sections = document.querySelectorAll('.resume-section');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const target = tab.getAttribute('data-target');
-
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-
-                    sections.forEach(sec => {
-                        if (sec.id === target.substring(1)) {
-                            sec.classList.add('active-section');
-                      
+  

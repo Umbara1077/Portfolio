@@ -3,19 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Connect — Dante Corso</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/nav.js" defer></script>
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ========== Connect Page ========== */
+        #connect-page {
+            padding: 90px 0 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Spotlight glow behind the headline */
+        .connect-spotlight {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 360px;
+            background: radial-gradient(ellipse at center, rgba(212,175,122,0.12) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .connect-inner {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ---- Headline ---- */
+        .connect-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+            margin-bottom: 18px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeUp 0.6s ease forwards 0.1s;
+        }
+
+        .connect-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            color: var(--text-main);
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            margin-bottom: 22px;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 0.65s ease forwards 0.2s;
+        }
+
+        .connect-headline .gold { color: var(--accent-2); }
+
+        .connect-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.98rem, 2vw, 1.1rem);
+            color: var(--text-muted);
+            max-width: 500px;
+            line-height: 1.78;
+            margin-bottom: 72px;
+            opacity: 0;
+            transform: translateY(14px);
+            animation: fadeUp 0.65s ease forwards 0.35s;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---- Social Cards Grid ---- */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto 64px;
+        }
+
+        .social-card {
+            position: relative;
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 22px;
+            padding: 48px 28px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+                        border-color 0.3s ease,
+                        box-shadow 0.35s ease,
+                        background 0.3s ease;
+            opacity: 0;
+            transform: translateY(28px);
+        }
+
+        .social-card.card-in {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.34,1.56,0.64,1),
+                        border-color 0.3s ease, box-shadow 0.35s ease, background 0.3s ease;
+        }
+
+        /* Platform-specific top accent bar */
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            border-radius: 22px 22px 0 0;
+            background: var(--card-accent, rgba(212,175,122,0.6));
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-card:hover::before { opacity: 1; }
+
+        /* Shimmer sweep on hover */
+        .social-card::after {
+            content: '';
+            position: absolute;
+            top: -60%; left: -80%;
+            width: 60%; height: 220%;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%);
+            transition: left 0.6s ease;
+            pointer-events: none;
+        }
+        .social-card:hover::after { left: 130%; }
+
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(212,175,122,0.45);
+            box-shadow: 0 0 0 1px rgba(212,175,122,0.15),
+                        0 0 40px rgba(212,175,122,0.18),
+                        0 24px 56px rgba(0,0,0,0.6);
+            background: rgba(212,175,122,0.055);
+        }
+
+        /* Platform colors */
+        .social-card.linkedin { --card-accent: linear-gradient(90deg, #c9a96e, #d4af7a, #e8c98a); }
+        .social-card.github   { --card-accent: linear-gradient(90deg, #d0d0d0, #ffffff, #c0c0c0); }
+        .social-card.instagram { --card-accent: linear-gradient(90deg, #d4af7a, #e8c98a, #f0d9a0); }
+
+        /* Icon container */
+        .social-icon-wrap {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 4px;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .social-card:hover .social-icon-wrap {
+            background: rgba(212,175,122,0.1);
+            border-color: rgba(212,175,122,0.35);
+        }
+
+        .social-platform {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .social-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            max-width: 200px;
+        }
+
+        .social-handle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            color: var(--accent-2);
+            word-break: break-all;
+            padding: 0 4px;
+            opacity: 0.85;
+        }
+
+        .social-btn {
+            display: inline-block;
+            margin-top: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 999px;
+            padding: 8px 22px;
+            letter-spacing: 0.05em;
+            transition: background 0.25s, color 0.25s, border-color 0.25s;
+        }
+
+        .social-card:hover .social-btn {
+            background: rgba(212,175,122,0.2);
+            border-color: rgba(212,175,122,0.5);
+            color: var(--accent-2);
+        }
+
+        /* ---- Divider ---- */
+        .connect-divider {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            width: 100%;
+            max-width: 440px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.9s;
+        }
+
+        .connect-divider::before,
+        .connect-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+
+        /* ---- CTA Button ---- */
+        .cta-message-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0d0d0d;
+            background: var(--accent-2);
+            padding: 16px 42px;
+            border-radius: 14px;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 1.05s;
+            transition: background 0.2s, transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s;
+        }
+
+        .cta-message-btn:hover {
+            background: #e8c98a;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 36px rgba(212,175,122,0.4);
+        }
+
+        /* ---- Availability badge ---- */
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #6ee7b7;
+            background: rgba(110,231,183,0.08);
+            border: 1px solid rgba(110,231,183,0.2);
+            border-radius: 999px;
+            padding: 7px 18px;
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.05s;
+        }
+
+        .availability-badge .dot {
+            width: 7px;
+            height: 7px;
+            background: #6ee7b7;
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.4; transform: scale(0.7); }
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 720px) {
+            .social-grid { grid-template-columns: 1fr; max-width: 360px; }
+            #connect-page { padding: 60px 0 50px; }
+            .connect-headline { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+        }
+
+        @media (min-width: 721px) and (max-width: 980px) {
+            .social-grid { grid-template-columns: repeat(2, 1fr); max-width: 620px; }
+        }
+    </style>
 </head>
 <body>
+    <!-- Background orbs -->
+    <div class="bg-orbs">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
     <header>
         <nav>
             <a href="index.html">
-                <img src="images/logo.jpg" alt="Precison Pixel Studios" class="logo">
+                <img src="images/logo.jpg" alt="Precision Pixel Innovations" class="logo">
             </a>
             <div class="menu-toggle">
                 <div class="bar"></div>
@@ -24,60 +349,127 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="skills.html">Skills</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
-                <li><a href="resume.html" class="active-link">Resume</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="resume.html">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="linktree.html">Link Tree</a></li>
-                <li><a href="job-request.html">Submit Request</a></li>
-                <li><a href="https://commitstack.com/">WordPress Site</a></li>
+                <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
             </ul>
-            <div id="side-nav" class="side-nav">
+                        <div class="theme-toggle" title="Toggle light/dark mode">
+                <label class="theme-switch" aria-label="Toggle theme">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="theme-switch-track"></span>
+                    <span class="theme-switch-thumb">☀️</span>
+                </label>
+            </div>
+</nav>
+    </header>
+    <div id="side-nav" class="side-nav">
+                <span class="close-btn" onclick="closeSideNav()">&times;</span>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="devops-architecture.html">DevOps & Architecture</a></li>
-                    <li><a href="resume.html" class="active-link">Resume</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="resume.html">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="linktree.html">Link Tree</a></li>
-                    <li><a href="job-request.html">Submit Request</a></li>
-                    <li><a href="https://commitstack.com/">WordPress Site</a></li>
+                    <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
                 </ul>
             </div>
-        </nav>
-    </header>
+
     <main>
-        <section id="contact">
-            <a href="index.html">
-                <img src="images/logo.jpg" alt="Precison Pixel Studios" class="centered-logo">
-              </a>
-            <h1>Contact Me</h1>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-            <div id="contact-response" class="response-message"></div>
-            <div id="social-links">
-                <h2>Connect with me</h2>
-                <a href="https://www.linkedin.com/in/dante-corso/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/Umbara1077" target="_blank">GitHub</a>
-                <a href="https://www.instagram.com/precisionpixelstudio/" target="_blank">Instagram</a>
-            <!--<a href="https://www.facebook.com/dante.corso.10/" target="_blank">Facebook</a> -->
+        <section id="connect-page">
+            <div class="connect-spotlight"></div>
+            <div class="connect-inner">
+
+                <!-- Availability badge -->
+                <div class="availability-badge">
+                    <span class="dot"></span>
+                    Available for new opportunities
+                </div>
+
+                <p class="connect-eyebrow">Get In Touch</p>
+                <h1 class="connect-headline">Let's <span class="gold">Connect</span></h1>
+                <p class="connect-subtitle">Open to new opportunities, collaborations, and conversations. Find me on the platforms below — or send me a direct message.</p>
+
+                <!-- Social cards -->
+                <div class="social-grid">
+
+                    <a href="https://www.linkedin.com/in/dante-corso/" target="_blank" rel="noopener noreferrer" class="social-card linkedin">
+                        <div class="social-icon-wrap">💼</div>
+                        <div class="social-platform">LinkedIn</div>
+                        <p class="social-desc">Professional network, career updates, and industry connections.</p>
+                        <div class="social-handle">dante-corso</div>
+                        <span class="social-btn">Connect →</span>
+                    </a>
+
+                    <a href="https://github.com/Umbara1077" target="_blank" rel="noopener noreferrer" class="social-card github">
+                        <div class="social-icon-wrap">🐙</div>
+                        <div class="social-platform">GitHub</div>
+                        <p class="social-desc">Open source projects, repos, and code I've shipped in the wild.</p>
+                        <div class="social-handle">Umbara1077</div>
+                        <span class="social-btn">Follow →</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/precisionpixelstudio/" target="_blank" rel="noopener noreferrer" class="social-card instagram">
+                        <div class="social-icon-wrap">📸</div>
+                        <div class="social-platform">Instagram</div>
+                        <p class="social-desc">Behind-the-scenes builds, creative projects, and studio work.</p>
+                        <div class="social-handle">@precisionpixelstudio</div>
+                        <span class="social-btn">Follow →</span>
+                    </a>
+
+                </div>
+
+                <div class="connect-divider">or send a message</div>
+
+                <a href="contact.html" class="cta-message-btn">✉️ Send Me a Message</a>
+
             </div>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 Precison Pixel Innovations. All rights reserved.</p>
+        <p>&copy; 2026 Dante Corso — Precision Pixel Innovations. All rights reserved.</p>
     </footer>
-    <script src="js/scripts.js"></script>
+
+    <script>
+        // Staggered card entrance
+        const cards = document.querySelectorAll('.social-card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('card-in');
+                    }, Array.from(cards).indexOf(entry.target) * 130);
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        cards.forEach(c => cardObserver.observe(c));
+</script>
+    <script>
+        (function(){
+            function applyTheme(t){
+                document.documentElement.setAttribute("data-theme",t);
+                if(t==="light"){
+                    document.body.style.setProperty("background","#ffffff","important");
+                    document.body.style.setProperty("color","#111111","important");
+                    document.documentElement.style.setProperty("background","#ffffff","important");
+                    if(document.querySelector(".bg-orbs"))document.querySelector(".bg-orbs").style.setProperty("opacity","0","important");
+                } else {
+                    document.body.style.removeProperty("background");
+                    document.body.style.removeProperty("color");
+                    document.documentElement.style.removeProperty("background");
+                    if(document.querySelector(".bg-orbs"))document.querySelector(".bg-orbs").style.removeProperty("opacity");
+                }
+            }
+            var cb=document.getElementById("theme-checkbox"),thumb=document.querySelector(".theme-switch-thumb"),s=localStorage.getItem("dvg-portfolio-theme")||"dark";
+            applyTheme(s);
+            if(cb){cb.checked=(s==="light");if(thumb)thumb.textContent=s==="light"?"🌙":"☀️";}
+            if(cb)cb.addEventListener("change",function(){var n=cb.checked?"light":"dark";applyTheme(n);if(thumb)thumb.textContent=n==="light"?"🌙":"☀️";localStorage.setItem("dvg-portfolio-theme",n);});
+        })();
+    </script>
 </body>
 </html>

@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio — Dante Corso</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/nav.js" defer></script>
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
 </head>
 
 <body>
@@ -28,7 +27,7 @@
             <a href="index.html">
                 <img src="images/logo.jpg" alt="Precision Pixel Innovations" class="logo">
             </a>
-            <div class="menu-toggle" onclick="toggleSideNav()">
+            <div class="menu-toggle">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -41,7 +40,16 @@
                 <li><a href="resume.html">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div id="side-nav" class="side-nav">
+                        <div class="theme-toggle" title="Toggle light/dark mode">
+                <label class="theme-switch" aria-label="Toggle theme">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="theme-switch-track"></span>
+                    <span class="theme-switch-thumb">☀️</span>
+                </label>
+            </div>
+</nav>
+    </header>
+    <div id="side-nav" class="side-nav">
                 <span class="close-btn" onclick="closeSideNav()">&times;</span>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -52,8 +60,6 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-        </nav>
-    </header>
 
     <main>
         <section id="portfolio">
@@ -62,334 +68,387 @@
 
             <div class="portfolio-grid">
 
-                <!-- Dolce Vita Command Center -->
-                <div class="portfolio-item reveal">
-                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" class="card-logo">
-                    <h2>DVG Command Center</h2>
-                    <p class="short-desc">Admin dashboard for Dolce Vita Gelato with 9 animated morphing blob buttons linking to all DVG tools — Digital Signage, Pricing Menu, Supply Hub, Gelato Lab, DVG Passport, Marketing Hub, and Mobile Orders.</p>
+                <!-- ===== DOLCE VITA GELATO ===== -->
+
+                <!-- DVG — Command Center -->
+                <div class="portfolio-item reveal card-theme-gelato">
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>Dolce Vita Gelato — Command Center</h2>
+                    <p class="short-desc">The private nerve center for all Dolce Vita Gelato operations — a Firebase-authenticated dashboard with 9 animated morphing-blob buttons that launch every internal system: Digital Signage &amp; Gelato Management, the Self-Order Kiosk, Mobile Ordering, Order Manager, Staff Passport, Recipe Lab, Inventory, and more. Every DVG tool flows through here.</p>
                     <div class="card-tags">
-                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Firebase Auth</span>
                         <span class="card-tag">JavaScript</span>
                         <span class="card-tag">Admin Dashboard</span>
                     </div>
-                    <a href="https://dolcevitasinage.web.app" target="_blank" class="card-cta">View Project →</a>
                     <div class="card-overlay">
-                        <p>Central hub connecting all Dolce Vita Gelato digital tools. Features animated morphing blob navigation buttons and real-time Firebase integration across 7+ sub-applications.</p>
+                        <span class="card-private-badge">🔒 Private Admin Tool</span>
                     </div>
                 </div>
 
-                <!-- Caffè Digital Signage -->
-                <div class="portfolio-item reveal">
-                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" class="card-logo">
-                    <h2>Caffè Digital Signage</h2>
-                    <p class="short-desc">Data-driven digital menu display with a full admin editor, video backgrounds, and real-time Firebase sync. Mobile-responsive with business-hours auto-switching.</p>
+                <!-- DVG — Digital Signage & Gelato Management -->
+                <div class="portfolio-item reveal card-theme-gelato">
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>Dolce Vita Gelato — Digital Signage &amp; Gelato Management</h2>
+                    <p class="short-desc">A dual-purpose private platform — the customer-facing side drives the in-store display screens with real-time Firebase sync, looping video backgrounds, and auto-switching seasonal layouts. The admin side is a full gelato management system: control active flavors, toggle sold-out items, update pricing, manage daily specials, and push changes live to every display instantly. Linked directly from the Command Center.</p>
                     <div class="card-tags">
                         <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Responsive Web</span>
+                        <span class="card-tag">Real-Time Sync</span>
+                        <span class="card-tag">Gelato Management</span>
                         <span class="card-tag">Admin Panel</span>
                     </div>
-                    <a href="https://dolcevitasinage.web.app/" target="_blank" class="card-cta">View Project →</a>
                     <div class="card-overlay">
-                        <p>Dynamic signage system that cycles menus, promo videos, and animations. All content controlled remotely via admin panel, synced to display in real time. Auto-switches to a "Closed" page outside business hours.</p>
+                        <span class="card-private-badge">🔒 Private Admin Tool</span>
                     </div>
                 </div>
 
-                <!-- Gelato Mobile Ordering App -->
-                <div class="portfolio-item reveal">
-                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" class="card-logo">
-                    <h2>Gelato Mobile Ordering</h2>
-                    <p class="short-desc">Customer-facing mobile order app with Italian-themed animated UI, full cart system, Stripe payments, geolocation check-in, and Firebase backend.</p>
+                <!-- DVG — Mobile Ordering -->
+                <div class="portfolio-item reveal card-theme-gelato">
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>Dolce Vita Gelato — Mobile Ordering</h2>
+                    <p class="short-desc">Customer-facing mobile ordering app built for Dolce Vita Gelato — features an animated Italian-themed UI, a full cart and checkout flow powered by Stripe, and GPS-based geofenced check-in that automatically pings staff the moment a customer arrives. Orders land directly in the Order Manager in real time.</p>
                     <div class="card-tags">
-                        <span class="card-tag">Node.js</span>
                         <span class="card-tag">Firebase</span>
                         <span class="card-tag">Stripe</span>
                         <span class="card-tag">Geolocation</span>
                     </div>
-                    <a href="https://mobilecoffeeorder.web.app" target="_blank" class="card-cta">View Project →</a>
                     <div class="card-overlay">
-                        <p>Full ordering flow: browse menu, customize items, pay via Stripe, then track real-time order status. Location-based auto check-in notifies staff when a customer arrives for pickup.</p>
+                        <a href="https://dolcevitasewell-mobileorder.com" target="_blank" class="card-cta">View Project →</a>
                     </div>
                 </div>
 
-                <!-- DVG Passport -->
-                <div class="portfolio-item reveal">
-                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" class="card-logo">
-                    <h2>DVG Passport</h2>
-                    <p class="short-desc">Internal staff tool for Dolce Vita Gelato. Firebase-hosted, role-gated access to internal operational workflows and employee tools.</p>
+                <!-- DVG — Self-Order Kiosk -->
+                <div class="portfolio-item reveal card-theme-gelato">
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>Dolce Vita Gelato — Self-Order Kiosk</h2>
+                    <p class="short-desc">In-store touchscreen ordering kiosk designed for the DVG counter — displays looping branded video content when idle, then switches to a full interactive menu on first touch. Sold-out items are toggled from the admin panel and reflect on the kiosk instantly. Orders feed into the same real-time queue as mobile and walk-in orders.</p>
                     <div class="card-tags">
+                        <span class="card-tag">JavaScript</span>
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Touch UX</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </div>
+
+                <!-- DVG — Order Manager -->
+                <div class="portfolio-item reveal card-theme-gelato">
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>Dolce Vita Gelato — Order Manager</h2>
+                    <p class="short-desc">Staff-facing order management console that pulls mobile app, kiosk, and walk-in orders into a single real-time Firestore-backed queue. Geofencing automatically surfaces an arrival alert the moment a mobile customer enters the pickup zone — no manual check-in needed. The live site at dolcevitasewell.com is the customer-side entry point for this system.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Real-Time</span>
+                        <span class="card-tag">Geofencing</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </div>
+
+                <!-- DVG — Staff Passport -->
+                <div class="portfolio-item reveal card-theme-gelato">
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>Dolce Vita Gelato — Staff Passport</h2>
+                    <p class="short-desc">Role-gated internal staff portal for Dolce Vita Gelato employees — secured with Firebase Authentication so only approved team members get in. Once authenticated, staff get one-click access to their assigned operational tools, schedules, shift resources, and internal workflows. Roles control exactly what each employee can see and do.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase Auth</span>
                         <span class="card-tag">Firebase</span>
                         <span class="card-tag">Internal Tool</span>
-                        <span class="card-tag">Auth</span>
                     </div>
-                    <a href="https://dvgpassport.web.app" target="_blank" class="card-cta">View Project →</a>
                     <div class="card-overlay">
-                        <p>Staff-only portal providing access to internal DVG resources, schedules, and operational tools — secured via Firebase Authentication with role-based access control.</p>
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
                     </div>
                 </div>
 
-                <!-- Mobile Ordering System -->
-                <div class="portfolio-item reveal">
-                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" class="card-logo">
-                    <h2>Mobile Ordering System</h2>
-                    <p class="short-desc">Seamless mobile ordering platform allowing customers to browse, customize, and order with real-time status tracking and Stripe payment processing.</p>
+                <!-- DVG — Live Demo (Gelato Management + Signage + Mobile Order) -->
+                <div class="portfolio-item reveal card-theme-gelato">
+                    <div class="card-demo-ribbon">DEMO</div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>Dolce Vita Gelato — Interactive Demo</h2>
+                    <p class="short-desc">A fully interactive demo environment showcasing the Gelato Management System, Digital Signage display, and Mobile Ordering app — all running on realistic fake data. Explore how flavors are managed, how the in-store displays update in real time, and how the mobile ordering flow works, without touching any live production data.</p>
                     <div class="card-tags">
-                        <span class="card-tag">Node.js</span>
+                        <span class="card-tag">Live Demo</span>
                         <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Stripe</span>
+                        <span class="card-tag">Fake Data</span>
                     </div>
-                    <a href="https://dolcevitasewell-mobileorder.com/" target="_blank" class="card-cta">View Project →</a>
                     <div class="card-overlay">
-                        <p>Integrates with the in-store kiosk for a unified experience. Supports curbside & dine-in, geolocation auto check-in, and real-time order status updates for customers and staff.</p>
+                        <a href="https://gelato-system-demo.web.app" target="_blank" class="card-cta">Try the Demo →</a>
                     </div>
                 </div>
 
-                <!-- Insurance PDF AI Platform -->
-                <div class="portfolio-item reveal">
-                    <img src="images/funari-logo.png" alt="Funari Public Adjusters Logo" class="card-logo">
-                    <h2>Insurance PDF AI Platform</h2>
-                    <p class="short-desc">Secure React + Firebase platform for insurance adjusters — uploads carrier estimates, runs OCR, and generates AI-powered side-by-side comparison reports exportable as PDF or Excel.</p>
+                <!-- DVG — Gelato Recipe System -->
+                <div class="portfolio-item reveal card-theme-gelato">
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>Dolce Vita Gelato — Recipe &amp; Flavor Lab</h2>
+                    <p class="short-desc">A React + TypeScript internal tool that replaces the gelato recipe workbook — browse and create flavors, select bases, manage ingredients, and let the app handle all the scaling math automatically. Built with Vite, Tailwind, and Firestore so recipes are always live and accessible to the team. Firebase Auth protected and accessible from the Command Center.</p>
                     <div class="card-tags">
                         <span class="card-tag">React</span>
+                        <span class="card-tag">TypeScript</span>
                         <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Gemini AI</span>
-                        <span class="card-tag">OCR</span>
+                        <span class="card-tag">Tailwind</span>
                     </div>
                     <div class="card-overlay">
-                        <p>End-to-end AI comparison workflow. Cloud Storage trigger runs Google Vision OCR on PDFs, feeds both texts to Gemini for a Markdown synopsis, then highlights monetary discrepancies on the original PDFs.</p>
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </div>
+
+                <!-- DVG — Inventory & Supply Management -->
+                <div class="portfolio-item reveal card-theme-gelato">
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>Dolce Vita Gelato — Inventory &amp; Supply Management</h2>
+                    <p class="short-desc">A dedicated Firebase-authenticated supply tracking platform for Dolce Vita Gelato — add incoming stock, log usage, transfer items between locations, process order queues, and search inventory all from a modular dashboard. Each operation lives in its own protected module, with a full admin overview for managers. Built in vanilla JS and Firestore for fast, reliable access.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase Auth</span>
+                        <span class="card-tag">Firestore</span>
+                        <span class="card-tag">Vanilla JS</span>
+                        <span class="card-tag">Multi-Module</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </div>
+
+                <!-- ===== OTHER PROJECTS ===== -->
+
+                <!-- ACS Call Transcription Automation -->
+                <div class="portfolio-item reveal card-theme-ai">
+                    <img src="images/logo.jpg" alt="ACS Call Transcription" class="card-logo" loading="lazy">
+                    <h2>ACS Call Transcription &amp; Time-Entry Automation</h2>
+                    <p class="short-desc">A three-stage Azure Functions pipeline that automates the full lifecycle of a support call — answers incoming Azure Communication Services calls, plays consent audio, records the conversation, and stores WAV chunks to Blob Storage. A second Function App transcribes the recordings via Azure Speech batch transcription and sends the transcript to Azure OpenAI for structured analysis, extracting the engineer name, full transcript, and a professional time-entry summary. A third app resolves the engineer to an Autotask resource, locates their active ticket, and posts the generated note automatically. Built with Python, Event Grid, Azure OpenAI, and full idempotency tracking end-to-end.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Azure Functions</span>
+                        <span class="card-tag">Azure OpenAI</span>
+                        <span class="card-tag">Azure Speech</span>
+                        <span class="card-tag">Python</span>
+                        <span class="card-tag">Autotask</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Client Tool</span>
+                    </div>
+                </div>
+
+                <!-- On-Call IT Engineer Management System -->
+                <div class="portfolio-item reveal card-theme-default">
+                    <img src="images/logo.jpg" alt="On-Call Management" class="card-logo" loading="lazy">
+                    <h2>On-Call IT Engineer Management System</h2>
+                    <p class="short-desc">Internal platform for managing on-call rotations and engineer availability — when an on-call ticket comes in, the system automatically identifies the assigned engineer, sends real-time notifications, and delivers a detailed breakdown of the ticket: priority, affected systems, history, and recommended context. Ensures engineers are always informed and ready before they even pick up the phone, reducing response time and eliminating manual ticket triage.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Notifications</span>
+                        <span class="card-tag">Autotask</span>
+                        <span class="card-tag">Automation</span>
+                        <span class="card-tag">On-Call Management</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </div>
+
+                <!-- Network Manager Portal -->
+                <div class="portfolio-item reveal card-theme-default">
+                    <img src="images/logo.jpg" alt="Network Manager Portal" class="card-logo" loading="lazy">
+                    <h2>Network Manager Portal</h2>
+                    <p class="short-desc">Comprehensive network monitoring and analytics portal covering UniFi access points, switches, and gateways alongside SonicWall firewall devices across multiple client sites. Tracks real-time latency, bandwidth, device health, and uptime — with instant site-down alerts and automatic ticket creation when an issue is detected. CVE monitoring flags known vulnerabilities on active firmware versions, while the analytics dashboard surfaces traffic trends, anomaly patterns, and per-device performance history. Everything needed to manage and protect a multi-site network from a single pane of glass.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">UniFi</span>
+                        <span class="card-tag">SonicWall</span>
+                        <span class="card-tag">CVE Monitoring</span>
+                        <span class="card-tag">Network Analytics</span>
+                        <span class="card-tag">Auto Ticketing</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </div>
+
+                <!-- Funari — AI PDF Platform -->
+                <div class="portfolio-item reveal card-theme-finance">
+                    <img src="images/funari-logo.png" alt="Funari Public Adjusters" class="card-logo" loading="lazy">
+                    <h2>Funari Public Adjusters — AI PDF Platform</h2>
+                    <p class="short-desc">Secure React + Firebase platform for insurance adjusters — uploads carrier estimate PDFs, runs Google Vision OCR, and uses Gemini AI to generate side-by-side discrepancy reports exportable as PDF or Excel.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">React</span>
+                        <span class="card-tag">Gemini AI</span>
+                        <span class="card-tag">OCR</span>
+                        <span class="card-tag">Firebase</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Client Tool</span>
                     </div>
                 </div>
 
                 <!-- 3D Solar System -->
-                <div class="portfolio-item reveal">
-                    <img src="images/solarlogo.png" alt="3D Solar System" class="card-logo">
+                <div class="portfolio-item reveal card-theme-space">
+                    <img src="images/solarlogo.png" alt="3D Solar System" class="card-logo" loading="lazy" style="filter:drop-shadow(0 0 10px rgba(150,120,255,0.8))">
                     <h2>Interactive 3D Solar System</h2>
-                    <p class="short-desc">Real-time, fully interactive 3D solar system built with Three.js and WebGL — explore planets, asteroid belts, comets, and deep-space objects.</p>
+                    <p class="short-desc">Real-time, fully interactive 3D solar system built with Three.js and WebGL — orbit every planet, explore asteroid belts, and travel through deep space from your browser.</p>
                     <div class="card-tags">
                         <span class="card-tag">Three.js</span>
                         <span class="card-tag">WebGL</span>
                         <span class="card-tag">JavaScript</span>
                     </div>
-                    <a href="https://solar.dantecorso.com" target="_blank" class="card-cta">View Project →</a>
-                    <div class="card-overlay">
-                        <p>Raycasting for planet interaction, delta-time orbital motion, procedural asteroid belts via buffer geometry, and smooth camera damping — all deployed as a static Firebase site.</p>
+                    <div class="card-overlay" style="background:rgba(3,3,15,0.98);border-top-color:rgba(100,80,200,0.4)">
+                        <a href="https://solar.dantecorso.com" target="_blank" class="card-cta" style="color:#c8b8ff">Launch →</a>
                     </div>
                 </div>
 
-                <!-- Information Dashboard -->
-                <div class="portfolio-item reveal">
-                    <img src="images/logo.jpg" alt="Information Dashboard" class="card-logo">
-                    <h2>Information Dashboard</h2>
-                    <p class="short-desc">Production-quality centralized dashboard built with React, TypeScript, and Vite — aggregating real-time data across tech, finance, news, and system health.</p>
+                <!-- Personal Information Dashboard -->
+                <div class="portfolio-item reveal card-theme-ai">
+                    <img src="images/logo.jpg" alt="Information Dashboard" class="card-logo" loading="lazy">
+                    <h2>Personal Information Dashboard</h2>
+                    <p class="short-desc">Centralized React + TypeScript dashboard pulling live data from stock markets, weather APIs, cybersecurity CVE feeds, and tech news — all in one compact interface.</p>
                     <div class="card-tags">
                         <span class="card-tag">React</span>
                         <span class="card-tag">TypeScript</span>
                         <span class="card-tag">TanStack Query</span>
                     </div>
-                    <a href="https://dashboard.dantecorso.com" target="_blank" class="card-cta">View Project →</a>
                     <div class="card-overlay">
-                        <p>Feature-based architecture with domain-specific hooks, live market + weather + CVE data, compact mode, local cache controls, and a dark-themed UI optimized for situational awareness.</p>
+                        <a href="https://dashboard.dantecorso.com" target="_blank" class="card-cta">View Project →</a>
                     </div>
                 </div>
 
                 <!-- 3D Print Shop -->
-                <div class="portfolio-item reveal">
-                    <img src="images/3dlogo.png" alt="3D Print Shop" class="card-logo">
-                    <h2>3D Print Online Shop</h2>
-                    <p class="short-desc">Modern e-commerce storefront with Firebase Hosting, Cloud Functions, and Stripe Checkout — built for selling premium multi-color 3D prints.</p>
+                <div class="portfolio-item reveal card-theme-shop">
+                    <img src="images/3dlogo.png" alt="3D Print Shop" class="card-logo" loading="lazy">
+                    <h2>3D Print Shop — E-Commerce Storefront</h2>
+                    <p class="short-desc">Full e-commerce storefront for premium multi-color 3D prints — product catalog with search and sort, Stripe Checkout via Cloud Functions, and server-side wholesale discount codes.</p>
                     <div class="card-tags">
                         <span class="card-tag">Firebase</span>
                         <span class="card-tag">Stripe</span>
                         <span class="card-tag">Cloud Functions</span>
                     </div>
-                    <a href="https://shop.dantecorso.com" target="_blank" class="card-cta">View Project →</a>
                     <div class="card-overlay">
-                        <p>Product grid with search/sort, cart system, Stripe Checkout via Express Cloud Function, wholesale discount codes enforced server-side, and a confirmation page with order details from Stripe.</p>
-                    </div>
-                </div>
-
-                <!-- Web Digital Signage -->
-                <div class="portfolio-item reveal">
-                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" class="card-logo">
-                    <h2>Web Digital Signage</h2>
-                    <p class="short-desc">Fully remote-controlled digital menu system that cycles videos and animations with real-time menu updates and business-hours auto-switching.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Admin Panel</span>
-                        <span class="card-tag">Real-Time</span>
-                    </div>
-                    <a href="https://dolcevitasinage.web.app/" target="_blank" class="card-cta">View Project →</a>
-                    <div class="card-overlay">
-                        <p>All videos, menu items, pricing, and availability controlled from a single remote admin panel. Automatically shows a "We Are Closed" page outside business hours without manual intervention.</p>
-                    </div>
-                </div>
-
-                <!-- Kiosk Application -->
-                <div class="portfolio-item reveal">
-                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" class="card-logo">
-                    <h2>Kiosk Application</h2>
-                    <p class="short-desc">Interactive in-store kiosk that cycles video content when idle and switches to a touch-driven menu on interaction, with real-time stock and availability.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">JavaScript</span>
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">UX</span>
-                    </div>
-                    <a href="https://coffeelist-2cc55.firebaseapp.com/" target="_blank" class="card-cta">View Project →</a>
-                    <div class="card-overlay">
-                        <p>Admin panel controls all content remotely. Sold-out items are flagged instantly from the backend, ensuring customers never see unavailable options.</p>
+                        <a href="https://shop.dantecorso.com" target="_blank" class="card-cta">Visit Shop →</a>
                     </div>
                 </div>
 
                 <!-- P&S Ravioli Inventory -->
-                <div class="portfolio-item reveal">
-                    <img src="images/P&SLogo.png" alt="P&S Ravioli Logo" class="card-logo">
-                    <h2>Inventory System — P&S Ravioli</h2>
-                    <p class="short-desc">Web-based inventory platform with auto-generated UPC barcodes, multi-location stock tracking, real-time analytics dashboards, and role-based access.</p>
+                <div class="portfolio-item reveal card-theme-default">
+                    <img src="images/P&SLogo.png" alt="P&S Ravioli" class="card-logo" loading="lazy">
+                    <h2>P&S Ravioli — Inventory Management</h2>
+                    <p class="short-desc">Web-based inventory platform for P&S Ravioli with auto-generated UPC barcodes, multi-location stock tracking, real-time analytics dashboards, and role-based access for drivers and managers.</p>
                     <div class="card-tags">
                         <span class="card-tag">Firestore</span>
                         <span class="card-tag">Analytics</span>
                         <span class="card-tag">Multi-Location</span>
                     </div>
                     <div class="card-overlay">
-                        <p>Reduced inventory lookup time by 50% and improved driver routing decisions across store locations. Live stock updates ensure accurate, real-time inventory visibility for all staff.</p>
-                    </div>
-                </div>
-
-                <!-- Task Management System -->
-                <div class="portfolio-item reveal">
-                    <img src="images/logo.jpg" alt="Task Management" class="card-logo">
-                    <h2>Task Management System</h2>
-                    <p class="short-desc">Full-stack task manager built with React and Firebase Auth — create, track, and manage tasks with real-time Firestore sync, priority levels, and dark mode.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">React</span>
-                        <span class="card-tag">Firebase Auth</span>
-                        <span class="card-tag">Firestore</span>
-                    </div>
-                    <div class="card-overlay">
-                        <p>Tasks auto-categorized into pending, in-progress, and completed. Dark mode with localStorage persistence. Firestore indexing for fast querying with minimal re-renders via React hooks.</p>
-                    </div>
-                </div>
-
-                <!-- CommitStack -->
-                <div class="portfolio-item reveal">
-                    <img src="images/logo.jpg" alt="CommitStack" class="card-logo">
-                    <h2>CommitStack — WordPress Portfolio</h2>
-                    <p class="short-desc">Fully customized WordPress portfolio site showcasing web development, full-stack projects, and custom software solutions — optimized for performance across all devices.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">WordPress</span>
-                        <span class="card-tag">Custom Theme</span>
-                        <span class="card-tag">SEO</span>
-                    </div>
-                    <a href="https://commitstack.com" target="_blank" class="card-cta">Explore →</a>
-                    <div class="card-overlay">
-                        <p>Regularly updated with new projects and enhancements. Includes custom theme development, plugin integrations, and WooCommerce setup for a complete professional presence.</p>
+                        <span class="card-private-badge">🔒 Private Client Tool</span>
                     </div>
                 </div>
 
                 <!-- AI Code Analyzer -->
-                <div class="portfolio-item reveal">
-                    <img src="images/logo.jpg" alt="AI Code Analyzer" class="card-logo">
+                <div class="portfolio-item reveal card-theme-ai">
+                    <img src="images/logo.jpg" alt="AI Code Analyzer" class="card-logo" loading="lazy">
                     <h2>AI Code Analyzer</h2>
-                    <p class="short-desc">Web tool that uses GPT-4o to analyze code snippets, explain functionality, flag inefficiencies, and suggest refactors — acting as a virtual coding assistant.</p>
+                    <p class="short-desc">GPT-4o powered web tool that analyzes code snippets in real time — explains what it does, flags inefficiencies, and suggests refactors with a live code preview before you apply them.</p>
                     <div class="card-tags">
                         <span class="card-tag">OpenAI GPT-4o</span>
                         <span class="card-tag">JavaScript</span>
-                        <span class="card-tag">API</span>
+                        <span class="card-tag">REST API</span>
                     </div>
-                    <a href="https://ai.dantecorso.com" target="_blank" class="card-cta">Try It →</a>
                     <div class="card-overlay">
-                        <p>Real-time AI suggestions for refactoring, debugging, and best-practices alignment. Interactive final code preview lets developers visualize modifications before implementation.</p>
+                        <a href="https://ai.dantecorso.com" target="_blank" class="card-cta">Try It →</a>
                     </div>
                 </div>
 
-                <!-- Order Manager -->
-                <div class="portfolio-item reveal">
-                    <img src="images/dolce-logo.png" alt="Dolce Vita Logo" class="card-logo">
-                    <h2>Order Manager</h2>
-                    <p class="short-desc">Central order management console that aggregates mobile, kiosk, and in-store orders into a unified real-time queue with geolocation-based auto check-in.</p>
+                <!-- CommitStack -->
+                <div class="portfolio-item reveal card-theme-default">
+                    <img src="images/logo.jpg" alt="CommitStack" class="card-logo" loading="lazy">
+                    <h2>CommitStack — WordPress Portfolio</h2>
+                    <p class="short-desc">Fully custom WordPress site with a hand-built theme, plugin integrations, WooCommerce storefront, and on-page SEO — designed as a professional developer portfolio and showcase.</p>
                     <div class="card-tags">
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Real-Time UI</span>
-                        <span class="card-tag">Geofencing</span>
+                        <span class="card-tag">WordPress</span>
+                        <span class="card-tag">Custom Theme</span>
+                        <span class="card-tag">WooCommerce</span>
                     </div>
-                    <a href="https://dolcevitasewell.com" target="_blank" class="card-cta">View Project →</a>
                     <div class="card-overlay">
-                        <p>Staff can update order statuses, respond to automatic check-ins when customers arrive, and manage inventory availability directly from the admin panel.</p>
+                        <a href="https://commitstack.com" target="_blank" class="card-cta">Visit Site →</a>
                     </div>
                 </div>
-
-                <!-- API Integrations -->
-                <div class="portfolio-item reveal">
-                    <img src="images/api-def.jpg" alt="API" class="card-logo" style="border-radius:6px;">
-                    <h2>API Integrations: Stripe & Google Maps</h2>
-                    <p class="short-desc">Secure Stripe payment flows and location-aware Google Maps experiences, including address validation, embedded maps, and geolocation-based logic.</p>
+                <!-- API Integrations Demo -->
+                <div class="portfolio-item reveal card-theme-default">
+                    <img src="images/api-def.jpg" alt="API Integrations" class="card-logo" loading="lazy" style="border-radius:6px;">
+                    <h2>Live API Integrations Demo</h2>
+                    <p class="short-desc">Interactive demo showcasing Stripe payment flows, Google Maps location services, and real-time weather data via OpenWeatherMap — try a live location-based API call directly from this card.</p>
                     <div class="card-tags">
                         <span class="card-tag">Stripe</span>
                         <span class="card-tag">Google Maps</span>
-                        <span class="card-tag">REST APIs</span>
+                        <span class="card-tag">OpenWeatherMap</span>
                     </div>
                     <button id="getWeatherBtn" onclick="tryWeatherAPI()">Try a Live API</button>
                     <div id="weather"></div>
                     <div class="card-overlay">
-                        <p>Integrated multiple third-party APIs across projects — Stripe for secure checkout, Google Maps for location services, and OpenWeatherMap for real-time weather data.</p>
+                        <span style="font-size:0.8rem;color:var(--text-muted);">Click above to see it in action</span>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2026 Dante Corso — Precision Pixel Innovations. All rights reserved.</p>
-        <p>Disclaimer: All logos and trademarks are the property of their respective owners.</p>
+        <p>Disclaimer: All logos and trademarks are the property of their respective owners. Their use on this site does not imply endorsement or affiliation.</p>
     </footer>
-
-    <script src="js/scripts.js"></script>
-    <script src="js/weather.js"></script>
-
     <script>
-        // Scroll reveal
+        function tryWeatherAPI() {
+            const btn = document.getElementById('getWeatherBtn');
+            const weatherDiv = document.getElementById('weather');
+            btn.disabled = true;
+            btn.textContent = 'Fetching...';
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(pos => {
+                    fetch(`/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`)
+                        .then(r => r.ok ? r.json() : Promise.reject())
+                        .then(d => {
+                            weatherDiv.innerHTML = `<strong>${d.name}</strong>: ${d.main.temp}°F — ${d.weather[0].description}`;
+                            btn.textContent = 'Try Again';
+                            btn.disabled = false;
+                        }).catch(() => {
+                            weatherDiv.textContent = 'Could not load weather.';
+                            btn.textContent = 'Try a Live API';
+                            btn.disabled = false;
+                        });
+                }, () => {
+                    weatherDiv.textContent = 'Location access denied.';
+                    btn.textContent = 'Try a Live API';
+                    btn.disabled = false;
+                });
+            } else {
+                weatherDiv.textContent = 'Geolocation not supported.';
+                btn.disabled = false;
+            }
+        }
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    entry.target.style.transitionDelay = (i % 3) * 0.1 + 's';
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
-
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.06 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Section title underline
         document.querySelectorAll('.section-title').forEach(el => {
             new IntersectionObserver((entries) => {
                 entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
             }, { threshold: 0.5 }).observe(el);
         });
-
-        function toggleSideNav() {
-            document.getElementById('side-nav').style.width = '280px';
-        }
-        function closeSideNav() {
-            document.getElementById('side-nav').style.width = '0';
-        }
-
-        function tryWeatherAPI() {
-            const weatherDiv = document.getElementById('weather');
-            weatherDiv.textContent = 'Fetching weather...';
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(pos => {
-                    fetch(`/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`)
-                        .then(r => r.json())
-                        .then(d => {
-                            weatherDiv.innerHTML = `<strong>${d.name}</strong>: ${d.main.temp}°F, ${d.weather[0].description}`;
-                        }).catch(() => { weatherDiv.textContent = 'Could not load weather.'; });
-                }, () => { weatherDiv.textContent = 'Location access denied.'; });
-            } else {
-                weatherDiv.textContent = 'Geolocation not supported.';
+    </script>
+    <script>
+        (function(){
+            function applyTheme(t){
+                document.documentElement.setAttribute("data-theme",t);
+                if(t==="light"){
+                    document.body.style.setProperty("background","#ffffff","important");
+                    document.body.style.setProperty("color","#111111","important");
+                    document.documentElement.style.setProperty("background","#ffffff","important");
+                    if(document.querySelector(".bg-orbs"))document.querySelector(".bg-orbs").style.setProperty("opacity","0","important");
+                } else {
+                    document.body.style.removeProperty("background");
+                    document.body.style.removeProperty("color");
+                    document.documentElement.style.removeProperty("background");
+                    if(document.querySelector(".bg-orbs"))document.querySelector(".bg-orbs").style.removeProperty("opacity");
+                }
             }
-        }
+            var cb=document.getElementById("theme-checkbox"),thumb=document.querySelector(".theme-switch-thumb"),s=localStorage.getItem("dvg-portfolio-theme")||"dark";
+            applyTheme(s);
+            if(cb){cb.checked=(s==="light");if(thumb)thumb.textContent=s==="light"?"🌙":"☀️";}
+            if(cb)cb.addEventListener("change",function(){var n=cb.checked?"light":"dark";applyTheme(n);if(thumb)thumb.textContent=n==="light"?"🌙":"☀️";localStorage.setItem("dvg-portfolio-theme",n);});
+        })();
     </script>
 </body>
-
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

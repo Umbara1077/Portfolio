@@ -6,15 +6,309 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dante Corso — Software Engineer & DevOps</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/nav.js" defer></script>
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <style>
+        /* ---- Hero ---- */
+        #intro {
+            padding: 100px 0 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0;
+        }
+
+        .hero-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            line-height: 1.08;
+            color: var(--text-main);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .hero-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 0.85em;
+            background: var(--accent-2);
+            border-radius: 2px;
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: cursor-blink 1.1s step-start infinite;
+        }
+
+        @keyframes cursor-blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        .hero-subtitle-line {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+            color: var(--accent-2);
+            letter-spacing: -0.01em;
+            margin-bottom: 28px;
+        }
+
+        .hero-bio {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-muted);
+            max-width: 600px;
+            line-height: 1.75;
+            margin-bottom: 44px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-btn-primary {
+            background: var(--accent-2);
+            color: #0d0d0d;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            padding: 14px 34px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.98rem;
+            letter-spacing: 0.01em;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-btn-primary:hover {
+            background: #e8c98a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(212,175,122,0.35);
+        }
+
+        .hero-btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            padding: 14px 34px;
+            border-radius: 10px;
+            border: 1.5px solid rgba(255,255,255,0.18);
+            text-decoration: none;
+            font-size: 0.98rem;
+            transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
+        }
+
+        .hero-btn-outline:hover {
+            border-color: var(--accent-2);
+            color: var(--accent-2);
+            background: rgba(212,175,122,0.07);
+            transform: translateY(-2px);
+        }
+
+        /* ---- At-a-Glance Strip ---- */
+        #glance {
+            margin: 0 0 60px;
+        }
+
+        .glance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .glance-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s ease;
+        }
+
+        .glance-card:hover {
+            border-color: var(--accent-2);
+            background: rgba(212,175,122,0.06);
+            transform: translateY(-3px);
+        }
+
+        .glance-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .glance-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .glance-number.text-stat {
+            font-size: 1.35rem;
+            line-height: 1.35;
+        }
+
+        .glance-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* ---- Featured Work ---- */
+        #featured-work {
+            margin: 0 0 60px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 32px;
+        }
+
+        .feat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .feat-card:hover {
+            border-color: rgba(212,175,122,0.5);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+        }
+
+        .feat-card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            line-height: 1.25;
+        }
+
+        .feat-card-desc {
+            font-size: 0.87rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .feat-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .feat-card-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent-2);
+            background: rgba(212,175,122,0.1);
+            border: 1px solid rgba(212,175,122,0.25);
+            padding: 3px 9px;
+            border-radius: 999px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .feat-card-link {
+            font-size: 0.87rem;
+            font-weight: 700;
+            color: var(--accent-2);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            margin-top: auto;
+            transition: color 0.2s;
+        }
+
+        .feat-card-link:hover { color: #e8c98a; }
+
+        /* ---- Services Grid ---- */
+        #services-new {
+            margin: 0 0 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-lg);
+            padding: 26px 22px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-3px);
+        }
+
+        .service-card-icon {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 768px) {
+            #intro { padding: 70px 0 60px; }
+            .glance-grid,
+            .featured-grid,
+            .services-grid { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; align-items: center; }
+            .hero-btn-primary, .hero-btn-outline { width: 220px; text-align: center; }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .featured-grid,
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
 </head>
 
 <body>
@@ -30,7 +324,7 @@
             <a href="index.html">
                 <img src="images/logo.jpg" alt="Precision Pixel Innovations" class="logo">
             </a>
-            <div class="menu-toggle" onclick="toggleSideNav()">
+            <div class="menu-toggle">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -42,8 +336,18 @@
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="resume.html">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
             </ul>
-            <div id="side-nav" class="side-nav">
+            <div class="theme-toggle" title="Toggle light/dark mode">
+                <label class="theme-switch" aria-label="Toggle theme">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="theme-switch-track"></span>
+                    <span class="theme-switch-thumb">☀️</span>
+                </label>
+            </div>
+</nav>
+    </header>
+    <div id="side-nav" class="side-nav">
                 <span class="close-btn" onclick="closeSideNav()">&times;</span>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -52,123 +356,127 @@
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://solar.dantecorso.com" target="_blank">Solar System ↗</a></li>
                 </ul>
             </div>
-        </nav>
-    </header>
 
     <main>
+        <!-- ========== HERO ========== -->
         <section id="intro">
-            <h1 class="hero-line cursor-blink">Dante Corso</h1>
-            <p class="hero-subtitle hero-line">Software Engineer &amp; DevOps</p>
-            <p class="hero-line">I design and build scalable web applications, cloud-native systems, and automation
-                pipelines. Specializing in full-stack development, Firebase, Azure DevOps, and API integration —
-                creating seamless, high-performing solutions tailored to real business needs.</p>
-            <div class="hero-line">
-                <a href="portfolio.html" class="btn btn-primary">View My Work</a>
-                <a href="resume.html" class="btn">Resume</a>
-                <a href="contact.html" class="btn">Get in Touch</a>
-            </div>
-            <div class="hero-line" style="margin-top:12px;">
-                <a href="https://shop.dantecorso.com" class="btn">3D Print Shop</a>
-                <a href="https://solar.dantecorso.com" class="btn">Interactive Solar System</a>
-                <a href="https://dashboard.dantecorso.com" class="btn">Info Dashboard</a>
+            <h1 class="hero-name" id="hero-name-el"><span class="hero-cursor" id="hero-cursor-el"></span></h1>
+            <p class="hero-subtitle-line" id="hero-subtitle-el" style="opacity:0"></p>
+            <p class="hero-bio" id="hero-bio-el" style="opacity:0"></p>
+            <div class="hero-ctas">
+                <a href="portfolio.html" class="hero-btn-primary">View My Work</a>
+                <a href="contact.html" class="hero-btn-outline">Get In Touch</a>
             </div>
         </section>
 
-        <section id="featured-project" class="reveal">
-            <a href="https://solar.dantecorso.com" target="_blank" class="featured-card">
-                <div class="featured-content">
-                    <span class="featured-tag">Featured Project</span>
-                    <h2>Interactive 3D Solar System</h2>
-                    <p>
-                        A real-time, fully interactive 3D solar system built with Three.js.
-                        Explore planets, asteroid belts, comets, and deep-space objects
-                        through smooth camera controls and rich educational detail.
-                    </p>
-                    <span class="featured-cta">Launch Experience →</span>
+        <!-- ========== AT-A-GLANCE ========== -->
+        <section id="glance" class="reveal">
+            <div class="glance-grid">
+                <div class="glance-card">
+                    <span class="glance-icon">⚡</span>
+                    <div class="glance-number">3+</div>
+                    <div class="glance-label">Years of Experience</div>
                 </div>
-            </a>
+                <div class="glance-card">
+                    <span class="glance-icon">🚀</span>
+                    <div class="glance-number">15+</div>
+                    <div class="glance-label">Projects Delivered</div>
+                </div>
+                <div class="glance-card">
+                    <span class="glance-icon">🛠️</span>
+                    <div class="glance-number text-stat">Full-Stack + DevOps</div>
+                    <div class="glance-label">End-to-End Expertise</div>
+                </div>
+            </div>
         </section>
 
-        <section id="services" class="reveal">
-            <h2 class="section-title">What I Build</h2>
-            <div style="text-align: center; margin-top: 20px; margin-bottom: 8px;">
-                <a href="portfolio.html" class="btn">View Portfolio</a>
-                <a href="skills.html" class="btn">View Skills</a>
+        <!-- ========== FEATURED WORK ========== -->
+        <section id="featured-work" class="reveal">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="featured-grid">
+
+                <div class="feat-card">
+                    <div class="feat-card-title">Insurance PDF AI Platform</div>
+                    <p class="feat-card-desc">Secure React + Firebase platform for insurance adjusters — runs OCR on carrier estimates and generates AI-powered side-by-side comparison reports exportable as PDF or Excel.</p>
+                    <div class="feat-card-tags">
+                        <span class="feat-card-tag">React</span>
+                        <span class="feat-card-tag">Firebase</span>
+                        <span class="feat-card-tag">Gemini AI</span>
+                        <span class="feat-card-tag">OCR</span>
+                    </div>
+                    <a href="portfolio.html" class="feat-card-link">View →</a>
+                </div>
+
+                <div class="feat-card">
+                    <div class="feat-card-title">DVG Command Center</div>
+                    <p class="feat-card-desc">Admin dashboard for Dolce Vita Gelato — 9 animated morphing blob buttons linking to Digital Signage, Pricing Menu, Supply Hub, Gelato Lab, Mobile Orders, and more.</p>
+                    <div class="feat-card-tags">
+                        <span class="feat-card-tag">Firebase</span>
+                        <span class="feat-card-tag">JavaScript</span>
+                        <span class="feat-card-tag">Admin Dashboard</span>
+                    </div>
+                    <span style="font-size:0.8rem;color:var(--text-muted,#888);">🔒 Private Admin Tool</span>
+                </div>
+
+                <div class="feat-card">
+                    <div class="feat-card-title">Gelato Mobile Ordering App</div>
+                    <p class="feat-card-desc">Customer-facing mobile order app with an animated Italian-themed UI, full cart system, Stripe payments, geolocation check-in, and real-time order tracking.</p>
+                    <div class="feat-card-tags">
+                        <span class="feat-card-tag">Node.js</span>
+                        <span class="feat-card-tag">Firebase</span>
+                        <span class="feat-card-tag">Stripe</span>
+                        <span class="feat-card-tag">Geolocation</span>
+                    </div>
+                    <a href="https://dolcevitasewell-mobileorder.com" target="_blank" class="feat-card-link">View →</a>
+                </div>
+
             </div>
-            <div class="service reveal">
-                <div>
+        </section>
+
+        <!-- ========== SERVICES ========== -->
+        <section id="services-new" class="reveal">
+            <h2 class="section-title">What I Build</h2>
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <span class="service-card-icon">💻</span>
                     <h3>Software Engineering</h3>
                     <p>Designing and developing efficient, scalable software solutions that optimize performance and enhance functionality.</p>
                 </div>
-                <img src="images/Screenshot 2025-03-04 235411.png" alt="Software Engineering" class="logo">
-            </div>
-            <div class="service reveal">
-                <div>
-                    <h3>Azure DevOps & CI/CD Pipelines</h3>
-                    <p>Designing and managing Azure DevOps workflows, including automated CI/CD pipelines, version control, and release management.</p>
+
+                <div class="service-card">
+                    <span class="service-card-icon">🔄</span>
+                    <h3>Azure DevOps &amp; CI/CD</h3>
+                    <p>Designing and managing Azure DevOps workflows, automated CI/CD pipelines, version control, and release management.</p>
                 </div>
-                <a href="devops-architecture.html" class="btn">Learn More</a>
-            </div>
-            <div class="service reveal">
-                <div>
-                    <h3>Full Stack Engineering</h3>
-                    <p>Crafting comprehensive web solutions, from front-end interfaces to back-end systems, ensuring seamless user experience.</p>
+
+                <div class="service-card">
+                    <span class="service-card-icon">🌐</span>
+                    <h3>Full-Stack Web Development</h3>
+                    <p>Crafting comprehensive web solutions — from React front-ends to Node.js back-ends — ensuring seamless user experience.</p>
                 </div>
-                <img src="images/programming-3170991_640.png" alt="Full Stack" class="logo">
-            </div>
-            <div class="service reveal">
-                <div>
-                    <h3>Web Development</h3>
-                    <p>Creating responsive and interactive websites that offer excellent user experiences and dynamic functionality.</p>
+
+                <div class="service-card">
+                    <span class="service-card-icon">🗄️</span>
+                    <h3>Database Architecture</h3>
+                    <p>Designing and managing efficient databases — Firestore, SQL, and cloud-native storage — to support real-time business operations.</p>
                 </div>
-                <a href="web-development.html" class="btn">Learn More</a>
-            </div>
-            <div class="service reveal">
-                <div>
-                    <h3>WordPress Websites</h3>
-                    <p>I specialize in creating professional, user-friendly WordPress websites tailored to meet the unique needs of your business.</p>
-                </div>
-                <a href="https://commitstack.com/" class="btn" target="_blank">Check it out</a>
-            </div>
-            <div class="service reveal">
-                <div>
-                    <h3>Database Management</h3>
-                    <p>Designing and managing efficient databases that support and enhance your business operations effectively.</p>
-                </div>
-                <img src="images/cloud-3805855_640.png" alt="Database" class="logo">
-            </div>
-            <div class="service reveal">
-                <div>
+
+                <div class="service-card">
+                    <span class="service-card-icon">📱</span>
                     <h3>Mobile Development</h3>
-                    <p>Developing mobile applications tailored for both Android and iOS platforms, ensuring cross-platform compatibility.</p>
+                    <p>Developing mobile applications tailored for Android and iOS platforms, ensuring cross-platform compatibility and smooth UX.</p>
                 </div>
-                <div class="logo-container">
-                    <img src="images/apple-android.jpg" alt="Apple and Android Logo" class="logo">
-                    <span class="trademark">®</span>
+
+                <div class="service-card">
+                    <span class="service-card-icon">🔗</span>
+                    <h3>API Integrations</h3>
+                    <p>Building and integrating APIs — Stripe, Google Maps, OpenAI — to enhance functionality and connectivity across applications.</p>
                 </div>
-            </div>
-            <div class="service reveal">
-                <div>
-                    <h3>API Development and Integration</h3>
-                    <p>Building and integrating APIs to enhance functionality and connectivity of your applications.</p>
-                </div>
-                <img src="images/api-integration.jpg" alt="API Integration Logo" class="logo">
-            </div>
-            <div class="service reveal">
-                <div>
-                    <h3>Cyber Security</h3>
-                    <p>Implementing robust security measures to protect your data, systems, and network infrastructure effectively.</p>
-                </div>
-                <img src="images/cyber-security-8819383_640.jpg" alt="Cyber Security" class="logo">
-            </div>
-            <div class="service reveal">
-                <div>
-                    <h3>Cloud Services Integration</h3>
-                    <p>Integrating your applications with cloud services for better scalability and performance.</p>
-                </div>
-                <img src="images/cloud-computing-1989339_640.png" alt="Cloud" class="logo">
+
             </div>
         </section>
     </main>
@@ -178,12 +486,101 @@
         <p>Disclaimer: All logos and trademarks are the property of their respective owners. Their use on this site does not imply endorsement or affiliation.</p>
     </footer>
 
-    <script src="js/scripts.js"></script>
     <script>
+        // ---- Typewriter Hero ----
+        (function () {
+            const nameEl     = document.getElementById('hero-name-el');
+            const subtitleEl = document.getElementById('hero-subtitle-el');
+            const bioEl      = document.getElementById('hero-bio-el');
+            const cursorEl   = document.getElementById('hero-cursor-el');
+
+            const line1 = "Hi, I'm Dante Corso";
+            const line2 = "Software Engineer & DevOps";
+            const line3 = "Full-stack engineer and DevOps professional with a B.S. in Computer Science & Network Engineering from Rowan University. I build scalable web apps, cloud-native systems, and automation pipelines — from concept to production.";
+
+            function typeOut(text, onChar, onDone, speed) {
+                let i = 0;
+                (function tick() {
+                    if (i <= text.length) { onChar(text.slice(0, i++)); setTimeout(tick, speed); }
+                    else { onDone && onDone(); }
+                })();
+            }
+
+            cursorEl.style.animationPlayState = 'paused';
+            cursorEl.style.opacity = '1';
+
+            const textNode1 = document.createTextNode('');
+            nameEl.insertBefore(textNode1, cursorEl);
+
+            // Line 1: name
+            typeOut(line1, p => textNode1.nodeValue = p, () => {
+                // Line 2: subtitle
+                setTimeout(() => {
+                    subtitleEl.style.opacity = '1';
+                    typeOut(line2, p => subtitleEl.textContent = p, () => {
+                        // Line 3: bio (slightly faster)
+                        setTimeout(() => {
+                            bioEl.style.opacity = '1';
+                            typeOut(line3, p => bioEl.textContent = p, () => {
+                                // Done — blink cursor
+                                cursorEl.style.animationPlayState = 'running';
+                                cursorEl.style.opacity = '';
+                            }, 18);
+                        }, 300);
+                    }, 48);
+                }, 380);
+            }, 52);
+        })();
+
+        // ---- Light / Dark Theme Toggle ----
+        (function() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const thumb = document.querySelector('.theme-switch-thumb');
+            const saved = localStorage.getItem('dvg-portfolio-theme') || 'dark';
+
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                if (theme === 'light') {
+                    document.body.style.setProperty('background', '#ffffff', 'important');
+                    document.body.style.setProperty('color', '#111111', 'important');
+                    document.documentElement.style.setProperty('background', '#ffffff', 'important');
+                    var orbs = document.querySelector('.bg-orbs');
+                    if (orbs) orbs.style.setProperty('opacity', '0', 'important');
+                } else {
+                    document.body.style.removeProperty('background');
+                    document.body.style.removeProperty('color');
+                    document.documentElement.style.removeProperty('background');
+                    var orbs = document.querySelector('.bg-orbs');
+                    if (orbs) orbs.style.removeProperty('opacity');
+                }
+                checkbox.checked = (theme === 'light');
+                thumb.textContent = theme === 'light' ? '🌙' : '☀️';
+            }
+
+            applyTheme(saved);
+
+            checkbox.addEventListener('change', () => {
+                const next = checkbox.checked ? 'light' : 'dark';
+                applyTheme(next);
+                localStorage.setItem('dvg-portfolio-theme', next);
+            });
+        })();
+
         // Intersection Observer for reveal animations
         const revealEls = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    //
+                 }
+            });
+        }, { threshold: 0.08 });
+        revealEls.forEach(el => observer.observe(el));
+
+        document.querySelectorAll('.section-title').forEach(el => {
+            new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.5 }).observe(el);
+        });    </script>
+</body>
+</html>
