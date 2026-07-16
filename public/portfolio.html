@@ -13,6 +13,336 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet"></noscript>
+
+    <style>
+        /* ================= Portfolio page enhancements ================= */
+
+        /* ---- Hero ---- */
+        .pf-hero {
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto 34px;
+        }
+        .pf-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+        .pf-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin: 0 0 14px;
+            background: linear-gradient(115deg, var(--text-main) 30%, #e8c98a 60%, var(--accent-2) 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        .pf-hero .pf-sub {
+            font-size: clamp(1rem, 2vw, 1.12rem);
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 620px;
+            margin: 0 auto 26px;
+        }
+        .pf-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        .pf-stat {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 14px;
+            padding: 12px 20px;
+            min-width: 120px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .pf-stat:hover { border-color: rgba(212,175,122,0.4); transform: translateY(-3px); }
+        .pf-stat b {
+            display: block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            line-height: 1;
+        }
+        .pf-stat span {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
+        }
+        [data-theme="light"] .pf-stat { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.1); }
+        [data-theme="light"] .pf-stat b { color: #111; }
+
+        /* ---- Filter bar ---- */
+        .pf-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .pf-filter-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 999px;
+            padding: 9px 20px;
+            cursor: pointer;
+            transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .pf-filter-btn:hover { color: var(--text-main); border-color: rgba(212,175,122,0.4); transform: translateY(-2px); }
+        .pf-filter-btn.active {
+            color: #0d0d0d;
+            background: var(--accent-2);
+            border-color: var(--accent-2);
+            font-weight: 700;
+        }
+        [data-theme="light"] .pf-filter-btn { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.12); color: #555; }
+        [data-theme="light"] .pf-filter-btn.active { color: #0d0d0d; }
+
+        /* ---- Filtering + entrance ---- */
+        .portfolio-item.pf-hidden,
+        .pf-group-banner.pf-hidden { display: none !important; }
+
+        .portfolio-item {
+            /* richer, springier hover than the shared base */
+            transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+                        box-shadow 0.4s ease, border-color 0.4s ease !important;
+        }
+        .portfolio-item h2 { font-size: 1.08rem; line-height: 1.28; }
+
+        /* ---- Featured tier: full-width hero cards ---- */
+        .portfolio-item.featured {
+            grid-column: 1 / -1;
+            padding: 32px 34px 28px;
+            gap: 15px;
+        }
+        .portfolio-item.featured h2 { font-size: 1.6rem; letter-spacing: -0.02em; }
+        .portfolio-item.featured .short-desc { font-size: 0.96rem; max-width: 820px; }
+        /* Featured hero glow ring */
+        .portfolio-item.featured {
+            box-shadow: 0 0 0 1px rgba(212,175,122,0.12), 0 20px 50px rgba(0,0,0,0.45);
+        }
+        .portfolio-item.featured:hover {
+            box-shadow: 0 0 0 1px rgba(212,175,122,0.3), 0 30px 70px rgba(0,0,0,0.6) !important;
+        }
+        .portfolio-item.featured.card-theme-space:hover {
+            box-shadow: 0 0 45px rgba(80,60,200,0.5), 0 30px 70px rgba(0,0,0,0.9) !important;
+        }
+        .pf-featured-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .portfolio-item.featured .card-logo {
+            width: 68px; height: 68px; border-radius: 14px; flex: none;
+        }
+        .pf-highlights {
+            list-style: none;
+            margin: 2px 0 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+        }
+        .pf-highlights li {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.45;
+            padding-left: 24px;
+            position: relative;
+        }
+        .pf-highlights li::before {
+            content: '✦';
+            position: absolute;
+            left: 0; top: 0;
+            color: var(--accent-2);
+            font-size: 0.85rem;
+        }
+        [data-theme="light"] .pf-highlights li { color: #333; }
+        @media (max-width: 640px) { .pf-highlights { grid-template-columns: 1fr; } }
+
+        /* ---- Badges (Featured ribbon + status pill) ---- */
+        .pf-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+        .pf-flag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+            background: rgba(212,175,122,0.12);
+            border: 1px solid rgba(212,175,122,0.35);
+            border-radius: 999px;
+            padding: 4px 12px;
+        }
+        .pf-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            padding: 4px 11px 4px 9px;
+        }
+        .pf-status.live {
+            color: #6ee7b7;
+            background: rgba(110,231,183,0.1);
+            border: 1px solid rgba(110,231,183,0.28);
+        }
+        .pf-status.private {
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .pf-live-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: #6ee7b7;
+            box-shadow: 0 0 0 0 rgba(110,231,183,0.6);
+            animation: pf-pulse 1.8s ease-out infinite;
+        }
+        @keyframes pf-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(110,231,183,0.55); }
+            70%  { box-shadow: 0 0 0 7px rgba(110,231,183,0); }
+            100% { box-shadow: 0 0 0 0 rgba(110,231,183,0); }
+        }
+        .pf-status.private .pf-live-dot { background: var(--text-muted); animation: none; box-shadow: none; }
+
+        /* ---- Flagship platform banner ---- */
+        .pf-group-banner {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            background: linear-gradient(135deg, rgba(212,175,122,0.08), rgba(255,220,160,0.03) 60%, rgba(212,175,122,0.06));
+            border: 1px solid rgba(212,175,122,0.28);
+            border-radius: 18px;
+            padding: 26px 30px;
+            margin-top: 12px;
+        }
+        .pf-group-banner img {
+            width: 84px; height: 84px; flex: none;
+            object-fit: contain;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(212,175,122,0.3);
+            padding: 8px;
+        }
+        .pf-group-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+        }
+        .pf-group-banner h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin: 6px 0 8px;
+            line-height: 1.2;
+        }
+        .pf-group-banner p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0 0 12px;
+            max-width: 760px;
+        }
+        .pf-group-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .pf-group-stats span {
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: var(--accent-2);
+            background: rgba(212,175,122,0.1);
+            border: 1px solid rgba(212,175,122,0.25);
+            border-radius: 999px;
+            padding: 4px 12px;
+        }
+        [data-theme="light"] .pf-group-banner h2 { color: #111; }
+        @media (max-width: 640px) {
+            .pf-group-banner { flex-direction: column; text-align: center; padding: 24px 20px; }
+            .pf-group-banner img { width: 70px; height: 70px; }
+            .pf-group-stats { justify-content: center; }
+        }
+
+        /* ---- Section label ---- */
+        .pf-section-label {
+            grid-column: 1 / -1;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+            margin: 20px 0 -4px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .pf-section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(212,175,122,0.4), transparent);
+        }
+        [data-theme="light"] .pf-section-label { color: #111; }
+
+        /* ---- Empty state ---- */
+        .pf-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text-muted);
+            padding: 40px 0;
+            display: none;
+        }
+
+        /* On touch devices there is no hover — surface the CTA strip as a
+           real footer so live links and status are always reachable. */
+        @media (hover: none) {
+            .portfolio-item .card-overlay {
+                position: static;
+                transform: none;
+                margin: 6px -20px -20px;
+                border-radius: 0 0 16px 16px;
+            }
+            .portfolio-item.featured .card-overlay { margin: 6px -30px -26px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pf-live-dot { animation: none; }
+        }
+    </style>
 </head>
 
 <body>
@@ -63,282 +393,123 @@
 
     <main>
         <section id="portfolio">
-            <h1 class="reveal">My Portfolio</h1>
-            <p class="reveal">A selection of projects I've designed and built — from Firebase-powered apps to 3D web experiences.</p>
 
-            <div class="portfolio-grid">
-
-                <!-- ===== DOLCE VITA GELATO ===== -->
-
-                <!-- DVG — Command Center -->
-                <div class="portfolio-item reveal card-theme-gelato">
-                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
-                    <h2>Dolce Vita Gelato — Command Center</h2>
-                    <p class="short-desc">The private nerve center for all Dolce Vita Gelato operations — a Firebase-authenticated dashboard with 9 animated morphing-blob buttons that launch every internal system: Digital Signage &amp; Gelato Management, the Self-Order Kiosk, Mobile Ordering, Order Manager, Staff Passport, Recipe Lab, Inventory, and more. Every DVG tool flows through here.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Firebase Auth</span>
-                        <span class="card-tag">JavaScript</span>
-                        <span class="card-tag">Admin Dashboard</span>
-                    </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Admin Tool</span>
-                    </div>
+            <div class="pf-hero reveal">
+                <span class="pf-eyebrow">Selected Work</span>
+                <h1>Projects That Ship &amp; Scale</h1>
+                <p class="pf-sub">A cross-section of production systems I've designed and built — enterprise AI &amp; Azure automation, real-time full-stack platforms for real clients, and live 3D web experiences you can open right now.</p>
+                <div class="pf-stats">
+                    <div class="pf-stat"><b>20+</b><span>Projects Shipped</span></div>
+                    <div class="pf-stat"><b>8</b><span>Live Deployments</span></div>
+                    <div class="pf-stat"><b>AI · Azure</b><span>Cloud &amp; Automation</span></div>
+                    <div class="pf-stat"><b>Real</b><span>Client Work</span></div>
                 </div>
+            </div>
 
-                <!-- DVG — Digital Signage & Gelato Management -->
-                <div class="portfolio-item reveal card-theme-gelato">
-                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
-                    <h2>Dolce Vita Gelato — Digital Signage &amp; Gelato Management</h2>
-                    <p class="short-desc">A dual-purpose private platform — the customer-facing side drives the in-store display screens with real-time Firebase sync, looping video backgrounds, and auto-switching seasonal layouts. The admin side is a full gelato management system: control active flavors, toggle sold-out items, update pricing, manage daily specials, and push changes live to every display instantly. Linked directly from the Command Center.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Real-Time Sync</span>
-                        <span class="card-tag">Gelato Management</span>
-                        <span class="card-tag">Admin Panel</span>
-                    </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Admin Tool</span>
-                    </div>
-                </div>
+            <div class="pf-filters reveal" id="pfFilters">
+                <button class="pf-filter-btn active" data-filter="all">All</button>
+                <button class="pf-filter-btn" data-filter="featured">★ Featured</button>
+                <button class="pf-filter-btn" data-filter="ai">AI &amp; Automation</button>
+                <button class="pf-filter-btn" data-filter="fullstack">Full-Stack</button>
+                <button class="pf-filter-btn" data-filter="cloud">Cloud &amp; Networking</button>
+                <button class="pf-filter-btn" data-filter="live">Live Demos</button>
+            </div>
 
-                <!-- DVG — Mobile Ordering -->
-                <div class="portfolio-item reveal card-theme-gelato">
-                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
-                    <h2>Dolce Vita Gelato — Mobile Ordering</h2>
-                    <p class="short-desc">Customer-facing mobile ordering app built for Dolce Vita Gelato — features an animated Italian-themed UI, a full cart and checkout flow powered by Stripe, and GPS-based geofenced check-in that automatically pings staff the moment a customer arrives. Orders land directly in the Order Manager in real time.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Stripe</span>
-                        <span class="card-tag">Geolocation</span>
-                    </div>
-                    <div class="card-overlay">
-                        <a href="https://dolcevitasewell-mobileorder.com" target="_blank" class="card-cta">View Project →</a>
-                    </div>
-                </div>
+            <div class="portfolio-grid" id="pfGrid">
 
-                <!-- DVG — Self-Order Kiosk -->
-                <div class="portfolio-item reveal card-theme-gelato">
-                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
-                    <h2>Dolce Vita Gelato — Self-Order Kiosk</h2>
-                    <p class="short-desc">In-store touchscreen ordering kiosk designed for the DVG counter — displays looping branded video content when idle, then switches to a full interactive menu on first touch. Sold-out items are toggled from the admin panel and reflect on the kiosk instantly. Orders feed into the same real-time queue as mobile and walk-in orders.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">JavaScript</span>
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Touch UX</span>
-                    </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Internal Tool</span>
-                    </div>
-                </div>
+                <!-- ============ FEATURED ============ -->
 
-                <!-- DVG — Order Manager -->
-                <div class="portfolio-item reveal card-theme-gelato">
-                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
-                    <h2>Dolce Vita Gelato — Order Manager</h2>
-                    <p class="short-desc">Staff-facing order management console that pulls mobile app, kiosk, and walk-in orders into a single real-time Firestore-backed queue. Geofencing automatically surfaces an arrival alert the moment a mobile customer enters the pickup zone — no manual check-in needed. The live site at dolcevitasewell.com is the customer-side entry point for this system.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Real-Time</span>
-                        <span class="card-tag">Geofencing</span>
+                <!-- FEATURED: ACS Automation Pipeline -->
+                <article class="portfolio-item featured reveal card-theme-ai" data-cat="featured ai cloud">
+                    <div class="pf-badges">
+                        <span class="pf-flag">★ Featured</span>
+                        <span class="pf-status private"><span class="pf-live-dot"></span>Private Client Tool</span>
                     </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    <div class="pf-featured-head">
+                        <img src="images/logo.jpg" alt="ACS Call Transcription" class="card-logo" loading="lazy">
+                        <h2>ACS Call Transcription &amp; Time-Entry Automation</h2>
                     </div>
-                </div>
-
-                <!-- DVG — Staff Passport -->
-                <div class="portfolio-item reveal card-theme-gelato">
-                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
-                    <h2>Dolce Vita Gelato — Staff Passport</h2>
-                    <p class="short-desc">Role-gated internal staff portal for Dolce Vita Gelato employees — secured with Firebase Authentication so only approved team members get in. Once authenticated, staff get one-click access to their assigned operational tools, schedules, shift resources, and internal workflows. Roles control exactly what each employee can see and do.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Firebase Auth</span>
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Internal Tool</span>
-                    </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Internal Tool</span>
-                    </div>
-                </div>
-
-                <!-- DVG — Live Demo (Gelato Management + Signage + Mobile Order) -->
-                <div class="portfolio-item reveal card-theme-gelato">
-                    <div class="card-demo-ribbon">DEMO</div>
-                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
-                    <h2>Dolce Vita Gelato — Interactive Demo</h2>
-                    <p class="short-desc">A fully interactive demo environment showcasing the Gelato Management System, Digital Signage display, and Mobile Ordering app — all running on realistic fake data. Explore how flavors are managed, how the in-store displays update in real time, and how the mobile ordering flow works, without touching any live production data.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Live Demo</span>
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Fake Data</span>
-                    </div>
-                    <div class="card-overlay">
-                        <a href="https://gelato-system-demo.web.app" target="_blank" class="card-cta">Try the Demo →</a>
-                    </div>
-                </div>
-
-                <!-- DVG — Gelato Recipe System -->
-                <div class="portfolio-item reveal card-theme-gelato">
-                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
-                    <h2>Dolce Vita Gelato — Recipe &amp; Flavor Lab</h2>
-                    <p class="short-desc">A React + TypeScript internal tool that replaces the gelato recipe workbook — browse and create flavors, select bases, manage ingredients, and let the app handle all the scaling math automatically. Built with Vite, Tailwind, and Firestore so recipes are always live and accessible to the team. Firebase Auth protected and accessible from the Command Center.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">React</span>
-                        <span class="card-tag">TypeScript</span>
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Tailwind</span>
-                    </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Internal Tool</span>
-                    </div>
-                </div>
-
-                <!-- DVG — Inventory & Supply Management -->
-                <div class="portfolio-item reveal card-theme-gelato">
-                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
-                    <h2>Dolce Vita Gelato — Inventory &amp; Supply Management</h2>
-                    <p class="short-desc">A dedicated Firebase-authenticated supply tracking platform for Dolce Vita Gelato — add incoming stock, log usage, transfer items between locations, process order queues, and search inventory all from a modular dashboard. Each operation lives in its own protected module, with a full admin overview for managers. Built in vanilla JS and Firestore for fast, reliable access.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Firebase Auth</span>
-                        <span class="card-tag">Firestore</span>
-                        <span class="card-tag">Vanilla JS</span>
-                        <span class="card-tag">Multi-Module</span>
-                    </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Internal Tool</span>
-                    </div>
-                </div>
-
-                <!-- ===== OTHER PROJECTS ===== -->
-
-                <!-- ACS Call Transcription Automation -->
-                <div class="portfolio-item reveal card-theme-ai">
-                    <img src="images/logo.jpg" alt="ACS Call Transcription" class="card-logo" loading="lazy">
-                    <h2>ACS Call Transcription &amp; Time-Entry Automation</h2>
-                    <p class="short-desc">A three-stage Azure Functions pipeline that automates the full lifecycle of a support call — answers incoming Azure Communication Services calls, plays consent audio, records the conversation, and stores WAV chunks to Blob Storage. A second Function App transcribes the recordings via Azure Speech batch transcription and sends the transcript to Azure OpenAI for structured analysis, extracting the engineer name, full transcript, and a professional time-entry summary. A third app resolves the engineer to an Autotask resource, locates their active ticket, and posts the generated note automatically. Built with Python, Event Grid, Azure OpenAI, and full idempotency tracking end-to-end.</p>
+                    <p class="short-desc">A three-stage Azure Functions pipeline that automates the full lifecycle of a support call — answers incoming Azure Communication Services calls, plays consent audio, records the conversation, and stores WAV chunks to Blob Storage. A second app transcribes via Azure Speech batch transcription and sends the transcript to Azure OpenAI for structured analysis; a third resolves the engineer to an Autotask resource, finds their active ticket, and posts a professional time-entry note automatically.</p>
+                    <ul class="pf-highlights">
+                        <li>3-stage event-driven Azure pipeline</li>
+                        <li>Azure OpenAI structured extraction</li>
+                        <li>End-to-end idempotency tracking</li>
+                        <li>Zero-touch Autotask ticket notes</li>
+                    </ul>
                     <div class="card-tags">
                         <span class="card-tag">Azure Functions</span>
                         <span class="card-tag">Azure OpenAI</span>
                         <span class="card-tag">Azure Speech</span>
                         <span class="card-tag">Python</span>
+                        <span class="card-tag">Event Grid</span>
                         <span class="card-tag">Autotask</span>
                     </div>
                     <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Client Tool</span>
+                        <span class="card-private-badge">🔒 Private Client Tool — walkthrough on request</span>
                     </div>
-                </div>
+                </article>
 
-                <!-- On-Call IT Engineer Management System -->
-                <div class="portfolio-item reveal card-theme-default">
-                    <img src="images/logo.jpg" alt="On-Call Management" class="card-logo" loading="lazy">
-                    <h2>On-Call IT Engineer Management System</h2>
-                    <p class="short-desc">Internal platform for managing on-call rotations and engineer availability — when an on-call ticket comes in, the system automatically identifies the assigned engineer, sends real-time notifications, and delivers a detailed breakdown of the ticket: priority, affected systems, history, and recommended context. Ensures engineers are always informed and ready before they even pick up the phone, reducing response time and eliminating manual ticket triage.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Notifications</span>
-                        <span class="card-tag">Autotask</span>
-                        <span class="card-tag">Automation</span>
-                        <span class="card-tag">On-Call Management</span>
+                <!-- FEATURED: Funari AI PDF -->
+                <article class="portfolio-item featured reveal card-theme-finance" data-cat="featured ai">
+                    <div class="pf-badges">
+                        <span class="pf-flag">★ Featured</span>
+                        <span class="pf-status private"><span class="pf-live-dot"></span>Private Client Tool</span>
                     </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    <div class="pf-featured-head">
+                        <img src="images/funari-logo.png" alt="Funari Public Adjusters" class="card-logo" loading="lazy">
+                        <h2>Funari Public Adjusters — AI PDF Platform</h2>
                     </div>
-                </div>
-
-                <!-- Network Manager Portal -->
-                <div class="portfolio-item reveal card-theme-default">
-                    <img src="images/logo.jpg" alt="Network Manager Portal" class="card-logo" loading="lazy">
-                    <h2>Network Manager Portal</h2>
-                    <p class="short-desc">Comprehensive network monitoring and analytics portal covering UniFi access points, switches, and gateways alongside SonicWall firewall devices across multiple client sites. Tracks real-time latency, bandwidth, device health, and uptime — with instant site-down alerts and automatic ticket creation when an issue is detected. CVE monitoring flags known vulnerabilities on active firmware versions, while the analytics dashboard surfaces traffic trends, anomaly patterns, and per-device performance history. Everything needed to manage and protect a multi-site network from a single pane of glass.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">UniFi</span>
-                        <span class="card-tag">SonicWall</span>
-                        <span class="card-tag">CVE Monitoring</span>
-                        <span class="card-tag">Network Analytics</span>
-                        <span class="card-tag">Auto Ticketing</span>
-                    </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Internal Tool</span>
-                    </div>
-                </div>
-
-                <!-- Funari — AI PDF Platform -->
-                <div class="portfolio-item reveal card-theme-finance">
-                    <img src="images/funari-logo.png" alt="Funari Public Adjusters" class="card-logo" loading="lazy">
-                    <h2>Funari Public Adjusters — AI PDF Platform</h2>
-                    <p class="short-desc">Secure React + Firebase platform for insurance adjusters — uploads carrier estimate PDFs, runs Google Vision OCR, and uses Gemini AI to generate side-by-side discrepancy reports exportable as PDF or Excel.</p>
+                    <p class="short-desc">A secure React + Firebase platform built for a real insurance-adjusting firm. Adjusters upload carrier estimate PDFs; the app runs Google Vision OCR, then uses Gemini AI to generate side-by-side discrepancy reports that surface underpaid line items — exportable to PDF or Excel. What used to take hours of manual line-by-line comparison now takes seconds.</p>
+                    <ul class="pf-highlights">
+                        <li>Gemini AI discrepancy analysis</li>
+                        <li>Google Vision OCR on carrier PDFs</li>
+                        <li>One-click PDF &amp; Excel export</li>
+                        <li>Firebase-secured, per-user data</li>
+                    </ul>
                     <div class="card-tags">
                         <span class="card-tag">React</span>
                         <span class="card-tag">Gemini AI</span>
-                        <span class="card-tag">OCR</span>
+                        <span class="card-tag">Vision OCR</span>
                         <span class="card-tag">Firebase</span>
                     </div>
                     <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Client Tool</span>
+                        <span class="card-private-badge">🔒 Private Client Tool — walkthrough on request</span>
                     </div>
-                </div>
+                </article>
 
-                <!-- 3D Solar System -->
-                <div class="portfolio-item reveal card-theme-space">
-                    <img src="images/solarlogo.png" alt="3D Solar System" class="card-logo" loading="lazy" style="filter:drop-shadow(0 0 10px rgba(150,120,255,0.8))">
-                    <h2>Interactive 3D Solar System</h2>
-                    <p class="short-desc">Real-time, fully interactive 3D solar system built with Three.js and WebGL — orbit every planet, explore asteroid belts, and travel through deep space from your browser.</p>
+                <!-- FEATURED: 3D Solar System (LIVE) -->
+                <article class="portfolio-item featured reveal card-theme-space" data-cat="featured live" style="border-color:rgba(100,80,200,0.4)">
+                    <div class="pf-badges">
+                        <span class="pf-flag">★ Featured</span>
+                        <span class="pf-status live"><span class="pf-live-dot"></span>Live Now</span>
+                    </div>
+                    <div class="pf-featured-head">
+                        <img src="images/solarlogo.png" alt="3D Solar System" class="card-logo" loading="lazy" style="filter:drop-shadow(0 0 10px rgba(150,120,255,0.8))">
+                        <h2>Interactive 3D Solar System</h2>
+                    </div>
+                    <p class="short-desc">A real-time, fully interactive solar system rendered in the browser with Three.js and WebGL — orbit every planet, glide through the asteroid belt, and travel out into deep space. A from-scratch 3D engine showcase: custom camera controls, orbital mechanics, lighting, and thousands of GPU-drawn stars, all running at 60fps with no plugins.</p>
+                    <ul class="pf-highlights">
+                        <li>Three.js / WebGL, 60fps</li>
+                        <li>Real orbital motion &amp; scale</li>
+                        <li>Free-fly camera controls</li>
+                        <li>GPU-drawn starfield</li>
+                    </ul>
                     <div class="card-tags">
                         <span class="card-tag">Three.js</span>
                         <span class="card-tag">WebGL</span>
                         <span class="card-tag">JavaScript</span>
                     </div>
                     <div class="card-overlay" style="background:rgba(3,3,15,0.98);border-top-color:rgba(100,80,200,0.4)">
-                        <a href="https://solar.dantecorso.com" target="_blank" class="card-cta" style="color:#c8b8ff">Launch →</a>
+                        <a href="https://solar.dantecorso.com" target="_blank" class="card-cta" style="color:#c8b8ff">Launch Experience →</a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Personal Information Dashboard -->
-                <div class="portfolio-item reveal card-theme-ai">
-                    <img src="images/logo.jpg" alt="Information Dashboard" class="card-logo" loading="lazy">
-                    <h2>Personal Information Dashboard</h2>
-                    <p class="short-desc">Centralized React + TypeScript dashboard pulling live data from stock markets, weather APIs, cybersecurity CVE feeds, and tech news — all in one compact interface.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">React</span>
-                        <span class="card-tag">TypeScript</span>
-                        <span class="card-tag">TanStack Query</span>
-                    </div>
-                    <div class="card-overlay">
-                        <a href="https://dashboard.dantecorso.com" target="_blank" class="card-cta">View Project →</a>
-                    </div>
-                </div>
+                <!-- ============ MORE PROJECTS ============ -->
+                <div class="pf-section-label" data-label>More Projects</div>
 
-                <!-- 3D Print Shop -->
-                <div class="portfolio-item reveal card-theme-shop">
-                    <img src="images/3dlogo.png" alt="3D Print Shop" class="card-logo" loading="lazy">
-                    <h2>3D Print Shop — E-Commerce Storefront</h2>
-                    <p class="short-desc">Full e-commerce storefront for premium multi-color 3D prints — product catalog with search and sort, Stripe Checkout via Cloud Functions, and server-side wholesale discount codes.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Firebase</span>
-                        <span class="card-tag">Stripe</span>
-                        <span class="card-tag">Cloud Functions</span>
-                    </div>
-                    <div class="card-overlay">
-                        <a href="https://shop.dantecorso.com" target="_blank" class="card-cta">Visit Shop →</a>
-                    </div>
-                </div>
-
-                <!-- P&S Ravioli Inventory -->
-                <div class="portfolio-item reveal card-theme-default">
-                    <img src="images/P&SLogo.png" alt="P&S Ravioli" class="card-logo" loading="lazy">
-                    <h2>P&S Ravioli — Inventory Management</h2>
-                    <p class="short-desc">Web-based inventory platform for P&S Ravioli with auto-generated UPC barcodes, multi-location stock tracking, real-time analytics dashboards, and role-based access for drivers and managers.</p>
-                    <div class="card-tags">
-                        <span class="card-tag">Firestore</span>
-                        <span class="card-tag">Analytics</span>
-                        <span class="card-tag">Multi-Location</span>
-                    </div>
-                    <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Client Tool</span>
-                    </div>
-                </div>
-
-                <!-- AI Code Analyzer -->
-                <div class="portfolio-item reveal card-theme-ai">
+                <!-- AI Code Analyzer (LIVE) -->
+                <article class="portfolio-item reveal card-theme-ai" data-cat="ai live">
+                    <div class="pf-badges"><span class="pf-status live"><span class="pf-live-dot"></span>Live</span></div>
                     <img src="images/logo.jpg" alt="AI Code Analyzer" class="card-logo" loading="lazy">
                     <h2>AI Code Analyzer</h2>
                     <p class="short-desc">GPT-4o powered web tool that analyzes code snippets in real time — explains what it does, flags inefficiencies, and suggests refactors with a live code preview before you apply them.</p>
@@ -350,10 +521,78 @@
                     <div class="card-overlay">
                         <a href="https://ai.dantecorso.com" target="_blank" class="card-cta">Try It →</a>
                     </div>
-                </div>
+                </article>
 
-                <!-- CommitStack -->
-                <div class="portfolio-item reveal card-theme-default">
+                <!-- Network Manager Portal -->
+                <article class="portfolio-item reveal card-theme-default" data-cat="cloud">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <img src="images/logo.jpg" alt="Network Manager Portal" class="card-logo" loading="lazy">
+                    <h2>Network Manager Portal</h2>
+                    <p class="short-desc">Network monitoring and analytics portal covering UniFi access points, switches, and gateways alongside SonicWall firewalls across multiple client sites. Tracks real-time latency, bandwidth, and uptime with instant site-down alerts and automatic ticket creation. CVE monitoring flags known vulnerabilities on active firmware — a single pane of glass for a multi-site network.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">UniFi</span>
+                        <span class="card-tag">SonicWall</span>
+                        <span class="card-tag">CVE Monitoring</span>
+                        <span class="card-tag">Network Analytics</span>
+                        <span class="card-tag">Auto Ticketing</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </article>
+
+                <!-- Personal Information Dashboard (LIVE) -->
+                <article class="portfolio-item reveal card-theme-ai" data-cat="fullstack live">
+                    <div class="pf-badges"><span class="pf-status live"><span class="pf-live-dot"></span>Live</span></div>
+                    <img src="images/logo.jpg" alt="Information Dashboard" class="card-logo" loading="lazy">
+                    <h2>Personal Information Dashboard</h2>
+                    <p class="short-desc">Centralized React + TypeScript dashboard pulling live data from stock markets, weather APIs, cybersecurity CVE feeds, and tech news — all in one compact, fast interface built on TanStack Query.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">React</span>
+                        <span class="card-tag">TypeScript</span>
+                        <span class="card-tag">TanStack Query</span>
+                    </div>
+                    <div class="card-overlay">
+                        <a href="https://dashboard.dantecorso.com" target="_blank" class="card-cta">View Project →</a>
+                    </div>
+                </article>
+
+                <!-- On-Call IT Engineer Management -->
+                <article class="portfolio-item reveal card-theme-default" data-cat="cloud">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <img src="images/logo.jpg" alt="On-Call Management" class="card-logo" loading="lazy">
+                    <h2>On-Call IT Engineer Management System</h2>
+                    <p class="short-desc">Internal platform for managing on-call rotations and engineer availability — when an on-call ticket comes in, it identifies the assigned engineer, sends real-time notifications, and delivers a full ticket breakdown: priority, affected systems, history, and context. Engineers are informed and ready before they even pick up the phone.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Notifications</span>
+                        <span class="card-tag">Autotask</span>
+                        <span class="card-tag">Automation</span>
+                        <span class="card-tag">On-Call Management</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </article>
+
+                <!-- 3D Print Shop (LIVE) -->
+                <article class="portfolio-item reveal card-theme-shop" data-cat="fullstack live">
+                    <div class="pf-badges"><span class="pf-status live"><span class="pf-live-dot"></span>Live</span></div>
+                    <img src="images/3dlogo.png" alt="3D Print Shop" class="card-logo" loading="lazy">
+                    <h2>3D Print Shop — E-Commerce Storefront</h2>
+                    <p class="short-desc">Full e-commerce storefront for premium multi-color 3D prints — product catalog with search and sort, Stripe Checkout via Cloud Functions, and server-side wholesale discount codes.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Stripe</span>
+                        <span class="card-tag">Cloud Functions</span>
+                    </div>
+                    <div class="card-overlay">
+                        <a href="https://shop.dantecorso.com" target="_blank" class="card-cta">Visit Shop →</a>
+                    </div>
+                </article>
+
+                <!-- CommitStack (LIVE) -->
+                <article class="portfolio-item reveal card-theme-default" data-cat="fullstack live">
+                    <div class="pf-badges"><span class="pf-status live"><span class="pf-live-dot"></span>Live</span></div>
                     <img src="images/logo.jpg" alt="CommitStack" class="card-logo" loading="lazy">
                     <h2>CommitStack — WordPress Portfolio</h2>
                     <p class="short-desc">Fully custom WordPress site with a hand-built theme, plugin integrations, WooCommerce storefront, and on-page SEO — designed as a professional developer portfolio and showcase.</p>
@@ -365,9 +604,11 @@
                     <div class="card-overlay">
                         <a href="https://commitstack.com" target="_blank" class="card-cta">Visit Site →</a>
                     </div>
-                </div>
-                <!-- API Integrations Demo -->
-                <div class="portfolio-item reveal card-theme-default">
+                </article>
+
+                <!-- API Integrations Demo (interactive/live) -->
+                <article class="portfolio-item reveal card-theme-default" data-cat="fullstack live">
+                    <div class="pf-badges"><span class="pf-status live"><span class="pf-live-dot"></span>Interactive</span></div>
                     <img src="images/api-def.jpg" alt="API Integrations" class="card-logo" loading="lazy" style="border-radius:6px;">
                     <h2>Live API Integrations Demo</h2>
                     <p class="short-desc">Interactive demo showcasing Stripe payment flows, Google Maps location services, and real-time weather data via OpenWeatherMap — try a live location-based API call directly from this card.</p>
@@ -381,7 +622,191 @@
                     <div class="card-overlay">
                         <span style="font-size:0.8rem;color:var(--text-muted);">Click above to see it in action</span>
                     </div>
+                </article>
+
+                <!-- P&S Ravioli Inventory -->
+                <article class="portfolio-item reveal card-theme-default" data-cat="fullstack">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <img src="images/P&SLogo.png" alt="P&S Ravioli" class="card-logo" loading="lazy">
+                    <h2>P&amp;S Ravioli — Inventory Management</h2>
+                    <p class="short-desc">Web-based inventory platform for P&amp;S Ravioli with auto-generated UPC barcodes, multi-location stock tracking, real-time analytics dashboards, and role-based access for drivers and managers.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firestore</span>
+                        <span class="card-tag">Analytics</span>
+                        <span class="card-tag">Multi-Location</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Client Tool</span>
+                    </div>
+                </article>
+
+                <!-- ============ FLAGSHIP: DOLCE VITA GELATO ============ -->
+                <div class="pf-group-banner reveal" data-banner data-cat="fullstack">
+                    <img src="images/dolce-logo.png" alt="Dolce Vita Gelato" loading="lazy">
+                    <div>
+                        <span class="pf-group-eyebrow">Flagship Client Platform</span>
+                        <h2>Dolce Vita Gelato — Full Business Operating System</h2>
+                        <p>An entire company's software stack, designed, built, and maintained end-to-end: nine integrated systems spanning in-store digital signage, self-order kiosks, mobile ordering with Stripe &amp; geofenced arrival alerts, staff tooling, recipe R&amp;D, and inventory — all sharing one real-time Firebase backend so a change in one place updates everywhere instantly.</p>
+                        <div class="pf-group-stats">
+                            <span>9 Integrated Systems</span>
+                            <span>Real-Time Firebase Sync</span>
+                            <span>Stripe Payments</span>
+                            <span>Geofencing</span>
+                            <span>React · TS · Vanilla JS</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- DVG — Command Center -->
+                <article class="portfolio-item reveal card-theme-gelato" data-cat="fullstack">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>DVG — Command Center</h2>
+                    <p class="short-desc">The private nerve center for all Dolce Vita Gelato operations — a Firebase-authenticated dashboard with 9 animated morphing-blob buttons that launch every internal system: Digital Signage &amp; Gelato Management, the Self-Order Kiosk, Mobile Ordering, Order Manager, Staff Passport, Recipe Lab, Inventory, and more. Every DVG tool flows through here.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase Auth</span>
+                        <span class="card-tag">JavaScript</span>
+                        <span class="card-tag">Admin Dashboard</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Admin Tool</span>
+                    </div>
+                </article>
+
+                <!-- DVG — Digital Signage & Gelato Management -->
+                <article class="portfolio-item reveal card-theme-gelato" data-cat="fullstack">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>DVG — Digital Signage &amp; Gelato Management</h2>
+                    <p class="short-desc">A dual-purpose private platform — the customer-facing side drives the in-store display screens with real-time Firebase sync, looping video backgrounds, and auto-switching seasonal layouts. The admin side is a full gelato management system: control active flavors, toggle sold-out items, update pricing, manage daily specials, and push changes live to every display instantly.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Real-Time Sync</span>
+                        <span class="card-tag">Gelato Management</span>
+                        <span class="card-tag">Admin Panel</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Admin Tool</span>
+                    </div>
+                </article>
+
+                <!-- DVG — Mobile Ordering (LIVE) -->
+                <article class="portfolio-item reveal card-theme-gelato" data-cat="fullstack live">
+                    <div class="pf-badges"><span class="pf-status live"><span class="pf-live-dot"></span>Live</span></div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>DVG — Mobile Ordering</h2>
+                    <p class="short-desc">Customer-facing mobile ordering app built for Dolce Vita Gelato — features an animated Italian-themed UI, a full cart and checkout flow powered by Stripe, and GPS-based geofenced check-in that automatically pings staff the moment a customer arrives. Orders land directly in the Order Manager in real time.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Stripe</span>
+                        <span class="card-tag">Geolocation</span>
+                    </div>
+                    <div class="card-overlay">
+                        <a href="https://dolcevitasewell-mobileorder.com" target="_blank" class="card-cta">View Project →</a>
+                    </div>
+                </article>
+
+                <!-- DVG — Self-Order Kiosk -->
+                <article class="portfolio-item reveal card-theme-gelato" data-cat="fullstack">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>DVG — Self-Order Kiosk</h2>
+                    <p class="short-desc">In-store touchscreen ordering kiosk designed for the DVG counter — displays looping branded video content when idle, then switches to a full interactive menu on first touch. Sold-out items are toggled from the admin panel and reflect on the kiosk instantly. Orders feed into the same real-time queue as mobile and walk-in orders.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">JavaScript</span>
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Touch UX</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </article>
+
+                <!-- DVG — Order Manager -->
+                <article class="portfolio-item reveal card-theme-gelato" data-cat="fullstack">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>DVG — Order Manager</h2>
+                    <p class="short-desc">Staff-facing order management console that pulls mobile app, kiosk, and walk-in orders into a single real-time Firestore-backed queue. Geofencing automatically surfaces an arrival alert the moment a mobile customer enters the pickup zone — no manual check-in needed.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Real-Time</span>
+                        <span class="card-tag">Geofencing</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </article>
+
+                <!-- DVG — Staff Passport -->
+                <article class="portfolio-item reveal card-theme-gelato" data-cat="fullstack">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>DVG — Staff Passport</h2>
+                    <p class="short-desc">Role-gated internal staff portal for Dolce Vita Gelato employees — secured with Firebase Authentication so only approved team members get in. Once authenticated, staff get one-click access to their assigned operational tools, schedules, shift resources, and internal workflows. Roles control exactly what each employee can see and do.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase Auth</span>
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Internal Tool</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </article>
+
+                <!-- DVG — Interactive Demo (LIVE) -->
+                <article class="portfolio-item reveal card-theme-gelato" data-cat="fullstack live">
+                    <div class="card-demo-ribbon">DEMO</div>
+                    <div class="pf-badges"><span class="pf-status live"><span class="pf-live-dot"></span>Try It Live</span></div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>DVG — Interactive Demo</h2>
+                    <p class="short-desc">A fully interactive demo environment showcasing the Gelato Management System, Digital Signage display, and Mobile Ordering app — all running on realistic fake data. Explore how flavors are managed, how the in-store displays update in real time, and how the mobile ordering flow works, without touching any live production data.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Live Demo</span>
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Fake Data</span>
+                    </div>
+                    <div class="card-overlay">
+                        <a href="https://gelato-system-demo.web.app" target="_blank" class="card-cta">Try the Demo →</a>
+                    </div>
+                </article>
+
+                <!-- DVG — Recipe & Flavor Lab -->
+                <article class="portfolio-item reveal card-theme-gelato" data-cat="fullstack">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>DVG — Recipe &amp; Flavor Lab</h2>
+                    <p class="short-desc">A React + TypeScript internal tool that replaces the gelato recipe workbook — browse and create flavors, select bases, manage ingredients, and let the app handle all the scaling math automatically. Built with Vite, Tailwind, and Firestore so recipes are always live and accessible to the team.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">React</span>
+                        <span class="card-tag">TypeScript</span>
+                        <span class="card-tag">Firebase</span>
+                        <span class="card-tag">Tailwind</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </article>
+
+                <!-- DVG — Inventory & Supply Management -->
+                <article class="portfolio-item reveal card-theme-gelato" data-cat="fullstack">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
+                    <a href="https://dolcevitasewell.com" target="_blank"><img src="images/dolce-logo.png" alt="Dolce Vita Gelato" class="card-logo" loading="lazy"></a>
+                    <h2>DVG — Inventory &amp; Supply Management</h2>
+                    <p class="short-desc">A dedicated Firebase-authenticated supply tracking platform for Dolce Vita Gelato — add incoming stock, log usage, transfer items between locations, process order queues, and search inventory all from a modular dashboard. Each operation lives in its own protected module, with a full admin overview for managers.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Firebase Auth</span>
+                        <span class="card-tag">Firestore</span>
+                        <span class="card-tag">Vanilla JS</span>
+                        <span class="card-tag">Multi-Module</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </article>
+
+                <div class="pf-empty" id="pfEmpty">No projects in this category.</div>
+
             </div>
         </section>
     </main>
@@ -418,6 +843,36 @@
                 btn.disabled = false;
             }
         }
+
+        /* ---- Project category filter ---- */
+        (function () {
+            const filters = document.getElementById('pfFilters');
+            const grid = document.getElementById('pfGrid');
+            const empty = document.getElementById('pfEmpty');
+            if (!filters || !grid) return;
+            const cards = Array.from(grid.querySelectorAll('.portfolio-item'));
+            const structural = Array.from(grid.querySelectorAll('[data-banner], [data-label]'));
+
+            filters.addEventListener('click', (e) => {
+                const btn = e.target.closest('.pf-filter-btn');
+                if (!btn) return;
+                const filter = btn.dataset.filter;
+                filters.querySelectorAll('.pf-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                let shown = 0;
+                cards.forEach(card => {
+                    const cats = (card.dataset.cat || '').split(/\s+/);
+                    const match = filter === 'all' || cats.includes(filter);
+                    card.classList.toggle('pf-hidden', !match);
+                    if (match) { card.classList.add('visible'); shown++; }
+                });
+                // Section banners/labels only make sense in the full, ordered view.
+                structural.forEach(el => el.classList.toggle('pf-hidden', filter !== 'all'));
+                if (empty) empty.style.display = shown === 0 ? 'block' : 'none';
+            });
+        })();
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.06 });
@@ -451,4 +906,5 @@
         })();
     </script>
 </body>
+
 </html>
