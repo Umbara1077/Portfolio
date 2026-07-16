@@ -747,12 +747,13 @@ section {
     font-weight: 800;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     text-align: center;
-    margin-bottom: 32px;
+    margin: 0 auto 32px;
     color: var(--accent);
     position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    /* display:table shrink-wraps to the text (so the ::after underline
+       matches its width) while margin:auto centers it without transforms —
+       .reveal's transform used to override translateX centering. */
+    display: table;
 }
 
 .section-title::after {
