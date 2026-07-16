@@ -11,6 +11,8 @@
     window.openSideNav = function () {
         const { sideNav, backdrop } = getElements();
         if (!sideNav || !backdrop) return;
+        sideNav.classList.remove('is-navigating');
+        backdrop.classList.remove('is-navigating');
         sideNav.classList.add('is-open');
         backdrop.classList.add('is-visible');
         sideNav.setAttribute('aria-hidden', 'false');
@@ -67,7 +69,12 @@
         }
 
         document.querySelectorAll('#side-nav a').forEach(function (link) {
-            link.addEventListener('click', window.closeSideNav);
+            link.addEventListener('click', function () {
+                // Remove the overlay immediately while the next document loads.
+                sideNav.classList.add('is-navigating');
+                backdrop.classList.add('is-navigating');
+                window.closeSideNav();
+            });
         });
 
         document.addEventListener('keydown', function (event) {

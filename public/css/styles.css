@@ -523,6 +523,13 @@ body > *:not(.bg-orbs):not(#side-nav):not(#nav-backdrop) {
     transition-delay: 0s;
 }
 
+#nav-backdrop.is-navigating {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: none;
+}
+
 /* ================================
    Header & Navigation
 ================================== */
@@ -664,6 +671,11 @@ nav ul li a.active-link {
 
 .side-nav.is-open {
     transform: translate3d(0, 0, 0);
+}
+
+.side-nav.is-navigating {
+    transform: translate3d(-100%, 0, 0);
+    transition: none;
 }
 
 .side-nav ul {

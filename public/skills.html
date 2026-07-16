@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills — Dante Corso</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/nav.js" defer></script>
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js" defer></script>
 </head>
 <body>
     <div class="bg-orbs">
@@ -66,7 +63,10 @@
     <main>
         <section id="skills">
             <h1 class="section-title reveal">My Skills</h1>
-            <div id="weather-widget">Fetching weather...</div>
+            <div id="weather-widget">
+                <button type="button" id="getWeatherBtn" class="btn">Show Local Weather</button>
+                <div id="weather" aria-live="polite"></div>
+            </div>
 
             <div class="service reveal">
                 <div>
@@ -197,7 +197,6 @@
         <p>Disclaimer: All logos and trademarks are the property of their respective owners. Their use on this site does not imply endorsement or affiliation.</p>
     </footer>
 
-    <script src="js/scripts.js" defer></script>
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -208,20 +207,36 @@
                 entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
             }, { threshold: 0.5 }).observe(el);
         });
-// Weather widget
-        document.addEventListener("DOMContentLoaded", () => {
-            const widget = document.getElementById("weather-widget");
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(pos => {
-                    fetch(`/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`)
-                        .then(r => r.ok ? r.json() : Promise.reject())
-                        .then(d => {
-                            widget.innerHTML = `<strong>${d.name}</strong>: ${d.main.temp}°F — ${d.weather[0].description}<br>Humidity: ${d.main.humidity}% · Wind: ${d.wind.speed} m/s`;
-                        }).catch(() => { widget.textContent = "Error loading weather data."; });
-                }, () => { widget.textContent = "Location access denied."; });
-            } else {
-                widget.textContent = "Geolocation not supported.";
+        // Request location only after the visitor explicitly asks for weather.
+        document.getElementById("getWeatherBtn").addEventListener("click", function () {
+            const button = this;
+            const weather = document.getElementById("weather");
+            button.disabled = true;
+            button.textContent = "Fetching...";
+
+            if (!navigator.geolocation) {
+                weather.textContent = "Geolocation not supported.";
+                button.disabled = false;
+                button.textContent = "Show Local Weather";
+                return;
             }
+
+            navigator.geolocation.getCurrentPosition(pos => {
+                fetch(`/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`)
+                    .then(r => r.ok ? r.json() : Promise.reject())
+                    .then(d => {
+                        weather.innerHTML = `<strong>${d.name}</strong>: ${d.main.temp}°F — ${d.weather[0].description}<br>Humidity: ${d.main.humidity}% · Wind: ${d.wind.speed} m/s`;
+                    })
+                    .catch(() => { weather.textContent = "Error loading weather data."; })
+                    .finally(() => {
+                        button.disabled = false;
+                        button.textContent = "Refresh Local Weather";
+                    });
+            }, () => {
+                weather.textContent = "Location access denied.";
+                button.disabled = false;
+                button.textContent = "Show Local Weather";
+            });
         });
     </script>
     <script>
@@ -248,4 +263,3 @@
     </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                               
