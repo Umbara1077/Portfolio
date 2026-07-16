@@ -658,12 +658,9 @@ nav ul li a.active-link {
     top: 0;
     left: 0;
     background: rgba(10, 10, 10, 0.97);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     overflow-x: hidden;
     transform: translate3d(-100%, 0, 0);
     transition: transform 0.25s ease;
-    will-change: transform;
     padding-top: 60px;
     box-shadow: 8px 0 30px rgba(0, 0, 0, 0.9);
     border-right: 1px solid var(--border-soft);
@@ -2467,13 +2464,15 @@ a[style*="background-color:#2e59d9"] {
     footer { font-size: 0.78rem; }
 }
 
-/* ---- Page fade-in (pure CSS, no JS race conditions) ---- */
-@keyframes page-fade-in {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-body {
-    animation: page-fade-in 0.2s ease both;
+/* Page fade-in removed — it delayed first paint by 0.2s on every navigation. */
+
+/* The drawer + backdrop only exist for the mobile hamburger; keeping them
+   rendered on desktop costs a permanent full-height compositor layer. */
+@media (min-width: 769px) {
+    .side-nav,
+    #nav-backdrop {
+        display: none !important;
+    }
 }
 
 /* ---- Mobile performance: kill GPU-expensive effects on small screens ---- */

@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet"></noscript>
     <style>
         /* ---- Hero ---- */
         #intro {
@@ -512,24 +512,21 @@
             const textNode1 = document.createTextNode('');
             nameEl.insertBefore(textNode1, cursorEl);
 
-            // Line 1: name
+            // Subtitle and bio appear immediately — only the name gets typed,
+            // so the hero is fully readable in under a second.
+            subtitleEl.textContent = line2;
+            bioEl.textContent = line3;
+            subtitleEl.style.transition = 'opacity 0.5s ease';
+            bioEl.style.transition = 'opacity 0.5s ease';
+            requestAnimationFrame(() => {
+                subtitleEl.style.opacity = '1';
+                bioEl.style.opacity = '1';
+            });
+
             typeOut(line1, p => textNode1.nodeValue = p, () => {
-                // Line 2: subtitle
-                setTimeout(() => {
-                    subtitleEl.style.opacity = '1';
-                    typeOut(line2, p => subtitleEl.textContent = p, () => {
-                        // Line 3: bio (slightly faster)
-                        setTimeout(() => {
-                            bioEl.style.opacity = '1';
-                            typeOut(line3, p => bioEl.textContent = p, () => {
-                                // Done — blink cursor
-                                cursorEl.style.animationPlayState = 'running';
-                                cursorEl.style.opacity = '';
-                            }, 18);
-                        }, 300);
-                    }, 48);
-                }, 380);
-            }, 52);
+                cursorEl.style.animationPlayState = 'running';
+                cursorEl.style.opacity = '';
+            }, 38);
         })();
 
         // ---- Light / Dark Theme Toggle ----

@@ -18,6 +18,26 @@
         "source": "/weather",
         "function": "getWeatherByLocation"
       }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|JPG|png|gif|webp|svg|ico)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=2592000"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(mp4|webm|pdf|woff2)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=2592000"
+          }
+        ]
+      }
     ]
   },
   "functions": [
