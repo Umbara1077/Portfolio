@@ -4,59 +4,56 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
-  <loc>https://precisionpixelinnovations.dev/</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
+  <loc>https://dantecorso.com/</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://precisionpixelinnovations.dev/index.html</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
+  <loc>https://dantecorso.com/portfolio.html</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://dantecorso.com/resume.html</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://dantecorso.com/about.html</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://precisionpixelinnovations.dev/about.html</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://dantecorso.com/skills.html</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
 </url>
 <url>
-  <loc>https://precisionpixelinnovations.dev/skills.html</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://dantecorso.com/contact.html</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
 </url>
 <url>
-  <loc>https://precisionpixelinnovations.dev/portfolio.html</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://dantecorso.com/web-development.html</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+  <priority>0.60</priority>
 </url>
 <url>
-  <loc>https://precisionpixelinnovations.dev/contact.html</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://dantecorso.com/mobile-development.html</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+  <priority>0.60</priority>
 </url>
 <url>
-  <loc>https://precisionpixelinnovations.dev/job-request.html</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://dantecorso.com/devops-architecture.html</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+  <priority>0.60</priority>
 </url>
 <url>
-  <loc>https://precisionpixelinnovations.dev/web-development.html</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://dantecorso.com/cyber-security.html</loc>
+  <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+  <priority>0.60</priority>
 </url>
-<url>
-  <loc>https://precisionpixelinnovations.dev/mobile-development.html</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://precisionpixelinnovations.dev/cyber-security.html</loc>
-  <lastmod>2024-06-16T04:40:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
 
 </urlset>

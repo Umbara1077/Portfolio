@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume — Dante Corso</title>
+    <meta name="description" content="Résumé of Dante Corso, cloud and full-stack engineer: Azure automation platforms, multi-vendor monitoring, and real-time business systems.">
+    <link rel="canonical" href="https://dantecorso.com/resume.html">
+    <meta property="og:title" content="Résumé — Dante Corso">
+    <meta property="og:description" content="Résumé of Dante Corso, cloud and full-stack engineer: Azure automation platforms, multi-vendor monitoring, and real-time business systems.">
+    <meta property="og:url" content="https://dantecorso.com/resume.html">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/nav.js" defer></script>
     <link rel="icon" href="images/logo.jpg" type="image/x-icon">
@@ -271,15 +276,15 @@
                 <div class="resume-header-main">
                     <span class="rz-eyebrow">Résumé</span>
                     <h1 class="resume-name">Dante Corso</h1>
-                    <p class="resume-title">DevOps &amp; Full-Stack Engineer</p>
+                    <p class="resume-title">Cloud &amp; Full-Stack Engineer</p>
                     <p class="resume-summary">
-                        I design and build cloud-native systems with a focus on automation, reliability, and developer
-                        experience — from Azure DevOps pipelines and serverless AI backends to real-time, user-facing web
-                        apps that ship to real businesses.
+                        I build event-driven Azure systems that connect telephony, AI services, vendor APIs, and business
+                        platforms — and the React front ends operators actually use. Two production platforms at a
+                        managed services provider, plus full-stack systems real businesses run on daily.
                     </p>
                     <div class="rz-cta-row">
-                        <a class="rz-btn primary" href="pdf/Corso Dante - Resume Full Stack.pdf" target="_blank">⬇ Download Résumé (PDF)</a>
-                        <a class="rz-btn secondary" href="pdf/Corso Dante - Resume DevOps.pdf" target="_blank">DevOps Version</a>
+                        <a class="rz-btn primary" href="pdf/Dante-Corso-Resume-Cloud-Integration.pdf" target="_blank">⬇ Download Résumé (PDF)</a>
+                        <a class="rz-btn secondary" href="pdf/Dante-Corso-Resume-Full-Stack.pdf" target="_blank">Full-Stack Version</a>
                     </div>
                 </div>
                 <div class="resume-header-meta">
@@ -297,9 +302,9 @@
 
             <!-- Impact metrics -->
             <div class="rz-stats rz-reveal">
+                <div class="rz-stat"><b>2</b><span>Production Azure platforms</span></div>
                 <div class="rz-stat"><b>25%</b><span>Faster on-call response time</span></div>
                 <div class="rz-stat"><b>50%</b><span>Less inventory lookup time</span></div>
-                <div class="rz-stat"><b>40%</b><span>Fewer pricing errors in-store</span></div>
                 <div class="rz-stat"><b>20+</b><span>Production projects shipped</span></div>
             </div>
 
@@ -326,16 +331,19 @@
                                 <span class="rz-tag">Azure Functions</span>
                                 <span class="rz-tag">Azure OpenAI</span>
                                 <span class="rz-tag">Azure Speech</span>
+                                <span class="rz-tag">Event Grid</span>
                                 <span class="rz-tag">Python</span>
+                                <span class="rz-tag">React 19</span>
                                 <span class="rz-tag">Azure DevOps</span>
-                                <span class="rz-tag">CI/CD</span>
                             </div>
                             <ul>
-                                <li>Architected an end-to-end ACS Call Transcription & Time-Entry Automation pipeline across three independent Azure Function Apps — answering incoming calls via Azure Communication Services, recording and storing audio to Blob Storage, transcribing with Azure Speech batch jobs, analyzing with Azure OpenAI, and posting structured time-entry notes directly to Autotask tickets with full idempotency and correlation ID tracing.</li>
-                                <li>Built a Network Manager Portal providing unified monitoring and analytics for UniFi and SonicWall devices across multiple client sites — real-time latency tracking, site-down alerting, CVE firmware monitoring, automated ticket creation on detected failures, and a multi-site analytics dashboard.</li>
-                                <li>Developed an On-Call IT Engineer Management System that delivers real-time ticket notifications to on-call engineers with full contextual breakdowns — priority, affected systems, history, and recommended context — reducing mean response time by <strong>25%</strong>.</li>
-                                <li>Developed an AI-powered search layer via Azure AI Foundry that generates JSON queries for tickets, tasks, opportunities, projects, and contracts, then feeds results into a secondary AI bot for deep analysis and summary.</li>
-                                <li>Created CI/CD workflows in Azure DevOps for backend services and web apps, automating deployments across environments and standardizing release processes.</li>
+                                <li>Architected a call automation platform across three Python Azure Function Apps — answers inbound Azure Communication Services calls, routes them through an ordered Microsoft Teams engineer queue with automatic voicemail failover, records to Blob Storage, transcribes with Azure Speech batch jobs, and generates client-ready documentation with Azure OpenAI, posting the finished time entry to the engineer's active Autotask ticket with no manual step.</li>
+                                <li>Designed table-backed idempotency around every external side effect — Event Grid events, recording uploads, AI analyses, and ticket posts — so at-least-once webhook delivery and retries cannot produce duplicates. Failed operations release their claim row so redelivery retries safely.</li>
+                                <li>Built a sanitized correlation ID propagated across ten hops, from the first webhook through storage, Speech, the model, and the ticket note — making any call traceable end to end from a single KQL query.</li>
+                                <li>Hardened the AI layer against prompt injection: transcripts are treated as untrusted data and scrubbed of control characters, signed URLs, connection strings, and instruction-override phrases; model output is schema-constrained and re-validated before any external write. Engineer identity comes from verified Teams metadata, not model inference.</li>
+                                <li>Built a React 19 + TypeScript operations dashboard on Azure Static Web Apps — service health, storage analytics, a searchable recording and transcript explorer with HTTP Range–based seekable audio, and Azure Cost Management integration reporting cost per call.</li>
+                                <li>Built a multi-vendor network monitor across UniFi, SonicWall, and Cisco Meraki fleets — polls vendor APIs every five minutes, normalizes them into one model, and opens, tracks, and auto-resolves Autotask tickets through a Table Storage state machine, with pure detection modules under unit test and alert suppression so one incident makes one ticket.</li>
+                                <li>Added a daily advisory pipeline enriching vendor security advisories with NVD CVE detail and FIRST EPSS exploit-probability scores, matched against deployed firmware; plus CI/CD pipelines in Azure DevOps standardizing releases across client environments.</li>
                             </ul>
                         </div>
                     </div>
@@ -355,15 +363,11 @@
                                 <span class="rz-tag">Multi-Location</span>
                             </div>
                             <ul>
-                                <li>Developed a real-time inventory management platform with Firestore, improving
-                                    operational efficiency by <strong>30%</strong> and reducing inventory lookup time by
-                                    <strong>50%</strong>.
-                                </li>
-                                <li>Designed dashboards with advanced filtering, search, and PDF reporting to support
-                                    audits and driver routing decisions.</li>
-                                <li>Enabled live stock updates for multiple locations, increasing driver efficiency by
-                                    <strong>45%</strong> through better data visibility.
-                                </li>
+                                <li>Built a real-time inventory platform on Firestore with auto-generated UPC barcodes and
+                                    multi-location stock tracking, reducing inventory lookup time by <strong>50%</strong>.</li>
+                                <li>Designed role-based dashboards for drivers and managers with advanced filtering,
+                                    search, and live analytics.</li>
+                                <li>Automated PDF reporting pipelines that replaced manual audit and logistics reporting.</li>
                             </ul>
                         </div>
                     </div>
@@ -374,7 +378,7 @@
                             <div class="timeline-header">
                                 <h3>Dolce Vita Gelato</h3>
                                 <span class="timeline-role">Full Stack Developer</span>
-                                <span class="timeline-dates">2023 – Present</span>
+                                <span class="timeline-dates">2023 – 2024</span>
                             </div>
                             <div class="rz-tags">
                                 <span class="rz-tag">React</span>
@@ -384,8 +388,9 @@
                                 <span class="rz-tag">Geofencing</span>
                             </div>
                             <ul>
-                                <li>Built a mobile ordering and kiosk system with Stripe integration and GPS-based geofenced check-ins, reducing customer wait times by <strong>20%</strong> and feeding all orders into a unified real-time queue.</li>
-                                <li>Architected a dynamic digital signage and gelato management system — in-store displays sync menu, pricing, and promotions from Firebase in real time, while the admin panel controls active flavors, sold-out toggles, and daily specials, cutting pricing errors by <strong>40%</strong>.</li>
+                                <li>Designed, built, and maintained an entire company software stack — nine integrated systems on one shared real-time Firebase backend, so a change in one place updates everywhere instantly. <a href="https://gelato-system-demo.web.app" target="_blank" rel="noopener"><strong>Try the live demo →</strong></a></li>
+                                <li>Built the customer mobile ordering app — animated themed UI, full cart and Stripe checkout, and GPS geofenced check-in that pings staff the moment a customer reaches the pickup zone, with orders feeding a unified real-time queue. <a href="https://dolcevitasewell-mobileorder.com" target="_blank" rel="noopener"><strong>View live →</strong></a></li>
+                                <li>Architected the digital signage and product management platform — in-store displays sync menu, pricing, and promotions from Firebase in real time, while the admin panel controls active flavors, sold-out toggles, and daily specials, pushed live to every screen instantly.</li>
                                 <li>Built a React + TypeScript Recipe & Flavor Lab that digitizes the gelato recipe workbook — automated ingredient scaling math, flavor management, and live Firestore sync replace manual spreadsheet workflows.</li>
                                 <li>Developed a multi-module Inventory & Supply Management platform for tracking ingredient stock across locations — add, use, transfer, search, and process order queues, all secured with Firebase Auth.</li>
                                 <li>Unified all tools under a private Command Center dashboard and Staff Passport portal, giving the team role-gated single-click access to every operational system.</li>
@@ -625,75 +630,85 @@
                 <h2>Skills</h2>
                 <div class="skills-chips">
                     <div class="skills-group">
-                        <h3>Languages & Frameworks</h3>
+                        <h3>Languages</h3>
                         <div class="chip-row">
                             <span class="chip">Python</span>
-                            <span class="chip">JavaScript</span>
                             <span class="chip">TypeScript</span>
-                            <span class="chip">Java</span>
-                            <span class="chip">Go</span>
-                            <span class="chip">C++</span>
-                            <span class="chip">C#</span>
+                            <span class="chip">JavaScript</span>
+                            <span class="chip">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3>Azure</h3>
+                        <div class="chip-row">
+                            <span class="chip">Azure Functions</span>
+                            <span class="chip">Communication Services</span>
+                            <span class="chip">Event Grid</span>
+                            <span class="chip">Azure Speech</span>
+                            <span class="chip">Azure OpenAI</span>
+                            <span class="chip">AI Foundry</span>
+                            <span class="chip">Blob &amp; Table Storage</span>
+                            <span class="chip">Static Web Apps</span>
+                            <span class="chip">Logic Apps</span>
+                            <span class="chip">Key Vault</span>
+                            <span class="chip">Application Insights</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3>Web &amp; Backend</h3>
+                        <div class="chip-row">
                             <span class="chip">React</span>
                             <span class="chip">Next.js</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-group">
-                        <h3>Web & Backend</h3>
-                        <div class="chip-row">
+                            <span class="chip">Vite</span>
+                            <span class="chip">Tailwind</span>
                             <span class="chip">HTML</span>
                             <span class="chip">CSS</span>
-                            <span class="chip">Tailwind</span>
-                            <span class="chip">Bootstrap</span>
                             <span class="chip">Node.js</span>
                             <span class="chip">Express</span>
-                            <span class="chip">Django</span>
+                            <span class="chip">Firebase Cloud Functions</span>
                         </div>
                     </div>
 
                     <div class="skills-group">
-                        <h3>Cloud & Databases</h3>
+                        <h3>Data</h3>
                         <div class="chip-row">
-                            <span class="chip">SQL</span>
-                            <span class="chip">MongoDB</span>
                             <span class="chip">Firestore</span>
-                            <span class="chip">AWS</span>
-                            <span class="chip">Google Cloud</span>
-                            <span class="chip">Azure</span>
-                            <span class="chip">Docker</span>
-                            <span class="chip">Kubernetes</span>
+                            <span class="chip">Azure SQL</span>
+                            <span class="chip">MongoDB</span>
+                            <span class="chip">Azure Table Storage</span>
                         </div>
                     </div>
 
                     <div class="skills-group">
-                        <h3>AI & Automation</h3>
+                        <h3>AI &amp; Automation</h3>
                         <div class="chip-row">
                             <span class="chip">Azure OpenAI</span>
-                            <span class="chip">Azure AI Foundry</span>
-                            <span class="chip">Azure Speech</span>
                             <span class="chip">Gemini</span>
-                            <span class="chip">OpenAI GPT-4</span>
                             <span class="chip">Google Vision OCR</span>
+                            <span class="chip">JSON schema validation</span>
+                            <span class="chip">Prompt-injection hardening</span>
                         </div>
                     </div>
 
                     <div class="skills-group">
-                        <h3>APIs, DevOps & Process</h3>
+                        <h3>APIs, DevOps &amp; Process</h3>
                         <div class="chip-row">
                             <span class="chip">REST</span>
-                            <span class="chip">GraphQL</span>
                             <span class="chip">OAuth 2.0</span>
+                            <span class="chip">Webhooks</span>
+                            <span class="chip">Event-driven architecture</span>
                             <span class="chip">Git</span>
                             <span class="chip">GitHub Actions</span>
                             <span class="chip">Azure DevOps</span>
                             <span class="chip">CI/CD</span>
+                            <span class="chip">pytest</span>
+                            <span class="chip">KQL</span>
                             <span class="chip">Agile</span>
-                            <span class="chip">Scrum</span>
-                            <span class="chip">Jira</span>
-                            <span class="chip">Terraform</span>
                         </div>
                     </div>
+
                 </div>
             </section>
 
@@ -704,7 +719,7 @@
 
                     <!-- Rowan University -->
                     <div class="resume-card">
-                        <h3>Bachelor of Science, Computer Science</h3>
+                        <h3>B.S. Computer Science — Networking Systems Concentration</h3>
                         <p>Rowan University — <strong>Class of 2024</strong></p>
                     </div>
 
