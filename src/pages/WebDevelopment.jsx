@@ -1,0 +1,136 @@
+import { Layout } from '../components/Layout.jsx';
+import { simpleFooter } from '../components/Footers.jsx';
+import { usePageStyle } from '../hooks/usePageStyle.js';
+import { usePageMeta } from '../hooks/usePageMeta.js';
+import { VideoContainer } from '../components/VideoContainer.jsx';
+import { ServiceButton } from '../components/ServiceButton.jsx';
+import serviceCss from './ServicePage.css?inline';
+
+export default function WebDevelopment() {
+    usePageStyle(serviceCss);
+    usePageMeta({ title: 'Web Development' });
+
+    return (
+        <Layout orbs={2} logoAlt="Precision Pixel Studios" footer={simpleFooter}>
+            <section id="video">
+                <VideoContainer desktopSrc="/videos/Web-Dev.mp4" mobileSrc="/videos/Web-Dev-Mobile.mp4" />
+            </section>
+            <section id="content">
+                <h2>Web Development</h2>
+
+                <div className="service">
+                    <h3>Why Web Development?</h3>
+                    <p>
+                        Web development is essential for creating and maintaining a strong online presence. A
+                        well-designed website enhances user experience, builds credibility, and provides valuable
+                        information about your products or services. Whether you are a small business or a large
+                        enterprise, a robust web presence is crucial for reaching a broader audience and achieving your
+                        business goals.
+                    </p>
+                    <p>
+                        <strong>How It Helps:</strong> Web development helps you establish a brand identity, improve
+                        customer engagement, and drive sales. By utilizing the latest technologies and best practices,
+                        we create websites that are not only visually appealing but also fast, secure, and responsive
+                        across all devices.
+                    </p>
+                </div>
+
+                <div className="service">
+                    <h3>Multiple Subdomains</h3>
+                    <p>
+                        <strong>Why Multiple Subdomains?</strong> Having multiple subdomains such as .com, .net, and
+                        .tech helps in protecting your brand and ensuring that users can find you easily, regardless of
+                        the domain extension they use. This also prevents competitors from acquiring domains that are
+                        similar to yours.
+                    </p>
+                    <p>
+                        <strong>Example:</strong> Using subdomains like{' '}
+                        <a href="https://precisionpixelinnovations.dev" target="_blank">
+                            https://precisionpixelinnovations.dev
+                        </a>
+                        ,{' '}
+                        <a href="https://precisionpixelinnovations.com" target="_blank">
+                            https://precisionpixelinnovations.com
+                        </a>
+                        ,{' '}
+                        <a href="https://precisionpixelinnovations.net" target="_blank">
+                            https://precisionpixelinnovations.net
+                        </a>
+                        , and{' '}
+                        <a href="https://precisionpixelinnovations.tech" target="_blank">
+                            https://precisionpixelinnovations.tech
+                        </a>{' '}
+                        can help enhance your online presence and build credibility. It also allows for better
+                        organization of your services or products.
+                    </p>
+                </div>
+
+                <div className="service">
+                    <h3>Cyber Security for Web</h3>
+                    <p>
+                        <strong>Why Web Security?</strong> Web security is crucial for protecting your website from
+                        cyber threats. Our web security solutions help ensure that your website is secure, preventing
+                        unauthorized access, data breaches, and other cyber threats. We utilize the latest technologies
+                        and best practices to create secure web applications.
+                    </p>
+                    <ServiceButton to="/cyber-security.html">Learn More</ServiceButton>
+                </div>
+
+                <div className="service">
+                    <h3>SEO and Sitemap</h3>
+                    <p>
+                        <strong>Why SEO and Sitemap?</strong> SEO (Search Engine Optimization) is essential for
+                        improving your website's visibility on search engines like Google. A well-structured sitemap
+                        helps search engines understand the structure of your website, making it easier for them to
+                        crawl and index your pages. This leads to better search engine rankings and more organic
+                        traffic.
+                    </p>
+                    <p>
+                        <strong>How It Helps:</strong> By optimizing your website for search engines, you increase the
+                        likelihood of appearing in search results for relevant queries. This drives more traffic to your
+                        site, potentially increasing sales and brand awareness. A comprehensive sitemap ensures that all
+                        important pages are indexed, providing a better user experience and improving overall site
+                        performance.
+                    </p>
+                </div>
+
+                <div className="service">
+                    <h3>Django</h3>
+                    <p>
+                        <strong>Why Django?</strong> I use Django for its rapid development capabilities and its ability
+                        to handle high traffic. Django’s built-in features, such as authentication and admin panels,
+                        allow me to build robust and scalable web applications efficiently.
+                    </p>
+                </div>
+
+                <div className="service">
+                    <h3>Python</h3>
+                    <p>
+                        <strong>Why Python?</strong> Python's readability and simplicity make it ideal for web
+                        development. Its vast ecosystem of libraries and frameworks, such as Flask and Django, enable me
+                        to develop applications faster while maintaining high code quality.
+                    </p>
+                </div>
+
+                <div className="service">
+                    <h3>Node.js</h3>
+                    <p>
+                        <strong>Why Node.js?</strong> Node.js allows me to use JavaScript for both client-side and
+                        server-side development, streamlining the development process. Its event-driven architecture
+                        makes it perfect for building real-time applications like chat apps and online games.
+                    </p>
+                </div>
+
+                <div className="service">
+                    <h3>JavaScript</h3>
+                    <p>
+                        <strong>Why JavaScript?</strong> JavaScript is essential for creating interactive and dynamic
+                        web pages. Its versatility and support for various libraries and frameworks, such as React and
+                        Angular, allow me to create rich user interfaces that enhance the user experience.
+                    </p>
+                </div>
+                <ServiceButton to="/index.html">Home</ServiceButton>
+            </section>
+        </Layout>
+    );
+}

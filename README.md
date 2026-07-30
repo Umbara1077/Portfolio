@@ -13,29 +13,54 @@ https://dantecorso.com
 ## 📁 Project Structure
 
 ```
-public/
-├── css/                     # Stylesheets for all pages
+index.html                   # Single HTML entry point for the React app
+vite.config.js               # Vite build configuration
+
+src/
+├── main.jsx                 # App bootstrap (router + theme provider)
+├── App.jsx                  # Route table, one route per original .html page
+├── theme.jsx                # Light/dark theme state and DOM application
+├── navigation.js            # Navigation link sets used by the header/drawer
+├── components/              # Header, mobile drawer, footers, shared pieces
+├── hooks/                   # Per-page <style>, meta tag, and stylesheet hooks
+├── lib/                     # Firebase and EmailJS integration
+└── pages/                   # One component (plus its CSS) per page
+    ├── NotFound.jsx         # Custom 404 error page
+    ├── About.jsx            # "About Me" page with background info
+    ├── Admin.jsx            # Admin portal for managing backend content
+    ├── Connect.jsx          # Linktree-style connection page
+    ├── Contact.jsx          # Contact page for visitor inquiries
+    ├── CyberSecurity.jsx    # Overview of cybersecurity services
+    ├── Home.jsx             # Main landing page (Home)
+    ├── JobRequest.jsx       # Job request submission form
+    ├── Login.jsx            # Admin login for secure access
+    ├── MobileDevelopment.jsx# Mobile application development services
+    ├── Portfolio.jsx        # Portfolio of past projects and work
+    ├── Resume.jsx           # Résumé with tabbed sections
+    ├── Skills.jsx           # List of technical and soft skills
+    └── WebDevelopment.jsx   # Web development service overview
+
+public/                      # Copied to the build output as-is
+├── css/styles.css           # Global stylesheet
 ├── images/                  # Image assets (logo, icons, etc.)
-├── js/                      # JavaScript files for frontend logic
+├── pdf/                     # Downloadable résumé
 ├── videos/                  # Video assets (e.g. service showcases)
-│
-├── 404.html                 # Custom 404 error page
-├── about.html               # "About Me" page with background info
-├── admin.html               # Admin portal for managing backend content
-├── connect.html             # Linktree-style connection page
-├── contact.html             # Contact form for visitor inquiries
-├── cyber-security.html      # Overview of cybersecurity services
-├── index.html               # Main landing page (Home)
-├── job-request.html         # Job request submission form
-├── login.html               # Admin login for secure access
-├── mobile-development.html  # Mobile application development services
-├── portfolio.html           # Portfolio of past projects and work
 ├── precisionpixel.apk       # APK file for the Precision Pixel Android app
 ├── robots.txt               # SEO config for search engine crawlers
-├── sitemap.xml              # Sitemap for site indexing
-├── skills.html              # List of technical and soft skills
-└── web-development.html     # Web development service overview
+└── sitemap.xml              # Sitemap for site indexing
 ```
+
+## 🛠 Local Development
+
+```bash
+npm install
+npm run dev      # Vite dev server
+npm run build    # Production build into dist/
+npm run preview  # Serve the production build locally
+```
+
+Firebase Hosting serves `dist/` and rewrites every unknown path to
+`index.html` so the original `/about.html`-style URLs keep working.
 
 
 ## ✨ Features
@@ -52,7 +77,8 @@ public/
 
 ## ⚙️ Tech Stack
 
-- HTML5, CSS3, JavaScript (Vanilla)
+- React 19 with React Router, built by Vite
+- Firebase (Auth, Firestore, Storage) and EmailJS
 - Static hosting (e.g. Firebase Hosting, GitHub Pages)
 - Designed for tablet + desktop UX
 - Lightweight frontend with quick load times
