@@ -61,7 +61,7 @@ export default function JobRequest() {
     return (
         <Layout orbs={2} footer={simpleFooter}>
             <section id="job-request">
-                <Link to="/index.html">
+                <Link to="/">
                     <img src="/images/logo.jpg" alt="Precision Pixel Innovations" className="centered-logo" />
                 </Link>
                 <h1>Submit Job Request</h1>

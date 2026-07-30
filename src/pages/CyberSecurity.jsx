@@ -16,8 +16,8 @@ export default function CyberSecurity() {
         <Layout
             orbs={0}
             links={CYBER_SECURITY_LINKS}
-            activeHref="/resume.html"
-            sideNavActiveHref="/resume.html"
+            activeHref="/resume"
+            sideNavActiveHref="/resume"
             showSideNavClose={false}
             footer={legacyFooter}
         >
@@ -72,7 +72,7 @@ export default function CyberSecurity() {
                     </p>
                 </div>
 
-                <ServiceButton to="/index.html">Home</ServiceButton>
+                <ServiceButton to="/">Home</ServiceButton>
             </section>
         </Layout>
     );

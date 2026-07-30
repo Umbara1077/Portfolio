@@ -2,31 +2,28 @@ import { createContext, useCallback, useContext, useLayoutEffect, useMemo, useSt
 
 const STORAGE_KEY = 'dvg-portfolio-theme';
 
-const ThemeContext = createContext({ theme: 'dark', setTheme: () => {}, suspend: () => () => {} });
+const ThemeContext = createContext({ theme: 'dark', setTheme: () => {} });
 
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    if (theme === 'light') {
-        document.body.style.setProperty('background', '#ffffff', 'important');
-        document.body.style.setProperty('color', '#111111', 'important');
-        document.documentElement.style.setProperty('background', '#ffffff', 'important');
-    } else {
-        document.body.style.removeProperty('background');
-        document.body.style.removeProperty('color');
-        document.documentElement.style.removeProperty('background');
-    }
-}
+    document.body.setAttribute('data-theme', theme);
+    document.documentElement.style.colorScheme = theme;
 
-function clearTheme() {
-    document.documentElement.removeAttribute('data-theme');
-    document.body.style.removeProperty('background');
-    document.body.style.removeProperty('color');
-    document.documentElement.style.removeProperty('background');
+    if (theme === 'light') {
+        document.documentElement.style.setProperty('background-color', '#ffffff', 'important');
+        document.body.style.setProperty('background-color', '#ffffff', 'important');
+        document.body.style.setProperty('color', '#111111', 'important');
+    } else {
+        document.documentElement.style.removeProperty('background-color');
+        document.body.style.removeProperty('background-color');
+        document.body.style.removeProperty('color');
+    }
 }
 
 function readStoredTheme() {
     try {
-        return localStorage.getItem(STORAGE_KEY) || 'dark';
+        const storedTheme = localStorage.getItem(STORAGE_KEY);
+        return storedTheme === 'light' ? 'light' : 'dark';
     } catch {
         return 'dark';
     }
@@ -34,44 +31,27 @@ function readStoredTheme() {
 
 export function ThemeProvider({ children }) {
     const [theme, setThemeState] = useState(readStoredTheme);
-    const [suspended, setSuspended] = useState(false);
 
     useLayoutEffect(() => {
-        if (suspended) {
-            clearTheme();
-        } else {
-            applyTheme(theme);
-        }
-    }, [theme, suspended]);
+        applyTheme(theme);
+    }, [theme]);
 
     const setTheme = useCallback((next) => {
-        setThemeState(next);
+        const nextTheme = next === 'light' ? 'light' : 'dark';
+        applyTheme(nextTheme);
+        setThemeState(nextTheme);
         try {
-            localStorage.setItem(STORAGE_KEY, next);
+            localStorage.setItem(STORAGE_KEY, nextTheme);
         } catch {
             /* storage unavailable — the theme still applies for this session */
         }
     }, []);
 
-    const value = useMemo(() => ({ theme, setTheme, setSuspended }), [theme, setTheme]);
+    const value = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
 
     return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {
     return useContext(ThemeContext);
-}
-
-/**
- * The admin and login screens were standalone documents with no theme script,
- * so neither the `data-theme` attribute nor the light-mode body overrides ever
- * reached them.
- */
-export function useThemeSuspended() {
-    const { setSuspended } = useTheme();
-
-    useLayoutEffect(() => {
-        setSuspended(true);
-        return () => setSuspended(false);
-    }, [setSuspended]);
 }

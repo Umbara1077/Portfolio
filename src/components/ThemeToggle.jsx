@@ -6,16 +6,19 @@ export function ThemeToggle() {
 
     return (
         <div className="theme-toggle" title="Toggle light/dark mode">
-            <label className="theme-switch" aria-label="Toggle theme">
-                <input
-                    type="checkbox"
-                    id="theme-checkbox"
-                    checked={isLight}
-                    onChange={(event) => setTheme(event.target.checked ? 'light' : 'dark')}
-                />
+            <button
+                type="button"
+                className="theme-switch"
+                role="switch"
+                aria-checked={isLight}
+                aria-label={`Switch to ${isLight ? 'dark' : 'light'} mode`}
+                onClick={() => setTheme(isLight ? 'dark' : 'light')}
+            >
                 <span className="theme-switch-track"></span>
-                <span className="theme-switch-thumb">{isLight ? '\u{1F319}' : '\u2600\uFE0F'}</span>
-            </label>
+                <span className="theme-switch-thumb" aria-hidden="true">
+                    {isLight ? '\u{1F319}' : '\u2600\uFE0F'}
+                </span>
+            </button>
         </div>
     );
 }

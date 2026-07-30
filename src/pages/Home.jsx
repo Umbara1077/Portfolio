@@ -57,7 +57,7 @@ export default function Home() {
     const fadeStyle = { opacity: heroVisible ? 1 : 0, transition: 'opacity 0.5s ease' };
 
     return (
-        <Layout orbs={3} activeHref="/index.html" footer={footerWithDisclaimer}>
+        <Layout orbs={3} activeHref="/" footer={footerWithDisclaimer}>
             {/* ========== HERO ========== */}
             <section id="intro">
                 <h1 className="hero-name" id="hero-name-el">
@@ -75,7 +75,7 @@ export default function Home() {
                     {HERO_BIO}
                 </p>
                 <div className="hero-ctas">
-                    <Link to="/portfolio.html" className="hero-btn-primary">
+                    <Link to="/portfolio" className="hero-btn-primary">
                         View My Work
                     </Link>
                     <a
@@ -130,7 +130,7 @@ export default function Home() {
                             <span className="feat-card-tag">Python</span>
                             <span className="feat-card-tag">Event Grid</span>
                         </div>
-                        <Link to="/portfolio.html" className="feat-card-link">
+                        <Link to="/portfolio" className="feat-card-link">
                             Read the case study &#8594;
                         </Link>
                     </div>
@@ -149,7 +149,7 @@ export default function Home() {
                             <span className="feat-card-tag">Multi-Vendor APIs</span>
                             <span className="feat-card-tag">CVE / EPSS</span>
                         </div>
-                        <Link to="/portfolio.html" className="feat-card-link">
+                        <Link to="/portfolio" className="feat-card-link">
                             Read the case study &#8594;
                         </Link>
                     </div>

@@ -167,10 +167,10 @@ export default function Portfolio() {
     usePageMeta({
         title: 'Portfolio \u2014 Dante Corso',
         description: DESCRIPTION,
-        canonical: 'https://dantecorso.com/portfolio.html',
+        canonical: 'https://dantecorso.com/portfolio',
         ogTitle: 'Portfolio \u2014 Dante Corso',
         ogDescription: DESCRIPTION,
-        ogUrl: 'https://dantecorso.com/portfolio.html'
+        ogUrl: 'https://dantecorso.com/portfolio'
     });
 
     const [filter, setFilter] = useState('all');
@@ -186,7 +186,7 @@ export default function Portfolio() {
         <Layout
             orbs={3}
             links={PORTFOLIO_LINKS}
-            activeHref="/portfolio.html"
+            activeHref="/portfolio"
             footer={footerWithDisclaimer}
         >
             <section id="portfolio">

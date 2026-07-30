@@ -18,7 +18,7 @@ vite.config.js               # Vite build configuration
 
 src/
 ├── main.jsx                 # App bootstrap (router + theme provider)
-├── App.jsx                  # Route table, one route per original .html page
+├── App.jsx                  # Route table for the extensionless React pages
 ├── theme.jsx                # Light/dark theme state and DOM application
 ├── navigation.js            # Navigation link sets used by the header/drawer
 ├── components/              # Header, mobile drawer, footers, shared pieces
@@ -60,14 +60,14 @@ npm run preview  # Serve the production build locally
 ```
 
 Firebase Hosting serves `dist/` and rewrites every unknown path to
-`index.html` so the original `/about.html`-style URLs keep working.
+`index.html` so extensionless routes such as `/about` work on a direct visit or refresh.
 
 
 ## ✨ Features
 
 - Mobile-friendly, responsive design
 - Downloadable Android app (Precision Pixel)
-- Admin login interface (login.html → admin.html)
+- Admin login interface (`/login` → `/admin`)
 - Multiple service pages (web, mobile, cybersecurity)
 - Live contact + job request forms
 - SEO support with sitemap and robots.txt
@@ -88,16 +88,16 @@ Firebase Hosting serves `dist/` and rewrites every unknown path to
 ## 📩 Contact
 
 To get in touch, visit the contact page:  
-https://dantecorso.com/contact.html  
+https://dantecorso.com/contact  
 or use the job request form:  
-https://dantecorso.com/job-request.html
+https://dantecorso.com/job-request
 
 ---
 
 ## 🔒 Admin Access
 
-- Admin Panel: `/admin.html`
-- Login Page: `/login.html`
+- Admin Panel: `/admin`
+- Login Page: `/login`
 - Requires backend integration to secure access (not included in this repo)
 
 ---

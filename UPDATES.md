@@ -2,7 +2,7 @@
 
 ## Performance Fixes Applied
 - `defer` added to all Firebase SDK scripts across all 14 HTML pages (was blocking render)
-- `loading="lazy"` added to all 18+ card images in portfolio.html
+- `loading="lazy"` added to all 18+ card images on the portfolio page
 - `backdrop-filter: blur()` removed from animated card overlays (was causing GPU repaints)
 - `will-change: transform` added to bg-orbs (promotes to own compositor layer)
 

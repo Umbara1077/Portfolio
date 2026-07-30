@@ -75,7 +75,7 @@ export default function Connect() {
 
                     <div className="connect-divider">or send a message</div>
 
-                    <MagneticCta as={Link} to="/contact.html">
+                    <MagneticCta as={Link} to="/contact">
                         &#9993;&#65039; Send Me a Message <span className="arrow">&#8594;</span>
                     </MagneticCta>
                 </div>

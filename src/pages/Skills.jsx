@@ -69,14 +69,14 @@ export default function Skills() {
     usePageMeta({
         title: 'Skills \u2014 Dante Corso',
         description: DESCRIPTION,
-        canonical: 'https://dantecorso.com/skills.html',
+        canonical: 'https://dantecorso.com/skills',
         ogTitle: 'Skills \u2014 Dante Corso',
         ogDescription: DESCRIPTION,
-        ogUrl: 'https://dantecorso.com/skills.html'
+        ogUrl: 'https://dantecorso.com/skills'
     });
 
     return (
-        <Layout orbs={3} activeHref="/skills.html" footer={footerWithDisclaimer}>
+        <Layout orbs={3} activeHref="/skills" footer={footerWithDisclaimer}>
             <section id="skills">
                 <InView as="h1" className="section-title reveal" threshold={0.06}>
                     My Skills

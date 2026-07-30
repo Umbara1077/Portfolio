@@ -11,7 +11,17 @@
     <meta property="og:description" content="Event-driven Azure automation, AI pipelines, and real-time full-stack platforms. Case studies and live demos.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dantecorso.com/">
-    <link rel="stylesheet" href="/css/styles.css" id="main-stylesheet">
+    <script>
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem('dvg-portfolio-theme');
+                document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
+            } catch {
+                document.documentElement.dataset.theme = 'dark';
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="/css/styles.css?v=20260730-theme" id="main-stylesheet">
     <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

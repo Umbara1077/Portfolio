@@ -5,12 +5,12 @@ export const SOLAR_SYSTEM_LINK = {
 };
 
 export const MAIN_LINKS = [
-    { href: '/index.html', label: 'Home' },
-    { href: '/about.html', label: 'About' },
-    { href: '/portfolio.html', label: 'Portfolio' },
-    { href: '/skills.html', label: 'Skills' },
-    { href: '/resume.html', label: 'Resume' },
-    { href: '/contact.html', label: 'Contact' },
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/skills', label: 'Skills' },
+    { href: '/resume', label: 'Resume' },
+    { href: '/contact', label: 'Contact' },
     SOLAR_SYSTEM_LINK
 ];
 
@@ -18,13 +18,13 @@ export const MAIN_LINKS = [
 export const PORTFOLIO_LINKS = MAIN_LINKS.slice(0, 6);
 
 export const CYBER_SECURITY_LINKS = [
-    { href: '/index.html', label: 'Home' },
-    { href: '/about.html', label: 'About Me' },
-    { href: '/skills.html', label: 'Skills' },
-    { href: '/portfolio.html', label: 'Portfolio' },
-    { href: '/devops-architecture.html', label: 'DevOps & Architecture' },
-    { href: '/resume.html', label: 'Resume' },
-    { href: '/contact.html', label: 'Contact' },
-    { href: '/job-request.html', label: 'Submit Request' },
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About Me' },
+    { href: '/skills', label: 'Skills' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/devops-architecture', label: 'DevOps & Architecture' },
+    { href: '/resume', label: 'Resume' },
+    { href: '/contact', label: 'Contact' },
+    { href: '/job-request', label: 'Submit Request' },
     SOLAR_SYSTEM_LINK
 ];

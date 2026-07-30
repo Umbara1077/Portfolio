@@ -76,10 +76,10 @@ export default function Resume() {
     usePageMeta({
         title: 'Resume \u2014 Dante Corso',
         description: DESCRIPTION,
-        canonical: 'https://dantecorso.com/resume.html',
+        canonical: 'https://dantecorso.com/resume',
         ogTitle: 'R\u00E9sum\u00E9 \u2014 Dante Corso',
         ogDescription: DESCRIPTION,
-        ogUrl: 'https://dantecorso.com/resume.html'
+        ogUrl: 'https://dantecorso.com/resume'
     });
 
     const [activeTab, setActiveTab] = useState('tab-experience');
@@ -87,7 +87,7 @@ export default function Resume() {
     const sectionClass = (id) => `resume-section${activeTab === id ? ' active-section' : ''}`;
 
     return (
-        <Layout orbs={2} activeHref="/resume.html" mainClassName="container" footer={simpleFooter}>
+        <Layout orbs={2} activeHref="/resume" mainClassName="container" footer={simpleFooter}>
             <section id="resume">
                 <InView className="resume-header-card rz-reveal">
                     <div className="resume-header-main">

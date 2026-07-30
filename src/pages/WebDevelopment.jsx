@@ -73,7 +73,7 @@ export default function WebDevelopment() {
                         unauthorized access, data breaches, and other cyber threats. We utilize the latest technologies
                         and best practices to create secure web applications.
                     </p>
-                    <ServiceButton to="/cyber-security.html">Learn More</ServiceButton>
+                    <ServiceButton to="/cyber-security">Learn More</ServiceButton>
                 </div>
 
                 <div className="service">
@@ -129,7 +129,7 @@ export default function WebDevelopment() {
                         Angular, allow me to create rich user interfaces that enhance the user experience.
                     </p>
                 </div>
-                <ServiceButton to="/index.html">Home</ServiceButton>
+                <ServiceButton to="/">Home</ServiceButton>
             </section>
         </Layout>
     );

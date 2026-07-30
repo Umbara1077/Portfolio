@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useMainStylesheetDisabled, usePageStyle } from '../hooks/usePageStyle.js';
 import { usePageMeta } from '../hooks/usePageMeta.js';
-import { useThemeSuspended } from '../theme.jsx';
 import { auth } from '../lib/firebase.js';
 import { PROCESS_INTERVAL_MS, processAllEntries } from '../lib/emailNotifications.js';
 import adminCss from './admin.css?inline';
@@ -11,7 +10,6 @@ import adminCss from './admin.css?inline';
 export default function Admin() {
     useMainStylesheetDisabled(true);
     usePageStyle(adminCss);
-    useThemeSuspended();
     usePageMeta({ title: 'Admin Page' });
 
     const navigate = useNavigate();
@@ -22,7 +20,7 @@ export default function Admin() {
             if (user) {
                 setSignedIn(true);
             } else {
-                navigate('/login.html');
+                navigate('/login');
             }
         });
     }, [navigate]);
@@ -47,7 +45,7 @@ export default function Admin() {
                 <div className="bg-orb bg-orb-2"></div>
             </div>
             <div className="container">
-                <Link to="/index.html">
+                <Link to="/">
                     <img src="/images/logo.jpg" alt="Precision Pixel" className="logo" />
                 </Link>
                 <h1>Admin Page</h1>

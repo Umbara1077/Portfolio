@@ -6,7 +6,7 @@ export function Header({ links, activeHref, logoAlt, onMenuToggle }) {
     return (
         <header>
             <nav>
-                <Link to="/index.html">
+                <Link to="/">
                     <img src="/images/logo.jpg" alt={logoAlt} className="logo" />
                 </Link>
                 <div

@@ -3,14 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useMainStylesheetDisabled, usePageStyle } from '../hooks/usePageStyle.js';
 import { usePageMeta } from '../hooks/usePageMeta.js';
-import { useThemeSuspended } from '../theme.jsx';
 import { auth } from '../lib/firebase.js';
 import adminCss from './admin.css?inline';
 
 export default function Login() {
     useMainStylesheetDisabled(true);
     usePageStyle(adminCss);
-    useThemeSuspended();
     usePageMeta({ title: 'Login' });
 
     const navigate = useNavigate();
@@ -21,7 +19,7 @@ export default function Login() {
     const handleSignIn = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
-                navigate('/admin.html');
+                navigate('/admin');
             })
             .catch((error) => {
                 console.error('Error during sign-in:', error);
@@ -36,7 +34,7 @@ export default function Login() {
                 <div className="bg-orb bg-orb-2"></div>
             </div>
             <div className="container">
-                <Link to="/index.html">
+                <Link to="/">
                     <img src="/images/logo.jpg" alt="Precision Pixel" className="logo" />
                 </Link>
                 <h1>Sign In</h1>

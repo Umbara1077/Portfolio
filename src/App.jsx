@@ -34,20 +34,19 @@ export default function App() {
             <ScrollToTop />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/index.html" element={<Home />} />
-                <Route path="/about.html" element={<About />} />
-                <Route path="/portfolio.html" element={<Portfolio />} />
-                <Route path="/skills.html" element={<Skills />} />
-                <Route path="/resume.html" element={<Resume />} />
-                <Route path="/contact.html" element={<Contact />} />
-                <Route path="/connect.html" element={<Connect />} />
-                <Route path="/web-development.html" element={<WebDevelopment />} />
-                <Route path="/mobile-development.html" element={<MobileDevelopment />} />
-                <Route path="/cyber-security.html" element={<CyberSecurity />} />
-                <Route path="/devops-architecture.html" element={<DevOpsArchitecture />} />
-                <Route path="/job-request.html" element={<JobRequest />} />
-                <Route path="/login.html" element={<Login />} />
-                <Route path="/admin.html" element={<Admin />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/connect" element={<Connect />} />
+                <Route path="/web-development" element={<WebDevelopment />} />
+                <Route path="/mobile-development" element={<MobileDevelopment />} />
+                <Route path="/cyber-security" element={<CyberSecurity />} />
+                <Route path="/devops-architecture" element={<DevOpsArchitecture />} />
+                <Route path="/job-request" element={<JobRequest />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/admin" element={<Admin />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </>

@@ -10,14 +10,14 @@ export default function About() {
     usePageMeta({
         title: 'About \u2014 Dante Corso',
         description: DESCRIPTION,
-        canonical: 'https://dantecorso.com/about.html',
+        canonical: 'https://dantecorso.com/about',
         ogTitle: 'About \u2014 Dante Corso',
         ogDescription: DESCRIPTION,
-        ogUrl: 'https://dantecorso.com/about.html'
+        ogUrl: 'https://dantecorso.com/about'
     });
 
     return (
-        <Layout orbs={2} activeHref="/about.html" mainClassName="container" footer={simpleFooter}>
+        <Layout orbs={2} activeHref="/about" mainClassName="container" footer={simpleFooter}>
             <section id="about">
                 <InView as="h1" className="section-title reveal">
                     About Me

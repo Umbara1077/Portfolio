@@ -62,7 +62,7 @@ export default function Contact() {
     usePageMeta({ title: 'Contact \u2014 Dante Corso' });
 
     return (
-        <Layout orbs={2} activeHref="/contact.html" footer={simpleFooter}>
+        <Layout orbs={2} activeHref="/contact" footer={simpleFooter}>
             <section id="connect-page">
                 <div className="connect-spotlight"></div>
                 <FloatDots />

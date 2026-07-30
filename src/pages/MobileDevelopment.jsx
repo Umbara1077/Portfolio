@@ -42,7 +42,7 @@ export default function MobileDevelopment() {
                         are secure, preventing unauthorized access, data breaches, and other cyber threats. We utilize
                         the latest technologies and best practices to create secure mobile applications.
                     </p>
-                    <ServiceButton to="/cyber-security.html">Learn More</ServiceButton>
+                    <ServiceButton to="/cyber-security">Learn More</ServiceButton>
                 </div>
 
                 <div className="service">
@@ -82,7 +82,7 @@ export default function MobileDevelopment() {
                         them engaged. Our UX design process is user-centered, focusing on creating apps that users love.
                     </p>
                 </div>
-                <ServiceButton to="/index.html">Home</ServiceButton>
+                <ServiceButton to="/">Home</ServiceButton>
             </section>
         </Layout>
     );
