@@ -1,0 +1,504 @@
+/* ========== Connect / Contact Page ========== */
+#connect-page {
+    padding: 80px 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.connect-spotlight {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    max-width: 100vw;
+    height: 360px;
+    background: radial-gradient(ellipse at center, rgba(212,175,122,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Floating constellation dots (desktop only — pure transform loops) */
+.float-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent-2);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+}
+@media (min-width: 769px) {
+    .float-dot { opacity: 0.35; }
+    .float-dot:nth-child(1) { width: 5px; height: 5px; top: 12%; left: 18%; animation: dot-float 9s ease-in-out infinite alternate; }
+    .float-dot:nth-child(2) { width: 3px; height: 3px; top: 30%; left: 8%;  animation: dot-float 12s ease-in-out infinite alternate 1s; }
+    .float-dot:nth-child(3) { width: 4px; height: 4px; top: 16%; right: 14%; animation: dot-float 10s ease-in-out infinite alternate 0.4s; }
+    .float-dot:nth-child(4) { width: 6px; height: 6px; top: 42%; right: 7%; animation: dot-float 13s ease-in-out infinite alternate 2s; opacity: 0.2; }
+    .float-dot:nth-child(5) { width: 3px; height: 3px; top: 55%; left: 12%; animation: dot-float 11s ease-in-out infinite alternate 1.4s; }
+    .float-dot:nth-child(6) { width: 4px; height: 4px; top: 60%; right: 20%; animation: dot-float 8s ease-in-out infinite alternate 0.8s; }
+}
+@keyframes dot-float {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(18px, -26px, 0); }
+}
+
+.connect-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ---- Headline ---- */
+.connect-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin-bottom: 18px;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.6s ease forwards 0.1s;
+}
+
+.connect-headline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 6.5vw, 5rem);
+    color: var(--text-main);
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 22px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.65s ease forwards 0.2s;
+}
+
+/* Shimmering gold gradient on the key words */
+.connect-headline .gold {
+    background: linear-gradient(110deg, #c9a96e 20%, #f4e3bc 38%, #d4af7a 55%, #e8c98a 75%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gold-shimmer 3.2s ease-in-out 0.6s 2;
+}
+@keyframes gold-shimmer {
+    0%   { background-position: 120% 0; }
+    100% { background-position: -80% 0; }
+}
+
+.connect-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.98rem, 2vw, 1.1rem);
+    color: var(--text-muted);
+    max-width: 520px;
+    line-height: 1.78;
+    margin-bottom: 46px;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp 0.65s ease forwards 0.35s;
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Direct contact chips ---- */
+.contact-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 64px;
+    opacity: 0;
+    animation: fadeUp 0.65s ease forwards 0.5s;
+}
+
+.contact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 999px;
+    padding: 12px 22px;
+    text-decoration: none;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+}
+
+.contact-chip svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--accent-2);
+    flex: none;
+}
+
+.contact-chip .chip-label {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.contact-chip:hover {
+    border-color: rgba(212,175,122,0.5);
+    background: rgba(212,175,122,0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(212,175,122,0.15);
+}
+
+/* ---- Social Cards ---- */
+.social-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 64px;
+    perspective: 1200px;
+}
+
+.social-card {
+    /* --mx/--my track the cursor; --rx/--ry hold the 3D tilt */
+    --mx: 50%;
+    --my: 50%;
+    --rx: 0deg;
+    --ry: 0deg;
+    position: relative;
+    width: 280px;
+    background: rgba(255,255,255,0.035);
+    border-radius: 24px;
+    padding: 44px 26px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    transition: box-shadow 0.35s ease, background 0.3s ease;
+    opacity: 0;
+}
+
+/* Gradient border ring, brand-tinted */
+.social-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.22), rgba(255,255,255,0.04) 35%, rgba(255,255,255,0.02) 65%, var(--brand-dim, rgba(212,175,122,0.25)));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Cursor-following glow */
+.social-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(320px circle at var(--mx) var(--my), var(--brand-glow, rgba(212,175,122,0.16)), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.social-card:hover::after { opacity: 1; }
+
+.social-card:hover {
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 0 0 1px var(--brand-dim, rgba(212,175,122,0.3)),
+                0 0 52px var(--brand-shadow, rgba(212,175,122,0.22)),
+                0 30px 60px rgba(0,0,0,0.55);
+}
+
+.social-card:active { transition: transform 0.1s ease; transform: scale(0.97); }
+
+/* Card entrance: rise + 3D flip, staggered by JS */
+.social-card.card-in {
+    animation: card-flip-in 0.8s cubic-bezier(0.22, 1.2, 0.36, 1) forwards;
+}
+@keyframes card-flip-in {
+    from { opacity: 0; transform: translateY(44px) rotateX(18deg) scale(0.94); }
+    to   { opacity: 1; transform: translateY(0) rotateX(0) scale(1); }
+}
+
+/* Brand palettes */
+.social-card.linkedin {
+    --brand: #3a9bff;
+    --brand-dim: rgba(58,155,255,0.45);
+    --brand-glow: rgba(58,155,255,0.16);
+    --brand-shadow: rgba(58,155,255,0.22);
+}
+.social-card.github {
+    --brand: #f0f6fc;
+    --brand-dim: rgba(240,246,252,0.4);
+    --brand-glow: rgba(240,246,252,0.12);
+    --brand-shadow: rgba(240,246,252,0.14);
+}
+.social-card.xtwitter {
+    --brand: #e7e9ea;
+    --brand-dim: rgba(231,233,234,0.4);
+    --brand-glow: rgba(231,233,234,0.1);
+    --brand-shadow: rgba(231,233,234,0.13);
+}
+.social-card.instagram {
+    --brand: #e1548d;
+    --brand-dim: rgba(221,42,123,0.5);
+    --brand-glow: rgba(221,42,123,0.15);
+    --brand-shadow: rgba(221,42,123,0.24);
+}
+.social-card.facebook {
+    --brand: #4293ff;
+    --brand-dim: rgba(24,119,242,0.5);
+    --brand-glow: rgba(24,119,242,0.15);
+    --brand-shadow: rgba(24,119,242,0.24);
+}
+
+/* Icon medallion with orbiting ring */
+.social-icon-wrap {
+    position: relative;
+    width: 78px;
+    height: 78px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    transform: translateZ(30px);
+}
+
+.social-icon-wrap svg {
+    width: 35px;
+    height: 35px;
+    fill: var(--text-main);
+    transition: fill 0.3s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+/* Spinning dashed orbit appears on hover */
+.social-icon-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -9px;
+    border-radius: 28px;
+    border: 1.5px dashed var(--brand-dim, rgba(212,175,122,0.4));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.social-card:hover .social-icon-wrap::after {
+    opacity: 1;
+    animation: orbit-spin 9s linear infinite;
+}
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+
+.social-card:hover .social-icon-wrap {
+    background: rgba(255,255,255,0.07);
+    border-color: var(--brand-dim);
+    transform: translateZ(46px) scale(1.08);
+}
+.social-card:hover .social-icon-wrap svg {
+    fill: var(--brand);
+    transform: scale(1.1) rotate(-6deg);
+}
+
+.social-platform {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.22rem;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+    transform: translateZ(22px);
+}
+
+.social-handle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.76rem;
+    color: var(--accent-2);
+    background: rgba(212,175,122,0.07);
+    border: 1px solid rgba(212,175,122,0.18);
+    border-radius: 999px;
+    padding: 4px 14px;
+    word-break: break-all;
+    transform: translateZ(14px);
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    padding: 9px 24px;
+    letter-spacing: 0.05em;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+    transform: translateZ(26px);
+}
+.social-btn .arrow { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+
+.social-card:hover .social-btn {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #0d0d0d;
+}
+.social-card:hover .social-btn .arrow { transform: translateX(4px); }
+
+/* ---- Divider ---- */
+.connect-divider {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    width: 100%;
+    max-width: 440px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.9s;
+}
+
+.connect-divider::before,
+.connect-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+/* ---- Magnetic CTA Button ---- */
+.cta-message-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0d0d0d;
+    background: linear-gradient(115deg, #c9a96e, #e8c98a 45%, #d4af7a 80%);
+    background-size: 200% 100%;
+    padding: 17px 44px;
+    border-radius: 16px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 1.05s, cta-sheen 5s ease-in-out 2s infinite;
+    transition: box-shadow 0.3s ease;
+    will-change: transform;
+}
+@keyframes cta-sheen {
+    0%, 100% { background-position: 0% 0; }
+    50%       { background-position: 100% 0; }
+}
+
+/* Pulsing halo ring */
+.cta-message-btn::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 19px;
+    border: 1.5px solid rgba(212,175,122,0.5);
+    opacity: 0;
+    animation: cta-pulse 2.6s ease-out 2.2s infinite;
+    pointer-events: none;
+}
+@keyframes cta-pulse {
+    0%   { opacity: 0.75; transform: scale(1); }
+    70%  { opacity: 0;    transform: scale(1.14); }
+    100% { opacity: 0;    transform: scale(1.14); }
+}
+
+.cta-message-btn:hover {
+    box-shadow: 0 14px 44px rgba(212,175,122,0.45);
+}
+.cta-message-btn .arrow { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+.cta-message-btn:hover .arrow { transform: translateX(4px); }
+
+/* ---- Availability badge ---- */
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6ee7b7;
+    background: rgba(110,231,183,0.08);
+    border: 1px solid rgba(110,231,183,0.2);
+    border-radius: 999px;
+    padding: 7px 18px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.05s;
+}
+
+.availability-badge .dot {
+    width: 7px;
+    height: 7px;
+    background: #6ee7b7;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ---- Light theme ---- */
+[data-theme="light"] .social-card { background: rgba(0,0,0,0.03); }
+[data-theme="light"] .social-card:hover { background: rgba(0,0,0,0.045); }
+[data-theme="light"] .social-card.github,
+[data-theme="light"] .social-card.xtwitter {
+    --brand: #24292f;
+    --brand-dim: rgba(36,41,47,0.35);
+    --brand-glow: rgba(36,41,47,0.08);
+    --brand-shadow: rgba(36,41,47,0.16);
+}
+[data-theme="light"] .social-icon-wrap { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); }
+[data-theme="light"] .social-btn { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: #111; }
+[data-theme="light"] .contact-chip { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); color: #111; }
+[data-theme="light"] .connect-divider::before,
+[data-theme="light"] .connect-divider::after { background: linear-gradient(90deg, transparent, rgba(0,0,0,0.14), transparent); }
+
+/* ---- Responsive ---- */
+@media (max-width: 720px) {
+    #connect-page { padding: 54px 0 50px; }
+    .social-grid { gap: 18px; }
+    .social-card { width: min(100%, 340px); padding: 38px 24px 30px; }
+    .contact-chips { flex-direction: column; align-items: center; margin-bottom: 48px; }
+    .contact-chip { width: min(100%, 320px); justify-content: center; }
+    .connect-subtitle { margin-bottom: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .float-dot, .cta-message-btn::before { animation: none !important; }
+    .connect-headline .gold { animation: none !important; }
+}
