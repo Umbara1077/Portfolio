@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume — Dante Corso</title>
-    <meta name="description" content="Résumé of Dante Corso, cloud and full-stack engineer: Azure automation platforms, multi-vendor monitoring, and real-time business systems.">
+    <meta name="description" content="Résumé of Dante Corso, cloud integration engineer: Azure automation, unified backup monitoring, multi-vendor networking, and AI-powered business systems.">
     <link rel="canonical" href="https://dantecorso.com/resume.html">
     <meta property="og:title" content="Résumé — Dante Corso">
-    <meta property="og:description" content="Résumé of Dante Corso, cloud and full-stack engineer: Azure automation platforms, multi-vendor monitoring, and real-time business systems.">
+    <meta property="og:description" content="Résumé of Dante Corso, cloud integration engineer: Azure automation, unified backup monitoring, multi-vendor networking, and AI-powered business systems.">
     <meta property="og:url" content="https://dantecorso.com/resume.html">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/nav.js" defer></script>
@@ -193,6 +193,25 @@
             padding: 3px 11px;
         }
 
+        /* Project divisions within the E3 role */
+        .rz-project-block {
+            margin-top: 22px;
+        }
+        .rz-project-block:first-of-type {
+            margin-top: 14px;
+        }
+        .rz-project-heading {
+            margin: 0 0 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 800;
+            line-height: 1.45;
+            color: var(--accent-2);
+        }
+        .rz-project-block ul {
+            margin-top: 0;
+        }
+
         /* Featured project cards in the Projects tab */
         .resume-card.rz-featured {
             border-color: rgba(212,175,122,0.4);
@@ -276,14 +295,15 @@
                 <div class="resume-header-main">
                     <span class="rz-eyebrow">Résumé</span>
                     <h1 class="resume-name">Dante Corso</h1>
-                    <p class="resume-title">Cloud Engineer</p>
+                    <p class="resume-title">Cloud Integration Engineer</p>
                     <p class="resume-summary">
-                        I build event-driven Azure systems that connect telephony, AI services, vendor APIs, and business
-                        platforms — and the React front ends operators actually use. Two production platforms at a
-                        managed services provider, plus full-stack systems real businesses run on daily.
+                        I build and operate event-driven Azure systems that connect telephony, AI services, vendor APIs,
+                        and business platforms. At a managed services provider, I own four production platforms end to
+                        end, including call automation, unified backup monitoring, multi-vendor network monitoring, and
+                        on-call routing.
                     </p>
                     <div class="rz-cta-row">
-                        <a class="rz-btn primary" href="pdf/Dante-Corso-Resume-Cloud-Integration.pdf" target="_blank">⬇ Download Résumé (PDF)</a>
+                        <a class="rz-btn primary" href="pdf/Dante_Corso_Resume.pdf" target="_blank" rel="noopener" download>⬇ Download Résumé (PDF)</a>
                     </div>
                 </div>
                 <div class="resume-header-meta">
@@ -301,8 +321,8 @@
 
             <!-- Impact metrics -->
             <div class="rz-stats rz-reveal">
-                <div class="rz-stat"><b>2</b><span>Production Azure platforms</span></div>
-                <div class="rz-stat"><b>25%</b><span>Faster on-call response time</span></div>
+                <div class="rz-stat"><b>4</b><span>Production cloud platforms</span></div>
+                <div class="rz-stat"><b>525</b><span>Backup assets monitored daily</span></div>
                 <div class="rz-stat"><b>50%</b><span>Less inventory lookup time</span></div>
                 <div class="rz-stat"><b>20+</b><span>Production projects shipped</span></div>
             </div>
@@ -323,7 +343,7 @@
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <h3>E3 IT Services</h3>
-                                <span class="timeline-role">Azure DevOps Engineer</span>
+                                <span class="timeline-role">Cloud Integration Engineer</span>
                                 <span class="timeline-dates">2024 – Present</span>
                             </div>
                             <div class="rz-tags">
@@ -332,18 +352,37 @@
                                 <span class="rz-tag">Azure Speech</span>
                                 <span class="rz-tag">Event Grid</span>
                                 <span class="rz-tag">Python</span>
+                                <span class="rz-tag">Node.js</span>
                                 <span class="rz-tag">React 19</span>
                                 <span class="rz-tag">Azure DevOps</span>
                             </div>
-                            <ul>
-                                <li>Architected a call automation platform across three Python Azure Function Apps — answers inbound Azure Communication Services calls, routes them through an ordered Microsoft Teams engineer queue with automatic voicemail failover, records to Blob Storage, transcribes with Azure Speech batch jobs, and generates client-ready documentation with Azure OpenAI, posting the finished time entry to the engineer's active Autotask ticket with no manual step.</li>
-                                <li>Designed table-backed idempotency around every external side effect — Event Grid events, recording uploads, AI analyses, and ticket posts — so at-least-once webhook delivery and retries cannot produce duplicates. Failed operations release their claim row so redelivery retries safely.</li>
-                                <li>Built a sanitized correlation ID propagated across ten hops, from the first webhook through storage, Speech, the model, and the ticket note — making any call traceable end to end from a single KQL query.</li>
-                                <li>Hardened the AI layer against prompt injection: transcripts are treated as untrusted data and scrubbed of control characters, signed URLs, connection strings, and instruction-override phrases; model output is schema-constrained and re-validated before any external write. Engineer identity comes from verified Teams metadata, not model inference.</li>
-                                <li>Built a React 19 + TypeScript operations dashboard on Azure Static Web Apps — service health, storage analytics, a searchable recording and transcript explorer with HTTP Range–based seekable audio, and Azure Cost Management integration reporting cost per call.</li>
-                                <li>Built a multi-vendor network monitor across UniFi, SonicWall, and Cisco Meraki fleets — polls vendor APIs every five minutes, normalizes them into one model, and opens, tracks, and auto-resolves Autotask tickets through a Table Storage state machine, with pure detection modules under unit test and alert suppression so one incident makes one ticket.</li>
-                                <li>Added a daily advisory pipeline enriching vendor security advisories with NVD CVE detail and FIRST EPSS exploit-probability scores, matched against deployed firmware; plus CI/CD pipelines in Azure DevOps standardizing releases across client environments.</li>
-                            </ul>
+                            <div class="rz-project-block">
+                                <h4 class="rz-project-heading">Call Automation Platform — ACS → Speech → Azure OpenAI → Autotask</h4>
+                                <ul>
+                                    <li>Architected a call automation platform across three Python Azure Function Apps — answers inbound Azure Communication Services calls, routes them through an ordered Microsoft Teams engineer queue with automatic voicemail failover, records to Blob Storage, transcribes with Azure Speech batch jobs, and generates client-ready documentation with Azure OpenAI, posting the finished time entry to the engineer's active Autotask ticket with no manual step.</li>
+                                    <li>Designed table-backed idempotency around every external side effect — Event Grid events, recording uploads, AI analyses, and ticket posts — so at-least-once webhook delivery and retries cannot produce duplicates. Failed operations release their claim row so redelivery retries safely.</li>
+                                    <li>Built a sanitized correlation ID propagated across ten hops, from the first webhook through storage, Speech, the model, and the ticket note — making any call traceable end to end from a single KQL query.</li>
+                                    <li>Hardened the AI layer against prompt injection: transcripts are treated as untrusted data and scrubbed of control characters, signed URLs, connection strings, and instruction-override phrases; model output is schema-constrained and re-validated before any external write. Engineer identity comes from verified Teams metadata, not model inference.</li>
+                                    <li>Built a React 19 + TypeScript operations dashboard on Azure Static Web Apps — service health, storage analytics, a searchable recording and transcript explorer with HTTP Range–based seekable audio, and Azure Cost Management integration reporting cost per call.</li>
+                                </ul>
+                            </div>
+
+                            <div class="rz-project-block">
+                                <h4 class="rz-project-heading">Unified Backup System — Datto BCDR / Endpoint / SaaS → Axcient x360Recover</h4>
+                                <ul>
+                                    <li>Built and operate a Node 20 Azure Functions backup monitoring platform spanning Datto BCDR, Datto Endpoint, Datto SaaS Protection, and Axcient x360Recover, normalizing roughly 525 protected assets into one stable issue model for reliable day-over-day deltas and one-ticket-per-issue automation.</li>
+                                    <li>Designed per-source health and staleness safeguards so vendor outages fail loudly instead of creating false green results, backed by 96 dependency-free tests that cover collection, normalization, archiving, reporting, and failure scenarios before every deployment.</li>
+                                    <li>Ships a daily Microsoft Teams exception report, a live engineer triage console, and an indefinite Blob Storage archive behind a latest-state API that returns current results without calling a vendor.</li>
+                                </ul>
+                            </div>
+
+                            <div class="rz-project-block">
+                                <h4 class="rz-project-heading">Unified Network Monitor — UniFi / SonicWall / Cisco Meraki → Autotask</h4>
+                                <ul>
+                                    <li>Built a multi-vendor network monitor across UniFi, SonicWall, and Cisco Meraki fleets — polls vendor APIs every five minutes, normalizes them into one model, and opens, tracks, and auto-resolves Autotask tickets through a Table Storage state machine, with pure detection modules under unit test and alert suppression so one incident makes one ticket.</li>
+                                    <li>Added a daily advisory pipeline enriching vendor security advisories with NVD CVE detail and FIRST EPSS exploit-probability scores, matched against deployed firmware; plus CI/CD pipelines in Azure DevOps standardizing releases across client environments.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -411,6 +450,21 @@
                         <p class="badge">Azure Functions • Azure Communication Services • Azure Speech • Azure OpenAI • Python • Autotask</p>
                         <p>
                             Three-stage serverless pipeline built for E3 IT Services. The first Function App answers incoming ACS calls, plays consent audio, records the conversation, and uploads WAV chunks to Blob Storage. The second transcribes recordings using Azure Speech batch jobs and sends the transcript to Azure OpenAI for structured analysis, extracting engineer name, full transcript, and a professional time-entry summary. The third resolves the engineer in Autotask and posts the generated note to their active ticket. Full idempotency tracking, correlation ID tracing, and prompt-injection safeguards throughout.
+                        </p>
+                    </div>
+
+                    <!-- Unified Backup System (E3) -->
+                    <div class="resume-card rz-featured">
+                        <span class="rz-star">★ Featured</span>
+                        <h3>Unified Backup System</h3>
+                        <p class="badge">Azure Functions • Node.js • Datto BCDR • Datto Endpoint • SaaS Protection • Axcient x360Recover</p>
+                        <p>
+                            Production monitoring platform covering roughly 525 backup assets across four vendor
+                            platforms. Nine Azure Functions collect, normalize, archive, and report vendor health through
+                            one stable issue model, with per-source outage isolation, read-time staleness checks, and
+                            one-ticket-per-issue automation. A 96-test dependency-free suite gates every deployment,
+                            while daily Teams exception reports, a live engineer triage console, and an indefinite Blob
+                            archive keep failures visible and auditable.
                         </p>
                     </div>
 

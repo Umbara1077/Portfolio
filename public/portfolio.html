@@ -266,6 +266,16 @@
             text-transform: uppercase;
             color: var(--accent-2);
         }
+        .pf-company {
+            display: inline-block;
+            margin: 0 0 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+        }
         .pf-group-banner h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 800;
@@ -428,10 +438,10 @@
                 <article class="portfolio-item featured reveal card-theme-ai" data-cat="featured ai cloud">
                     <div class="pf-badges">
                         <span class="pf-flag">★ Featured</span>
-                        <span class="pf-status private"><span class="pf-live-dot"></span>Private Client Tool</span>
+                        <span class="pf-status private"><span class="pf-live-dot"></span>Private Internal Tool</span>
                     </div>
+                    <span class="pf-company">E3 IT Services</span>
                     <div class="pf-featured-head">
-                        <img src="images/logo.jpg" alt="ACS Call Transcription" class="card-logo" loading="lazy">
                         <h2>ACS Call Transcription &amp; Time-Entry Automation</h2>
                     </div>
                     <p class="short-desc">A three-stage Azure Functions pipeline that automates the full lifecycle of a support call — answers incoming Azure Communication Services calls, plays consent audio, records the conversation, and stores WAV chunks to Blob Storage. A second app transcribes via Azure Speech batch transcription and sends the transcript to Azure OpenAI for structured analysis; a third resolves the engineer to an Autotask resource, finds their active ticket, and posts a professional time-entry note automatically.</p>
@@ -450,7 +460,36 @@
                         <span class="card-tag">Autotask</span>
                     </div>
                     <div class="card-overlay">
-                        <span class="card-private-badge">🔒 Private Client Tool — walkthrough on request</span>
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
+                    </div>
+                </article>
+
+                <!-- FEATURED: Unified Backup System -->
+                <article class="portfolio-item featured reveal card-theme-default" data-cat="featured cloud">
+                    <div class="pf-badges">
+                        <span class="pf-flag">★ Featured</span>
+                        <span class="pf-status private"><span class="pf-live-dot"></span>Private Internal Tool</span>
+                    </div>
+                    <span class="pf-company">E3 IT Services</span>
+                    <div class="pf-featured-head">
+                        <h2>Unified Backup System</h2>
+                    </div>
+                    <p class="short-desc">A production Azure Functions platform that monitors roughly 525 backup assets across Datto BCDR, Datto Endpoint, Datto SaaS Protection, and Axcient x360Recover. Nine Node.js functions normalize every vendor's failures into one stable issue model, isolate source outages and stale data, and preserve daily history without allowing missing data to appear healthy.</p>
+                    <ul class="pf-highlights">
+                        <li>525 backup assets across four platforms</li>
+                        <li>Stable one-ticket-per-issue automation</li>
+                        <li>96 dependency-free deployment tests</li>
+                        <li>Daily Teams reports and live triage console</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Azure Functions</span>
+                        <span class="card-tag">Node.js</span>
+                        <span class="card-tag">Datto</span>
+                        <span class="card-tag">Axcient</span>
+                        <span class="card-tag">Blob Storage</span>
+                    </div>
+                    <div class="card-overlay">
+                        <span class="card-private-badge">🔒 Private Internal Tool</span>
                     </div>
                 </article>
 
@@ -514,8 +553,8 @@
 
                 <!-- Network Manager Portal -->
                 <article class="portfolio-item reveal card-theme-default" data-cat="cloud">
-                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
-                    <img src="images/logo.jpg" alt="Network Manager Portal" class="card-logo" loading="lazy">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private Internal Tool</span></div>
+                    <span class="pf-company">E3 IT Services</span>
                     <h2>Network Manager Portal</h2>
                     <p class="short-desc">Network monitoring and analytics portal covering UniFi access points, switches, and gateways alongside SonicWall firewalls across multiple client sites. Tracks real-time latency, bandwidth, and uptime with instant site-down alerts and automatic ticket creation. CVE monitoring flags known vulnerabilities on active firmware — a single pane of glass for a multi-site network.</p>
                     <div class="card-tags">
@@ -548,8 +587,8 @@
 
                 <!-- On-Call IT Engineer Management -->
                 <article class="portfolio-item reveal card-theme-default" data-cat="cloud">
-                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private</span></div>
-                    <img src="images/logo.jpg" alt="On-Call Management" class="card-logo" loading="lazy">
+                    <div class="pf-badges"><span class="pf-status private"><span class="pf-live-dot"></span>Private Internal Tool</span></div>
+                    <span class="pf-company">E3 IT Services</span>
                     <h2>On-Call IT Engineer Management System</h2>
                     <p class="short-desc">Internal platform for managing on-call rotations and engineer availability — when an on-call ticket comes in, it identifies the assigned engineer, sends real-time notifications, and delivers a full ticket breakdown: priority, affected systems, history, and context. Engineers are informed and ready before they even pick up the phone.</p>
                     <div class="card-tags">
