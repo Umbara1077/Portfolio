@@ -99,7 +99,7 @@ export default function Home() {
                     </div>
                     <div className="glance-card">
                         <span className="glance-icon">&#128640;</span>
-                        <div className="glance-number">20+</div>
+                        <div className="glance-number">21+</div>
                         <div className="glance-label">Projects Shipped</div>
                     </div>
                     <div className="glance-card">

@@ -158,7 +158,7 @@ export default function Resume() {
                         <span>Less inventory lookup time</span>
                     </div>
                     <div className="rz-stat">
-                        <b>20+</b>
+                        <b>21+</b>
                         <span>Production projects shipped</span>
                     </div>
                 </InView>

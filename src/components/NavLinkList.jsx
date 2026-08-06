@@ -9,6 +9,7 @@ export function NavLinkList({ links, activeHref, className, onLinkClick }) {
                         <a
                             href={link.href}
                             target="_blank"
+                            rel="noopener noreferrer"
                             className={link.href === activeHref ? 'active-link' : undefined}
                             onClick={onLinkClick}
                         >

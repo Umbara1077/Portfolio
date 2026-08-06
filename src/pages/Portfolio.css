@@ -101,7 +101,8 @@
 
 /* ---- Filtering + entrance ---- */
 .portfolio-item.pf-hidden,
-.pf-group-banner.pf-hidden { display: none !important; }
+.pf-group-banner.pf-hidden,
+.pf-section-label.pf-hidden { display: none !important; }
 
 .portfolio-item {
     /* richer, springier hover than the shared base */
@@ -128,6 +129,40 @@
 .portfolio-item.featured.card-theme-space:hover {
     box-shadow: 0 0 45px rgba(80,60,200,0.5), 0 30px 70px rgba(0,0,0,0.9) !important;
 }
+.card-theme-flight {
+    background:
+        radial-gradient(circle at 88% 12%, rgba(255,126,63,0.2), transparent 34%),
+        linear-gradient(135deg, rgba(8,28,48,0.98), rgba(18,48,72,0.94) 55%, rgba(84,45,36,0.9)) !important;
+    border-color: rgba(114,177,216,0.4) !important;
+}
+.card-theme-flight:hover {
+    box-shadow: 0 0 42px rgba(73,135,176,0.34), 0 30px 70px rgba(0,0,0,0.72) !important;
+}
+[data-theme="light"] .card-theme-flight {
+    background:
+        radial-gradient(circle at 88% 12%, rgba(255,126,63,0.14), transparent 34%),
+        linear-gradient(135deg, rgba(222,238,248,0.96), rgba(238,244,247,0.98) 58%, rgba(255,228,207,0.9)) !important;
+    border-color: rgba(47,101,139,0.24) !important;
+}
+.flight-card-preview-link {
+    display: block;
+    width: min(100%, 760px);
+    aspect-ratio: 1200 / 630;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: #07131f;
+}
+.flight-card-preview {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+.flight-card-preview-link:hover .flight-card-preview { transform: scale(1.025); }
+[data-theme="light"] .flight-card-preview-link { border-color: rgba(0,0,0,0.14); }
 .pf-featured-head {
     display: flex;
     align-items: center;

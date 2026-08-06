@@ -8,7 +8,7 @@ import { PORTFOLIO_LINKS } from '../navigation.js';
 import portfolioCss from './Portfolio.css?inline';
 
 const DESCRIPTION =
-    'Production systems by Dante Corso: event-driven Azure call automation, multi-vendor network monitoring, AI document processing, and a nine-system retail platform. Live demos included.';
+    'Production systems by Dante Corso: event-driven Azure automation, AI document processing, real-time business platforms, and procedural WebGL experiences. Live demos included.';
 
 const FILTERS = [
     { id: 'all', label: 'All' },
@@ -24,6 +24,7 @@ const CARD_CATEGORIES = [
     'featured ai cloud',
     'featured cloud',
     'featured ai',
+    'featured live',
     'featured live',
     'cloud',
     'fullstack',
@@ -200,11 +201,11 @@ export default function Portfolio() {
                     </p>
                     <div className="pf-stats">
                         <div className="pf-stat">
-                            <b>20+</b>
+                            <b>21+</b>
                             <span>Projects Shipped</span>
                         </div>
                         <div className="pf-stat">
-                            <b>5</b>
+                            <b>6</b>
                             <span>Live Deployments</span>
                         </div>
                         <div className="pf-stat">
@@ -393,6 +394,55 @@ export default function Portfolio() {
                                 style={{ color: '#c8b8ff' }}
                             >
                                 Launch Experience &#8594;
+                            </a>
+                        </div>
+                    </PortfolioCard>
+
+                    {/* FEATURED: From Summit to Sea (LIVE) */}
+                    <PortfolioCard cat="featured live" theme="card-theme-flight" featured {...cardProps}>
+                        <div className="pf-badges">
+                            <span className="pf-flag">&#9733; Featured</span>
+                            <LiveStatus>Live Experience</LiveStatus>
+                        </div>
+                        <a
+                            href="https://flight.dantecorso.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flight-card-preview-link"
+                        >
+                            <img
+                                src="https://flight.dantecorso.com/assets/og-flight-study.png"
+                                alt="From Summit to Sea interactive WebGL flight study"
+                                className="flight-card-preview"
+                                loading="lazy"
+                            />
+                        </a>
+                        <span className="pf-company">Independent Creative Engineering</span>
+                        <div className="pf-featured-head">
+                            <h2>From Summit to Sea &mdash; Interactive WebGL Flight Study</h2>
+                        </div>
+                        <p className="short-desc">
+                            A continuous, scroll-controlled flight from alpine dawn to an open-ocean sunset. Every
+                            aircraft, mountain, cloud, wave, ship, and animal is generated in code at runtime&mdash;no
+                            downloaded 3D models, game engine, or build step.
+                        </p>
+                        <Highlights
+                            items={[
+                                'Three selectable aircraft lofted at true scale',
+                                'Custom GLSL atmosphere and depth-aware volumetric fog',
+                                '160K-vertex terrain, Gerstner ocean, ships, and wildlife',
+                                'Adaptive GPU quality tiers and reduced-motion support'
+                            ]}
+                        />
+                        <CardTags tags={['Three.js', 'WebGL 2', 'GLSL', 'GSAP', 'Procedural 3D']} />
+                        <div className="card-overlay">
+                            <a
+                                href="https://flight.dantecorso.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="card-cta"
+                            >
+                                Fly the Experience &#8594;
                             </a>
                         </div>
                     </PortfolioCard>
