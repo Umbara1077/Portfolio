@@ -8,21 +8,21 @@ import { InView } from '../components/InView.jsx';
 import homeCss from './Home.css?inline';
 
 const HERO_NAME = "Hi, I'm Dante Corso";
-const HERO_SUBTITLE = 'Cloud Engineer';
+const HERO_SUBTITLE = 'Cloud Integration Engineer';
 const HERO_BIO =
-    'Cloud and full-stack engineer with a B.S. in Computer Science from Rowan University. I build event-driven Azure systems, AI automation pipelines, and real-time platforms that real businesses run on every day.';
+    'I build and operate Azure cloud systems that connect business platforms, automate workflows, and put AI to practical use. My full-stack development experience extends that work to the applications people use every day.';
 const TYPE_SPEED = 38;
 
 export default function Home() {
     usePageStyle(homeCss);
     usePageMeta({
-        title: 'Dante Corso \u2014 Cloud Engineer',
+        title: `Dante Corso \u2014 ${HERO_SUBTITLE}`,
         description:
-            'Dante Corso builds event-driven Azure automation, AI pipelines, and real-time full-stack platforms that businesses run on daily. Case studies, live demos, and r\u00E9sum\u00E9.',
+            'Dante Corso, Cloud Integration Engineer. Explore production Azure systems, API integrations, AI automation, full-stack projects, and professional experience.',
         canonical: 'https://dantecorso.com/',
-        ogTitle: 'Dante Corso \u2014 Cloud Engineer',
+        ogTitle: `Dante Corso \u2014 ${HERO_SUBTITLE}`,
         ogDescription:
-            'Event-driven Azure automation, AI pipelines, and real-time full-stack platforms. Case studies and live demos.',
+            'Cloud Integration Engineer building and operating Azure systems, API integrations, and AI-powered workflows. Explore my projects, technical expertise, and résumé.',
         ogType: 'website',
         ogUrl: 'https://dantecorso.com/'
     });
@@ -57,7 +57,7 @@ export default function Home() {
     const fadeStyle = { opacity: heroVisible ? 1 : 0, transition: 'opacity 0.5s ease' };
 
     return (
-        <Layout orbs={3} activeHref="/" footer={footerWithDisclaimer}>
+        <Layout orbs={3} activeHref="/" footer={footerWithDisclaimer} mainClassName="home-page">
             {/* ========== HERO ========== */}
             <section id="intro">
                 <h1 className="hero-name" id="hero-name-el">
@@ -86,6 +86,10 @@ export default function Home() {
                     >
                         Try a Live Demo &#8599;
                     </a>
+                </div>
+                <div className="home-quick-links" aria-label="Explore expertise and experience">
+                    <a href="#services-new">Areas of expertise</a>
+                    <Link to="/resume">Experience &amp; résumé</Link>
                 </div>
             </section>
 
@@ -117,6 +121,7 @@ export default function Home() {
                 </InView>
                 <div className="featured-grid">
                     <div className="feat-card">
+                        <span className="home-project-company">E3 IT Services · Internal Project</span>
                         <div className="feat-card-title">Call Automation &amp; Time-Entry Platform</div>
                         <p className="feat-card-desc">
                             Event-driven Azure pipeline across three Function Apps — answers support calls, routes an
@@ -136,6 +141,7 @@ export default function Home() {
                     </div>
 
                     <div className="feat-card">
+                        <span className="home-project-company">E3 IT Services · Internal Project</span>
                         <div className="feat-card-title">Unified Network Monitor</div>
                         <p className="feat-card-desc">
                             Multi-vendor monitoring across UniFi, SonicWall, and Cisco Meraki fleets. Polls vendor APIs
@@ -155,6 +161,7 @@ export default function Home() {
                     </div>
 
                     <div className="feat-card">
+                        <span className="home-project-company">Dolce Vita Gelato</span>
                         <div className="feat-card-title">Full Business Operating System</div>
                         <p className="feat-card-desc">
                             Nine integrated systems built and maintained for a live retail business — mobile ordering
@@ -170,6 +177,7 @@ export default function Home() {
                         <a
                             href="https://gelato-system-demo.web.app"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="feat-card-link"
                         >
                             Try the live demo &#8594;
@@ -178,27 +186,30 @@ export default function Home() {
                 </div>
             </InView>
 
-            {/* ========== SERVICES ========== */}
+            {/* ========== EXPERTISE ========== */}
             <InView as="section" id="services-new" className="reveal">
                 <InView as="h2" className="section-title" threshold={0.5}>
-                    What I Build
+                    Areas of Expertise
                 </InView>
+                <p className="home-section-intro">
+                    The technologies and disciplines behind my work—from production cloud systems to practical AI workflows.
+                </p>
                 <div className="services-grid">
                     <div className="service-card">
                         <span className="service-card-icon">&#128187;</span>
-                        <h3>Software Engineering</h3>
+                        <h3>AI Adoption &amp; Workflows</h3>
                         <p>
-                            Designing and developing efficient, scalable software solutions that optimize performance
-                            and enhance functionality.
+                            Putting ChatGPT, Claude, and Gemini to practical use: tool evaluation, workspace setup,
+                            reusable prompts, team training, and AI-assisted workflows for everyday tasks.
                         </p>
                     </div>
 
                     <div className="service-card">
                         <span className="service-card-icon">&#128260;</span>
-                        <h3>Azure DevOps &amp; CI/CD</h3>
+                        <h3>Cloud Engineering &amp; DevOps</h3>
                         <p>
-                            Designing and managing Azure DevOps workflows, automated CI/CD pipelines, version control,
-                            and release management.
+                            Azure infrastructure, serverless automation, monitoring, and CI/CD pipelines, with a focus
+                            on secure configuration, reliability, and visibility into production systems.
                         </p>
                     </div>
 
@@ -206,17 +217,17 @@ export default function Home() {
                         <span className="service-card-icon">&#127760;</span>
                         <h3>Full-Stack Web Development</h3>
                         <p>
-                            Crafting comprehensive web solutions — from React front-ends to Node.js back-ends — ensuring
-                            seamless user experience.
+                            Web applications, customer portals, and internal dashboards. React front ends, Node.js back
+                            ends, authentication, payments, and real-time data, connected in one usable platform.
                         </p>
                     </div>
 
                     <div className="service-card">
-                        <span className="service-card-icon">&#128452;&#65039;</span>
-                        <h3>Database Architecture</h3>
+                        <span className="service-card-icon" aria-hidden="true">&#128250;</span>
+                        <h3>Digital Signage &amp; Kiosks</h3>
                         <p>
-                            Designing and managing efficient databases — Firestore, SQL, and cloud-native storage — to
-                            support real-time business operations.
+                            Digital menu boards, promotional displays, and self-service kiosks with remote content
+                            management, synchronized pricing, and real-time availability.
                         </p>
                     </div>
 
@@ -231,12 +242,35 @@ export default function Home() {
 
                     <div className="service-card">
                         <span className="service-card-icon">&#128279;</span>
-                        <h3>API Integrations</h3>
+                        <h3>APIs &amp; Business Data</h3>
                         <p>
-                            Building and integrating APIs — Stripe, Google Maps, OpenAI — to enhance functionality and
-                            connectivity across applications.
+                            Connecting systems through vendor APIs, Stripe payments, Firestore and SQL databases,
+                            reporting, and automated data flows that reduce manual entry.
                         </p>
                     </div>
+                </div>
+                <div className="home-ai-tools" aria-label="AI tools I work with and implement">
+                    <h3 className="home-ai-label">AI tools I work with and implement</h3>
+                    <div className="home-ai-group">
+                        <h4>AI assistants &amp; workflows</h4>
+                        <div className="home-ai-brands">
+                            <span><img src="/images/ai-chatgpt.svg" alt="" width="24" height="24" />ChatGPT</span>
+                            <span><img src="/images/ai-claude.svg" alt="" width="24" height="24" />Claude</span>
+                            <span><img src="/images/ai-gemini.png" alt="" width="24" height="24" />Gemini</span>
+                            <span><img src="/images/ai-grok.svg" alt="" width="24" height="24" />Grok</span>
+                        </div>
+                    </div>
+                    <div className="home-ai-group">
+                        <h4>Creative, video &amp; voice generation</h4>
+                        <div className="home-ai-brands home-ai-creative">
+                            <span><img src="/images/ai-higgsfield.svg" alt="" width="24" height="24" /><span>Higgsfield<small>Creative visuals &amp; video generation</small></span></span>
+                            <span><img src="/images/ai-elevenlabs.svg" alt="" width="24" height="24" /><span>ElevenLabs<small>Voice models &amp; audio generation</small></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div className="home-contact-row">
+                    <Link to="/contact" className="hero-btn-primary">Connect with Me</Link>
+                    <p>Explore my background. <Link to="/resume">View my experience and résumé →</Link></p>
                 </div>
             </InView>
         </Layout>

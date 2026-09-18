@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Portfolio from './pages/Portfolio.jsx';
+import LiveProjects from './pages/LiveProjects.jsx';
 import Skills from './pages/Skills.jsx';
 import Resume from './pages/Resume.jsx';
 import Contact from './pages/Contact.jsx';
@@ -36,6 +37,7 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/live-projects" element={<LiveProjects />} />
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/resume" element={<Resume />} />
                 <Route path="/contact" element={<Contact />} />

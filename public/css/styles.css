@@ -573,7 +573,7 @@ nav {
 nav .logo {
     height: 56px;
     width: auto;
-    margin-right: auto;
+    margin-right: 24px;
     border-radius: 50%;
     border: 1.5px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.7);
@@ -598,6 +598,10 @@ nav ul {
     align-items: center;
     gap: 2px;
 }
+
+/* One balanced desktop row; individual demos live on the Live Projects page. */
+.site-navigation { flex-wrap: nowrap; gap: 4px; }
+.site-navigation > .nav-links { flex: 1; justify-content: center; }
 
 nav ul li {
     position: relative;
@@ -674,6 +678,7 @@ nav ul li a.active-link {
     background: rgba(10, 10, 10, 0.97);
     overflow-x: hidden;
     transform: translate3d(-100%, 0, 0);
+    overflow-y: auto;
     transition: transform 0.25s ease;
     padding-top: 60px;
     box-shadow: 8px 0 30px rgba(0, 0, 0, 0.9);
@@ -682,6 +687,11 @@ nav ul li a.active-link {
 
 .side-nav.is-open {
     transform: translate3d(0, 0, 0);
+}
+
+/* A translated, closed drawer must not cast a shadow onto the page. */
+.side-nav:not(.is-open) {
+    box-shadow: none;
 }
 
 .side-nav.is-navigating {

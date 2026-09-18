@@ -154,6 +154,30 @@
 [data-theme="light"] #resume .resume-tab { background: rgba(0,0,0,0.03); }
 [data-theme="light"] #resume .resume-tab.active { color: #0d0d0d; }
 
+/* Keep the dark-mode glow and deep shadows from bleeding into light mode. */
+[data-theme="light"] #resume .resume-header-card {
+    background: #fbfaf7 !important;
+    border-color: rgba(45, 35, 20, 0.11) !important;
+    box-shadow: 0 12px 30px rgba(45, 35, 20, 0.08) !important;
+}
+
+[data-theme="light"] #resume .resume-header-card::after {
+    display: none;
+}
+
+[data-theme="light"] #resume .resume-card.rz-featured,
+[data-theme="light"] #resume .resume-card.rz-featured:hover {
+    border-color: rgba(184, 134, 11, 0.28) !important;
+    box-shadow: 0 8px 24px rgba(45, 35, 20, 0.08) !important;
+}
+
+[data-theme="light"] #resume .resume-tab.active {
+    box-shadow: 0 4px 12px rgba(45, 35, 20, 0.08) !important;
+    background: #d4af7a !important;
+    border-color: #b8935a !important;
+    color: #111 !important;
+}
+
 /* Per-role tech tags in the timeline */
 .rz-tags {
     display: flex;

@@ -21,19 +21,21 @@ const FILTERS = [
 
 /* Kept in card order so the empty state can be derived without touching the DOM. */
 const CARD_CATEGORIES = [
+    'featured fullstack live',
     'featured ai cloud',
-    'featured cloud',
+    'featured ai cloud',
+    'featured ai cloud',
+    'featured ai cloud',
     'featured ai',
     'featured live',
     'featured live',
-    'cloud',
     'fullstack',
-    'cloud',
     'fullstack live',
     'fullstack live',
     'fullstack',
     'fullstack',
     'fullstack',
+    'fullstack live',
     'fullstack live',
     'fullstack',
     'fullstack',
@@ -105,11 +107,35 @@ function Highlights({ items }) {
     );
 }
 
+function ExpandableDetails({ label = 'Show project details', children }) {
+    return (
+        <details className="pf-more">
+            <summary>
+                <span className="pf-more-closed">{label}</span>
+                <span className="pf-more-open">Hide details</span>
+                <span className="pf-more-arrow" aria-hidden="true">↓</span>
+            </summary>
+            <div className="pf-more-content">{children}</div>
+        </details>
+    );
+}
+
 function DolceLogo() {
     return (
         <a href="https://dolcevitasewell.com" target="_blank">
             <img src="/images/dolce-logo.png" alt="Dolce Vita Gelato" className="card-logo" loading="lazy" />
         </a>
+    );
+}
+
+function E3Logo({ className = 'card-logo e3-card-logo' }) {
+    return (
+        <img
+            src="https://e3itservices.com/wp-content/uploads/2021/02/e3-logo-fulltext.svg"
+            alt="E3 IT Services"
+            className={className}
+            loading="lazy"
+        />
     );
 }
 
@@ -201,11 +227,11 @@ export default function Portfolio() {
                     </p>
                     <div className="pf-stats">
                         <div className="pf-stat">
-                            <b>21+</b>
+                            <b>22+</b>
                             <span>Projects Shipped</span>
                         </div>
                         <div className="pf-stat">
-                            <b>6</b>
+                            <b>7</b>
                             <span>Live Deployments</span>
                         </div>
                         <div className="pf-stat">
@@ -238,39 +264,149 @@ export default function Portfolio() {
                 <div className="portfolio-grid" id="pfGrid">
                     {/* ============ FEATURED ============ */}
 
+                    <div className={`pf-section-label pf-section-label-strong${structuralHidden}`}>
+                        Product Spotlight
+                    </div>
+
+                    <PortfolioCard cat="featured fullstack live" theme="card-theme-emberknot" featured {...cardProps}>
+                        <div className="emberknot-sparks" aria-hidden="true">
+                            <span>♥</span><span>♥</span><span>♥</span><span>♡</span>
+                            <span>♥</span><span>♡</span><span>♥</span><span>♡</span>
+                        </div>
+                        <div className="pf-badges">
+                            <span className="pf-flag">Project Spotlight</span>
+                            <span className="pf-status development">App in Development</span>
+                        </div>
+                        <span className="pf-company">Personal Product · Emberknot</span>
+                        <h2><img src="/images/emberknot-logo.svg" alt="" className="emberknot-heading-logo" />Emberknot — A Private Connection App for Two</h2>
+                        <p className="short-desc">
+                            I’m building Emberknot around a simple idea: staying close should not require another
+                            conversation to keep up with. It is a private space for two people to send small gestures,
+                            share everyday moments, and keep the dates and memories that matter to them—whether they
+                            are in the same city or far apart. It is not a dating service or a public social network.
+                        </p>
+                        <ExpandableDetails label="Show Emberknot features">
+                            <div className="emberknot-details">
+                                <div>
+                                    <h3>Small gestures, everyday connection</h3>
+                                    <p>
+                                        The core interaction is a quick tap: thinking of you, a hug, missing you, or a
+                                        personal gesture. Notes, photos, moods, and shared focus sessions extend that
+                                        connection without turning every moment into a message that needs a reply.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3>A shared history and calendar</h3>
+                                    <p>
+                                        A timeline brings moments together, with saved memories, recurring anniversaries,
+                                        dates, and trip countdowns. The shared Atlas adds an interactive globe of places
+                                        the pair chooses to record, along with when they visited and why each place mattered.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3>Designed beyond the app screen</h3>
+                                    <p>
+                                        Planned support spans iPhone, Android, and Apple Watch. Widgets, Lock Screen
+                                        interactions, and Live Activities are part of the product direction, making those
+                                        small gestures accessible without always opening the app.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3>Private by design</h3>
+                                    <p>
+                                        The product is designed around invite-code pairing and one connection at a time,
+                                        without public profiles, follower counts, or discovery feeds. Check-ins are manual,
+                                        not location tracking, and the shared Atlas uses places entered by the users.
+                                    </p>
+                                </div>
+                            </div>
+                        </ExpandableDetails>
+                        <CardTags tags={['Mobile App', 'Two-Person Connection', 'Shared Memories', 'Widgets', 'Interactive Atlas']} />
+                        <div className="emberknot-actions">
+                            <a href="https://emberknot.com" target="_blank" rel="noopener noreferrer" className="card-cta">
+                                Explore Emberknot &#8599;
+                            </a>
+                            <p>Public website and interactive previews are live. The mobile app is in development—not yet released.</p>
+                        </div>
+                    </PortfolioCard>
+
+                    <div className={`pf-section-label${structuralHidden}`}>
+                        Cloud &amp; AI Engineering
+                    </div>
+
+                    <InView
+                        className={`pf-group-banner pf-e3-overview reveal${structuralHidden}`}
+                        threshold={0.06}
+                        data-banner=""
+                        data-cat="featured ai cloud"
+                    >
+                        <E3Logo className="pf-e3-logo" />
+                        <div>
+                            <span className="pf-group-eyebrow">E3 IT Services · Cloud Integration Engineering</span>
+                            <h2>Four Production Platforms for Automated IT Operations</h2>
+                            <p>
+                                A connected body of Azure engineering work that turns calls, backup failures, network
+                                telemetry, security advisories, and urgent tickets into reliable operational workflows.
+                                These systems combine serverless processing, live data, tiered access, AI-assisted
+                                analysis, vendor APIs, and Autotask automation for day-to-day service delivery.
+                            </p>
+                            <div className="pf-e3-platforms" aria-label="E3 engineering platforms">
+                                <span><b>01</b> ACS Call Automation</span>
+                                <span><b>02</b> Unified Backup System</span>
+                                <span><b>03</b> Unified Network Monitor</span>
+                                <span><b>04</b> On-Call Automation</span>
+                            </div>
+                        </div>
+                    </InView>
+
                     {/* FEATURED: ACS Automation Pipeline */}
-                    <PortfolioCard cat="featured ai cloud" theme="card-theme-ai" featured {...cardProps}>
+                    <PortfolioCard cat="featured ai cloud" theme="card-theme-ai e3-acs-featured" featured {...cardProps}>
                         <div className="pf-badges">
                             <span className="pf-flag">&#9733; Featured</span>
                             <PrivateStatus>Private Internal Tool</PrivateStatus>
                         </div>
                         <span className="pf-company">E3 IT Services</span>
                         <div className="pf-featured-head">
-                            <h2>ACS Call Transcription &amp; Time-Entry Automation</h2>
+                            <E3Logo />
+                            <h2>ACS Call Automation Platform</h2>
                         </div>
                         <p className="short-desc">
-                            A three-stage Azure Functions pipeline that automates the full lifecycle of a support call —
-                            answers incoming Azure Communication Services calls, plays consent audio, records the
-                            conversation, and stores WAV chunks to Blob Storage. A second app transcribes via Azure
-                            Speech batch transcription and sends the transcript to Azure OpenAI for structured analysis;
-                            a third resolves the engineer to an Autotask resource, finds their active ticket, and posts a
-                            professional time-entry note automatically.
+                            A production communications and workflow platform that answers inbound support calls,
+                            routes engineers through a live tiered queue, records and processes conversations, and
+                            completes the documentation path into Autotask automatically.
                         </p>
-                        <Highlights
-                            items={[
-                                '3-stage event-driven Azure pipeline',
-                                'Azure OpenAI structured extraction',
-                                'End-to-end idempotency tracking',
-                                'Zero-touch Autotask ticket notes'
-                            ]}
-                        />
+                        <ExpandableDetails>
+                            <p className="pf-detail-copy">
+                                Three Python Azure Function Apps coordinate Azure Communication Services call events,
+                                consent audio, Microsoft Teams engineer routing, automatic voicemail failover, Blob
+                                Storage recording, Azure Speech batch transcription, Azure OpenAI analysis, and
+                                verified engineer-to-ticket resolution. A React and TypeScript operations dashboard
+                                adds live service data, searchable recordings and transcripts, seekable audio, storage
+                                analytics, cost-per-call reporting, and access appropriate to each operational tier.
+                            </p>
+                            <Highlights
+                                items={[
+                                    'Live ACS call events and WebSocket-driven status',
+                                    'Tiered engineer access and ordered Teams routing',
+                                    'Automatic recording, Speech transcription, and AI documentation',
+                                    'Voicemail failover and zero-touch Autotask time entries',
+                                    'Ten-hop correlation tracing and safe retry idempotency',
+                                    'Prompt-injection safeguards and schema-validated AI output',
+                                    'Searchable audio and transcript operations dashboard',
+                                    'Azure cost, storage, and service-health analytics'
+                                ]}
+                            />
+                        </ExpandableDetails>
                         <CardTags
                             tags={[
                                 'Azure Functions',
+                                'Azure Communication Services',
                                 'Azure OpenAI',
                                 'Azure Speech',
                                 'Python',
                                 'Event Grid',
+                                'WebSockets',
+                                'React 19',
                                 'Autotask'
                             ]}
                         />
@@ -280,37 +416,94 @@ export default function Portfolio() {
                     </PortfolioCard>
 
                     {/* FEATURED: Unified Backup System */}
-                    <PortfolioCard cat="featured cloud" theme="card-theme-default" featured {...cardProps}>
+                    <PortfolioCard cat="featured ai cloud" theme="card-theme-default compact-featured" featured {...cardProps}>
                         <div className="pf-badges">
                             <span className="pf-flag">&#9733; Featured</span>
                             <PrivateStatus>Private Internal Tool</PrivateStatus>
                         </div>
                         <span className="pf-company">E3 IT Services</span>
                         <div className="pf-featured-head">
+                            <E3Logo />
                             <h2>Unified Backup System</h2>
                         </div>
                         <p className="short-desc">
-                            A production Azure Functions platform that monitors roughly 525 backup assets across Datto
-                            BCDR, Datto Endpoint, Datto SaaS Protection, and Axcient x360Recover. Nine Node.js functions
-                            normalize every vendor's failures into one stable issue model, isolate source outages and
-                            stale data, and preserve daily history without allowing missing data to appear healthy.
+                            A production Azure monitoring platform that unifies the health of roughly 525 backup assets
+                            across four vendor ecosystems.
                         </p>
-                        <Highlights
-                            items={[
-                                '525 backup assets across four platforms',
-                                'Stable one-ticket-per-issue automation',
-                                '96 dependency-free deployment tests',
-                                'Daily Teams reports and live triage console'
-                            ]}
-                        />
+                        <ExpandableDetails>
+                            <p className="pf-detail-copy">
+                                Nine Node.js functions normalize vendor failures into one stable issue model, isolate
+                                source outages and stale data, and preserve daily history without treating missing data as healthy.
+                            </p>
+                            <Highlights
+                                items={[
+                                    '525 backup assets across four platforms',
+                                    'Stable one-ticket-per-issue automation',
+                                    '96 dependency-free deployment tests',
+                                    'Daily Teams reports and live triage console'
+                                ]}
+                            />
+                        </ExpandableDetails>
                         <CardTags tags={['Azure Functions', 'Node.js', 'Datto', 'Axcient', 'Blob Storage']} />
                         <div className="card-overlay">
                             <span className="card-private-badge">&#128274; Private Internal Tool</span>
                         </div>
                     </PortfolioCard>
 
+                    {/* FEATURED: Unified Network Monitoring & Automation */}
+                    <PortfolioCard cat="featured ai cloud" theme="card-theme-ai compact-featured" featured {...cardProps}>
+                        <div className="pf-badges">
+                            <span className="pf-flag">&#9733; Featured</span>
+                            <PrivateStatus>Private Internal Tool</PrivateStatus>
+                        </div>
+                        <span className="pf-company">E3 IT Services</span>
+                        <div className="pf-featured-head">
+                            <E3Logo />
+                            <h2>Unified Network Monitoring &amp; Automation Platform</h2>
+                        </div>
+                        <p className="short-desc">
+                            A cloud operations platform that normalizes UniFi, SonicWall, and Cisco Meraki telemetry
+                            across client environments and drives incident response automatically.
+                        </p>
+                        <ExpandableDetails>
+                            <p className="pf-detail-copy">
+                                Five-minute vendor polling feeds one health model and a Table Storage state machine that
+                                opens, tracks, and auto-resolves Autotask tickets without duplicating incidents. A daily
+                                security pipeline enriches vendor advisories with NVD CVE data and FIRST EPSS scores,
+                                then matches the risk against firmware actually deployed in the field.
+                            </p>
+                            <Highlights items={['UniFi, SonicWall, and Meraki normalization', 'One-incident, one-ticket state management', 'NVD and EPSS vulnerability enrichment', 'Automated detection, alerting, and resolution']} />
+                        </ExpandableDetails>
+                        <CardTags tags={['Azure', 'Multi-Vendor APIs', 'Autotask', 'CVE Intelligence', 'Automation']} />
+                        <div className="card-overlay"><span className="card-private-badge">&#128274; Private Internal Tool</span></div>
+                    </PortfolioCard>
+
+                    {/* FEATURED: On-Call Automation */}
+                    <PortfolioCard cat="featured ai cloud" theme="card-theme-default compact-featured" featured {...cardProps}>
+                        <div className="pf-badges">
+                            <span className="pf-flag">&#9733; Featured</span>
+                            <PrivateStatus>Private Internal Tool</PrivateStatus>
+                        </div>
+                        <span className="pf-company">E3 IT Services</span>
+                        <div className="pf-featured-head"><E3Logo /><h2>On-Call Engineer Routing &amp; Ticket Intelligence</h2></div>
+                        <p className="short-desc">
+                            An Azure automation platform that resolves the active on-call engineer and delivers urgent
+                            service tickets with the context required to respond immediately.
+                        </p>
+                        <ExpandableDetails>
+                            <p className="pf-detail-copy">
+                                The system manages rotations and availability, detects qualifying Autotask tickets,
+                                identifies the assigned engineer, and sends real-time notifications containing priority,
+                                affected systems, ticket history, and actionable context before the engineer responds.
+                            </p>
+                            <Highlights items={['Automated on-call rotation resolution', 'Real-time engineer notifications', 'Context-rich Autotask ticket delivery', '25% reduction in mean on-call response time']} />
+                        </ExpandableDetails>
+                        <CardTags tags={['Azure Functions', 'Autotask', 'Notifications', 'Routing Automation']} />
+                        <div className="card-overlay"><span className="card-private-badge">&#128274; Private Internal Tool</span></div>
+                    </PortfolioCard>
+
                     {/* FEATURED: Funari AI PDF */}
-                    <PortfolioCard cat="featured ai" theme="card-theme-finance" featured {...cardProps}>
+                    <PortfolioCard cat="featured ai" theme="card-theme-finance compact-featured" featured {...cardProps}>
                         <div className="pf-badges">
                             <span className="pf-flag">&#9733; Featured</span>
                             <PrivateStatus>Private Client Tool</PrivateStatus>
@@ -325,26 +518,62 @@ export default function Portfolio() {
                             <h2>Funari Public Adjusters — AI PDF Platform</h2>
                         </div>
                         <p className="short-desc">
-                            A secure React + Firebase platform built for a real insurance-adjusting firm. Adjusters
-                            upload carrier estimate PDFs; the app runs Google Vision OCR, then uses Gemini AI to generate
-                            side-by-side discrepancy reports that surface underpaid line items — exportable to PDF or
-                            Excel. What used to take hours of manual line-by-line comparison now takes seconds.
+                            A secure React and Firebase platform that turns carrier estimate PDFs into side-by-side
+                            discrepancy reports for a public-adjusting firm.
                         </p>
-                        <Highlights
-                            items={[
-                                'Gemini AI discrepancy analysis',
-                                'Google Vision OCR on carrier PDFs',
-                                'One-click PDF & Excel export',
-                                'Firebase-secured, per-user data'
-                            ]}
-                        />
+                        <ExpandableDetails>
+                            <p className="pf-detail-copy">
+                                Google Vision OCR extracts the source document before Gemini analyzes underpaid line
+                                items. Adjusters can review the results and export the finished report to PDF or Excel.
+                            </p>
+                            <Highlights
+                                items={[
+                                    'Gemini AI discrepancy analysis',
+                                    'Google Vision OCR on carrier PDFs',
+                                    'One-click PDF & Excel export',
+                                    'Firebase-secured, per-user data'
+                                ]}
+                            />
+                        </ExpandableDetails>
                         <CardTags tags={['React', 'Gemini AI', 'Vision OCR', 'Firebase']} />
                         <div className="card-overlay">
                             <span className="card-private-badge">
-                                &#128274; Private Client Tool — walkthrough on request
+                                &#128274; Private internal tool
                             </span>
                         </div>
                     </PortfolioCard>
+
+                    <InView
+                        className={`pf-group-banner pf-dvg-overview reveal${structuralHidden}`}
+                        threshold={0.06}
+                        data-banner=""
+                        data-cat="fullstack live"
+                    >
+                        <img src="/images/dolce-logo.png" alt="Dolce Vita Gelateria" loading="lazy" />
+                        <div>
+                            <a className="pf-group-eyebrow pf-dvg-section-link" href="#dolce-vita-projects">
+                                Connected Full-Stack Business Platform
+                            </a>
+                            <h2>Dolce Vita Gelateria — Customer Experiences &amp; Operations</h2>
+                            <p>
+                                A connected digital ecosystem designed and built across the entire business: a public
+                                website with live hours and flavors, mobile ordering and Stripe checkout, in-store
+                                digital signage, self-service ordering, real-time fulfillment, staff access, recipe
+                                development, inventory management, and the secure operations command center that ties
+                                the private tools together through shared Firebase data.
+                            </p>
+                        </div>
+                        <div className="pf-dvg-overview-actions">
+                            <a className="pf-dvg-details-link" href="#dolce-vita-projects">View Project Details Below &#8595;</a>
+                            <a href="https://dolcevitasewell.com" target="_blank" rel="noopener noreferrer">Visit Website &#8599;</a>
+                            <a href="https://mobileorder.dolcevitasewell.com" target="_blank" rel="noopener noreferrer">Order Ahead &#8599;</a>
+                            <a href="https://gelato-system-demo.web.app" target="_blank" rel="noopener noreferrer">Explore System Demo &#8599;</a>
+                        </div>
+                    </InView>
+
+                    <div className={`pf-section-label${structuralHidden}`}>
+                        Interactive Live Experiences
+                    </div>
 
                     {/* FEATURED: 3D Solar System (LIVE) */}
                     <PortfolioCard
@@ -374,14 +603,16 @@ export default function Portfolio() {
                             from-scratch 3D engine showcase: custom camera controls, orbital mechanics, lighting, and
                             thousands of GPU-drawn stars, all running at 60fps with no plugins.
                         </p>
-                        <Highlights
-                            items={[
-                                'Three.js / WebGL, 60fps',
-                                'Real orbital motion & scale',
-                                'Free-fly camera controls',
-                                'GPU-drawn starfield'
-                            ]}
-                        />
+                        <ExpandableDetails>
+                            <Highlights
+                                items={[
+                                    'Three.js / WebGL, 60fps',
+                                    'Real orbital motion & scale',
+                                    'Free-fly camera controls',
+                                    'GPU-drawn starfield'
+                                ]}
+                            />
+                        </ExpandableDetails>
                         <CardTags tags={['Three.js', 'WebGL', 'JavaScript']} />
                         <div
                             className="card-overlay"
@@ -426,14 +657,16 @@ export default function Portfolio() {
                             aircraft, mountain, cloud, wave, ship, and animal is generated in code at runtime&mdash;no
                             downloaded 3D models, game engine, or build step.
                         </p>
-                        <Highlights
-                            items={[
-                                'Three selectable aircraft lofted at true scale',
-                                'Custom GLSL atmosphere and depth-aware volumetric fog',
-                                '160K-vertex terrain, Gerstner ocean, ships, and wildlife',
-                                'Adaptive GPU quality tiers and reduced-motion support'
-                            ]}
-                        />
+                        <ExpandableDetails>
+                            <Highlights
+                                items={[
+                                    'Three selectable aircraft lofted at true scale',
+                                    'Custom GLSL atmosphere and depth-aware volumetric fog',
+                                    '160K-vertex terrain, Gerstner ocean, ships, and wildlife',
+                                    'Adaptive GPU quality tiers and reduced-motion support'
+                                ]}
+                            />
+                        </ExpandableDetails>
                         <CardTags tags={['Three.js', 'WebGL 2', 'GLSL', 'GSAP', 'Procedural 3D']} />
                         <div className="card-overlay">
                             <a
@@ -448,34 +681,12 @@ export default function Portfolio() {
                     </PortfolioCard>
 
                     {/* ============ MORE PROJECTS ============ */}
-                    <div className={`pf-section-label${structuralHidden}`} data-label="">
+                    <div className={`pf-section-label pf-more-projects-label${structuralHidden}`} data-label="">
                         More Projects
                     </div>
 
-                    {/* Network Manager Portal */}
-                    <PortfolioCard cat="cloud" theme="card-theme-default" {...cardProps}>
-                        <div className="pf-badges">
-                            <PrivateStatus>Private Internal Tool</PrivateStatus>
-                        </div>
-                        <span className="pf-company">E3 IT Services</span>
-                        <h2>Network Manager Portal</h2>
-                        <p className="short-desc">
-                            Network monitoring and analytics portal covering UniFi access points, switches, and gateways
-                            alongside SonicWall firewalls across multiple client sites. Tracks real-time latency,
-                            bandwidth, and uptime with instant site-down alerts and automatic ticket creation. CVE
-                            monitoring flags known vulnerabilities on active firmware — a single pane of glass for a
-                            multi-site network.
-                        </p>
-                        <CardTags
-                            tags={['UniFi', 'SonicWall', 'CVE Monitoring', 'Network Analytics', 'Auto Ticketing']}
-                        />
-                        <div className="card-overlay">
-                            <span className="card-private-badge">&#128274; Private Internal Tool</span>
-                        </div>
-                    </PortfolioCard>
-
                     {/* Personal Information Dashboard (available on request — sign-in protected) */}
-                    <PortfolioCard cat="fullstack" theme="card-theme-ai" {...cardProps}>
+                    <PortfolioCard cat="fullstack" theme="card-theme-ai pf-secondary-project" {...cardProps}>
                         <div className="pf-badges">
                             <PrivateStatus>By Request</PrivateStatus>
                         </div>
@@ -499,27 +710,8 @@ export default function Portfolio() {
                         </div>
                     </PortfolioCard>
 
-                    {/* On-Call IT Engineer Management */}
-                    <PortfolioCard cat="cloud" theme="card-theme-default" {...cardProps}>
-                        <div className="pf-badges">
-                            <PrivateStatus>Private Internal Tool</PrivateStatus>
-                        </div>
-                        <span className="pf-company">E3 IT Services</span>
-                        <h2>On-Call IT Engineer Management System</h2>
-                        <p className="short-desc">
-                            Internal platform for managing on-call rotations and engineer availability — when an on-call
-                            ticket comes in, it identifies the assigned engineer, sends real-time notifications, and
-                            delivers a full ticket breakdown: priority, affected systems, history, and context. Engineers
-                            are informed and ready before they even pick up the phone.
-                        </p>
-                        <CardTags tags={['Notifications', 'Autotask', 'Automation', 'On-Call Management']} />
-                        <div className="card-overlay">
-                            <span className="card-private-badge">&#128274; Private Internal Tool</span>
-                        </div>
-                    </PortfolioCard>
-
                     {/* 3D Print Shop (LIVE) */}
-                    <PortfolioCard cat="fullstack live" theme="card-theme-shop" {...cardProps}>
+                    <PortfolioCard cat="fullstack live" theme="card-theme-shop pf-secondary-project" {...cardProps}>
                         <div className="pf-badges">
                             <LiveStatus>Live</LiveStatus>
                         </div>
@@ -538,7 +730,7 @@ export default function Portfolio() {
                     </PortfolioCard>
 
                     {/* API Integrations Demo (interactive/live) */}
-                    <PortfolioCard cat="fullstack live" theme="card-theme-default" {...cardProps}>
+                    <PortfolioCard cat="fullstack live" theme="card-theme-default pf-secondary-project" {...cardProps}>
                         <div className="pf-badges">
                             <LiveStatus>Interactive</LiveStatus>
                         </div>
@@ -565,7 +757,7 @@ export default function Portfolio() {
                     </PortfolioCard>
 
                     {/* P&S Ravioli Inventory */}
-                    <PortfolioCard cat="fullstack" theme="card-theme-default" {...cardProps}>
+                    <PortfolioCard cat="fullstack" theme="card-theme-default pf-secondary-project" {...cardProps}>
                         <div className="pf-badges">
                             <PrivateStatus>Private</PrivateStatus>
                         </div>
@@ -584,6 +776,7 @@ export default function Portfolio() {
 
                     {/* ============ FLAGSHIP: DOLCE VITA GELATO ============ */}
                     <InView
+                        id="dolce-vita-projects"
                         className={`pf-group-banner reveal${structuralHidden}`}
                         threshold={0.06}
                         data-banner=""
@@ -594,14 +787,14 @@ export default function Portfolio() {
                             <span className="pf-group-eyebrow">Flagship Client Platform</span>
                             <h2>Dolce Vita Gelato — Full Business Operating System</h2>
                             <p>
-                                An entire company's software stack, designed, built, and maintained end-to-end: nine
-                                integrated systems spanning in-store digital signage, self-order kiosks, mobile ordering
+                                An entire company's software stack, designed, built, and maintained end-to-end: ten
+                                integrated systems spanning the public website, in-store digital signage, self-order kiosks, mobile ordering
                                 with Stripe &amp; geofenced arrival alerts, staff tooling, recipe R&amp;D, and inventory
                                 — all sharing one real-time Firebase backend so a change in one place updates everywhere
                                 instantly.
                             </p>
                             <div className="pf-group-stats">
-                                <span>9 Integrated Systems</span>
+                                <span>10 Integrated Systems</span>
                                 <span>Real-Time Firebase Sync</span>
                                 <span>Stripe Payments</span>
                                 <span>Geofencing</span>
@@ -616,12 +809,13 @@ export default function Portfolio() {
                             <PrivateStatus>Private</PrivateStatus>
                         </div>
                         <DolceLogo />
-                        <h2>DVG — Command Center</h2>
+                        <h2>Dolce Vita — Operations Command Center</h2>
                         <p className="short-desc">
-                            The private nerve center for all Dolce Vita Gelato operations — a Firebase-authenticated
-                            dashboard with 9 animated morphing-blob buttons that launch every internal system: Digital
-                            Signage &amp; Gelato Management, the Self-Order Kiosk, Mobile Ordering, Order Manager, Staff
-                            Passport, Recipe Lab, Inventory, and more. Every DVG tool flows through here.
+                            A secure, Firebase-authenticated operations hub that gives approved staff one organized
+                            entry point to Dolce Vita&apos;s connected business systems. Role-aware navigation brings
+                            digital signage and flavor management, kiosk and mobile ordering, order fulfillment, staff
+                            resources, recipe development, and inventory tools together without exposing private
+                            applications publicly.
                         </p>
                         <CardTags tags={['Firebase Auth', 'JavaScript', 'Admin Dashboard']} />
                         <div className="card-overlay">
@@ -649,6 +843,28 @@ export default function Portfolio() {
                         </div>
                     </PortfolioCard>
 
+                    {/* DVG — Public Website (LIVE) */}
+                    <PortfolioCard cat="fullstack live" theme="card-theme-gelato" {...cardProps}>
+                        <div className="pf-badges">
+                            <LiveStatus>Live</LiveStatus>
+                        </div>
+                        <DolceLogo />
+                        <h2>Dolce Vita Sewell — Public Website</h2>
+                        <p className="short-desc">
+                            Full-stack customer website for Dolce Vita Gelateria in Sewell, built around live shop data.
+                            It shows today&apos;s open or closed status and hours, the flavors currently in the case, the
+                            shop&apos;s rotating catalog of more than 100 flavors, dairy-free options, caffè and cakes,
+                            events, the shop story, visit information, and a direct path into online ordering. Flavor
+                            availability is kept current from the same connected menu data used by the shop.
+                        </p>
+                        <CardTags tags={['Full Stack', 'Live Hours', 'Live Flavors', 'Responsive Web', 'Firebase']} />
+                        <div className="card-overlay">
+                            <a href="https://dolcevitasewell.com" target="_blank" rel="noopener noreferrer" className="card-cta">
+                                Visit Website &#8594;
+                            </a>
+                        </div>
+                    </PortfolioCard>
+
                     {/* DVG — Mobile Ordering (LIVE) */}
                     <PortfolioCard cat="fullstack live" theme="card-theme-gelato" {...cardProps}>
                         <div className="pf-badges">
@@ -662,10 +878,10 @@ export default function Portfolio() {
                             check-in that automatically pings staff the moment a customer arrives. Orders land directly
                             in the Order Manager in real time.
                         </p>
-                        <CardTags tags={['Firebase', 'Stripe', 'Geolocation']} />
+                        <CardTags tags={['Full Stack', 'Firebase', 'Stripe', 'Geolocation']} />
                         <div className="card-overlay">
-                            <a href="https://dolcevitasewell-mobileorder.com" target="_blank" className="card-cta">
-                                View Project &#8594;
+                            <a href="https://mobileorder.dolcevitasewell.com" target="_blank" rel="noopener noreferrer" className="card-cta">
+                                Order Ahead &#8594;
                             </a>
                         </div>
                     </PortfolioCard>
@@ -733,16 +949,16 @@ export default function Portfolio() {
                             <LiveStatus>Try It Live</LiveStatus>
                         </div>
                         <DolceLogo />
-                        <h2>DVG — Interactive Demo</h2>
+                        <h2>DVG Gelato Shop Demo — Website, Digital Menus &amp; Mobile Ordering</h2>
                         <p className="short-desc">
-                            A fully interactive demo environment showcasing the Gelato Management System, Digital Signage
-                            display, and Mobile Ordering app — all running on realistic fake data. Explore how flavors
-                            are managed, how the in-store displays update in real time, and how the mobile ordering flow
-                            works, without touching any live production data.
+                            An interactive, browser-based showcase of connected gelateria software: a web admin panel,
+                            digital menu boards, mobile ordering, and inventory management. Explore how menu changes,
+                            flavor availability, and stock connect across the tools using sample data, without touching
+                            live production systems.
                         </p>
                         <CardTags tags={['Live Demo', 'Firebase', 'Fake Data']} />
                         <div className="card-overlay">
-                            <a href="https://gelato-system-demo.web.app" target="_blank" className="card-cta">
+                            <a href="https://gelato-system-demo.web.app" target="_blank" rel="noopener noreferrer" className="card-cta">
                                 Try the Demo &#8594;
                             </a>
                         </div>

@@ -5,7 +5,7 @@ import { ThemeToggle } from './ThemeToggle.jsx';
 export function Header({ links, activeHref, logoAlt, onMenuToggle }) {
     return (
         <header>
-            <nav>
+            <nav className="site-navigation">
                 <Link to="/">
                     <img src="/images/logo.jpg" alt={logoAlt} className="logo" />
                 </Link>
