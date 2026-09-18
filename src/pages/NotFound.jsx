@@ -1,22 +1,27 @@
 import { Link } from 'react-router-dom';
-import { usePageStyle, useWebFontsDisabled } from '../hooks/usePageStyle.js';
+import { Layout } from '../components/Layout.jsx';
+import { simpleFooter } from '../components/Footers.jsx';
+import { usePageStyle } from '../hooks/usePageStyle.js';
 import { usePageMeta } from '../hooks/usePageMeta.js';
 import notFoundCss from './NotFound.css?inline';
 
 export default function NotFound() {
     usePageStyle(notFoundCss);
-    useWebFontsDisabled();
     usePageMeta({ title: '404 - Page Not Found' });
 
     return (
-        <div className="container">
-            <img src="/images/logo.jpg" alt="Precison Pixel Studios" />
-            <h1>404 Error</h1>
-            <h2>Page Not Found</h2>
-            <p>Oops! The page you are looking for doesn't exist. It might have been moved or deleted.</p>
-            <p>
-                Go back to the <Link to="/">homepage</Link>
-            </p>
-        </div>
+        <Layout orbs={1} footer={simpleFooter}>
+            <section className="nf-page">
+                <div className="nf-card">
+                    <img src="/images/logo.jpg" alt="Precision Pixel Innovations" />
+                    <span className="nf-code">404 Error</span>
+                    <h1>Page Not Found</h1>
+                    <p>Oops! The page you are looking for doesn't exist. It might have been moved or deleted.</p>
+                    <Link to="/" className="btn btn-primary">
+                        Go back to the homepage
+                    </Link>
+                </div>
+            </section>
+        </Layout>
     );
 }

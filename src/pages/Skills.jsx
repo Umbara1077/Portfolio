@@ -78,10 +78,19 @@ export default function Skills() {
     return (
         <Layout orbs={3} activeHref="/skills" footer={footerWithDisclaimer}>
             <section id="skills">
+                <p className="meta meta-inline page-eyebrow">
+                    <span className="pip pip-brand" aria-hidden="true"></span>
+                    Skills
+                </p>
                 <InView as="h1" className="section-title reveal" threshold={0.06}>
                     My Skills
                 </InView>
+                <p className="lead skills-lead">
+                    The stack behind production Azure systems, real-time full-stack platforms, and the day-to-day
+                    tooling that keeps them running.
+                </p>
                 <WeatherWidget />
+                <div className="skills-grid">
 
                 <InView className="service reveal" threshold={0.06}>
                     <div>
@@ -293,6 +302,7 @@ export default function Skills() {
                         </div>
                     </div>
                 </InView>
+                </div>
             </section>
         </Layout>
     );

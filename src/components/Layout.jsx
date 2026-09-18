@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { BgOrbs } from './BgOrbs.jsx';
 import { Header } from './Header.jsx';
 import { SideNav } from './SideNav.jsx';
+import { SiteFooter } from './Footers.jsx';
 import { MAIN_LINKS } from '../navigation.js';
 
 export function Layout({
@@ -12,9 +13,9 @@ export function Layout({
     activeHref,
     sideNavActiveHref,
     showSideNavClose = true,
-    logoAlt = 'Precision Pixel Innovations',
+    logoAlt = 'Dante Corso',
     mainClassName,
-    footer,
+    footer = 'simple',
     children
 }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -31,8 +32,8 @@ export function Layout({
         });
     }, []);
 
-    // `is-navigating` drops the drawer without a transition, the way it did
-    // while the browser was already tearing the old document down.
+    // `is-navigating` drops the drawer without a transition when a link is
+    // followed, so the panel never lingers over the next page.
     const handleLinkClick = useCallback(() => {
         setIsNavigating(true);
         setIsOpen(false);
@@ -56,17 +57,26 @@ export function Layout({
         };
     }, [close]);
 
+    // Lock page scroll while the mobile panel is open.
+    useEffect(() => {
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
+
     const backdropClasses = [isOpen && 'is-visible', isNavigating && 'is-navigating'].filter(Boolean).join(' ');
+    const footerVariant = typeof footer === 'string' ? footer : 'simple';
 
     return (
         <>
             <BgOrbs count={orbs} />
 
-            <Header links={links} activeHref={activeHref} logoAlt={logoAlt} onMenuToggle={toggle} />
+            <Header links={links} activeHref={activeHref} logoAlt={logoAlt} onMenuToggle={toggle} menuOpen={isOpen} />
 
             <SideNav
                 links={sideNavLinks || links}
-                activeHref={sideNavActiveHref}
+                activeHref={sideNavActiveHref || activeHref}
                 isOpen={isOpen}
                 isNavigating={isNavigating}
                 showCloseButton={showSideNavClose}
@@ -74,9 +84,9 @@ export function Layout({
                 onLinkClick={handleLinkClick}
             />
 
-            <main className={mainClassName}>{children}</main>
+            <main id="main" className={mainClassName}>{children}</main>
 
-            <footer>{footer}</footer>
+            <SiteFooter variant={footerVariant} />
 
             <div id="nav-backdrop" className={backdropClasses || undefined} onClick={close}></div>
         </>

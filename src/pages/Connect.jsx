@@ -53,17 +53,12 @@ export default function Connect() {
                 <div className="connect-spotlight"></div>
                 <FloatDots />
                 <div className="connect-inner">
-                    <div className="availability-badge">
-                        <span className="dot"></span>
-                        Available for new opportunities
-                    </div>
-
                     <p className="connect-eyebrow">Get In Touch</p>
                     <h1 className="connect-headline">
                         Let's <span className="gold">Connect</span>
                     </h1>
                     <p className="connect-subtitle">
-                        Open to new opportunities, collaborations, and conversations. Find me on the platforms below —
+                        Always up for collaborations and good conversations. Find me on the platforms below —
                         or send me a direct message.
                     </p>
 

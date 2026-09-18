@@ -131,7 +131,7 @@ function DolceLogo() {
 function E3Logo({ className = 'card-logo e3-card-logo' }) {
     return (
         <img
-            src="https://e3itservices.com/wp-content/uploads/2021/02/e3-logo-fulltext.svg"
+            src="/images/e3-logo.png"
             alt="E3 IT Services"
             className={className}
             loading="lazy"
@@ -580,7 +580,6 @@ export default function Portfolio() {
                         cat="featured live"
                         theme="card-theme-space"
                         featured
-                        style={{ borderColor: 'rgba(100,80,200,0.4)' }}
                         {...cardProps}
                     >
                         <div className="pf-badges">
@@ -593,7 +592,6 @@ export default function Portfolio() {
                                 alt="3D Solar System"
                                 className="card-logo"
                                 loading="lazy"
-                                style={{ filter: 'drop-shadow(0 0 10px rgba(150,120,255,0.8))' }}
                             />
                             <h2>Interactive 3D Solar System</h2>
                         </div>
@@ -614,15 +612,11 @@ export default function Portfolio() {
                             />
                         </ExpandableDetails>
                         <CardTags tags={['Three.js', 'WebGL', 'JavaScript']} />
-                        <div
-                            className="card-overlay"
-                            style={{ background: 'rgba(3,3,15,0.98)', borderTopColor: 'rgba(100,80,200,0.4)' }}
-                        >
+                        <div className="card-overlay">
                             <a
                                 href="https://solar.dantecorso.com"
                                 target="_blank"
                                 className="card-cta"
-                                style={{ color: '#c8b8ff' }}
                             >
                                 Launch Experience &#8594;
                             </a>

@@ -11,7 +11,7 @@ export default function MobileDevelopment() {
     usePageMeta({ title: 'Mobile Development' });
 
     return (
-        <Layout orbs={2} logoAlt="Precision Pixel Studios" footer={simpleFooter}>
+        <Layout orbs={2} footer={simpleFooter}>
             <section id="video">
                 <VideoContainer desktopSrc="/videos/Mobile-Dev.mp4" mobileSrc="/videos/Mobile-Dev-Mobile.mp4" />
             </section>

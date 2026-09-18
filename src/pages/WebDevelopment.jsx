@@ -11,7 +11,7 @@ export default function WebDevelopment() {
     usePageMeta({ title: 'Web Development' });
 
     return (
-        <Layout orbs={2} logoAlt="Precision Pixel Studios" footer={simpleFooter}>
+        <Layout orbs={2} footer={simpleFooter}>
             <section id="video">
                 <VideoContainer desktopSrc="/videos/Web-Dev.mp4" mobileSrc="/videos/Web-Dev-Mobile.mp4" />
             </section>

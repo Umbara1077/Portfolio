@@ -2,16 +2,17 @@ import { Layout } from '../components/Layout.jsx';
 import { simpleFooter } from '../components/Footers.jsx';
 import { usePageMeta } from '../hooks/usePageMeta.js';
 import { InView } from '../components/InView.jsx';
+import { IconGraduation, IconQuote, IconWrench } from '../components/Icons.jsx';
 
 const DESCRIPTION =
     'Cloud and full-stack engineer in South Jersey. B.S. Computer Science, Rowan University. Builds event-driven Azure systems and real-time platforms for real businesses.';
 
 export default function About() {
     usePageMeta({
-        title: 'About \u2014 Dante Corso',
+        title: 'About — Dante Corso',
         description: DESCRIPTION,
         canonical: 'https://dantecorso.com/about',
-        ogTitle: 'About \u2014 Dante Corso',
+        ogTitle: 'About — Dante Corso',
         ogDescription: DESCRIPTION,
         ogUrl: 'https://dantecorso.com/about'
     });
@@ -19,6 +20,10 @@ export default function About() {
     return (
         <Layout orbs={2} activeHref="/about" mainClassName="container" footer={simpleFooter}>
             <section id="about">
+                <p className="meta meta-inline page-eyebrow">
+                    <span className="pip pip-brand" aria-hidden="true"></span>
+                    About
+                </p>
                 <InView as="h1" className="section-title reveal">
                     About Me
                 </InView>
@@ -51,26 +56,30 @@ export default function About() {
 
                 <div className="education-skills">
                     <InView className="education reveal">
-                        <h2>Education</h2>
+                        <h2>
+                            <span className="icon-box icon-box-sm">{IconGraduation}</span>
+                            Education
+                        </h2>
                         <ul>
                             <li>
                                 <strong>Rowan University</strong> — B.S. Computer Science, Networking Systems
                                 Concentration <em>(May 2024)</em>
                             </li>
-                            <br />
                             <li>
                                 <strong>Rowan College of South Jersey</strong> — A.S. Computer Science
                             </li>
                         </ul>
                     </InView>
                     <InView className="education reveal">
-                        <h2>Testimonials</h2>
+                        <h2>
+                            <span className="icon-box icon-box-sm">{IconQuote}</span>
+                            Testimonials
+                        </h2>
                         <ul>
                             <li>
                                 "Dante is a fantastic developer. His work on our mobile ordering system was flawless!" —
                                 Dolce Vita Gelateria
                             </li>
-                            <br />
                             <li>
                                 "Dante did an amazing job on our kiosk ordering system. Everything works perfectly!" —
                                 Dolce Vita Gelateria
@@ -78,7 +87,10 @@ export default function About() {
                         </ul>
                     </InView>
                     <InView className="skills reveal">
-                        <h2>Core Skills</h2>
+                        <h2>
+                            <span className="icon-box icon-box-sm">{IconWrench}</span>
+                            Core Skills
+                        </h2>
                         <ul className="skills-list">
                             <li>Azure Functions &amp; Event-Driven Systems</li>
                             <li>API &amp; Vendor Integration</li>

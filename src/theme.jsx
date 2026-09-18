@@ -1,53 +1,78 @@
-import { createContext, useCallback, useContext, useLayoutEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 
 const STORAGE_KEY = 'dvg-portfolio-theme';
+const MODES = ['light', 'dark', 'system'];
 
-const ThemeContext = createContext({ theme: 'dark', setTheme: () => {} });
+const ThemeContext = createContext({ theme: 'light', mode: 'system', setMode: () => {}, setTheme: () => {} });
 
-function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    document.body.setAttribute('data-theme', theme);
-    document.documentElement.style.colorScheme = theme;
-
-    if (theme === 'light') {
-        document.documentElement.style.setProperty('background-color', '#ffffff', 'important');
-        document.body.style.setProperty('background-color', '#ffffff', 'important');
-        document.body.style.setProperty('color', '#111111', 'important');
-    } else {
-        document.documentElement.style.removeProperty('background-color');
-        document.body.style.removeProperty('background-color');
-        document.body.style.removeProperty('color');
+function systemPrefersDark() {
+    try {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch {
+        return false;
     }
 }
 
-function readStoredTheme() {
+function resolve(mode) {
+    if (mode === 'dark') return 'dark';
+    if (mode === 'light') return 'light';
+    return systemPrefersDark() ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+    const root = document.documentElement;
+    root.setAttribute('data-theme', theme);
+    root.style.colorScheme = theme;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b1620' : '#f6f8fa');
+}
+
+function readStoredMode() {
     try {
-        const storedTheme = localStorage.getItem(STORAGE_KEY);
-        return storedTheme === 'light' ? 'light' : 'dark';
+        const stored = localStorage.getItem(STORAGE_KEY);
+        return MODES.includes(stored) ? stored : 'system';
     } catch {
-        return 'dark';
+        return 'system';
     }
 }
 
 export function ThemeProvider({ children }) {
-    const [theme, setThemeState] = useState(readStoredTheme);
+    const [mode, setModeState] = useState(readStoredMode);
+    const [theme, setThemeState] = useState(() => resolve(readStoredMode()));
 
     useLayoutEffect(() => {
-        applyTheme(theme);
-    }, [theme]);
+        const next = resolve(mode);
+        setThemeState(next);
+        applyTheme(next);
+    }, [mode]);
 
-    const setTheme = useCallback((next) => {
-        const nextTheme = next === 'light' ? 'light' : 'dark';
-        applyTheme(nextTheme);
-        setThemeState(nextTheme);
+    // Follow the OS while in "system" mode.
+    useEffect(() => {
+        if (mode !== 'system') return undefined;
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+        const onChange = () => {
+            const next = resolve('system');
+            setThemeState(next);
+            applyTheme(next);
+        };
+        media.addEventListener('change', onChange);
+        return () => media.removeEventListener('change', onChange);
+    }, [mode]);
+
+    const setMode = useCallback((next) => {
+        const nextMode = MODES.includes(next) ? next : 'system';
+        setModeState(nextMode);
         try {
-            localStorage.setItem(STORAGE_KEY, nextTheme);
+            localStorage.setItem(STORAGE_KEY, nextMode);
         } catch {
             /* storage unavailable — the theme still applies for this session */
         }
     }, []);
 
-    const value = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
+    // Backwards-compatible helper: setting a concrete theme pins that mode.
+    const setTheme = useCallback((next) => setMode(next === 'dark' ? 'dark' : 'light'), [setMode]);
+
+    const value = useMemo(() => ({ theme, mode, setMode, setTheme }), [theme, mode, setMode, setTheme]);
 
     return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

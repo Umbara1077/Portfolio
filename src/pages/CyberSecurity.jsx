@@ -1,25 +1,19 @@
 import { Layout } from '../components/Layout.jsx';
-import { legacyFooter } from '../components/Footers.jsx';
-import { usePageStyle, useWebFontsDisabled } from '../hooks/usePageStyle.js';
+import { simpleFooter } from '../components/Footers.jsx';
+import { usePageStyle } from '../hooks/usePageStyle.js';
 import { usePageMeta } from '../hooks/usePageMeta.js';
 import { VideoContainer } from '../components/VideoContainer.jsx';
 import { ServiceButton } from '../components/ServiceButton.jsx';
-import { CYBER_SECURITY_LINKS } from '../navigation.js';
 import serviceCss from './ServicePage.css?inline';
 
 export default function CyberSecurity() {
     usePageStyle(serviceCss);
-    useWebFontsDisabled();
     usePageMeta({ title: 'Cyber Security' });
 
     return (
         <Layout
-            orbs={0}
-            links={CYBER_SECURITY_LINKS}
-            activeHref="/resume"
-            sideNavActiveHref="/resume"
-            showSideNavClose={false}
-            footer={legacyFooter}
+            orbs={1}
+            footer={simpleFooter}
         >
             <section id="video">
                 <VideoContainer desktopSrc="/videos/cyber.mp4" mobileSrc="/videos/cyber-mobile.mp4" />
