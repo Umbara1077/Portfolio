@@ -96,7 +96,7 @@ export default function Resume() {
                         <p className="resume-title">Cloud Integration Engineer</p>
                         <p className="resume-summary">
                             I build and operate event-driven Azure systems that connect telephony, AI services, vendor
-                            APIs, and business platforms. At a managed services provider, I own four production platforms
+                            APIs, AI document workflows, and business platforms. At a managed services provider, I own four production platforms
                             end to end, including call automation, unified backup monitoring, multi-vendor network
                             monitoring, and on-call routing.
                         </p>
@@ -287,6 +287,45 @@ export default function Resume() {
                             </div>
                         </div>
 
+                        <div className="timeline-item rz-priority-experience">
+                            <div className="timeline-dot"></div>
+                            <div className="timeline-content">
+                                <div className="timeline-header">
+                                    <h3>Funari Public Adjusters</h3>
+                                    <span className="timeline-role">AI &amp; Full Stack Developer (Client Project)</span>
+                                    <span className="timeline-dates">Client Engagement</span>
+                                </div>
+                                <div className="rz-tags">
+                                    <span className="rz-tag">React</span>
+                                    <span className="rz-tag">Firebase</span>
+                                    <span className="rz-tag">Cloud Functions</span>
+                                    <span className="rz-tag">Gemini AI</span>
+                                    <span className="rz-tag">Google Vision OCR</span>
+                                </div>
+                                <ul>
+                                    <li>
+                                        Designed and built a secure insurance-estimate analysis platform for a
+                                        public-adjusting firm. Adjusters upload the insurance carrier&apos;s estimate and
+                                        the public adjuster&apos;s estimate; the application compares both documents and
+                                        converts their differences into structured results covering scope, line items,
+                                        quantities, pricing, and totals.
+                                    </li>
+                                    <li>
+                                        Engineered the document pipeline with Cloud Functions and Google Vision OCR,
+                                        then used Gemini to identify missing work, pricing differences, and other material
+                                        discrepancies. The system maps those findings back to the carrier&apos;s source PDF
+                                        and produces an annotated copy with the relevant items highlighted and clear notes
+                                        describing the changes requiring review.
+                                    </li>
+                                    <li>
+                                        Delivered authenticated, per-user case management with a structured comparison,
+                                        AI-generated synopsis, highlighted carrier document, and PDF/Excel exports for
+                                        negotiation, documentation, and client reporting. <strong>Private client platform.</strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div className="timeline-item">
                             <div className="timeline-dot"></div>
                             <div className="timeline-content">
@@ -334,9 +373,17 @@ export default function Resume() {
                                     <span className="rz-tag">Stripe</span>
                                     <span className="rz-tag">Geofencing</span>
                                 </div>
+                                <div className="rz-live-links" aria-label="Live Dolce Vita projects">
+                                    <a href="https://dolcevitasewell.com" target="_blank" rel="noopener">
+                                        Live Business Website &#8599;
+                                    </a>
+                                    <a href="https://mobileorder.dolcevitasewell.com" target="_blank" rel="noopener">
+                                        Live Mobile Ordering &#8599;
+                                    </a>
+                                </div>
                                 <ul>
                                     <li>
-                                        Designed, built, and maintained an entire company software stack — nine
+                                        Designed, built, and maintained an entire company software stack — ten
                                         integrated systems on one shared real-time Firebase backend, so a change in one
                                         place updates everywhere instantly.{' '}
                                         <a href="https://gelato-system-demo.web.app" target="_blank" rel="noopener">
@@ -344,10 +391,19 @@ export default function Resume() {
                                         </a>
                                     </li>
                                     <li>
+                                        Delivered the public Dolce Vita Sewell website as the customer-facing layer of
+                                        the platform, connecting live business hours, current in-case flavors, a catalog
+                                        of more than 100 rotating flavors, dairy-free options, caff&egrave;, cakes, events,
+                                        location details, and online ordering in one responsive experience.{' '}
+                                        <a href="https://dolcevitasewell.com" target="_blank" rel="noopener">
+                                            <strong>Visit website →</strong>
+                                        </a>
+                                    </li>
+                                    <li>
                                         Built the customer mobile ordering app — animated themed UI, full cart and Stripe
                                         checkout, and GPS geofenced check-in that pings staff the moment a customer
                                         reaches the pickup zone, with orders feeding a unified real-time queue.{' '}
-                                        <a href="https://dolcevitasewell-mobileorder.com" target="_blank" rel="noopener">
+                                        <a href="https://mobileorder.dolcevitasewell.com" target="_blank" rel="noopener">
                                             <strong>View live →</strong>
                                         </a>
                                     </li>
@@ -422,13 +478,17 @@ export default function Resume() {
                         {/* Insurance PDF AI Comparison Platform */}
                         <div className="resume-card rz-featured">
                             <span className="rz-star">&#9733; Featured</span>
-                            <h3>Insurance PDF AI Comparison Platform</h3>
-                            <p className="badge">React • Firebase • Cloud Functions • Gemini</p>
+                            <h3>Funari Public Adjusters — AI Estimate Comparison Platform</h3>
+                            <p className="badge">React • Firebase • Cloud Functions • Google Vision OCR • Gemini</p>
                             <p>
-                                Secure, internal platform for Funari Public Adjusters that ingests carrier and public
-                                adjuster estimates, runs OCR via Cloud Functions, and uses Gemini to generate an
-                                AI-powered, side-by-side Markdown synopsis. Supports PDF and Excel export for negotiation
-                                and client reporting.
+                                Secure internal claim-review platform that compares an insurance carrier&apos;s estimate
+                                against the public adjuster&apos;s estimate. Cloud Functions and Google Vision OCR extract
+                                content from both PDFs, while Gemini evaluates differences in scope, line items,
+                                quantities, pricing, and totals and returns the findings as structured discrepancy data.
+                                The platform then maps those findings back onto the carrier&apos;s original PDF, generating
+                                an annotated document with the affected items highlighted and notes showing what requires
+                                review or revision. Adjusters receive the structured comparison, an AI-generated synopsis,
+                                the highlighted carrier document, and PDF/Excel exports for negotiation and client reporting.
                             </p>
                         </div>
 
@@ -510,8 +570,25 @@ export default function Resume() {
                             </p>
                         </div>
 
+                        {/* Dolce Vita public website */}
+                        <div className="resume-card rz-dvg-project">
+                            <span className="rz-star">&#9733; Live Full-Stack Client Work</span>
+                            <h3>Dolce Vita Sewell — Connected Business Website</h3>
+                            <p className="badge">Full Stack • Responsive Web • Firebase • Live Business Data</p>
+                            <p>
+                                Customer-facing website connected to Dolce Vita&apos;s wider operating platform. It
+                                presents live open-or-closed status and hours, current in-case flavors, more than 100
+                                rotating flavors, dairy-free choices, caff&egrave; and cake offerings, events, shop details,
+                                and a direct path into the mobile ordering experience.
+                            </p>
+                            <a className="rz-card-live-link" href="https://dolcevitasewell.com" target="_blank" rel="noopener">
+                                Visit the live website &#8599;
+                            </a>
+                        </div>
+
                         {/* Mobile Ordering System */}
-                        <div className="resume-card">
+                        <div className="resume-card rz-dvg-project">
+                            <span className="rz-star">&#9733; Live Full-Stack Client Work</span>
                             <h3>Mobile Ordering System (Dolce Vita)</h3>
                             <p className="badge">Node.js • Firebase • Stripe • Geolocation</p>
                             <p>
@@ -520,6 +597,9 @@ export default function Resume() {
                                 service, and drives a real-time order status page with location-based automatic
                                 check-ins.
                             </p>
+                            <a className="rz-card-live-link" href="https://mobileorder.dolcevitasewell.com" target="_blank" rel="noopener">
+                                Open live mobile ordering &#8599;
+                            </a>
                         </div>
 
                         {/* DVG Recipe & Flavor Lab */}

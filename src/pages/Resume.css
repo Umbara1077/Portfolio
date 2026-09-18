@@ -194,6 +194,42 @@
     border-radius: 999px;
     padding: 3px 11px;
 }
+.rz-priority-experience .timeline-content {
+    border-color:rgba(212,175,122,.34);
+    box-shadow:0 0 0 1px rgba(212,175,122,.08), 0 14px 34px rgba(0,0,0,.18);
+}
+[data-theme="light"] #resume .rz-priority-experience .timeline-content {
+    border-color:rgba(150,100,42,.28) !important;
+    box-shadow:0 8px 24px rgba(74,48,22,.09) !important;
+}
+.rz-live-links {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:12px 0 14px;
+}
+.rz-live-links a,
+.rz-card-live-link {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:7px 12px;
+    border:1px solid rgba(212,175,122,.38);
+    border-radius:999px;
+    background:rgba(212,175,122,.1);
+    color:var(--accent-2);
+    font-size:.76rem;
+    font-weight:800;
+    line-height:1.2;
+    text-decoration:none;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.rz-live-links a:hover,
+.rz-card-live-link:hover { transform:translateY(-2px); background:rgba(212,175,122,.2); border-color:rgba(212,175,122,.62); }
+.resume-card.rz-dvg-project { border-color:rgba(212,175,122,.32); }
+.rz-card-live-link { margin-top:10px; }
+[data-theme="light"] #resume .rz-live-links a,
+[data-theme="light"] #resume .rz-card-live-link { color:#69411f; background:#fff8ec; border-color:rgba(105,65,31,.3); }
 
 /* Project divisions within the E3 role */
 .rz-project-block {

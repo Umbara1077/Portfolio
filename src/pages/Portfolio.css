@@ -618,7 +618,7 @@
 [data-theme="light"] .pf-dvg-overview-actions a { color:#6b3b1f; background:rgba(255,253,247,.68); border-color:rgba(126,71,34,.34); }
 [data-theme="light"] .pf-dvg-overview-actions .pf-dvg-details-link { color:#fff; background:#744525; border-color:#744525; }
 @media (max-width: 560px) {
-    .pf-dvg-overview-actions { grid-template-columns:1fr 1fr; }
+    .pf-dvg-overview-actions { grid-template-columns:minmax(0,1fr); }
 }
 @media (max-width: 640px) {
     .pf-group-banner { flex-direction: column; text-align: center; padding: 24px 20px; }
