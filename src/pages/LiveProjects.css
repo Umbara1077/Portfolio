@@ -254,3 +254,60 @@
     .live-project-card > a { grid-column: 2; justify-self: start; }
     .live-project-actions { grid-column: 2; align-items: flex-start; }
 }
+
+
+/* ---- Gridiron: emerald field treatment ---- */
+.live-project-card.live-theme-gridiron {
+    --gi-accent: #0f766e;
+    --gi-line: rgba(15, 118, 110, 0.3);
+    --gi-chalk: rgba(15, 118, 110, 0.07);
+    background:
+        repeating-linear-gradient(90deg, var(--gi-chalk) 0 1px, transparent 1px 46px),
+        radial-gradient(ellipse at 92% 0%, rgba(29, 233, 182, 0.12), transparent 55%),
+        var(--bg-raised);
+    border-color: var(--gi-line);
+}
+[data-theme="dark"] .live-project-card.live-theme-gridiron {
+    --gi-accent: #5eead4;
+    --gi-line: rgba(29, 233, 182, 0.34);
+    --gi-chalk: rgba(94, 234, 212, 0.05);
+    background:
+        repeating-linear-gradient(90deg, var(--gi-chalk) 0 1px, transparent 1px 46px),
+        radial-gradient(ellipse at 92% 0%, rgba(29, 233, 182, 0.16), transparent 55%),
+        linear-gradient(135deg, #07211f, #05161c 60%, #061d1a);
+}
+.live-project-card.live-theme-gridiron::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #004c54, #1de9b6 55%, #004c54);
+    opacity: 0.85;
+}
+.live-project-card.live-theme-gridiron:hover { border-color: rgba(29, 233, 182, 0.55); }
+[data-theme="dark"] .live-project-card.live-theme-gridiron:hover {
+    box-shadow: 0 0 32px rgba(29, 233, 182, 0.18), var(--shadow-lg);
+}
+.live-project-card.live-theme-gridiron .live-project-type,
+.live-project-card.live-theme-gridiron .live-project-number { color: var(--gi-accent); }
+.live-project-card.live-theme-gridiron .live-project-number { border-color: var(--gi-line); }
+.live-project-card.live-theme-gridiron:hover h2 { color: var(--gi-accent); }
+.live-project-card.live-theme-gridiron .live-project-logo {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: 0 0 16px rgba(29, 233, 182, 0.26);
+}
+.live-project-card.live-theme-gridiron > a {
+    background: var(--bg-raised);
+    border-color: var(--gi-line);
+    color: var(--gi-accent);
+    box-shadow: none;
+}
+.live-project-card.live-theme-gridiron > a:hover {
+    background: var(--bg-raised);
+    border-color: var(--gi-accent);
+    color: var(--gi-accent);
+}

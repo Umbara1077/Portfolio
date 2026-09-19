@@ -572,3 +572,60 @@
     .portfolio-item.featured .card-logo.e3-card-logo,
     .portfolio-item.featured.e3-acs-featured .card-logo.e3-card-logo { height: 40px; }
 }
+
+
+/* ---- Gridiron: emerald field treatment ---- */
+.portfolio-item.card-theme-gridiron {
+    --gi-accent: #0f766e;
+    --gi-line: rgba(15, 118, 110, 0.3);
+    --gi-chalk: rgba(15, 118, 110, 0.07);
+    background:
+        repeating-linear-gradient(90deg, var(--gi-chalk) 0 1px, transparent 1px 46px),
+        radial-gradient(ellipse at 88% 0%, rgba(29, 233, 182, 0.12), transparent 55%),
+        var(--bg-raised);
+    border-color: var(--gi-line);
+}
+[data-theme="dark"] .portfolio-item.card-theme-gridiron {
+    --gi-accent: #5eead4;
+    --gi-line: rgba(29, 233, 182, 0.34);
+    --gi-chalk: rgba(94, 234, 212, 0.05);
+    background:
+        repeating-linear-gradient(90deg, var(--gi-chalk) 0 1px, transparent 1px 46px),
+        radial-gradient(ellipse at 88% 0%, rgba(29, 233, 182, 0.16), transparent 55%),
+        linear-gradient(135deg, #07211f, #05161c 60%, #061d1a);
+}
+.portfolio-item.card-theme-gridiron::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #004c54, #1de9b6 55%, #004c54);
+    opacity: 0.85;
+    z-index: 0;
+}
+.portfolio-item.card-theme-gridiron:hover { border-color: rgba(29, 233, 182, 0.55); }
+[data-theme="dark"] .portfolio-item.card-theme-gridiron:hover {
+    box-shadow: 0 0 32px rgba(29, 233, 182, 0.18), var(--shadow-lg);
+}
+.portfolio-item.card-theme-gridiron .pf-company { color: var(--gi-accent); }
+.portfolio-item.card-theme-gridiron .pf-flag {
+    color: var(--gi-accent);
+    border-color: var(--gi-line);
+    background: rgba(29, 233, 182, 0.08);
+}
+.portfolio-item.card-theme-gridiron .card-cta,
+.portfolio-item.card-theme-gridiron .pf-more summary {
+    border-color: var(--gi-line);
+    color: var(--gi-accent);
+}
+.portfolio-item.card-theme-gridiron .card-cta:hover,
+.portfolio-item.card-theme-gridiron .pf-more summary:hover { border-color: var(--gi-accent); }
+.portfolio-item.card-theme-gridiron .pf-highlights li::before { background: var(--gi-accent); }
+.portfolio-item.card-theme-gridiron .card-logo {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: 0 0 20px rgba(29, 233, 182, 0.28);
+}
