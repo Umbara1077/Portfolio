@@ -36,11 +36,11 @@ export const GRIDIRON_LINK = {
 
 export const PROJECT_LINKS = [
     DVG_DEMO_LINK,
-    GRIDIRON_LINK,
     PRINT_SHOP_LINK,
     EMBERKNOT_LINK,
     FLIGHT_STUDY_LINK,
-    SOLAR_SYSTEM_LINK
+    SOLAR_SYSTEM_LINK,
+    GRIDIRON_LINK
 ];
 
 export const LIVE_PROJECTS_LINK = { href: '/live-projects', label: 'Live Projects' };

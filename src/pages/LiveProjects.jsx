@@ -23,16 +23,6 @@ const PROJECTS = [
     },
     {
         ...PROJECT_LINKS[1],
-        theme: 'gridiron',
-        logo: '/images/gridiron-logo.svg',
-        title: 'Gridiron \u2014 NFL Tracker',
-        type: 'Live sports data app \u00B7 ESPN API',
-        description:
-            'A full NFL season tracker built on the ESPN API: live scores with quarter-by-quarter line scores, kickoff countdowns, broadcast networks and betting lines; division standings with playoff seeding; a live postseason picture; a personal team hub; and written reports generated from the season data. Twelve seasons are browsable back to 2015, and the interface repaints in your team\u2019s colors.',
-        tags: ['React', 'ESPN API', 'Cloudflare Pages', 'Live Scores', 'PWA', 'Web Push']
-    },
-    {
-        ...PROJECT_LINKS[2],
         theme: 'shop',
         title: '3D Print Shop',
         type: 'Live e-commerce storefront',
@@ -40,7 +30,7 @@ const PROJECTS = [
         tags: ['E-Commerce', 'Firebase', 'Stripe']
     },
     {
-        ...PROJECT_LINKS[3],
+        ...PROJECT_LINKS[2],
         theme: 'ember',
         title: 'Emberknot',
         logo: '/images/emberknot-logo.svg',
@@ -49,7 +39,7 @@ const PROJECTS = [
         tags: ['Mobile Product', 'Shared Memories', 'Interactive Atlas']
     },
     {
-        ...PROJECT_LINKS[4],
+        ...PROJECT_LINKS[3],
         theme: 'flight',
         title: 'From Summit to Sea',
         type: 'Interactive WebGL flight study',
@@ -57,12 +47,22 @@ const PROJECTS = [
         tags: ['Three.js', 'WebGL', 'GLSL']
     },
     {
-        ...PROJECT_LINKS[5],
+        ...PROJECT_LINKS[4],
         theme: 'space',
         title: 'Interactive 3D Solar System',
         type: 'Real-time browser experience',
         description: 'Orbit every planet, travel through the asteroid belt, and explore a GPU-rendered starfield in a fully interactive Three.js experience.',
         tags: ['Three.js', 'WebGL', '3D']
+    },
+    {
+        ...PROJECT_LINKS[5],
+        theme: 'gridiron',
+        logo: '/images/gridiron-logo.svg',
+        title: 'Gridiron \u2014 NFL Tracker',
+        type: 'Live sports data app \u00B7 ESPN API',
+        description:
+            'A full NFL season tracker built on the ESPN API: live scores with quarter-by-quarter line scores, kickoff countdowns, broadcast networks and betting lines; division standings with playoff seeding; a live postseason picture; a personal team hub; and written reports generated from the season data. Twelve seasons are browsable back to 2015, and the interface repaints in your team\u2019s colors.',
+        tags: ['React', 'ESPN API', 'Cloudflare Pages', 'Live Scores', 'PWA', 'Web Push']
     }
 ];
 

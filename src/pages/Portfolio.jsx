@@ -573,79 +573,8 @@ export default function Portfolio() {
                     </InView>
 
                     <div className={`pf-section-label${structuralHidden}`}>
-                        Live Apps &amp; Interactive Experiences
+                        Interactive Live Experiences
                     </div>
-
-                    {/* FEATURED: Gridiron NFL Tracker (LIVE) */}
-                    <PortfolioCard cat="featured live" theme="card-theme-gridiron" featured {...cardProps}>
-                        <div className="pf-badges">
-                            <span className="pf-flag">&#9733; Featured</span>
-                            <LiveStatus>Live Now</LiveStatus>
-                        </div>
-                        <span className="pf-company">Personal Product &middot; Gridiron</span>
-                        <div className="pf-featured-head">
-                            <img
-                                src="/images/gridiron-logo.svg"
-                                alt="Gridiron"
-                                className="card-logo"
-                                loading="lazy"
-                            />
-                            <h2>Gridiron &mdash; NFL Season Tracker</h2>
-                        </div>
-                        <p className="short-desc">
-                            A complete NFL tracking app built on ESPN&rsquo;s football data. Live scores carry
-                            quarter-by-quarter line scores, kickoff countdowns, broadcast networks, spreads and
-                            over/unders; division standings show playoff seeds, point differentials and streaks; and a
-                            live postseason picture ranks all fourteen contenders in both conferences. Twelve seasons
-                            are browsable back to 2015, and the entire interface repaints in the colors of whichever
-                            team you follow.
-                        </p>
-                        <ExpandableDetails>
-                            <p className="pf-detail-copy">
-                                The browser never calls ESPN directly &mdash; a Cloudflare Pages Function proxies the
-                                public football feeds from the same origin, which keeps the client free of CORS
-                                workarounds and vendor keys. Every screen renders from one normalized model of teams,
-                                games and records, so the scoreboard, standings, playoff seeding and generated reports
-                                can never disagree with each other. A written report layer turns that same data into
-                                plain-English weekly recaps, team reports and league leaders that visitors can copy or
-                                download. The app ships as an installable PWA with a service worker and VAPID Web Push,
-                                so kickoff and score alerts reach a phone home screen without an app store.
-                            </p>
-                            <Highlights
-                                items={[
-                                    'Live scores with line scores, countdowns, networks and odds',
-                                    'Preseason, regular season and playoffs across twelve seasons',
-                                    'Division standings with seeds, differentials and streaks',
-                                    'Live playoff picture and bracket for both conferences',
-                                    'My Team hub with splits, form and the full schedule',
-                                    'Reports generated from live data, copyable and downloadable',
-                                    'Per-team color theming across the entire interface',
-                                    'Installable PWA with service worker and Web Push alerts'
-                                ]}
-                            />
-                        </ExpandableDetails>
-                        <CardTags
-                            tags={[
-                                'React',
-                                'Vite',
-                                'ESPN API',
-                                'Cloudflare Pages',
-                                'Edge Functions',
-                                'PWA',
-                                'Web Push'
-                            ]}
-                        />
-                        <div className="card-overlay">
-                            <a
-                                href="https://nfl-gridiron.pages.dev/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="card-cta"
-                            >
-                                Open Gridiron &#8599;
-                            </a>
-                        </div>
-                    </PortfolioCard>
 
                     {/* FEATURED: 3D Solar System (LIVE) */}
                     <PortfolioCard
@@ -750,6 +679,77 @@ export default function Portfolio() {
                     <div className={`pf-section-label pf-more-projects-label${structuralHidden}`} data-label="">
                         More Projects
                     </div>
+
+                    {/* FEATURED: Gridiron NFL Tracker (LIVE) */}
+                    <PortfolioCard cat="featured live" theme="card-theme-gridiron pf-secondary-project" featured {...cardProps}>
+                        <div className="pf-badges">
+                            <span className="pf-flag">&#9733; Featured</span>
+                            <LiveStatus>Live Now</LiveStatus>
+                        </div>
+                        <span className="pf-company">Personal Product &middot; Gridiron</span>
+                        <div className="pf-featured-head">
+                            <img
+                                src="/images/gridiron-logo.svg"
+                                alt="Gridiron"
+                                className="card-logo"
+                                loading="lazy"
+                            />
+                            <h2>Gridiron &mdash; NFL Season Tracker</h2>
+                        </div>
+                        <p className="short-desc">
+                            A complete NFL tracking app built on ESPN&rsquo;s football data. Live scores carry
+                            quarter-by-quarter line scores, kickoff countdowns, broadcast networks, spreads and
+                            over/unders; division standings show playoff seeds, point differentials and streaks; and a
+                            live postseason picture ranks all fourteen contenders in both conferences. Twelve seasons
+                            are browsable back to 2015, and the entire interface repaints in the colors of whichever
+                            team you follow.
+                        </p>
+                        <ExpandableDetails>
+                            <p className="pf-detail-copy">
+                                The browser never calls ESPN directly &mdash; a Cloudflare Pages Function proxies the
+                                public football feeds from the same origin, which keeps the client free of CORS
+                                workarounds and vendor keys. Every screen renders from one normalized model of teams,
+                                games and records, so the scoreboard, standings, playoff seeding and generated reports
+                                can never disagree with each other. A written report layer turns that same data into
+                                plain-English weekly recaps, team reports and league leaders that visitors can copy or
+                                download. The app ships as an installable PWA with a service worker and VAPID Web Push,
+                                so kickoff and score alerts reach a phone home screen without an app store.
+                            </p>
+                            <Highlights
+                                items={[
+                                    'Live scores with line scores, countdowns, networks and odds',
+                                    'Preseason, regular season and playoffs across twelve seasons',
+                                    'Division standings with seeds, differentials and streaks',
+                                    'Live playoff picture and bracket for both conferences',
+                                    'My Team hub with splits, form and the full schedule',
+                                    'Reports generated from live data, copyable and downloadable',
+                                    'Per-team color theming across the entire interface',
+                                    'Installable PWA with service worker and Web Push alerts'
+                                ]}
+                            />
+                        </ExpandableDetails>
+                        <CardTags
+                            tags={[
+                                'React',
+                                'Vite',
+                                'ESPN API',
+                                'Cloudflare Pages',
+                                'Edge Functions',
+                                'PWA',
+                                'Web Push'
+                            ]}
+                        />
+                        <div className="card-overlay">
+                            <a
+                                href="https://nfl-gridiron.pages.dev/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="card-cta"
+                            >
+                                Open Gridiron &#8599;
+                            </a>
+                        </div>
+                    </PortfolioCard>
 
                     {/* Personal Information Dashboard (available on request — sign-in protected) */}
                     <PortfolioCard cat="fullstack" theme="card-theme-ai pf-secondary-project" {...cardProps}>
