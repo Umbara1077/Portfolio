@@ -58,11 +58,23 @@ const PROJECTS = [
         ...PROJECT_LINKS[5],
         theme: 'gridiron',
         logo: '/images/gridiron-logo.svg',
-        title: 'Gridiron \u2014 NFL Tracker',
+        title: 'Broad Street \u2014 Philly Sports Tracker',
         type: 'Live sports data app \u00B7 ESPN API',
         description:
-            'A full NFL season tracker built on the ESPN API: live scores with quarter-by-quarter line scores, kickoff countdowns, broadcast networks and betting lines; division standings with playoff seeding; a live postseason picture; a personal team hub; and written reports generated from the season data. Twelve seasons are browsable back to 2015, and the interface repaints in your team\u2019s colors.',
-        tags: ['React', 'ESPN API', 'Cloudflare Pages', 'Live Scores', 'PWA', 'Web Push']
+            'A Philadelphia sports tracker covering all four major-league teams \u2014 the Eagles (NFL), 76ers (NBA), Flyers (NHL) and Phillies (MLB) \u2014 built on the ESPN API, with live scores, stats, standings, playoffs and written reports generated from the season data. The interface repaints in the colors of the team you follow.',
+        tags: ['React', 'ESPN API', 'NFL \u00B7 NBA \u00B7 NHL \u00B7 MLB', 'Cloudflare Pages', 'Live Scores', 'PWA', 'Web Push']
+    },
+    {
+        ...PROJECT_LINKS[6],
+        theme: 'fury',
+        logo: '/images/feather-fury-logo.svg',
+        title: 'Feather Fury',
+        titleParts: ['Feather ', 'Fury'],
+        type: '3D physics slingshot game \u00B7 Free in the browser',
+        description:
+            'A cartoon 3D slingshot game with 50 levels across 10 worlds \u2014 from Sunny Meadow and Coconut Coast to the low gravity of Lunar Landing and a King Globlin boss deep in Magma Mountain. Launch 11 birds with their own mid-flight powers (chain lightning, a deep freeze, a homing dive, an exploding egg) into wood, ice, stone and TNT forts simulated by a WebAssembly physics engine. Every model, texture, sound and song is generated in code, a Golden Clawd hides in every world, and it installs to your home screen to play offline.',
+        tags: ['Three.js', 'Rapier Physics', 'WebAssembly', 'Procedural 3D', 'WebAudio', 'Firebase', 'Installable PWA'],
+        links: [{ href: PROJECT_LINKS[6].href, label: '\u25B6 Play now' }]
     }
 ];
 
@@ -88,10 +100,11 @@ export default function LiveProjects() {
                         {project.theme === 'flight' && <div className="live-card-flight-art" aria-hidden="true"><span className="live-plane">✈</span><span className="live-flight-line" /></div>}
                         {project.theme === 'gelato' && <div className="live-italian-mark" aria-hidden="true"><span /><span /><span /></div>}
                         {project.theme === 'space' && <div className="live-card-stars" aria-hidden="true"></div>}
-                        <div className="live-project-number">0{index + 1}</div>
+                        {project.theme === 'fury' && <div className="live-fury-sky" aria-hidden="true"><span /><span /><span /></div>}
+                        <div className="live-project-number">{String(index + 1).padStart(2, '0')}</div>
                         <div className="live-project-copy">
                             <span className="live-project-type">{project.type}</span>
-                            <h2>{project.logo && <img className="live-project-logo" src={project.logo} alt="" />}{project.title}</h2>
+                            <h2>{project.logo && <img className="live-project-logo" src={project.logo} alt="" />}{project.titleParts ? <span>{project.titleParts[0]}<em>{project.titleParts[1]}</em></span> : project.title}</h2>
                             <p>{project.description}</p>
                             <div className="live-project-tags">
                                 {project.tags.map((tag) => <span key={tag}>{tag}</span>)}

@@ -30,6 +30,7 @@ const CARD_CATEGORIES = [
     'featured live',
     'featured live',
     'featured live',
+    'featured live',
     'fullstack',
     'fullstack live',
     'fullstack live',
@@ -680,34 +681,34 @@ export default function Portfolio() {
                         More Projects
                     </div>
 
-                    {/* FEATURED: Gridiron NFL Tracker (LIVE) */}
+                    {/* FEATURED: Broad Street Philly Sports Tracker (LIVE) */}
                     <PortfolioCard cat="featured live" theme="card-theme-gridiron pf-secondary-project" featured {...cardProps}>
                         <div className="pf-badges">
                             <span className="pf-flag">&#9733; Featured</span>
                             <LiveStatus>Live Now</LiveStatus>
                         </div>
-                        <span className="pf-company">Personal Product &middot; Gridiron</span>
+                        <span className="pf-company">Personal Product &middot; Broad Street</span>
                         <div className="pf-featured-head">
                             <img
                                 src="/images/gridiron-logo.svg"
-                                alt="Gridiron"
+                                alt="Broad Street"
                                 className="card-logo"
                                 loading="lazy"
                             />
-                            <h2>Gridiron &mdash; NFL Season Tracker</h2>
+                            <h2>Broad Street &mdash; Philadelphia Sports Tracker</h2>
                         </div>
                         <p className="short-desc">
-                            A complete NFL tracking app built on ESPN&rsquo;s football data. Live scores carry
-                            quarter-by-quarter line scores, kickoff countdowns, broadcast networks, spreads and
-                            over/unders; division standings show playoff seeds, point differentials and streaks; and a
-                            live postseason picture ranks all fourteen contenders in both conferences. Twelve seasons
-                            are browsable back to 2015, and the entire interface repaints in the colors of whichever
-                            team you follow.
+                            A Philadelphia sports tracker covering all four major-league teams &mdash; the Eagles
+                            (NFL), 76ers (NBA), Flyers (NHL) and Phillies (MLB) &mdash; built on ESPN&rsquo;s sports data,
+                            with live scores, stats, standings, playoffs and reports for each team. The football side
+                            carries quarter-by-quarter line scores, kickoff countdowns, broadcast networks, spreads and
+                            over/unders, division standings with playoff seeds, and a live postseason picture, and the
+                            entire interface repaints in the colors of whichever team you follow.
                         </p>
                         <ExpandableDetails>
                             <p className="pf-detail-copy">
                                 The browser never calls ESPN directly &mdash; a Cloudflare Pages Function proxies the
-                                public football feeds from the same origin, which keeps the client free of CORS
+                                public sports feeds from the same origin, which keeps the client free of CORS
                                 workarounds and vendor keys. Every screen renders from one normalized model of teams,
                                 games and records, so the scoreboard, standings, playoff seeding and generated reports
                                 can never disagree with each other. A written report layer turns that same data into
@@ -717,6 +718,7 @@ export default function Portfolio() {
                             </p>
                             <Highlights
                                 items={[
+                                    'Eagles, 76ers, Flyers and Phillies across NFL, NBA, NHL and MLB',
                                     'Live scores with line scores, countdowns, networks and odds',
                                     'Preseason, regular season and playoffs across twelve seasons',
                                     'Division standings with seeds, differentials and streaks',
@@ -733,6 +735,7 @@ export default function Portfolio() {
                                 'React',
                                 'Vite',
                                 'ESPN API',
+                                'NFL · NBA · NHL · MLB',
                                 'Cloudflare Pages',
                                 'Edge Functions',
                                 'PWA',
@@ -746,7 +749,120 @@ export default function Portfolio() {
                                 rel="noopener noreferrer"
                                 className="card-cta"
                             >
-                                Open Gridiron &#8599;
+                                Open Broad Street &#8599;
+                            </a>
+                        </div>
+                    </PortfolioCard>
+
+                    {/* FEATURED: Feather Fury 3D slingshot game (LIVE) */}
+                    <PortfolioCard cat="featured live" theme="card-theme-fury pf-secondary-project" featured {...cardProps}>
+                        <div className="ff-clouds" aria-hidden="true"><span /><span /></div>
+                        <div className="pf-badges">
+                            <span className="pf-flag">&#9733; Featured</span>
+                            <LiveStatus>Play Free Now</LiveStatus>
+                        </div>
+                        <span className="pf-company">Personal Project &middot; Browser Game</span>
+                        <div className="pf-featured-head">
+                            <img
+                                src="/images/feather-fury-logo.svg"
+                                alt="Feather Fury"
+                                className="card-logo"
+                                loading="lazy"
+                            />
+                            <h2 className="ff-title">
+                                Feather <span>Fury</span>
+                            </h2>
+                        </div>
+                        <a
+                            href="https://game.dantecorso.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ff-preview"
+                            aria-label="Play Feather Fury"
+                        >
+                            <img
+                                src="/images/feather-fury-preview.jpg"
+                                alt="Feather Fury: a slingshot and a row of birds face a wooden Globlin fort on a palm-lined beach at sunset"
+                                loading="lazy"
+                                width="1200"
+                                height="630"
+                            />
+                        </a>
+                        <p className="short-desc">
+                            A cartoon 3D physics slingshot game that runs right in the browser. Pull back the
+                            slingshot, trace the dotted arc and launch a flock of eleven birds into wood, ice, stone
+                            and TNT forts to pop every Globlin. Fifty levels span ten worlds, from Sunny Meadow and
+                            Coconut Coast through Sakura Gardens, Frostbite Peaks and the low gravity of Lunar Landing,
+                            to a King Globlin boss deep in Magma Mountain. Every level has its own time of day,
+                            weather and landmarks, so no two look alike.
+                        </p>
+                        <ExpandableDetails>
+                            <p className="pf-detail-copy">
+                                Everything you see and hear is generated in code. The birds, Globlins, slingshot and
+                                blocks are procedural 3D models; textures are painted on canvas at runtime; and the
+                                sound effects, music and per-world ambience (surf, wind, crickets, thunder, a volcano
+                                rumble) are synthesized live with the WebAudio API. The only static files are the icons
+                                and the share image, which were rendered from the game&rsquo;s own models.
+                            </p>
+                            <p className="pf-detail-copy">
+                                Rendering runs on Three.js with HDR bloom, a sky shader that draws clouds, the sun, the
+                                moon and stars, noise-generated terrain reshaped for every level, and instanced plants
+                                that sway in the wind. Physics runs on Rapier compiled to WebAssembly with a fixed time
+                                step and interpolated rendering. Damage is based on impact energy: each material has its
+                                own strength, crack stages, debris and sound, each bird hits certain materials harder,
+                                TNT sets off chain reactions, and explosions briefly slow time and shake the camera.
+                            </p>
+                            <p className="pf-detail-copy">
+                                Each bird has a power you trigger mid-flight: Ruby&rsquo;s battle cry, Zip&rsquo;s dash,
+                                Trio&rsquo;s split, Boomer&rsquo;s blast, Thud&rsquo;s ground-pound, Henny&rsquo;s exploding
+                                egg, Peck&rsquo;s drill, Talon&rsquo;s homing Sky Strike, Volt&rsquo;s chain lightning,
+                                Hoot&rsquo;s Deep Freeze and Clawd&rsquo;s Spark Burst. Twenty-one Golden Clawds are hidden
+                                across the worlds for bonus points, and an interactive Clawd on the title screen follows
+                                your cursor, cheers, sulks and falls asleep.
+                            </p>
+                            <p className="pf-detail-copy">
+                                It is built to run well everywhere. Dynamic resolution holds about 60 fps, shaders
+                                compile in parallel behind the loading screen, and phones and tablets get a lighter
+                                quality tier with touch controls and a compact HUD. It installs to the home screen as a
+                                full-screen, offline-capable PWA, and it ships on Firebase Hosting with a strict
+                                Content-Security-Policy, long-lived asset caching, and optional anonymous Firestore
+                                cloud saves and leaderboards protected by security rules.
+                            </p>
+                            <Highlights
+                                items={[
+                                    '50 levels across 10 worlds, ending in a King Globlin boss',
+                                    '11 birds, each with its own mid-flight power',
+                                    'Rapier WebAssembly physics with energy-based damage',
+                                    'Wood, ice, stone and TNT with cracks, debris and chain reactions',
+                                    'Procedural 3D models, canvas textures and synthesized audio',
+                                    'Rain, snow, blizzards, aurora, eclipses and a volcanic eruption',
+                                    '21 hidden Golden Clawds, stars, best scores and level unlocks',
+                                    'Dynamic resolution and a lighter mobile quality tier',
+                                    'Installable offline PWA with optional cloud saves and leaderboards'
+                                ]}
+                            />
+                        </ExpandableDetails>
+                        <CardTags
+                            tags={[
+                                'Three.js',
+                                'WebGL 2',
+                                'Rapier',
+                                'WebAssembly',
+                                'WebAudio',
+                                'Vite',
+                                'Firebase Hosting',
+                                'Firestore',
+                                'PWA'
+                            ]}
+                        />
+                        <div className="card-overlay">
+                            <a
+                                href="https://game.dantecorso.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="card-cta"
+                            >
+                                &#9654; Play Feather Fury
                             </a>
                         </div>
                     </PortfolioCard>

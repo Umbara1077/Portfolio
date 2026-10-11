@@ -30,7 +30,13 @@ export const EMBERKNOT_LINK = {
 
 export const GRIDIRON_LINK = {
     href: 'https://nfl-gridiron.pages.dev/',
-    label: 'Gridiron \u00B7 NFL Tracker \u2197',
+    label: 'Broad Street \u00B7 Philly Sports Tracker \u2197',
+    external: true
+};
+
+export const FEATHER_FURY_LINK = {
+    href: 'https://game.dantecorso.com',
+    label: 'Feather Fury · 3D Slingshot Game ↗',
     external: true
 };
 
@@ -40,7 +46,8 @@ export const PROJECT_LINKS = [
     EMBERKNOT_LINK,
     FLIGHT_STUDY_LINK,
     SOLAR_SYSTEM_LINK,
-    GRIDIRON_LINK
+    GRIDIRON_LINK,
+    FEATHER_FURY_LINK
 ];
 
 export const LIVE_PROJECTS_LINK = { href: '/live-projects', label: 'Live Projects' };

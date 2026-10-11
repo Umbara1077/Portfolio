@@ -311,3 +311,164 @@
     border-color: var(--gi-accent);
     color: var(--gi-accent);
 }
+
+
+/* ---- Feather Fury: the game's cartoon sky, chunky ink outlines and Lilita One lettering ---- */
+.live-project-card.live-theme-fury {
+    --ff-ink: #3a1f0b;
+    --ff-cream: #fff4dc;
+    --ff-wood: #c98a46;
+    --ff-wood-dark: #8b5a2b;
+    --ff-gold: #ffcc33;
+    --ff-text: #3a1f0b;
+    --ff-muted: #5c3b1e;
+    overflow: hidden;
+    border: 3px solid var(--ff-ink);
+    background:
+        radial-gradient(circle at 92% 8%, rgba(255, 214, 90, 0.55), rgba(255, 214, 90, 0) 22%),
+        linear-gradient(180deg, #8fd6ff 0%, #c9ecff 46%, #eaf8ff 74%, #fff4dc 100%);
+    box-shadow: 0 6px 0 var(--ff-ink), 0 14px 24px rgba(58, 31, 11, 0.18);
+}
+[data-theme="dark"] .live-project-card.live-theme-fury {
+    --ff-text: #fff4dc;
+    --ff-muted: #e6d6b8;
+    border-color: #120a04;
+    background:
+        radial-gradient(circle at 92% 10%, rgba(255, 236, 170, 0.35), rgba(255, 236, 170, 0) 18%),
+        linear-gradient(180deg, #163d73 0%, #1f4f8c 50%, #2a5a7d 78%, #3b4a2a 100%);
+    box-shadow: 0 6px 0 #120a04, 0 14px 26px rgba(0, 0, 0, 0.45);
+}
+.live-project-card.live-theme-fury:hover {
+    transform: translateY(-4px);
+    border-color: var(--ff-ink);
+    box-shadow: 0 10px 0 var(--ff-ink), 0 20px 30px rgba(58, 31, 11, 0.24);
+}
+[data-theme="dark"] .live-project-card.live-theme-fury:hover {
+    border-color: #120a04;
+    box-shadow: 0 10px 0 #120a04, 0 0 36px rgba(255, 204, 51, 0.18), 0 20px 30px rgba(0, 0, 0, 0.5);
+}
+.live-project-card.live-theme-fury > :not(.live-fury-sky) { position: relative; z-index: 1; }
+
+/* Drifting clouds and rolling hills behind the copy */
+.live-fury-sky { position: absolute !important; inset: 0; z-index: 0 !important; pointer-events: none; overflow: hidden; }
+.live-fury-sky::after {
+    content: '';
+    position: absolute;
+    left: -5%;
+    right: -5%;
+    bottom: -38px;
+    height: 70px;
+    background:
+        radial-gradient(ellipse 28% 100% at 18% 100%, #6fcf4f 98%, transparent 100%),
+        radial-gradient(ellipse 34% 90% at 62% 100%, #4fbf3a 98%, transparent 100%),
+        radial-gradient(ellipse 26% 80% at 96% 100%, #6fcf4f 98%, transparent 100%);
+    opacity: 0.55;
+}
+[data-theme="dark"] .live-fury-sky::after { opacity: 0.35; filter: brightness(0.6); }
+.live-fury-sky span {
+    position: absolute;
+    width: 120px;
+    height: 34px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.85);
+    animation: live-fury-drift 46s linear infinite;
+}
+.live-fury-sky span::before,
+.live-fury-sky span::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: inherit;
+}
+.live-fury-sky span::before { width: 54px; height: 54px; left: 18px; top: -26px; }
+.live-fury-sky span::after { width: 40px; height: 40px; left: 60px; top: -18px; }
+.live-fury-sky span:nth-child(1) { top: 26%; animation-delay: -6s; }
+.live-fury-sky span:nth-child(2) { top: 58%; transform: scale(0.7); animation-duration: 62s; animation-delay: -30s; opacity: 0.7; }
+.live-fury-sky span:nth-child(3) { top: 14%; transform: scale(0.55); animation-duration: 54s; animation-delay: -44s; opacity: 0.6; }
+[data-theme="dark"] .live-fury-sky span { background: rgba(200, 220, 255, 0.12); }
+@keyframes live-fury-drift {
+    from { left: -160px; }
+    to { left: 105%; }
+}
+
+.live-project-card.live-theme-fury .live-project-number {
+    font-family: 'Lilita One', var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    color: var(--ff-ink);
+    background: linear-gradient(180deg, #fff4dc, #f2d7a6);
+    border: 3px solid var(--ff-ink);
+    border-radius: 16px;
+    box-shadow: 0 4px 0 var(--ff-ink);
+}
+.live-project-card.live-theme-fury .live-project-type {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: var(--ff-ink);
+    color: var(--ff-gold);
+    letter-spacing: 0.1em;
+}
+.live-project-card.live-theme-fury .live-project-copy h2,
+.live-project-card.live-theme-fury:hover .live-project-copy h2 {
+    font-family: 'Lilita One', var(--font-display);
+    font-weight: 400;
+    font-size: 1.85rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+    -webkit-text-stroke: 2px var(--ff-ink);
+    paint-order: stroke fill;
+    text-shadow: 0 3px 0 var(--ff-wood-dark), 0 6px 12px rgba(0, 0, 0, 0.22);
+}
+.live-project-card.live-theme-fury h2 em { font-style: normal; color: var(--ff-gold); }
+.live-project-card.live-theme-fury .live-project-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 2px solid var(--ff-ink);
+    box-shadow: 0 3px 0 var(--ff-ink);
+    transition: transform 0.3s var(--ease-out);
+}
+.live-project-card.live-theme-fury:hover .live-project-logo { transform: rotate(-8deg) translateY(-2px); }
+.live-project-card.live-theme-fury .live-project-copy p { color: var(--ff-muted); font-weight: 500; }
+.live-project-card.live-theme-fury .live-project-tags span {
+    background: var(--ff-cream);
+    border: 2px solid var(--ff-ink);
+    color: var(--ff-ink);
+    font-weight: 700;
+    box-shadow: 0 2px 0 var(--ff-ink);
+}
+.live-project-card.live-theme-fury .live-project-actions a,
+.live-project-card.live-theme-fury .live-project-actions a:first-child {
+    height: auto;
+    padding: 0.6rem 1.4rem;
+    font-family: 'Lilita One', var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: #fff;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+    background: linear-gradient(180deg, #7de05c, #3fae2c);
+    border: 3px solid var(--ff-ink);
+    border-radius: 16px;
+    box-shadow: 0 5px 0 var(--ff-ink), 0 8px 14px rgba(0, 0, 0, 0.2);
+    transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.15s ease;
+}
+.live-project-card.live-theme-fury .live-project-actions a:hover {
+    color: #fff;
+    border-color: var(--ff-ink);
+    filter: brightness(1.06);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 var(--ff-ink), 0 10px 18px rgba(0, 0, 0, 0.22);
+}
+.live-project-card.live-theme-fury .live-project-actions a:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 var(--ff-ink);
+}
+@media (max-width: 760px) {
+    .live-project-card.live-theme-fury .live-project-actions { grid-column: 2; align-items: flex-start; }
+    .live-project-card.live-theme-fury .live-project-copy h2 { font-size: 1.55rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .live-fury-sky span { animation: none; left: 60%; }
+}
